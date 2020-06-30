@@ -33,7 +33,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Athiti:wght@400;500;600&display=swap" rel="stylesheet">
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         
-        <title>ICTSTORE</title>
+        <title>Detaliproject</title>
 
         <style>
            .user-size {
@@ -608,12 +608,32 @@
                 </ul>
                     
                 </aside>
+
+               
                     <!-- img item project -->
                 <div class="rowcolumn">
                     <div class="col-md-12">
                         <div class="tile">
                             <div class="tile-body">
-                                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                                <div class="row">
+                                    <div class="imgfromming">
+                                        <img src="img\fromimg.png" alt="">
+                                    </div>
+                                    <div class="text-N-d">
+                                        <label for="text">ชื่อผลงาน</label>
+                                        <div class="text-auth-d">
+                                            <label for="text">คำสำคัญ</label>
+                                            <label for="text">หมวดหมู่</label>
+                                        </div>
+                                        <div class="text-auth-N-d">
+                                            <label for="text">ผู้จัดทำ :</label>
+                                            
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <hr>
+                                <center><div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                                     <ol class="carousel-indicators">
                                         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                                         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -644,56 +664,64 @@
                                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                         <span class="sr-only">Next</span>
                                     </a>
-                                </div>
+                                </div></center>
 
                                 <!-- detailitem -->
-                                <div class="container emp-profile">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                
+                                <center><div class="container emp-profile">
+                                    <div class="row textD">
+                                        <div class="col-md-6 ">
+                                            <ul class="nav nav-tabs " id="myTab" role="tablist">
                                                 <li class="nav-item">
                                                     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">บทคัดย่อ</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Timeline</a>
+                                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">ข้อมูลส่วนตัว</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Timeline</a>
+                                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">รายการที่ใกล้เคียง</a>
                                                 </li>
                                             </ul>
                                         </div>
                                     </div>        
-                                </div>
+                                </div></center> 
                                         
-                                <div class="col-md-8">
-                                    <div class="tab-content profile-tab" id="myTabContent">
+                                <div class="col-md-8 textDrow ">
+                                    <div class="tab-content profile-tab backgroundD" id="myTabContent">
                                         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                            <div class="row">
+                                            <div class="row ">
                                                 <div class="col-md-6">
-                                                    <label>User Id</label>
+                                                    <div class="laout-text-d">
+                                                        <label>ยังไม่มีข้อมูล</label>
+                                                    </div>
+                                                    
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <label>Experience</label>
+                                                    <div class="laout-text-d">
+                                                        <label>ยังไม่มีข้อมูล</label>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                                             <div class="row">
-                                                <div class="col-md-6">
-                                                    <label>Experience</label>
+                                                <div class="laout-text-d">
+                                                    <label>ยังไม่มีข้อมูล</label>
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="p-text">
+                                            <p>ดาวน์โหลดไฟล์ข้อมูล<a href="" class="a-layout">คลิก</a></p>
+                                        </div>
+                                        
                                     </div>
                                 </div>
-                            </div>
-                                             
                                 </div>
-
+                                 
                             </div>
                         </div>
                     </div>

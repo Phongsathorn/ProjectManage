@@ -11558,17 +11558,83 @@ a.text-dark:focus {
 }
 
 .backgroundimgproject {
-  width: 100%;
+  width: 80%;
   height: 400px;
   background-color: gray;
 }
 .backgroundimgprojectt {
-  width: 100%;
+  width: 80%;
   height: 400px;
   background-color: wheat;
 }
 .backgroundimgprojecttt {
-  width: 100%;
+  width: 80%;
   height: 400px;
   background-color: rgb(141, 105, 127);
+}
+
+.imgfromming {
+  padding: 10px;
+  margin-left: 10px;
+}
+
+.textD {
+  margin-left:295px;
+}
+
+.textDrow {
+  margin-left:205px;
+}
+
+.backgroundD {
+  background-color:rgb(194, 188, 207);
+  width: 100%;
+}
+
+.laout-text-d {
+  padding: 10px;
+  font-size: 16.5px;
+
+}
+
+.p-text {
+  margin-left: 10px;
+  font-size: 16.5px;
+}
+
+.a-layout {
+  margin-left: 3px;
+}
+
+.text-N-d{
+  font-size: 45px;
+  font-weight:bold;
+  margin-left: 10px;
+}
+
+.text-auth-d{
+  font-size: 16px;
+  margin-left: 10px;
+  margin-top: -15px;
+  font-weight:normal;
+}
+
+.text-auth-N-d{
+  font-size: 16px;
+  margin-left: 10px;
+  margin-top: -5px;
+  font-weight:normal;
+}
+
+.a-top-layout {
+  margin-top: 50px;
+}
+
+.D-layout {
+  margin-left: 60px;
+  margin-top: 30px;
+}
+
+.D-text {
+  font-size: 17px;
 }

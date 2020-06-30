@@ -19,23 +19,23 @@
                             <div class="carousel-item active">
                                 <div class="table-responsive">
                                 
-                                    <a href="Detailproject"><div class="column" ><div class="columnimg"><img src="img/fromimg.png" alt="" class="fromimg"></div></a>
-                                        <center><a href="Detailproject"><div class="textimg">เรื่อง</div></a></center>
-                                        <center><a href="Detailproject"><div class="textimg2">ประเภท</div></a></center>
+                                    <a href="itemdetaliBD"><div class="column" ><div class="columnimg"><img src="img/fromimg.png" alt="" class="fromimg"></div></a>
+                                        <center><a href="itemdetaliBD"><div class="textimg">เรื่อง</div></a></center>
+                                        <center><a href="itemdetaliBD"><div class="textimg2">ประเภท</div></a></center>
                                     </div>
                                 
-                                    <a href="Detailproject"><div class="column1"><div class="columnimg"><img src="img/fromimg.png" alt="" class="fromimg"></div></a>
-                                        <center><a href="Detailproject"><div class="textimg">เรื่อง</div></a></center>
-                                        <center><a href="Detailproject"><div class="textimg2">ประเภท</div></a></center>
+                                    <a href="itemdetaliBD"><div class="column1"><div class="columnimg"><img src="img/fromimg.png" alt="" class="fromimg"></div></a>
+                                        <center><a href="itemdetaliBD"><div class="textimg">เรื่อง</div></a></center>
+                                        <center><a href="itemdetaliBD"><div class="textimg2">ประเภท</div></a></center>
                                     </div>
                                 
-                                    <a href="Detailproject"><div class="column2"><div class="columnimg"><img src="img/fromimg.png" alt="" class="fromimg"></div></a>
-                                        <center><a href="Detailproject"><div class="textimg">เรื่อง</div></a></center>
-                                        <center><a href="Detailproject"><div class="textimg2">ประเภท</div></a></center>
+                                    <a href="itemdetaliBD"><div class="column2"><div class="columnimg"><img src="img/fromimg.png" alt="" class="fromimg"></div></a>
+                                        <center><a href="itemdetaliBD"><div class="textimg">เรื่อง</div></a></center>
+                                        <center><a href="itemdetaliBD"><div class="textimg2">ประเภท</div></a></center>
                                     </div>
-                                    <a href="Detailproject"><div class="column3"><div class="columnimg"><img src="img/fromimg.png" alt="" class="fromimg"></div></a>
-                                        <center><a href="Detailproject"><div class="textimg">เรื่อง</div></a></center>
-                                        <center><a href="Detailproject"><div class="textimg2">ประเภท</div></a></center>
+                                    <a href="itemdetaliBD"><div class="column3"><div class="columnimg"><img src="img/fromimg.png" alt="" class="fromimg"></div></a>
+                                        <center><a href="itemdetaliBD"><div class="textimg">เรื่อง</div></a></center>
+                                        <center><a href="itemdetaliBD"><div class="textimg2">ประเภท</div></a></center>
                                     </div>
                                 
                                 </div>
@@ -44,23 +44,23 @@
                             <div class="carousel-item">
                                 <div class="table-responsive">
                                     
-                                    <a href="Detailproject"><div class="column" ><div class="columnimg"><img src="img/fromimg.png" alt="" class="fromimg"></div></a>
-                                        <center><a href="Detailproject"><div class="textimg">เรื่อง</div></a></center>
-                                        <center><a href="Detailproject"><div class="textimg2">ประเภท</div></a></center>
+                                    <a href="itemdetaliBD"><div class="column" ><div class="columnimg"><img src="img/fromimg.png" alt="" class="fromimg"></div></a>
+                                        <center><a href="itemdetaliBD"><div class="textimg">เรื่อง</div></a></center>
+                                        <center><a href="itemdetaliBD"><div class="textimg2">ประเภท</div></a></center>
                                     </div>
                                 
-                                    <a href="Detailproject"><div class="column1"><div class="columnimg"><img src="img/fromimg.png" alt="" class="fromimg"></div></a>
-                                        <center><a href="Detailproject"><div class="textimg">เรื่อง</div></a></center>
-                                        <center><a href="Detailproject"><div class="textimg2">ประเภท</div></a></center>
+                                    <a href="itemdetaliBD"><div class="column1"><div class="columnimg"><img src="img/fromimg.png" alt="" class="fromimg"></div></a>
+                                        <center><a href="itemdetaliBD"><div class="textimg">เรื่อง</div></a></center>
+                                        <center><a href="itemdetaliBD"><div class="textimg2">ประเภท</div></a></center>
                                     </div>
                                 
-                                    <a href="Detailproject"><div class="column2"><div class="columnimg"><img src="img/fromimg.png" alt="" class="fromimg"></div></a>
-                                        <center><a href="Detailproject"><div class="textimg">เรื่อง</div></a></center>
-                                        <center><a href="Detailproject"><div class="textimg2">ประเภท</div></a></center>
+                                    <a href="itemdetaliBD"><div class="column2"><div class="columnimg"><img src="img/fromimg.png" alt="" class="fromimg"></div></a>
+                                        <center><a href="itemdetaliBD"><div class="textimg">เรื่อง</div></a></center>
+                                        <center><a href="itemdetaliBD"><div class="textimg2">ประเภท</div></a></center>
                                     </div>
-                                    <a href="Detailproject"><div class="column3"><div class="columnimg"><img src="img/fromimg.png" alt="" class="fromimg"></div></a>
-                                        <center><a href="Detailproject"><div class="textimg">เรื่อง</div></a></center>
-                                        <center><a href="Detailproject"><div class="textimg2">ประเภท</div></a></center>
+                                    <a href="itemdetaliBD"><div class="column3"><div class="columnimg"><img src="img/fromimg.png" alt="" class="fromimg"></div></a>
+                                        <center><a href="itemdetaliBD"><div class="textimg">เรื่อง</div></a></center>
+                                        <center><a href="itemdetaliBD"><div class="textimg2">ประเภท</div></a></center>
                                     </div>
                                     
                                 </div>
@@ -69,23 +69,23 @@
                             <div class="carousel-item">
                                 <div class="table-responsive">
                                         
-                                    <a href="Detailproject"><div class="column" ><div class="columnimg"><img src="img/fromimg.png" alt="" class="fromimg"></div></a>
-                                        <center><a href="Detailproject"><div class="textimg">เรื่อง</div></a></center>
-                                        <center><a href="Detailproject"><div class="textimg2">ประเภท</div></a></center>
+                                    <a href="itemdetaliBD"><div class="column" ><div class="columnimg"><img src="img/fromimg.png" alt="" class="fromimg"></div></a>
+                                        <center><a href="itemdetaliBD"><div class="textimg">เรื่อง</div></a></center>
+                                        <center><a href="itemdetaliBD"><div class="textimg2">ประเภท</div></a></center>
                                     </div>
                                 
-                                    <a href="Detailproject"><div class="column1"><div class="columnimg"><img src="img/fromimg.png" alt="" class="fromimg"></div></a>
-                                        <center><a href="Detailproject"><div class="textimg">เรื่อง</div></a></center>
-                                        <center><a href="Detailproject"><div class="textimg2">ประเภท</div></a></center>
+                                    <a href="itemdetaliBD"><div class="column1"><div class="columnimg"><img src="img/fromimg.png" alt="" class="fromimg"></div></a>
+                                        <center><a href="itemdetaliBD"><div class="textimg">เรื่อง</div></a></center>
+                                        <center><a href="itemdetaliBD"><div class="textimg2">ประเภท</div></a></center>
                                     </div>
                                 
-                                    <a href="Detailproject"><div class="column2"><div class="columnimg"><img src="img/fromimg.png" alt="" class="fromimg"></div></a>
-                                        <center><a href="Detailproject"><div class="textimg">เรื่อง</div></a></center>
-                                        <center><a href="Detailproject"><div class="textimg2">ประเภท</div></a></center>
+                                    <a href="itemdetaliBD"><div class="column2"><div class="columnimg"><img src="img/fromimg.png" alt="" class="fromimg"></div></a>
+                                        <center><a href="itemdetaliBD"><div class="textimg">เรื่อง</div></a></center>
+                                        <center><a href="itemdetaliBD"><div class="textimg2">ประเภท</div></a></center>
                                     </div>
-                                    <a href="Detailproject"><div class="column3"><div class="columnimg"><img src="img/fromimg.png" alt="" class="fromimg"></div></a>
-                                        <center><a href="Detailproject"><div class="textimg">เรื่อง</div></a></center>
-                                        <center><a href="Detailproject"><div class="textimg2">ประเภท</div></a></center>
+                                    <a href="itemdetaliBD"><div class="column3"><div class="columnimg"><img src="img/fromimg.png" alt="" class="fromimg"></div></a>
+                                        <center><a href="itemdetaliBD"><div class="textimg">เรื่อง</div></a></center>
+                                        <center><a href="itemdetaliBD"><div class="textimg2">ประเภท</div></a></center>
                                     </div>
                                         
                                 </div>

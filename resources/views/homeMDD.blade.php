@@ -9,7 +9,7 @@
                     <a href="#" class="btnsum"><button type="button" class="btn btn-default" style="color: #D9A32F;background-color: white;" >ดูทั้งหมด</button></a>
                         <div class="table-responsive">
                             <div class="layoutMDD">
-                                <a href="http://"><div class="textMDD" >การสร้างตัวละครซูเปอร์ฮีโร่โดยมีแรงบันดาลใจจากอาวุธในรามเกียรติ์</div></a>
+                                <a href="itemdetaliMDD"><div class="textMDD" >การสร้างตัวละครซูเปอร์ฮีโร่โดยมีแรงบันดาลใจจากอาวุธในรามเกียรติ์</div></a>
                                 <div class="" >คำอธิบาย : Knowledge for Condominium Purchasing Decision Making of Chinese in Chiang Mai Provinc</div>
                                 <div class="" >ผู้สร้างผลงาน : ประทิน ตายอด</div>
                                 <div class="" >คำสำคัญ : รามเกียรติ์,ซุปเปอร์ฮีโร่,อาวุธ SP1348 / 00344</div>
@@ -22,7 +22,7 @@
                     <a href="#" class="btnsum"><button type="button" class="btn btn-default" style="color: #D9A32F;background-color: white;" >ดูทั้งหมด</button></a>
                         <div class="table-responsive">
                             <div class="layoutMDD">
-                                <a href="http://"><div class="textMDD" >การสร้างตัวละครซูเปอร์ฮีโร่โดยมีแรงบันดาลใจจากอาวุธในรามเกียรติ์</div></a>
+                                <a href="itemdetaliMDD"><div class="textMDD" >การสร้างตัวละครซูเปอร์ฮีโร่โดยมีแรงบันดาลใจจากอาวุธในรามเกียรติ์</div></a>
                                 <div class="" >คำอธิบาย : Knowledge for Condominium Purchasing Decision Making of Chinese in Chiang Mai Provinc</div>
                                 <div class="" >ผู้สร้างผลงาน : ประทิน ตายอด</div>
                                 <div class="" >คำสำคัญ : รามเกียรติ์,ซุปเปอร์ฮีโร่,อาวุธ SP1348 / 00344</div>
@@ -34,7 +34,7 @@
                     <a href="#" class="btnsum"><button type="button" class="btn btn-default" style="color: #D9A32F;background-color: white;" >ดูทั้งหมด</button></a>
                         <div class="table-responsive">
                             <div class="layoutMDD">
-                                <a href="http://"><div class="textMDD" >การสร้างตัวละครซูเปอร์ฮีโร่โดยมีแรงบันดาลใจจากอาวุธในรามเกียรติ์</div></a>
+                                <a href="itemdetaliMDD"><div class="textMDD" >การสร้างตัวละครซูเปอร์ฮีโร่โดยมีแรงบันดาลใจจากอาวุธในรามเกียรติ์</div></a>
                                 <div class="" >คำอธิบาย : Knowledge for Condominium Purchasing Decision Making of Chinese in Chiang Mai Provinc</div>
                                 <div class="" >ผู้สร้างผลงาน : ประทิน ตายอด</div>
                                 <div class="" >คำสำคัญ : รามเกียรติ์,ซุปเปอร์ฮีโร่,อาวุธ SP1348 / 00344</div>

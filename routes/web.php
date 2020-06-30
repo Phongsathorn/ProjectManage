@@ -49,9 +49,13 @@ Route::get('SearchAdvance', function () {
     return view('searchAV');
 });
 
-Route::get('itemdetali', function () {
-    return view('project.itemdetali');
+Route::get('itemdetaliBD', function () {
+    return view('project.itemdetaliBD');
 });
+Route::get('itemdetaliMDD', function () {
+    return view('project.itemdetaliMDD');
+});
+
 
 Route::get('Detailproject', function () {
     return view('project.detailproject');
