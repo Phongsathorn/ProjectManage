@@ -58,6 +58,7 @@ html, body {
 .font-Athiti {
   font-family: 'Athiti', sans-serif;
   font-weight: 600;
+  font-size: ;
 }
 
 .full-height {
@@ -7821,6 +7822,7 @@ button.bg-dark:focus {
 
 .rounded-circle {
   border-radius: 50% !important;
+  
 }
 
 .rounded-pill {
@@ -11579,10 +11581,13 @@ a.text-dark:focus {
 }
 
 .textD {
+  margin-top: 5px;
   margin-left:295px;
+  font-size: 17px;
 }
 
 .textDrow {
+  margin-top: 5px;
   margin-left:205px;
 }
 
@@ -11637,4 +11642,84 @@ a.text-dark:focus {
 
 .D-text {
   font-size: 17px;
+}
+
+.check-top {
+  margin-top: 5px;
+  font-size: 17px;
+  margin-left: 210px;
+}
+
+.search-text {
+  font-size: 17px;
+}
+
+.text-sum {
+  font-size: 17px;
+  font-family: 'Athiti', sans-serif;
+}
+
+.input-group-size {
+  width: 20%;
+  margin-top: 10px;
+  margin-left: 180px;
+  margin-right: 30px;
+}
+
+.input-group-sizee {
+  width: 25%;
+  margin-top: 10px;
+  margin-left: 180px;
+  margin-right: 30px;
+}
+
+.input-group-top {
+  margin-left: 430px;
+  margin-top: -37px;
+}
+
+.input-group-topp {
+  margin-left: 670px;
+  margin-top: -37px;
+}
+
+.input-group-toppp {
+  margin-left: 250px;
+  
+}
+.input-group-topppp {
+  margin-left: 580px;
+  margin-top: -37px;
+}
+
+.input-group-sizeee {
+  margin-top: 15px;
+  margin-left: 370px;
+  margin-right: 30px;
+  font-size: 16px;
+}
+
+.form-control--sizeee-left {
+  width: 40%;
+  margin-top: 10px;
+}
+
+.btn-layout-s {
+  width: 50%;
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+
+.checkbox-left {
+  margin-left: 8px;
+  font-size: 16px;
+}
+
+.text-heder-search {
+  margin-left: 10px;
+  padding: 20px;
+}
+
+.text-left-search {
+  margin-left: 150px;
 }

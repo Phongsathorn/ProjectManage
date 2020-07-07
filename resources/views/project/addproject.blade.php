@@ -222,7 +222,7 @@
                                 <center><label for="text" class="" style="margin-top: -5px;">ขั้นตอนที่ 1</label><br></center>
                                 <center><label for="text" class="">เกี่ยวกับผลงาน</label><br></center>
                                 <center style="margin-top:10px;margin-left:-40px;">ชื่อเรื่อง: <input type="text" class="" name="project_name" id="project_name" oninput="this.className = ''"><br></center>
-                                <center style="margin-top:10px;margin-left:-40px;">คำสำคัญ: <input type="text" class="" name="project_name" id="project_name" oninput="this.className = ''"><br></center>
+                                <center style="margin-top:10px;margin-left:-40px;">คำสำคัญ: <input type="text" class="" name="keyword_project" id="keyword_project" oninput="this.className = ''"><br></center>
                                 <center style="margin-top:10px;margin-left:-71px;">คำอธิบายย่อ: <input type="text" class="input-tb" name="des_project" id="des_project" oninput="this.className = ''"><br></center>
                                 
                                 <a href="homeBD"><button type="button" class="btnnn ">ย้อนกลับ</button></a>

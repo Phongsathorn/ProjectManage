@@ -1,5 +1,5 @@
 
-@extends('layouts.mainhomeBD')
+@extends('layouts.mainhomeBDuser')
 
 @section('content')
 
@@ -23,7 +23,7 @@
                                 <div class="table-responsive">
                                 
                                     <a href="itemdetaliBD"><div class="column" ><div class="columnimg"><img src="img/fromimg.png" alt="" class="fromimg"></div></a>
-                                        <center><a href="itemdetaliBD"><div class="textimg"></div></a></center>
+                                        <center><a href="itemdetaliBD"><div class="textimg"><?php session_start(); echo $_SESSION['nameuser'];?></div></a></center>
                                         <center><a href="itemdetaliBD"><div class="textimg2">ประเภท</div></a></center>
                                     </div>
                                 

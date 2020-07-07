@@ -8,7 +8,7 @@
                 <h3><div class="card-header">{{ __('เข้าสู่ระบบ') }}</div></h3>
 
                 <div class="card-body">
-                    <form method="POST" action="logintestt">
+                    <form method="GET" action="logintestt">
                         @csrf
 
                         <div class="form-group row">
@@ -56,7 +56,7 @@
             
                             
                             <div class="col-md-8 offset-md-4" style="margin-top:-27px;">
-                                <a type="submit" class="btn btn-link btn-layouts" href="{{ route('register') }}">สร้างบัญชี</a>
+                                <a type="submit" class="btn btn-link btn-layouts" href="">สร้างบัญชี</a>
                                 <button type="submit" class="btn btn-primary" >
                                     ล็อกอิน
                                 </button>

@@ -51,6 +51,7 @@ class ListdataController extends Controller
         //ดึงข้อมูลจาก textbox เข้า
         $dataproject = new Dataproject;
         $dataproject->project_name=$request->project_name;
+        $dataproject->keyword_project=$request->keyword_project;
         $dataproject->des_project=$request->des_project;
         // $dataproject->facebook=$request->facebook;
         // $dataproject->email=$request->email;

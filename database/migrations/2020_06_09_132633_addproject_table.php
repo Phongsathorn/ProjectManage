@@ -16,6 +16,7 @@ class AddprojectTable extends Migration
         Schema::create('addproject', function (Blueprint $table) {
             $table->id('project_id');
             $table->string('project_name');
+            $table->string('keyword_project');
             $table->string('des_project');
             $table->string('facebook');
             $table->string('email');

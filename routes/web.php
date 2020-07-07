@@ -16,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('homeBD', function () {
     return view('homeBD');
 });
+
+Route::get('index', function () {
+    return view('homeBDuser');
+});
 Route::get('homeMDD', function () {
     return view('homeMDD');
 });
@@ -61,7 +65,7 @@ Route::get('Detailproject', function () {
     return view('project.detailproject');
 });
 
-Route::view('addproject', 'addproject');
+Route::view('addproject', 'project.addproject');
 Route::post('adddataproject', 'ListdataController@addproject');
 // Route::post('adddataproject', 'ListdataController@addfileproject');
 // Route::post('adddataproject', 'ListdataController@addproject')->name('addproject');
@@ -87,9 +91,25 @@ Route::get('teststap', function () {
 
 // Route::get('logout', 'HomeController@index')->name('logout');
 
-Auth::routes();
+// Auth::routes();
 
-Route::get('logintest', 'logintestController@index')->name('logintest');
+Route::get('register', function () {
+    return view('auth.register');
+});
+
+Route::get('dbconnect', function () {
+    return view('dbconnect');
+});
+
+Route::post('session', function () {
+    return view('session');
+});
+
+Route::post('logout', function () {
+    return view('logout');
+});
+
+// Route::get('login', 'logintestController@index');
 Route::post('logintestt', 'logintestController@chkauthen');
 
 Route::get('home', 'HomeController@index')->name('home');

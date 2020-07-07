@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -36,17 +40,11 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
-                        @guest
-                            @auth
+                        @if (!isset($_SESSION['username']))
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('เข้าสู่ระบบ') }}</a>
+                                <a class="nav-link" href="login">{{ __('เข้าสู่ระบบ') }}</a>
                             </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('สมัครสมาชิก') }}</a>
-                                </li>
-                            @endif
-                            @endauth
+                            
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -65,7 +63,7 @@
                                     </form>
                                 </div>
                             </li>
-                        @endguest
+                        @endif
                     </ul>
                 </div>
             </div>

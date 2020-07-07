@@ -668,8 +668,8 @@
 
                                 <!-- detailitem -->
                                 
-                                <center><div class="container emp-profile">
-                                    <div class="row textD">
+                                <center><div class="container emp-profile textD">
+                                    <div class="row ">
                                         <div class="col-md-6 ">
                                             <ul class="nav nav-tabs " id="myTab" role="tablist">
                                                 <li class="nav-item">
