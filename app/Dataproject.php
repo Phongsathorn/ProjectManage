@@ -8,5 +8,6 @@ class Dataproject extends Model
 {
     //
     protected $table = 'addproject';
+    public $timestamps = false;
 
 }

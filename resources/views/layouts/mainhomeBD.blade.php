@@ -52,6 +52,11 @@
                 margin-top: -3px;
            }
 
+           .user-sizes {
+                width: 30%;
+                margin-top:-5px;
+           }
+
            .content{
                 margin-top: 8px;
            }
@@ -164,7 +169,15 @@
                 width: 23%;
             }
 
-            
+            .layoutname-top-BD {
+                margin-left: 50px;
+                
+            }
+
+            .layoutprovince-size-p {
+                width: 42%;
+            }
+                            
         </style>
     </head>
     <body class="img-top">
@@ -218,8 +231,8 @@
                             <div class="card-body">
                                 <form method="POST" action="register">
                                     @csrf
-                                    <div class="form-group row layoutname">
-                                        <label for="name" class="col-md-4 col-form-label text-md-right-re">{{ __('ชื่อ-สกุล') }}</label>
+                                    <div class="form-group row layoutname layoutname-BD">
+                                        
                                         <div class="col-md-6 layoutinput">
                                             <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="กรอกชื่อนามสกุลของคุณ">
                                             @error('name')
@@ -231,7 +244,7 @@
                                     </div>
 
                                     <div class="form-group row layoutname">
-                                        <label for="gender" class="col-md-4 col-form-label text-md-right-re">{{ __('เพศ') }}</label>
+                                        
                                         <div class="col-md-6 layoutinput">
                                             <select name="gender" id="" class="layoutgender-size form-control @error('gender') is-invalid @enderror">
                                                 <option value="">เลือกเพศ</option>
@@ -246,10 +259,10 @@
                                         </div>
                                     </div>
 
-                                    <div class="form-group row layoutname layoutname-top">
-                                        <label for="province" class=" col-md-4 col-form-label text-md-right-re">{{ __('จังหวัด') }}</label>
+                                    <div class="form-group row  layoutname-top-BD" style="margin-left:230px;margin-top: -54px;">
+                                        
                                         <div class="col-md-6 layoutinput">
-                                            <select name="province" id="" class="layoutprovince-size form-control @error('name') is-invalid @enderror">
+                                            <select name="province" id="" class="layoutprovince-size-p form-control @error('name') is-invalid @enderror" style="width: 260%;">
                                                 <option value="">เลือกจังหวัด</option>
                                                 <option value="กรุงเทพมหานคร">กรุงเทพมหานคร</option>
                                                 <option value="กระบี่">กระบี่ </option>
@@ -337,7 +350,7 @@
                                     </div>
 
                                     <div class="form-group row layoutname">
-                                        <label for="email" class="col-md-4 col-form-label text-md-right-re">{{ __('อีเมล') }}</label>
+                                        
                                         <div class="col-md-6 layoutinput">
                                             <input id="email" type="email" class="layoutnom-size form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="name@mail.com">
                                             @error('email')
@@ -348,10 +361,10 @@
                                         </div>
                                     </div>
 
-                                    <div class="form-group row layoutname layoutname-top">
-                                        <label for="username" class="col-md-4 col-form-label text-md-right-re">{{ __('ตั้งชื่อผู้ใช้') }}</label>
-                                        <div class="col-md-6 layoutinput">
-                                            <input id="username" type="text" class="layoutnom-size form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus placeholder="ตั้งชื่อผู้ใช้">
+                                    <div class="form-group row layoutname " style="margin-left:219px;margin-top: -56px;">
+                                        
+                                        <div class="col-md-6 layoutinput" >
+                                            <input id="username" type="text" style="width: 260%;" class="layoutnom-size form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus placeholder="ตั้งชื่อผู้ใช้">
                                             @error('username')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -360,8 +373,8 @@
                                         </div>
                                     </div>
 
-                                    <div class="form-group row layoutname">
-                                        <label for="password" class="col-md-4 col-form-label text-md-right-re">{{ __('ตั่งรหัสผ่าน') }}</label>
+                                    <div class="form-group row layoutname ">
+                                        
                                         <div class="col-md-6 layoutinput">
                                             <input id="password" type="password" class="layoutnom-size form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="ตั้งรหัสผ่านอย่างน้อย 8 ตัว">
                                             @error('password')
@@ -372,16 +385,15 @@
                                         </div>
                                     </div>
 
-                                    <div class="form-group row layoutname layoutname-top">
-                                        <label for="password-confirm" class="col-md-4 col-form-label text-md-right-re">{{ __('ยืนยันรหัสผ่าน') }}</label>
-
+                                    <div class="form-group row layoutname " style="margin-left:219px;margin-top: -56px;">
+                                        
                                         <div class="col-md-6 layoutinput">
-                                            <input id="password-confirm" type="password" class="layoutnom-size form-control" name="password_confirmation" required autocomplete="new-password" placeholder="กรอกรหัสผ่านอีกครั้ง">
+                                            <input id="password-confirm" type="password" style="width: 260%;" class="layoutnom-size form-control" name="password_confirmation" required autocomplete="new-password" placeholder="กรอกรหัสผ่านอีกครั้ง">
                                         </div>
                                     </div>
 
                                     <div class="form-group row mb-0 layoutbutton-ok col-md-8 offset-md-4" >
-                                            <button type="submit" class=" btn btn-success " style="width: 100%;" href="" >
+                                            <button type="submit" class=" btn btn-success " style="width: 100%;margin-left:-60px;" href="" >
                                                 {{ __('สมัคร') }}
                                             </button>
                                     </div>
@@ -423,7 +435,7 @@
                                                      
                                                             <h3><div class="card-header">{{ __('เข้าสู่ระบบ') }}</div></h3>
                                                             <div class="" style="font-family: 'Athiti', sans-serif;font-size: 16px;">
-                                                                <form method="POST" action="session">
+                                                                <form method="POST" action="loginBD">
                                                                     @csrf
 
                                                                     <div class="form-group row">
@@ -493,7 +505,7 @@
                             ?>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link " id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <img class=" col-sm-5  rounded-circle user-size" src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="User Avatar">
+                                        <img class=" col-sm-5  rounded-circle user-sizes" src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="User Avatar">
                                         <div class="name-scle dropdown-toggle"><?php echo $_SESSION['nameuser'];?></div> 
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">

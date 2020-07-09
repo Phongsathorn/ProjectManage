@@ -12,6 +12,7 @@
         <meta property="og:description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv=”refresh” content="0;/admin">
         <!-- Main CSS-->
         <link rel="stylesheet" type="text/css" href="css/main.css">
         <!-- Font-icon css-->
@@ -34,10 +35,67 @@
         <!-- Font-icon css-->
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/css2?family=Athiti:wght@600&display=swap" rel="stylesheet">
+        
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
         
         <title>ICTSTORE</title>
+
+        <style>
+            .layoutaccout-admin {
+                padding: -10px;
+                
+            }
+
+            .user-size {
+                width: 30%;
+                margin-top:-6px;
+
+            }
+
+            .content{
+                margin-top: 8px;
+           }
+
+           .search-left{
+                margin-left: 50px;
+           }
+
+           .top {
+                margin-top: 5px;
+           }
+
+           .btn-login {
+                height: 43px;
+                margin-left: -20px;
+                background-color: white;
+                border-radius: 5px;
+           }
+
+           .name-scle{
+                font-size: 16px;
+                color: #FFFFFF;
+                -ms-flex-item-align: center;
+                    align-self: center;
+                margin-top: -30px;
+                margin-left: 63px;
+           }
+
+           .span-i-user {
+                font-size: 33px; 
+                color: none; 
+                margin-left: -85px;
+                margin-top:-1.5px;
+                margin-right: -7px;
+           }
+           
+           .text-mage {
+               font-size:17px;
+               margin-left: 40px;
+               padding:3px;
+               margin-top:-35px;
+           }
+
+        </style>
     </head>
     <body class="app sidebar-mini">
 
@@ -51,58 +109,141 @@
             </script>
         @endif
 
+        <div class="app sidebar-mini " >
         <header class="app-header">
-            <a href="admin" class="app-header__logo font-Athiti" >ICTSTORE</a>
+            <!-- font Athiti -->
+            <a href="homeBD" class="app-header__logo font-Athiti" >ICTSTORE</a> 
             <!-- main.css-->
             <ul class="app-nav">
-                <li class="app-search">
+                <li class="app-search search-left">
                     <input class="app-search__input" type="search" placeholder="ค้นหาวิจัย โครงงาน วิทยานิพน">
                     <button class="app-search__button"><i class="fa fa-search"></i></button>
                 </li>
-                <a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
+                <div class="app-navbar__overlay" data-toggle="sidebar" aria-label="Hide Sidebar"></div>
                 <nav class="app-navmenu" >    
-                    <li class="active1 menulink" ><a href="homeBD">หน้าเเรก</a></li>
-                    <li class="active2 menulink"><a href="#">ค้นหาเเบบละเอียด</a></li>
-                    <li class="active3 menulink"><a href="#">เกี่ยวกับ</a></li>
-                    <li class="active4 menulink"><a href="#">ติดต่อ</a></li>
+                    <li class="active1 menulink fontlink" ><a href="homeBD">หน้าเเรก</a></li>
+                    <li class="active2 menulink fontlink"><a href="SearchAdvance" >ค้นหาเเบบละเอียด</a></li>
+                    <li class="active3 menulink fontlink"><a href="#">เกี่ยวกับ</a></li>
+                    <li class="active4 menulink fontlink"><a href="#">ติดต่อ</a></li>
                 </nav>
-            </ul>
-            
-            <div class="navbar-dark layoutaccout">
+                <div class="navbar-dark layoutaccout ">
                     <ul class="navbar-nav ml-auto ml-md-0">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                                    <ul class="navbar-nav ml-auto">
-                                        @guest
-                                            @if (Route::has('login'))
-                                                <div class="front nav-item">
-                                                    <a href="{{ route('login') }}" class="dropdown-item">เข้าสู่ระบบ</a>
-                                                </div>
-                                            @endif
-                                                @auth
-                                                    <a href="{{ route('login') }}" class="dropdown-item">เข้าสู่ระบบ</a>
-                                                @endauth
-                                            @else
+            
+                <?php session_start(); if(!isset($_SESSION['adminauser'])) { ?>
+                        <div class="front nav-item" style="margin-top: px;font-family: 'Athiti', sans-serif;font-size: 16px;">
+                                <a class="text-item"  id="userDropdown" href="login" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><button class="btn-login btn btn-outline-primaryy"><i class="fas fa-user-circle span-i-user"></i><div class="text-mage">เข้าสู่ระบบ</div></button></a>
+                                    <div class="dropdown-menu dropdown-menu-right" style="margin-top: 13px;" aria-labelledby="userDropdown">
+                                        <ul class="navbar-nav ml-auto">
+                                            <div class="account-dropdown js-dropdown">
+                                                <div class="info clearfix">
                                                 
-                                                <a id="navbarDropdown" class="dropdown-item" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                                    {{ Auth::user()->username }} <span class="caret"></span>
-                                                </a>
-                                            
-                                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                                    onclick="event.preventDefault();
-                                                                    document.getElementById('logout-form').submit();">
-                                                        {{ __('ออกจากระบบ') }}
-                                                </a>
-                                                <form id="logout-form" action="{{ route('logout')}}" method="POST" style="display: none;">
-                                                    @csrf
-                                                </form>
-                                        @endguest   
-                                    </ul>
+                                                    <h3><div class="card-header">{{ __('เข้าสู่ระบบ') }}</div></h3>
+                                                    <div class="" style="font-family: 'Athiti', sans-serif;font-size: 16px;">
+                                                        <form method="POST" action="loginBD">
+                                                            @csrf
+
+                                                            <div class="form-group row">
+                                                                <div class="col-md-6">
+                                                                    <input id="username" type="username" class="form-control @error('email') is-invalid @enderror" style="width: 210px;height: 40px;margin-left:31px;" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus placeholder="ชื่อผู้ใช้ของคุณ">
+
+                                                                    @error('username')
+                                                                        <span class="invalid-feedback" role="alert">
+                                                                            <strong>{{ $message }}</strong>
+                                                                        </span>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group row">
+                                                                <div class="col-md-6">
+                                                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" style="width: 210px; height: 40px;margin-left:31px;" name="password" required autocomplete="current-password" placeholder="รหัสผ่านของคุณ">
+
+                                                                    @error('password')
+                                                                        <span class="invalid-feedback" role="alert">
+                                                                            <strong>{{ $message }}</strong>
+                                                                        </span>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group row">
+                                                                <div class="col-md-6 offset-md-4">
+                                                                    <div class="form-check" style="margin-left:-71px;">
+                                                                        <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+
+                                                                        <label class="form-check-label" style="color: black;" for="remember">
+                                                                            {{ __('จดจำฉันไว้') }}
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+
+                                                            <div class="form-group row mb-0">
+                                                
+                                                                
+                                                                <div class="col-md-8 offset-md-4">
+                                                                    @if (Route::has('password.request'))
+                                                                        <a class="btn btn-link btn-re" style="margin-top:-10px; margin-left: 5px; " href="{{ route('password.request') }}">
+                                                                            {{ __('ลืมรหัสผ่านใช่หรือไม่?') }}
+                                                                        </a>
+                                                                    @endif
+                                                                    <button type="submit" class="btn btn-primaryyy" style="width: 210px; margin-left:-70px; " >
+                                                                        ล็อกอิน
+                                                                    </button>
+
+                                                                    <div style="margin-left:-30px; margin-top: 10px;">คุณยังไม่มีบัญชี?</div> 
+                                                                    <a type="submit"  id="button" class="btn btn-link btn-layouts" style="margin-left:70px;margin-top:-49px;"  href="#" data-toggle="modal" data-target="#exampleModalCenter">สร้างบัญชี</a>    
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </ul>
+                                    </div>
                                 </div>
-                        </li>
-                    </ul>
-                </div>
+                             <?php }
+                            
+                            else if(isset($_SESSION['adminauser'])){
+                            ?>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link " id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <img class=" col-sm-5  rounded-circle user-size" src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="User Avatar">
+                                        <div class="name-scle dropdown-toggle"><?php echo $_SESSION['adminname'];?></div> 
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                                        <ul class="navbar-nav ml-auto">
+                                            <div class="account-dropdown js-dropdown">
+                                            <div class="info clearfix">
+                                                <center><div class="image">
+                                                    <a href="profile">
+                                                        <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="" class="user-avatar rounded-circle"/>
+                                                    </a>
+                                                </div></center>
+                                                <div class="content">
+                                                    <h5 class="name">
+                                                        <span class="caret"><?php echo $_SESSION['adminname'];?></span>
+                                                    </h5>
+                                                    <span class="email"><?php echo $_SESSION['adminname'];?></span>
+                                                </div>
+                                            </div>
+                                            
+                                            <a href="profile" class="top dropdown-item"><i class="zmdi zmdi-account"></i>โปรไฟล์</a>
+                                            <a class="dropdown-item" href="logout"
+                                            onclick="event.preventDefault();
+                                                            document.getElementById('logout-form').submit();">
+                                                {{ __('ออกจากระบบ') }}
+                                            </a>
+                                            <form id="logout-form" action="logout" method="POST" style="display: none;">
+                                                @csrf
+                                            </form>
+                                                
+                                            
+                                        </ul>
+                                    </div>
+                                </li>
+                            <?php } ?>
         </header>
            
             <div class="app-sidebar__overlay" data-toggle="sidebar" aria-label="Hide Sidebar"></div>
@@ -116,19 +257,18 @@
                                     <div class="sb-sidenav-menu">
                                         <div class="nav">
                                             <div class="layoutlogre">
-                                                @if (Route::has('login'))
-                                                    <div class="links front">
-                                                        @auth
-                                                            <a href="{{ url('dataview') }}" class="view">ดูรายละเอียดผู้ใช้</a><br>
-                                                            <a href="addproject1" class="view">สร้างผลงาน</a><br>
-                                                        @else
-                                                            <a href="{{ url('dataview') }}" class="view">เช็ครายละเอียดผู้ใช้</a><br>
-                                                            <a href="{{ url('dataview') }}" class="view">คำขอสร้างผลงาน</a><br>
-                                                            <a href="{{ url('dataview') }}" class="view">เพิ่มผู้ดูเเล</a><br>
-                                                        @endauth
-                                                    
-                                                    </div>
-                                                @endif
+                                                <div class="links front">
+
+                                                <?php if(isset($_SESSION['adminauser'])) { ?>
+                                                    <a href="{{ url('dataview') }}" class="view">ข้อมูลรายละเอียดผู้ใช้</a><br>
+                                                    <a href="{{ url('viewadmin') }}" class="view">ข้อมูลรายละเอียดผู้ดูเเลระบบ</a><br>
+                                                    <a href="{{ url('viewproject') }}" class="view">ข้อมูลรายละเอียดผลงาน</a><br>
+                                                    <a href="{{ url('dataview') }}" class="view">คำขอสร้างผลงาน</a><br>
+                                                    <a href="addproject1" class="view">สร้างผลงาน</a><br>
+                                                
+                                                </div>
+                                                <?php } ?>
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -149,19 +289,6 @@
                     </style>
                     <p><hr></p>
                     
-                    <div class="layoutlogre">
-                        @if (Route::has('login'))
-                            <div class="links front">
-                                @auth
-                                    <a href="{{ url('dataview') }}" class="view">ดูรายละเอียดผู้ใช้</a><br>
-                                    <a href="addproject1" class="view">สร้างผลงาน</a><br>
-                                @else
-                                    <a href="{{ url('dataview') }}" class="view">เช็ครายละเอียดผู้ใช้</a><br>
-                                @endauth
-                            
-                            </div>
-                        @endif
-                    </div>
                     </ul>
                     </li>
                 </aside>

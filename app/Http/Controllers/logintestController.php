@@ -40,7 +40,8 @@ class logintestController extends Controller
                 return redirect('admin')->with('successlogintest' , 'ยินดีต้อนรับเข้าสู่ระบบ');
         }else {
 
-            $res_chk_user = User::all();
+            $res_chk_user = DB::table('users')->select('*')->where([
+                ['username', '=', $username]
             // echo $res_chk_user;
             if (password_verify($password, $res_chk_user->password)) {
                 session(['username' => $res_chk_user->username]);

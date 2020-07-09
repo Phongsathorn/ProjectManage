@@ -23,7 +23,7 @@
     // echo $status;
   
    
-    header( "refresh: 0; url=/homeBD" );
+    header( "refresh: 0; url=/homeMDD" );
     exit(0);
 
     // echo $_SESSION['datausername'];

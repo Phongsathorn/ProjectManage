@@ -12,6 +12,7 @@
         <meta property="og:description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv=”refresh” content="0;/homeBD">
         <!-- Main CSS-->
         <link rel="stylesheet" type="text/css" href="css/main.css">
         <!-- Font-icon css-->
@@ -104,6 +105,190 @@
         </style>
     </head>
     <body class="img-top">
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <button type="button" class="close" style="margin-left:450px;margin-top:5px;" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div class="modal-body" style="margin-top:-5px;">
+                        <h3><div class="card-header">{{ __('สมัครสมาชิก') }}</div></h3>
+                            <div class="card-body">
+                            <form method="POST" action="register">
+                                    @csrf
+                                    <div class="form-group row  " style="margin-left:5px;">
+                                        
+                                        <div class="col-md-6 layoutinput" >
+                                            <input id="name" type="text" style="width:105%;" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="กรอกชื่อนามสกุลของคุณ">
+                                            @error('name')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row "style="margin-left:5px;">
+                                        
+                                        <div class="col-md-6 layoutinput">
+                                            <select name="gender" id="" style="width:100%;" class=" form-control @error('gender') is-invalid @enderror">
+                                                <option value="">เลือกเพศ</option>
+                                                <option value="ชาย">ชาย</option>
+                                                <option value="หญิง">หญิง</option>
+                                            </select>
+                                                @error('gender')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row  layoutname-top-BD" style="margin-left:230px;margin-top: -54px;">
+                                        
+                                        <div class="col-md-6 layoutinput">
+                                            <select name="province" id="" class="layoutprovince-size-p form-control @error('name') is-invalid @enderror" style="width: 260%;">
+                                                <option value="">เลือกจังหวัด</option>
+                                                <option value="กรุงเทพมหานคร">กรุงเทพมหานคร</option>
+                                                <option value="กระบี่">กระบี่ </option>
+                                                <option value="กาญจนบุรี">กาญจนบุรี </option>
+                                                <option value="กาฬสินธุ์">กาฬสินธุ์ </option>
+                                                <option value="กำแพงเพชร">กำแพงเพชร </option>
+                                                <option value="ขอนแก่น">ขอนแก่น</option>
+                                                <option value="ชัยนาท">ชัยนาท </option>
+                                                <option value="ชัยภูมิ">ชัยภูมิ </option>
+                                                <option value="ชุมพร">ชุมพร </option>
+                                                <option value="ชลบุรี">ชลบุรี </option>
+                                                <option value="เชียงใหม่">เชียงใหม่ </option>
+                                                <option value="เชียงราย">เชียงราย </option>
+                                                <option value="ตรัง">ตรัง </option>
+                                                <option value="ตราด">ตราด </option>
+                                                <option value="ตาก">ตาก </option>
+                                                <option value="นครนายก">นครนายก </option>
+                                                <option value="นครปฐม">นครปฐม </option>
+                                                <option value="นครพนม">นครพนม </option>
+                                                <option value="นครราชสีมา">นครราชสีมา </option>
+                                                <option value="นครศรีธรรมราช">นครศรีธรรมราช </option>
+                                                <option value="นครสวรรค์">นครสวรรค์ </option>
+                                                <option value="นราธิวาส">นราธิวาส </option>
+                                                <option value="น่าน">น่าน </option>
+                                                <option value="นนทบุรี">นนทบุรี </option>
+                                                <option value="บึงกาฬ">บึงกาฬ</option>
+                                                <option value="บุรีรัมย์">บุรีรัมย์</option>
+                                                <option value="ประจวบคีรีขันธ์">ประจวบคีรีขันธ์ </option>
+                                                <option value="ปทุมธานี">ปทุมธานี </option>
+                                                <option value="ปราจีนบุรี">ปราจีนบุรี </option>
+                                                <option value="ปัตตานี">ปัตตานี </option>
+                                                <option value="พะเยา">พะเยา </option>
+                                                <option value="พระนครศรีอยุธยา">พระนครศรีอยุธยา </option>
+                                                <option value="พังงา">พังงา </option>
+                                                <option value="พิจิตร">พิจิตร </option>
+                                                <option value="พิษณุโลก">พิษณุโลก </option>
+                                                <option value="เพชรบุรี">เพชรบุรี </option>
+                                                <option value="เพชรบูรณ์">เพชรบูรณ์ </option>
+                                                <option value="แพร่">แพร่ </option>
+                                                <option value="พัทลุง">พัทลุง </option>
+                                                <option value="ภูเก็ต">ภูเก็ต </option>
+                                                <option value="มหาสารคาม">มหาสารคาม </option>
+                                                <option value="มุกดาหาร">มุกดาหาร </option>
+                                                <option value="แม่ฮ่องสอน">แม่ฮ่องสอน </option>
+                                                <option value="ยโสธร">ยโสธร </option>
+                                                <option value="ยะลา">ยะลา </option>
+                                                <option value="ร้อยเอ็ด">ร้อยเอ็ด </option>
+                                                <option value="ระนอง">ระนอง </option>
+                                                <option value="ระยอง">ระยอง </option>
+                                                <option value="ราชบุรี">ราชบุรี</option>
+                                                <option value="ลพบุรี">ลพบุรี </option>
+                                                <option value="ลำปาง">ลำปาง </option>
+                                                <option value="ลำพูน">ลำพูน </option>
+                                                <option value="เลย">เลย </option>
+                                                <option value="ศรีสะเกษ">ศรีสะเกษ</option>
+                                                <option value="สกลนคร">สกลนคร</option>
+                                                <option value="สงขลา">สงขลา </option>
+                                                <option value="สมุทรสาคร">สมุทรสาคร </option>
+                                                <option value="สมุทรปราการ">สมุทรปราการ </option>
+                                                <option value="สมุทรสงคราม">สมุทรสงคราม </option>
+                                                <option value="สระแก้ว">สระแก้ว </option>
+                                                <option value="สระบุรี">สระบุรี </option>
+                                                <option value="สิงห์บุรี">สิงห์บุรี </option>
+                                                <option value="สุโขทัย">สุโขทัย </option>
+                                                <option value="สุพรรณบุรี">สุพรรณบุรี </option>
+                                                <option value="สุราษฎร์ธานี">สุราษฎร์ธานี </option>
+                                                <option value="สุรินทร์">สุรินทร์ </option>
+                                                <option value="สตูล">สตูล </option>
+                                                <option value="หนองคาย">หนองคาย </option>
+                                                <option value="หนองบัวลำภู">หนองบัวลำภู </option>
+                                                <option value="อำนาจเจริญ">อำนาจเจริญ </option>
+                                                <option value="อุดรธานี">อุดรธานี </option>
+                                                <option value="อุตรดิตถ์">อุตรดิตถ์ </option>
+                                                <option value="อุทัยธานี">อุทัยธานี </option>
+                                                <option value="อุบลราชธานี">อุบลราชธานี</option>
+                                                <option value="อ่างทอง">อ่างทอง </option>
+                                                <option value="อื่นๆ">อื่นๆ</option>
+                                            </select>
+                                                @error('province')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row " style="margin-left:5px;">
+                                        
+                                        <div class="col-md-6 layoutinput">
+                                            <input id="email" type="email" style="width:105%;" class="layoutnom-size form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="name@mail.com">
+                                            @error('email')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row layoutname " style="margin-left:219px;margin-top: -56px;">
+                                        
+                                        <div class="col-md-6 layoutinput" >
+                                            <input id="username" type="text" style="width: 260%;" class="layoutnom-size form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus placeholder="ตั้งชื่อผู้ใช้">
+                                            @error('username')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row " style="margin-left:5px;">
+                                        
+                                        <div class="col-md-6 layoutinput">
+                                            <input id="password" type="password" style="width:105%;" class="layoutnom-size form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="ตั้งรหัสผ่านอย่างน้อย 8 ตัว">
+                                            @error('password')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row layoutname " style="margin-left:219px;margin-top: -56px;">
+                                        
+                                        <div class="col-md-6 layoutinput">
+                                            <input id="password-confirm" type="password" style="width: 260%;" class="layoutnom-size form-control" name="password_confirmation" required autocomplete="new-password" placeholder="กรอกรหัสผ่านอีกครั้ง">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row mb-0 layoutbutton-ok col-md-8 offset-md-4" >
+                                            <button type="submit" class=" btn btn-success " style="width: 100%;margin-left:-60px;" href="" >
+                                                {{ __('สมัคร') }}
+                                            </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
     <div class="app sidebar-mini " >
         <header class="app-header">
             <!-- font Athiti -->
@@ -123,10 +308,9 @@
                 <div class="navbar-dark layoutaccout ">
                     <ul class="navbar-nav ml-auto ml-md-0">
                         
-                        @guest
-                            @if (Route::has('login'))
+                    <?php session_start(); if(!isset($_SESSION['usernameguest'])) { ?>
                                 <div class="front nav-item" style="margin-top: px;">
-                                        <a class="text-item"  id="userDropdown" href="{{route ('login')}}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><button class="btn-login btn btn-outline-primary"><i class="fas fa-user-circle span-i-user"></i><div class="text-mage">เข้าสู่ระบบ</div></button></a>
+                                        <a class="text-item"  id="userDropdown" href="" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><button class="btn-login btn btn-outline-primary"><i class="fas fa-user-circle span-i-user"></i><div class="text-mage">เข้าสู่ระบบ</div></button></a>
                                             <div class="dropdown-menu dropdown-menu-right" style="margin-top: 13px;" aria-labelledby="userDropdown">
                                                 <ul class="navbar-nav ml-auto">
                                                     <div class="account-dropdown js-dropdown">
@@ -134,7 +318,7 @@
                                                      
                                                             <h3><div class="card-header">{{ __('เข้าสู่ระบบ') }}</div></h3>
                                                             <div class="">
-                                                                <form method="POST" action="{{ route('login') }}">
+                                                                <form method="POST" action="loginMDD">
                                                                     @csrf
 
                                                                     <div class="form-group row">
@@ -187,7 +371,7 @@
                                                                                 ล็อกอิน
                                                                             </button>
 
-                                                                            <div style="margin-left:-65px; margin-top: 10px;">คุณยังไม่มีบัญชี?</div> <a type="submit" class="btn btn-link btn-layouts" style="margin-left:30px;margin-top:-47px;" href="{{ route('register') }}">สร้างบัญชี</a>
+                                                                            <div style="margin-left:-65px; margin-top: 10px;">คุณยังไม่มีบัญชี?</div> <a type="submit" class="btn btn-link btn-layouts" style="margin-left:30px;margin-top:-47px;" href="#" data-toggle="modal" data-target="#exampleModalCenter">สร้างบัญชี</a>
                                                                         </div>
                                                                     </div>
                                                                 </form>
@@ -199,13 +383,13 @@
                                                 </ul>
                                             </div>
                                 </div>
-                            @endif
-                                
-                            @else
+                            <?php }
+                            else if(isset($_SESSION['usernameguest'])){
+                                ?>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link " id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <img class="user-area col-sm-5 user-avatar rounded-circle user-size" src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="User Avatar">
-                                        <div class="name-scle dropdown-toggle">{{ Auth::user()->name }}</div> 
+                                        <img class=" col-sm-5  rounded-circle user-size" src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="User Avatar">
+                                        <div class="name-scle dropdown-toggle"><?php echo $_SESSION['nameuser'];?></div> 
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                                         <ul class="navbar-nav ml-auto">
@@ -218,26 +402,25 @@
                                                 </div></center>
                                                 <div class="content">
                                                     <h5 class="name">
-                                                            {{ Auth::user()->name }} <span class="caret"></span>
+                                                        <span class="caret"><?php echo $_SESSION['nameuser'];?></span>
                                                     </h5>
-                                                    <span class="email">{{ Auth::user()->email }}</span>
+                                                    <span class="email"><?php echo $_SESSION['emailuser'];?></span>
                                                 </div>
                                             </div>
                                             
                                             <a href="profile" class="top dropdown-item"><i class="zmdi zmdi-account"></i>โปรไฟล์</a>
-                                                
-                                            <a class="dropdown-item" href="{{ route('logout') }}"
-                                                onclick="event.preventDefault();
-                                                                document.getElementById('logout-form').submit();">
-                                                    {{ __('ออกจากระบบ') }}
+                                            <a class="dropdown-item" href="logout"
+                                            onclick="event.preventDefault();
+                                                            document.getElementById('logout-form').submit();">
+                                                {{ __('ออกจากระบบ') }}
                                             </a>
-                                            <form id="logout-form" action="{{ route('logout')}}" method="POST" style="display: none;">
+                                            <form id="logout-form" action="logout" method="POST" style="display: none;">
                                                 @csrf
                                             </form>
                                         </ul>
                                     </div>
-                                    </li>
-                        @endguest
+                                </li>
+                            <?php } ?>
                                         
                     </ul>
                 </div>
@@ -328,16 +511,16 @@
                     <p><hr></p>
                     
                     <div class="layoutlogre">
-                        @if (Route::has('login'))
+                        <?php 
+                        if(!isset($_SESSION['usernameguest'])) {
+
+                        }
+
+                        else if(isset($_SESSION['usernameguest'])){ ?>
                             <div class="links front">
-                                @auth
-                                    <a href="addproject" class="view">สร้างผลงาน</a><br>
-                                @else
-                                    
-                                @endauth
-                            
+                                <a href="addproject" class="view">สร้างผลงาน</a><br>
                             </div>
-                        @endif
+                       <?php } ?>
                     </div>
                     </li>
                 </ul>

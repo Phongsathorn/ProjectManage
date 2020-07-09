@@ -175,24 +175,24 @@
 <body class="body1">
         <div class="border2">
             <div class="tile">
+                <script language="JavaScript">
+                    function showPreview(ele)
+                    {
+                            $('#showimage').attr('src', ele.value); // for IE
+                            if (ele.files && ele.files[0]) {
+                                var reader = new FileReader();
+                                
+                                reader.onload = function (e) {
+                                    $('#showimage').attr('src', e.target.result);
+                                }
+
+                                reader.readAsDataURL(ele.files[0]);
+                            }
+                    }
+                </script>
                 <center><h1><div class="containeradd textadd" >เเก้ไขรายละเอียดผลงาน</div></h1></center>
                     <form id="addprojectfrom" action="adddataproject" method="POST" enctype="multipart/form-data">
                     @csrf    
-                        <script language="JavaScript">
-                            function showPreview(ele)
-                            {
-                                    $('#showimage').attr('src', ele.value); // for IE
-                                    if (ele.files && ele.files[0]) {
-                                        var reader = new FileReader();
-                                        
-                                        reader.onload = function (e) {
-                                            $('#showimage').attr('src', e.target.result);
-                                        }
-
-                                        reader.readAsDataURL(ele.files[0]);
-                                    }
-                            }
-                        </script>
                         <center>
                             <label for="text" class="">โลโก้ผลงาน</label><br>
                             <div class="col-md-4">

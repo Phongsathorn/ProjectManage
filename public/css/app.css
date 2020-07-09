@@ -2818,7 +2818,7 @@ textarea.form-control {
 }
 
 .layoutname {
-  margin-left: -180px;
+  margin-left: -190px;
   padding-left: 10px;
 }
 
@@ -2836,15 +2836,19 @@ textarea.form-control {
   width: 42%;
 }
 
+
+
 .layoutnom-size {
   width: 50%;
 }
 
 .layoutname-top {
   margin-top: -53px;
-  margin-left: 50px;
+  margin-left: 40px;
   margin-right: -300px;
 }
+
+
 
 
 

@@ -16,8 +16,18 @@ class ListdataController extends Controller
 {
     //
     public function Datalist() {
-        $data = Datalist::all();
+        $data = DB::select('SELECT * FROM users');
         return view('datauser', ['data'=>$data]);
+    }
+    public function Datalistadmin() {
+        $dataadmin = DB::select('SELECT * FROM admin_company');
+        return view('dataadmin', ['dataadmin'=>$dataadmin]);
+    }
+
+    public function Datalistproject() {
+        // $dataproject = DB::select('SELECT * FROM addproject');
+        $dataproject = Dataproject::all();
+        return view('dataproject', ['dataproject'=>$dataproject]);
     }
 
     public function Data() {
@@ -99,6 +109,18 @@ class ListdataController extends Controller
     public function destroy($id) {
         DB::delete('DELETE FROM users WHERE id=?',[$id]);
         return redirect('dataview')->with('success', 'ลบข้อมูลเรียบร้อย'); 
+    }
+
+    public function deleteadmin($id) {
+        DB::delete('DELETE FROM admin_company WHERE admin_company_id=?',[$id]);
+        return redirect('viewadmin')->with('success', 'ลบข้อมูลเรียบร้อย'); 
+        
+    }
+
+    public function deleteproject($id) {
+        DB::delete('DELETE FROM addproject WHERE project_id=?',[$id]);
+        return redirect('viewproject')->with('success', 'ลบข้อมูลเรียบร้อย'); 
+        
     }
 
     public function addfileproject(Request $request)

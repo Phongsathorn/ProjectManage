@@ -3,8 +3,7 @@
 
 @section('content')
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <!-- app.css -->
+    
         
         <div class="rowcolumn">
             <div class="col-md-12">
@@ -23,7 +22,7 @@
                                 <div class="table-responsive">
                                 
                                     <a href="itemdetaliBD"><div class="column" ><div class="columnimg"><img src="img/fromimg.png" alt="" class="fromimg"></div></a>
-                                        <center><a href="itemdetaliBD"><div class="textimg"><?php session_start(); echo $_SESSION['nameuser'];?></div></a></center>
+                                        <center><a href="itemdetaliBD"><div class="textimg"><?php ?></div></a></center>
                                         <center><a href="itemdetaliBD"><div class="textimg2">ประเภท</div></a></center>
                                     </div>
                                 

@@ -101,8 +101,12 @@ Route::get('dbconnect', function () {
     return view('dbconnect');
 });
 
-Route::post('session', function () {
-    return view('session');
+Route::post('loginBD', function () {
+    return view('session.session-loginBD');
+});
+
+Route::post('loginMDD', function () {
+    return view('session.session-loginMDD');
 });
 
 Route::post('logout', function () {
@@ -117,13 +121,21 @@ Route::get('home', 'HomeController@index')->name('home');
 
 // โชว์ข้อมูล
 Route::get('dataview', 'ListdataController@Datalist');
+Route::get('viewadmin', 'ListdataController@Datalistadmin');
+Route::get('viewproject', 'ListdataController@Datalistproject');
 // ลบข้อมูล
 Route::get('delete/{id}', 'ListdataController@destroy');
+Route::get('delete/{id}', 'DataadminController@destroy');
+Route::get('delete/{id}', 'ListdataController@deleteproject');
 
 // Route::get('edit/{id}', 'DatauserController@edit');
 Route::get('edit','DatauserController@index');
 Route::get('edit/{id}','DatauserController@show');
 Route::post('edit/{id}', 'DatauserController@edit');
+
+Route::get('edituseradmin','DataadminController@index');
+Route::get('edituseradmin/{id}','DataadminController@show');
+Route::post('edituseradmin/{id}', 'DataadminController@update');
 
 // Route::get('profile','ProfileController@index');
 // Route::get('profile/{id}','ProfileController@show');
