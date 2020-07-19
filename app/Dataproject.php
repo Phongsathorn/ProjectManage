@@ -8,6 +8,10 @@ class Dataproject extends Model
 {
     //
     protected $table = 'addproject';
-    public $timestamps = false;
+    protected $filtable = ['project_name', 'users_id'];
+    public function Datausers() {
+        return $this->belongTo(Datausers::class, 'users_id');
+    }
+    
 
 }

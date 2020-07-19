@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -171,7 +173,7 @@
         }
 
     </style>
-</head>
+</head> 
 <body class="body1">
         <div class="border2">
             <div class="tile">
@@ -191,81 +193,116 @@
                     }
                 </script>
                 <center><h1><div class="containeradd textadd" >เเก้ไขรายละเอียดผลงาน</div></h1></center>
-                    <form id="addprojectfrom" action="adddataproject" method="POST" enctype="multipart/form-data">
-                    @csrf    
-                        <center>
-                            <label for="text" class="">โลโก้ผลงาน</label><br>
-                            <div class="col-md-4">
-                                <img id="showimage" style="background:#9d9d9d;width:170px;height:180px;">
-                            </div>
+                    <form id="addprojectfrom" action="editproject" method="POST" enctype="multipart/form-data">
+                    @csrf
+                        <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">    
+                            <center>
+                                <label for="text" class="">โลโก้ผลงาน</label><br>
+                                <div class="col-md-4">
+                                    <img id="showimage" style="background:#9d9d9d;width:170px;height:180px;">
+                                </div>
 
-                            <label for="text" class="">ภาพโชว์ผลงาน</label><br>
-                            <div class="col-md-4">
-                                <img id="showimage" style="background:#9d9d9d;width:170px;height:180px;">
-                            </div>
+                                <label for="text" class="">ภาพโชว์ผลงาน</label><br>
+                                <div class="col-md-4">
+                                    <img id="showimage" style="background:#9d9d9d;width:170px;height:180px;">
+                                </div>
 
-                            <label for="text" class="">ภาพ ถ้ามี</label><span class="text-muted">(.PNG)</span><br>
-                                <input type="file" name="fileimgToUpload" id="fileimgToUpload" class="" OnChange="showPreview(this)"><br>
+                                <label for="text" class="">ภาพ ถ้ามี</label><span class="text-muted">(.PNG)</span><br>
+                                    <input type="file" name="fileimgToUpload" id="fileimgToUpload" class="" OnChange="showPreview(this)"><br>
 
-                            <label for="text" class="">อัพโหลดไฟล์เอกสารตัวเต็ม </label><span class="text-muted">(.PDF)</span><br>
-                                    <input type="file" name="fileToUpload" id="fileToUpload">
-                        </center>
+                                <label for="text" class="">อัพโหลดไฟล์เอกสารตัวเต็ม </label><span class="text-muted">(.PDF)</span><br>
+                                        <input type="file" name="fileToUpload" id="fileToUpload">
+                            </center>
 
-                        <center><label for="text" class="">เกี่ยวกับผลงาน</label><br></center>
-                        <center style="margin-top:10px;margin-left:-40px;">ชื่อเรื่อง: <input type="text" class="" name="project_name" id="project_name" oninput="this.className = ''"><br></center>
-                        <center style="margin-top:10px;margin-left:-40px;">ชื่อเรื่องภาษาอังกฤษ: <input type="text" class="" name="project_name" id="project_name" oninput="this.className = ''"><br></center>
-                        <center style="margin-top:10px;margin-left:-40px;">คำสำคัญ: <input type="text" class="" name="project_name" id="project_name" oninput="this.className = ''"><br></center>
-                        <center style="margin-top:10px;margin-left:-71px;">คำอธิบายย่อ: <input type="text" class="input-tb" name="des_project" id="des_project" oninput="this.className = ''"><br></center>
-                        <center style="margin-top:10px;margin-left:-63px;">ชนิดเอกสาร: <select name="type_project" class="select-tbb" id="" oninput="this.className = ''">
-                                    <option value="" disabled selected>เลือกชนิดเอกสาร</option>
-                                    <option value="วิจัย">วิจัย</option>
-                                    <option value="โครงงาน">โครงงาน</option>
-                                    <option value="วิทยานิพนธ์">วิทยานิพนธ์</option>
-                                    <option value="หนังสือ">หนังสือ</option>
-                                </select><br></center>
-                        <center style="margin-top:10px;margin-left:-40px;">ประเภท: <select name="genre_project" class="select-tbbb" id="" oninput="this.className = ''">
-                                    <option value="" disabled selected>เลือกประเภท</option>
-                                    <option value="เว็บ">เว็บ</option>
-                                    <option value="เว็บเเอพพลิเคชัน">เว็บเเอพพลิเคชัน</option>
-                                    <option value="เเอพพลิเคชัน">เเอพพลิเคชัน</option>
-                                    <option value="ไอโอที(IoT)">ไอโอที(IoT)</option>
-                                    <option value="ปัญญาประดิษฐ์(Ai)">ปัญญาประดิษฐ์(Ai)</option>
-                                </select><br></center>
-                        <center style="margin-top:10px;margin-left:-50px;">หมวดหมู่: <select name="category_project" class="select-tbbbb" id="" oninput="this.className = ''">
-                                    <option value="" disabled selected>เลือกหมวดหมู่</option>
-                                    <option value="การศึกษา">การศึกษา</option>
-                                    <option value="ติดตาม">ติดตาม</option>
-                                    <option value="ดูเเลสุขภาพ">ดูเเลสุขภาพ</option>
-                                    <option value="เกษตร">เกษตร</option>
-                                </select><br></center>
-                        <center style="margin-top:10px;margin-left:-30px;">สาขา: <select name="branch_project" class="select-tbbbbb" id="" oninput="this.className = ''">
-                                    <option value="" disabled selected>เลือกสาขา</option>
-                                    <option value="สาขาวิชาวิศวกรรมคอมพิวเตอร์">สาขาวิชาวิศวกรรมคอมพิวเตอร์</option>
-                                    <option value="สาขาวิชาวิศวกรรมซอฟต์แวร์">สาขาวิชาวิศวกรรมซอฟต์แวร์</option>
-                                    <option value="สาขาวิทยาการคอมพิวเตอร์">สาขาวิทยาการคอมพิวเตอร์</option>
-                                    <option value="สาขาวิชาคอมพิวเตอร์ธุรกิจ">สาขาวิชาคอมพิวเตอร์ธุรกิจ</option>
-                                    <option value="สาขาวิชาเทคโนโลยีสารสนเทศ">สาขาวิชาเทคโนโลยีสารสนเทศ</option>
-                                    <option value="สาขาวิชาภูมิสารสนเทศศาสตร์">สาขาวิชาภูมิสารสนเทศศาสตร์</option>
-                                    <option value="สาขาวิชาเทคโนโลยีคอมพิวเตอร์กราฟิกและมัลติมีเดีย">สาขาวิชาเทคโนโลยีคอมพิวเตอร์กราฟิกและมัลติมีเดีย</option>
-                                </select><br></center>
-                                <center><label for="text" class="">ข้อมูลติดต่อ</label><br></center>
-                        <center style="margin-top:10px;margin-left:-63px;">Facebook: <input type="text" class="input-tbb" name="facebook" id="facebook" oninput="this.className = ''"><br></center>
-                        <center style="margin-top:10px;margin-left:-35px;">Email: <input type="email" class="input-tbbb" name="email" id="email" oninput="this.className = ''"><br></center>
-                        <center style="margin-top:10px;margin-left:-55px;">เบอร์โทร: <input type="phone" class="input-tbbbb" name="phone" id="phone" oninput="this.className = ''"><br></center>
-
+                            <center><label for="text" class="">เกี่ยวกับผลงาน</label><br></center>
+                            @foreach($data as $datas)
+                            <center style="margin-top:10px;margin-left:-40px;">ชื่อเรื่อง: <input type="text" class="" name="project_name" id="project_name" value="<?php echo $datas->project_name; ?>"><br></center>
+                            <center style="margin-top:10px;margin-left:-40px;">ชื่อเรื่องภาษาอังกฤษ: <input type="text" class="" name="project_name_en" id="project_name_en" value="<?php echo $datas->name; ?>"><br></center>
+                            <center style="margin-top:10px;margin-left:-40px;">คำสำคัญ: <input type="text" class="" name="keyword_project" id="keyword_project" value="<?php echo $datas->keyword_project; ?>"><br></center>
+                            <center style="margin-top:10px;margin-left:-71px;">คำอธิบายย่อ: <input type="text" class="input-tb" name="des_project" id="des_project" value="<?php echo $datas->des_project; ?>"><br></center>
+                            
+                            <center style="margin-top:10px;margin-left:-63px;">ชนิดเอกสาร: <select name="type_project" class="select-tbb" id="type_project" oninput="this.className = ''">
+                                        <option value="" disabled selected>เลือกชนิดเอกสาร</option>
+                                        @foreach($chk_type as $type)
+                                            <option value="{{$type->type_id}}" <?php if($datas->type_id==$type->type_id){ echo 'selected' ; } ?>>{{$type->type_name}}</option>
+                                        @endforeach
+                                        
+                                    </select><br></center>
+                            
+                            <center style="margin-top:10px;margin-left:-40px;">ประเภท: <select name="genre_project" class="select-tbbb" id="genre_project" oninput="this.className = ''">
+                                        <option value="" disabled selected>เลือกประเภท</option>
+                                        @foreach($chk_genre as $genre)
+                                            <option value="{{$genre->genre_id}}" <?php if($datas->genre_id==$genre->genre_id){ echo 'selected' ; } ?>>{{$genre->genre_name}}</option>
+                                        @endforeach
+                                    </select><br></center>
+                            <center style="margin-top:10px;margin-left:-50px;">หมวดหมู่: <select name="category_project" class="select-tbbbb" id="category_project" oninput="this.className = ''">
+                                        <option value="" disabled selected>เลือกหมวดหมู่</option>
+                                        @foreach($chk_category as $category)
+                                            <option value="{{$category->category_id}}" <?php if($datas->category_id==$category->category_id){ echo 'selected' ; } ?>>{{$category->category_name}}</option>
+                                        @endforeach
+                                    </select><br></center>
+                            <center style="margin-top:10px;margin-left:-30px;">สาขา: <select name="branch_project" class="select-tbbbbb" id="branch_project" oninput="this.className = ''">
+                                        <option value="" disabled selected>เลือกสาขา</option>
+                                        @foreach($chk_branch as $branch)
+                                            <option value="{{$branch->id}}">{{$branch->branch_name}}</option>
+                                        @endforeach
+                                    </select><br></center>
+                                    <center><label for="text" class="">ข้อมูลติดต่อ</label><br></center>
+                            <center style="margin-top:10px;margin-left:-63px;">Facebook: <input type="text" class="input-tbb" name="facebook" id="facebook" oninput="this.className = ''"><br></center>
+                            <center style="margin-top:10px;margin-left:-35px;">Email: <input type="email" class="input-tbbb" name="email" id="email" oninput="this.className = ''"><br></center>
+                            <center style="margin-top:10px;margin-left:-55px;">เบอร์โทร: <input type="phone" class="input-tbbbb" name="phone" id="phone" oninput="this.className = ''"><br></center>
+                            @endforeach
+                           
                         <div style="overflow:10px;">
                             <div style="float:center;">
                                 <a href="homeBD"><button type="button" class="btnp btnnn">ย้อนกลับ</button></a>
                             </div>
                             <div style="float:left; margin-left: 380px; margin-top: -41px;">
-                                <button type="button" id="nextBtn" class="btnn" >เเก้ไข</button>
+                                <button type="submit"class="btnn" >เเก้ไข</button>
                             </div>
                         </div>
                     </form>
             </div>
         </div>
                            
-        
+        <script class="text/javascript">
+            $('#type_project').change(function(){
+                if($(this).val()!=""){
+                    var type_project=$(this).val();
+                    var _token=$('input[name="_token"]').val();
+                    $.ajax({
+                        url:"{{route('insertproject')}}",
+                        method:'POST',
+                        data:{type_project:type_project,_token:_token}
+                    })
+                }
+            });
+
+            $('#genre_project').change(function(){
+                if($(this).val()!=""){
+                    var type_project=$(this).val();
+                    var _token=$('input[name="_token"]').val();
+                    $.ajax({
+                        url:"{{route('insertproject')}}",
+                        method:'POST',
+                        data:{genre_project:genre_project,_token:_token}
+                    })
+                }
+            });
+
+            $('#category_project').change(function(){
+                if($(this).val()!=""){
+                    var type_project=$(this).val();
+                    var _token=$('input[name="_token"]').val();
+                    $.ajax({
+                        url:"{{route('insertproject')}}",
+                        method:'POST',
+                        data:{category_project:category_project,_token:_token}
+                    })
+                }
+            });
+        </script>
+
         <script src="{{ asset('js/app.js') }}" defer></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>

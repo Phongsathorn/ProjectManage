@@ -216,7 +216,7 @@
                         
                         </div>
                         <center><h1><div class="containeradd textadd" >กรอกรายละเอียดผลงาน</div></h1></center>
-                        <form id="addprojectfrom" action="adddataproject" method="POST" enctype="multipart/form-data">
+                        <form id="addprojectfrom" action="insertproject" method="POST" enctype="multipart/form-data">
                         @csrf    
                         <div class="tab">
                                 <center><label for="text" class="" style="margin-top: -5px;">ขั้นตอนที่ 1</label><br></center>
@@ -231,30 +231,27 @@
 
                             <div class="tab">
                                 <center><label for="text" class="">ขั้นตอนที่ 2</label><br></center>
-                                <center style="margin-top:10px;margin-left:-63px;">ชนิดเอกสาร: <select name="type_project" class="select-tbb" id="" oninput="this.className = ''">
+                                <center style="margin-top:10px;margin-left:-63px;">ชนิดเอกสาร: <select name="type_project" class="select-tbb" id="type_project" oninput="this.className = ''">
                                             <option value="" disabled selected>เลือกชนิดเอกสาร</option>
-                                            <option value="วิจัย">วิจัย</option>
-                                            <option value="โครงงาน">โครงงาน</option>
-                                            <option value="วิทยานิพนธ์">วิทยานิพนธ์</option>
-                                            <option value="หนังสือ">หนังสือ</option>
+                                            @foreach($chk_type as $type)
+                                                <option value="{{$type->type_id}}">{{$type->type_name}}</option>
+                                            @endforeach
                                         </select><br></center>
-                                <center style="margin-top:10px;margin-left:-40px;">ประเภท: <select name="genre_project" class="select-tbbb" id="" oninput="this.className = ''">
+                                       
+                                <center style="margin-top:10px;margin-left:-40px;">ประเภท: <select name="genre_project" class="select-tbbb" id="genre_project" oninput="this.className = ''">
                                             <option value="" disabled selected>เลือกประเภท</option>
-                                            <option value="เว็บ">เว็บ</option>
-                                            <option value="เว็บเเอพพลิเคชัน">เว็บเเอพพลิเคชัน</option>
-                                            <option value="เเอพพลิเคชัน">เเอพพลิเคชัน</option>
-                                            <option value="ไอโอที(IoT)">ไอโอที(IoT)</option>
-                                            <option value="ปัญญาประดิษฐ์(Ai)">ปัญญาประดิษฐ์(Ai)</option>
+                                            @foreach($chk_genre as $genre)
+                                                <option value="{{$genre->genre_id}}">{{$genre->genre_name}}</option>
+                                            @endforeach
                                         </select><br></center>
-                                <center style="margin-top:10px;margin-left:-50px;">หมวดหมู่: <select name="category_project" class="select-tbbbb" id="" oninput="this.className = ''">
+                                <center style="margin-top:10px;margin-left:-50px;">หมวดหมู่: <select name="category_project" class="select-tbbbb" id="category_project" oninput="this.className = ''">
                                             <option value="" disabled selected>เลือกหมวดหมู่</option>
-                                            <option value="การศึกษา">การศึกษา</option>
-                                            <option value="ติดตาม">ติดตาม</option>
-                                            <option value="ดูเเลสุขภาพ">ดูเเลสุขภาพ</option>
-                                            <option value="เกษตร">เกษตร</option>
+                                            @foreach($chk_category as $category)
+                                                <option value="{{$category->category_id}}">{{$category->category_name}}</option>
+                                            @endforeach
                                         </select><br></center>
                             </div>
-                        
+                            
                             <div style="overflow:10px;">
                                 <div style="float:center;">
                                     <button type="button" id="prevBtn" class="btnp btnnn" onclick="nextPrev(-1)">ย้อนกลับ</button>
@@ -264,11 +261,49 @@
                                 </div>
                             </div>
                         </form>
-                        
+                         
                     </div>
                 </div>
             </div>
         </div>
+         
+        <script class="text/javascript">
+            $('#type_project').change(function(){
+                if($(this).val()!=""){
+                    var type_project=$(this).val();
+                    var _token=$('input[name="_token"]').val();
+                    $.ajax({
+                        url:"{{route('insertproject')}}",
+                        method:'POST',
+                        data:{type_project:type_project,_token:_token}
+                    })
+                }
+            });
+            
+            $('#genre_project').change(function(){
+                if($(this).val()!=""){
+                    var type_project=$(this).val();
+                    var _token=$('input[name="_token"]').val();
+                    $.ajax({
+                        url:"{{route('insertproject')}}",
+                        method:'POST',
+                        data:{genre_project:genre_project,_token:_token}
+                    })
+                }
+            });
+
+            $('#category_project').change(function(){
+                if($(this).val()!=""){
+                    var type_project=$(this).val();
+                    var _token=$('input[name="_token"]').val();
+                    $.ajax({
+                        url:"{{route('insertproject')}}",
+                        method:'POST',
+                        data:{category_project:category_project,_token:_token}
+                    })
+                }
+            });
+        </script>
 
         <!-- <script>
             if ($message = Session::get('success')) {
@@ -417,5 +452,7 @@
         <script src="js/plugins/pace.min.js"></script>
         <!-- Page specific javascripts-->
         <script type="text/javascript" src="js/plugins/chart.js"></script>
+        
 </body>
+        
 </html>

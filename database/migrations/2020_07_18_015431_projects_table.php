@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddprojectTable extends Migration
+class ProjectsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,22 @@ class AddprojectTable extends Migration
      */
     public function up()
     {
-        Schema::create('project', function (Blueprint $table) {
+        Schema::create('projects', function (Blueprint $table) {
             $table->id('project_id');
+            $table->bigInteger('user_id')->unsigned();
             $table->string('project_name');
             $table->string('keyword_project');
             $table->string('des_project');
             $table->string('facebook');
             $table->string('email');
             $table->string('phone');
-            $table->string('type_project');
-            $table->string('genre_project');
-            $table->string('category_project');
-            $table->string('branch_project');
+            $table->bigInteger('type_id');
+            $table->bigInteger('genre_id');
+            $table->bigInteger('category_id');
+            $table->bigInteger('branch_id');
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users');
+            
         });
     }
 
@@ -36,6 +39,6 @@ class AddprojectTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('project');
+        Schema::dropIfExists('projects');
     }
 }

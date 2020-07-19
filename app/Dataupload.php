@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class Dataupload extends Model
 {
     //
-    protected $table = 'img_upload';
+    protected $table = 'users';
 }

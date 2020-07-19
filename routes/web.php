@@ -65,8 +65,11 @@ Route::get('Detailproject', function () {
     return view('project.detailproject');
 });
 
-Route::view('addproject', 'project.addproject');
-Route::post('adddataproject', 'ListdataController@addproject');
+Route::get('addproject', 'ProjectController@viewadd');
+Route::post('insertproject', 'ProjectController@insertproject')->name('insertproject');
+Route::post('editproject', 'ProjectController@editproject');
+Route::get('showdataproject', 'ProjectController@showproject');
+Route::get('projectview', 'ProjectController@project');
 // Route::post('adddataproject', 'ListdataController@addfileproject');
 // Route::post('adddataproject', 'ListdataController@addproject')->name('addproject');
 // Route::get('process', 'inputprojectController@addproject') ;
@@ -109,8 +112,12 @@ Route::post('loginMDD', function () {
     return view('session.session-loginMDD');
 });
 
+// Route::post('insertproject', function () {
+//     return view('insertproject');
+// });
+
 Route::post('logout', function () {
-    return view('logout');
+    return view('session.logout');
 });
 
 // Route::get('login', 'logintestController@index');

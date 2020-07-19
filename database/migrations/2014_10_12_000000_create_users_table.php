@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('username');
             $table->string('password');
             $table->string('confirm_password');
+            $table->integer('project_id');
             $table->rememberToken();
             $table->timestamps();
         });

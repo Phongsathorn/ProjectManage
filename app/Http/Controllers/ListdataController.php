@@ -59,6 +59,8 @@ class ListdataController extends Controller
     function addproject(Request $request) {
 
         //ดึงข้อมูลจาก textbox เข้า
+        
+        // echo $userid;
         $dataproject = new Dataproject;
         $dataproject->project_name=$request->project_name;
         $dataproject->keyword_project=$request->keyword_project;
@@ -70,6 +72,10 @@ class ListdataController extends Controller
         $dataproject->genre_project=$request->genre_project;
         $dataproject->category_project=$request->category_project;
         $dataproject->branch_project=$request->branch_project;
+        session_start();
+        $userid = $_SESSION['usersid'];
+        $dataproject->users_id=$userid;
+       
         $dataproject->save();
 
         // $this->validate($request,

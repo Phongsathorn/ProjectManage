@@ -40,13 +40,13 @@
                 <div class="form-group">
                     <label>ชื่อ-นามสุกล</label>
                     <input type="text" name="name" id="" class="form-control"  aria-describedby="emailHelp"
-                       value="<?php echo$users[0]->name; ?>" placeholder="กรอกชื่อนามสุกล">
+                       value="<?php echo $users[0]->name; ?>" placeholder="กรอกชื่อนามสุกล">
                 </div>
 
                 <div class="form-group">
                     <label>อีเมล</label>
                     <input type="email" name="email" id="" class="form-control"  aria-describedby="emailHelp"
-                        value="<?php echo$users[0]->email; ?>" placeholder="กรอกชื่อนามสุกล">
+                        value="<?php echo $users[0]->email; ?>" placeholder="กรอกชื่อนามสุกล">
                 </div>
 
                 <input type="submit" class="btn btn-primary" value="Update" />

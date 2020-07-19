@@ -639,6 +639,7 @@
                         else if(isset($_SESSION['usernameguest'])){ ?>
                             <div class="links front">
                                 <a href="addproject" class="view">สร้างผลงาน</a><br>
+                                <a href="projectview" class="view">ผลงานของฉัน</a><br>
                             </div>
                        <?php } ?>
                             
