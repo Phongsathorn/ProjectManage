@@ -14,7 +14,7 @@ class GenreProjectTable extends Migration
     public function up()
     {
         Schema::create('genre_project', function (Blueprint $table) {
-            $table->id();
+            $table->id('genre_id');
             $table->string('genre_name');
             $table->timestamps();
         });

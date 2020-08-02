@@ -1,4 +1,5 @@
 
+
 <?php 
     
     require('dbconnect.php');
@@ -7,37 +8,38 @@
     // echo $username;
     $pass_log = $_POST['password'];
 
-    if(substr($user_log,0) == "A"){
+    if($user_log == 'Adminmaster'){
+        // echo 'ok';
         $chackadmin = "SELECT * FROM admin_company WHERE admin_company_user = '$user_log' and admin_company_pass = '$pass_log'";
         $condb = mysqli_query($conn,$chackadmin);
         $dataadmin = mysqli_fetch_assoc($condb);
+        $_SESSION['adminid'] = $dataadmin['admin_company_id'];
         $_SESSION['adminauser'] = $dataadmin['admin_company_user'];
         $_SESSION['adminname'] = $dataadmin['admin_company_name'];
-        header( "refresh: 0; url=/admin" );
+        $_SESSION['adminemail'] = $dataadmin['admin_email'];
+        $_SESSION['pathimg'] = $dataadmin['pathimg'];
+        $_SESSION['status'] = $dataadmin['status'];
+        $_SESSION['successloginadmin'] = "successloginadmin";
+        
+        header('Location: /homeadmin');
         exit(0);
     }
 
     else {
         $chackuser = "SELECT * FROM users WHERE username = '$user_log' and password = '$pass_log'";
         // echo $chackuser;
-        
         $condb = mysqli_query($conn,$chackuser);
-
         $datauser = mysqli_fetch_assoc($condb);
-
         $_SESSION['usersid'] = $datauser['id'];
         $_SESSION['usernameguest'] = $datauser['username'];
         $_SESSION['nameuser'] = $datauser['name'];
         $_SESSION['emailuser'] = $datauser['email'];
-        
+        $_SESSION['pathimg'] = $datauser['pathimg'];
+        $_SESSION['status'] = $datauser['status'];
+        $_SESSION['message'] = "successlogin";
 
-        // echo $_SESSION['usernameguest'];
-        // echo $status;
-    
         header( "refresh: 0; url=/homeBD" );
         exit(0);
-
-        // echo $_SESSION['datausername'];
 
     }
     

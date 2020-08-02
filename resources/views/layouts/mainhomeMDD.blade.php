@@ -30,16 +30,21 @@
         <link href="https://fonts.googleapis.com/css2?family=Athiti:wght@400;500;600&display=swap" rel="stylesheet">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
         <script src="{{ asset('js/app.js') }}" defer></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         
         <title>ICTSTORE</title>
 
         <style>
            .user-size {
-                width: 23%;
-                margin-top: -3px;
+                width: 100px;
+                margin-top: -5px;
                 margin-right: 30px;
                 margin-left: 30px;
                 padding-bottom: -10%;
+           }
+
+           .img-user-size {
+               width: 100%;
            }
 
            .content{
@@ -102,9 +107,182 @@
                background-size: cover;
            }
 
+           .user-size {
+                margin-top: -3px;
+           }
+
+           .user-sizes {
+                width: 100px;
+                margin-top:-6px;
+                margin-left: 20px;
+           }
+
+           .content{
+                margin-top: 8px;
+           }
+
+           .search-left{
+                margin-left: 50px;
+           }
+
+           .top {
+                margin-top: 5px;
+           }
+
+           .btn-login {
+                height: 43px;
+                margin-left: -20px;
+                background-color: white;
+                border-radius: 5px;
+           }
+
+           .name-scle{
+                font-size: 16px;
+                color: #FFFFFF;
+                -ms-flex-item-align: center;
+                    align-self: center;
+                margin-top: -30px;
+                margin-left: 70px;
+                font-family: 'Athiti', sans-serif;
+                
+           }
+
+           .img-top {
+               background-image: url("img/background-body-addproject-5.jpg");
+               height: 100%; 
+               background-position: center;
+               background-repeat: no-repeat;
+               background-size: cover;
+           }
+
+           .img-down {
+               background-image: url("img/background-body-addproject-2.jpg");
+               height: 100%; 
+               background-position: center 550px;
+               background-repeat: no-repeat;
+               background-size: cover;
+           }
+
+           .span-i-user {
+                font-size: 33px; 
+                color: none; 
+                margin-left: -85px;
+                margin-top:-1.5px;
+                margin-right: -7px;
+           }
+           
+           .text-mage {
+               font-size:17px;
+               margin-left: 40px;
+               padding:3px;
+               margin-top:-35px;
+           }
+
+           .btn-outline-primaryy {
+                color: #D9A327;
+                border-color: #D9A327;
+            }
+
+            .btn-outline-primaryy:hover {
+                color: #fff;
+                background-color: #D9A327;
+                border-color: #D9A327;
+            }
+
+            .btn-outline-primaryy:focus,
+            .btn-outline-primaryy.focus {
+                box-shadow: 0 0 0 0.2rem rgba(52, 144, 220, 0.5);
+            }
+
+            .btn-outline-primaryy.disabled,
+            .btn-outline-primaryy:disabled {
+                color: #fff;
+                background-color: transparent;
+            }
+
+            .btn-outline-primaryy:not(:disabled):not(.disabled):active,
+            .btn-outline-primaryy:not(:disabled):not(.disabled).active,
+            .show > .btn-outline-primaryy.dropdown-toggle {
+                color: #fff;
+                background-color: #D9A327;
+                border-color: #fff;
+            }
+
+            .btn-outline-primaryy:not(:disabled):not(.disabled):active:focus,
+            .btn-outline-primaryy:not(:disabled):not(.disabled).active:focus,
+            .show > .btn-outline-primaryy.dropdown-toggle:focus {
+                box-shadow: 0 0 0 0.1rem #fff;
+            }
+
+            .btn-primaryyy {
+                font-size: 18px;
+                color: #fff;
+                background-color: rgb(76, 175, 80);
+                border-color: #707070;
+            }
+
+            .btn-primaryyy:hover {
+                color: #fff;
+                background-color: rgb(87, 212, 87);
+                border-color: #707070;
+            }
+
+            .user-size-size {
+                width: 100px;
+            }
+
+            .layoutname-top-BD {
+                margin-left: 50px;
+                
+            }
+
+            .layoutprovince-size-p {
+                width: 42%;
+            }
+
+            .img-profile{
+                width: 39px;
+            }
+
+            .img-user-size {
+               width: 100%;
+           }
         </style>
     </head>
     <body class="img-top">
+
+    @if(isset($_SESSION['message'])){
+        <script>
+            swal({
+                title: "ยินดีต้อนรับเข้าสู่ระบบ",
+                icon: "success",
+                button: "ตกลง",
+            });
+        </script>
+        <?php unset($_SESSION['message']); ?> 
+    }
+    @endif
+
+    @if ($message = Session::get('successupdate'))
+        <script>
+        swal({
+            title: "สร้างผลงานเรียบร้อย",
+            icon: "success",
+            button: "ตกลง",
+        });
+        </script>
+    @endif
+
+    @if ($message = Session::get('successupdate'))
+        <script>
+        swal({
+            title: "อัพเดทข้อมูลเรียบร้อย",
+            icon: "success",
+            button: "ตกลง",
+        });
+        </script>
+    @endif
+
     <!-- Modal -->
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
@@ -115,7 +293,7 @@
                     <div class="modal-body" style="margin-top:-5px;">
                         <h3><div class="card-header">{{ __('สมัครสมาชิก') }}</div></h3>
                             <div class="card-body">
-                            <form method="POST" action="register">
+                            <form method="POST" action="registers">
                                     @csrf
                                     <div class="form-group row  " style="margin-left:5px;">
                                         
@@ -296,7 +474,7 @@
             <!-- main.css-->
             <ul class="app-nav">
                 <li class="app-search search-left">
-                    <input class="app-search__input" type="search" placeholder="ค้นหาวิจัย โครงงาน วิทยานิพน">
+                    <input class="app-search__input" type="search" placeholder="ค้นหา...">
                     <button class="app-search__button"><i class="fa fa-search"></i></button>
                 </li>
                 <nav class="app-navmenu" >    
@@ -308,17 +486,17 @@
                 <div class="navbar-dark layoutaccout ">
                     <ul class="navbar-nav ml-auto ml-md-0">
                         
-                    <?php session_start(); if(!isset($_SESSION['usernameguest'])) { ?>
-                                <div class="front nav-item" style="margin-top: px;">
-                                        <a class="text-item"  id="userDropdown" href="" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><button class="btn-login btn btn-outline-primary"><i class="fas fa-user-circle span-i-user"></i><div class="text-mage">เข้าสู่ระบบ</div></button></a>
+                    <?php if(!isset($_SESSION['status'])=='user' || !isset($_SESSION['status'])=='admin') { ?>
+                                <div class="front nav-item" style="margin-top: px;font-family: 'Athiti', sans-serif;font-size: 16px;">
+                                        <a class="text-item"  id="userDropdown" href="login" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><button class="btn-login btn btn-outline-primaryy"><i class="fas fa-user-circle span-i-user"></i><div class="text-mage">เข้าสู่ระบบ</div></button></a>
                                             <div class="dropdown-menu dropdown-menu-right" style="margin-top: 13px;" aria-labelledby="userDropdown">
                                                 <ul class="navbar-nav ml-auto">
                                                     <div class="account-dropdown js-dropdown">
                                                         <div class="info clearfix">
                                                      
                                                             <h3><div class="card-header">{{ __('เข้าสู่ระบบ') }}</div></h3>
-                                                            <div class="">
-                                                                <form method="POST" action="loginMDD">
+                                                            <div class="" style="font-family: 'Athiti', sans-serif;font-size: 16px;">
+                                                                <form method="POST" action="loginBD">
                                                                     @csrf
 
                                                                     <div class="form-group row">
@@ -367,44 +545,100 @@
                                                                                     {{ __('ลืมรหัสผ่านใช่หรือไม่?') }}
                                                                                 </a>
                                                                             @endif
-                                                                            <button type="submit" class="btn btn-primary" style="width: 210px; margin-left:-70px; " >
+                                                                            <button type="submit" class="btn btn-primaryyy" style="width: 210px; margin-left:-70px; " >
                                                                                 ล็อกอิน
                                                                             </button>
 
-                                                                            <div style="margin-left:-65px; margin-top: 10px;">คุณยังไม่มีบัญชี?</div> <a type="submit" class="btn btn-link btn-layouts" style="margin-left:30px;margin-top:-47px;" href="#" data-toggle="modal" data-target="#exampleModalCenter">สร้างบัญชี</a>
+                                                                            <div style="margin-left:-30px; margin-top: 10px;">คุณยังไม่มีบัญชี?</div> 
+                                                                            <a type="submit"  id="button" class="btn btn-link btn-layouts" style="margin-left:70px;margin-top:-49px;"  href="#" data-toggle="modal" data-target="#exampleModalCenter">สร้างบัญชี</a>    
                                                                         </div>
                                                                     </div>
                                                                 </form>
                                                             </div>
-                                                            </div>
-                                                        
                                                         </div>
                                                     </div>
                                                 </ul>
                                             </div>
                                 </div>
-                            <?php }
-                            else if(isset($_SESSION['usernameguest'])){
-                                ?>
+                             <?php }
+                            
+                            else if(isset($_SESSION['status'])=='user'){
+                            ?>
+                            
                                 <li class="nav-item dropdown">
+                                
                                     <a class="nav-link " id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <img class=" col-sm-5  rounded-circle user-size" src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="User Avatar">
-                                        <div class="name-scle dropdown-toggle"><?php echo $_SESSION['nameuser'];?></div> 
+                                    @foreach($userimg as $img)
+                                        <img class="rounded-circle user-sizes img-profile" src="imgaccount/<?php echo $img->pathimg; ?>" alt="USer Atver" >
+                                        
+                                    @endforeach
+                                        <div class="name-scle dropdown-toggle "><?php echo $_SESSION['nameuser'];?></div> 
                                     </a>
+                                  
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                                        <ul class="navbar-nav ml-auto">
+                                            <div class="account-dropdown js-dropdown">
+                                                <div class="info clearfix">
+                                                    <center><div class="image">
+                                                        <a href="profile">
+                                                        @foreach($userimg as $img)
+                                                            <img src="imgaccount\<?php echo $img->pathimg; ?>" alt="" class="img-user-size user-avatar rounded-circle"/>
+                                                        @endforeach
+                                                        </a>
+
+                                                    </div></center>
+                                                    <div class="content">
+                                                        <h5 class="name">
+                                                            <span class="caret"><?php echo $_SESSION['nameuser'];?></span>
+                                                        </h5>
+                                                        <span class="email"><?php echo $_SESSION['emailuser'];?></span>
+                                                    </div>
+                                                </div>
+                                            
+                                                <a href="profile" class="top dropdown-item"><i class="zmdi zmdi-account"></i>โปรไฟล์</a>
+                                                    <a class="dropdown-item" href="logout"
+                                                    onclick="event.preventDefault();
+                                                                    document.getElementById('logout-form').submit();">
+                                                        {{ __('ออกจากระบบ') }}
+                                                    </a>
+                                                    <form id="logout-form" action="logout" method="POST" style="display: none;">
+                                                        @csrf
+                                                    </form>
+                                            </div>    
+                                        </ul>
+                                    </div> 
+                                </li>
+                            <?php }
+                            // admin
+                            else if(isset($_SESSION['adminauser'])){
+                            ?>
+                                <li class="nav-item dropdown">
+                                
+                                    <a class="nav-link " id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    @foreach($adminaccount as $img)
+                                        <img class="rounded-circle user-sizes img-profile" src="imgaccount/<?php echo $img->pathimg; ?>" alt="USer Atver" >
+                                        
+                                    @endforeach
+                                        <div class="name-scle dropdown-toggle "><?php echo $_SESSION['adminname'];?></div> 
+                                    </a>
+                                  
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                                         <ul class="navbar-nav ml-auto">
                                             <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
                                                 <center><div class="image">
                                                     <a href="profile">
-                                                        <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="" class="user-avatar rounded-circle"/>
+                                                    @foreach($adminaccount as $img)
+                                                        <img src="imgaccount\<?php echo $img->pathimg; ?>" alt="" class="img-user-size user-avatar rounded-circle"/>
+                                                    @endforeach
                                                     </a>
+
                                                 </div></center>
                                                 <div class="content">
                                                     <h5 class="name">
-                                                        <span class="caret"><?php echo $_SESSION['nameuser'];?></span>
+                                                        <span class="caret"><?php echo $_SESSION['adminname'];?></span>
                                                     </h5>
-                                                    <span class="email"><?php echo $_SESSION['emailuser'];?></span>
+                                                    <span class="email"><?php echo $_SESSION['adminemail'];?></span>
                                                 </div>
                                             </div>
                                             
@@ -416,11 +650,11 @@
                                             </a>
                                             <form id="logout-form" action="logout" method="POST" style="display: none;">
                                                 @csrf
-                                            </form>
+                                            </form>   
                                         </ul>
                                     </div>
                                 </li>
-                            <?php } ?>
+                            <?php } ?>         
                                         
                     </ul>
                 </div>
@@ -512,13 +746,19 @@
                     
                     <div class="layoutlogre">
                         <?php 
-                        if(!isset($_SESSION['usernameguest'])) {
+                        if(!isset($_SESSION['status'])=='user' || !isset($_SESSION['status'])=='admin') {
 
                         }
 
                         else if(isset($_SESSION['usernameguest'])){ ?>
                             <div class="links front">
-                                <a href="addproject" class="view">สร้างผลงาน</a><br>
+                                <a href="addprojectmdd" class="view">สร้างผลงาน</a><br>
+                                <a href="projectviewmdd" class="view">ผลงานของฉัน</a><br>
+                            </div>
+                       <?php } 
+                       else if(isset($_SESSION['status'])=='admin'){ ?>
+                            <div class="links front">
+                                <a href="homeadmin" class="view">กลับสู่หน้าผู้ดูเเลระบบบ</a><br>
                             </div>
                        <?php } ?>
                     </div>

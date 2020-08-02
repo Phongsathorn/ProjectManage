@@ -597,6 +597,7 @@ pre code {
       flex-wrap: wrap;
   margin-right: -15px;
   margin-left: -15px;
+ 
 }
 
 .no-gutters {
@@ -14703,6 +14704,7 @@ be a descendant of the grid when it is being dragged.
   background-color: #D9A327;
   z-index: 1030;
   padding-right: 15px;
+  font-family: 'Athiti', sans-serif;
 }
 
 @media (min-width: 768px) {
@@ -14723,7 +14725,7 @@ be a descendant of the grid when it is being dragged.
           flex: 1 0 auto;
   color: #fff;
   text-align: center;
-  font-family: '';
+  font-family: 'Athiti', sans-serif;
   padding: 0 15px;
   font-size: 26px;
   font-weight: 400;
@@ -14818,6 +14820,7 @@ be a descendant of the grid when it is being dragged.
       align-self: center;
   margin-right: 700px;
   padding: 10px 0;
+  font-family: 'Athiti', sans-serif;
 }
 
 
@@ -14837,7 +14840,12 @@ be a descendant of the grid when it is being dragged.
 
 @media (max-width: 480px) {
   .app-navmenu {
-    
+    float: right;
+    display: block;
+    float: none;
+    display: block;
+    text-align: left;
+   
   }
 }
 
@@ -15059,6 +15067,7 @@ be a descendant of the grid when it is being dragged.
   border-color: 1px solid #707070;
   background-color: #D9A327 ;
   opacity: 0.88;
+  font-family: 'Athiti', sans-serif;
   
   -webkit-transition: left 0.3s ease,
  width 0.3s ease;

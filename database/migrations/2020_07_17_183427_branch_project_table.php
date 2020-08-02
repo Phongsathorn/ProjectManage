@@ -14,7 +14,7 @@ class BranchProjectTable extends Migration
     public function up()
     {
         Schema::create('branch_project', function (Blueprint $table) {
-            $table->id();
+            $table->id('branch_id');
             $table->string('branch_name');
             $table->timestamps();
         });

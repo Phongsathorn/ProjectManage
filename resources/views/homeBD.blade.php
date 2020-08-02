@@ -21,11 +21,12 @@
                         <div class="carousel-inner">
                             <div class="carousel-item active">
                                 <div class="table-responsive">
+                                @foreach($item as $items)
                                     <a href="itemdetaliBD"><div class="column" ><div class="columnimg"><img src="img/fromimg.png" alt="" class="fromimg"></div></a>
-                                        <center><a href="itemdetaliBD"><div class="textimg"></div></a></center>
-                                        <center><a href="itemdetaliBD"><div class="textimg2">ประเภท</div></a></center>
+                                        <center><a href="itemdetaliBD"><div class="textimg"><?php echo $items->project_name?></div></a></center>
+                                        <center><a href="itemdetaliBD"><div class="textimg2"><?php echo $items->type_name?></div></a></center>
                                     </div>
-                                
+                                @endforeach
                                     <a href="itemdetaliBD"><div class="column1"><div class="columnimg"><img src="img/fromimg.png" alt="" class="fromimg"></div></a>
                                         <center><a href="itemdetaliBD"><div class="textimg">เรื่อง</div></a></center>
                                         <center><a href="itemdetaliBD"><div class="textimg2">ประเภท</div></a></center>

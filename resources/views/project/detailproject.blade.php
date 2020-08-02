@@ -24,6 +24,12 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet" />
     <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" crossorigin="anonymous">
+    <link href="../css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" crossorigin="anonymous">
+    <link href="../themes/explorer-fas/theme.css" media="all" rel="stylesheet" type="text/css"/>
+    <link rel="shortcut icon" href="/assets/favicon.ico">
+    <link rel="stylesheet" href="./src/main.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> 
@@ -172,12 +178,145 @@
             height: 100px;
         }
 
+        .drop-zone {
+            max-width: 200px;
+            height: 200px;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-family: "Quicksand", sans-serif;
+            font-weight: 500;
+            font-size: 20px;
+            cursor: pointer;
+            color: #cccccc;
+            border: 4px dashed #009578;
+            border-radius: 5px;
+        }
+
+        .drop-zone--over {
+            border-style: solid;
+        }
+
+        .drop-zone__input {
+            display: none;
+        }
+
+        .drop-zone__thumb {
+            width: 100%;
+            height: 100%;
+            border-radius: 5px;
+            overflow: hidden;
+            background-color: #cccccc;
+            background-size: cover;
+            position: relative;
+        }
+
+        .drop-zone__thumb::after {
+            content: attr(data-label);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 5px 0;
+            color: #ffffff;
+            background: rgba(0, 0, 0, 0.75);
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .drop-zone-img {
+            max-width: 500px;
+            height: 300px;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-family: "Quicksand", sans-serif;
+            font-weight: 500;
+            font-size: 20px;
+            cursor: pointer;
+            color: #cccccc;
+            border: 4px dashed #009578;
+            border-radius: 5px;
+        }
+
+        .drop-zone-img--over {
+            border-style: solid;
+        }
+
+        .drop-zone-img__input {
+            display: none;
+        }
+
+        .drop-zone-img__thumb {
+            width: 100%;
+            height: 100%;
+            border-radius: 5px;
+            overflow: hidden;
+            background-color: #cccccc;
+            background-size: cover;
+            position: relative;
+        }
+
+        .img-back {
+            opacity: 0.5;
+            /* width: 100%;
+            height: 100%; */
+            max-width: 500px;
+            height: 300px;
+            border-radius: 5px;
+            background-size: cover;
+            position: relative;
+        }
+
+        .img-logo {
+            opacity: 0.5;
+            /* width: 100%;
+            height: 100%; */
+            max-width: 200px;
+            height: 200px;
+            border-radius: 5px;
+            background-size: cover;
+            position: relative;
+        }
+
+        .drop-zone-img__thumb::after {
+            content: attr(data-label);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 5px 0;
+            color: #ffffff;
+            background: rgba(0, 0, 0, 0.75);
+            font-size: 14px;
+            text-align: center;
+        }
+
+
     </style>
 </head> 
 <body class="body1">
         <div class="border2">
             <div class="tile">
                 <script language="JavaScript">
+                    function showPreviewlogo(ele)
+                    {
+                            $('#showlogo').attr('src', ele.value); // for IE
+                            if (ele.files && ele.files[0]) {
+                                var reader = new FileReader();
+                                
+                                reader.onload = function (e) {
+                                    $('#showlogo').attr('src', e.target.result);
+                                }
+
+                                reader.readAsDataURL(ele.files[0]);
+                            }
+                    }
+
                     function showPreview(ele)
                     {
                             $('#showimage').attr('src', ele.value); // for IE
@@ -191,27 +330,68 @@
                                 reader.readAsDataURL(ele.files[0]);
                             }
                     }
+
+                   
                 </script>
+
+                
+
                 <center><h1><div class="containeradd textadd" >เเก้ไขรายละเอียดผลงาน</div></h1></center>
                     <form id="addprojectfrom" action="editproject" method="POST" enctype="multipart/form-data">
                     @csrf
                         <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">    
                             <center>
+                            <div class="container my-4">
                                 <label for="text" class="">โลโก้ผลงาน</label><br>
-                                <div class="col-md-4">
-                                    <img id="showimage" style="background:#9d9d9d;width:170px;height:180px;">
+                                <div class="drop-zone">
+                                @foreach($data as $datas)
+                                    <img class="img-logo" src="project\img_logo\<?php echo $datas->logo; ?>" alt=""><span class="drop-zone__prompt">Drop file here or click to upload</span>
+                                    <!-- <div class="drop-zone__thumb" data-label="myfile.txt"></div> --> 
+                                @endforeach
+                                    <input type="file" name="myFile" name="filelogo" class="drop-zone__input">
                                 </div>
-
+                                <!-- <div class="col-md-4">
+                                    <img id="showlogo" style="background:#9d9d9d;width:170px;height:180px;">
+                                </div> -->
+                                
                                 <label for="text" class="">ภาพโชว์ผลงาน</label><br>
-                                <div class="col-md-4">
-                                    <img id="showimage" style="background:#9d9d9d;width:170px;height:180px;">
+                                <div class="drop-zone-img">
+                                @foreach($data as $datas)
+                                    <span class="drop-zone__prompt">Drop file here or click to upload<img class="img-back" src="project\img_backgrund\defaultimg1.png" alt=""></span>
+                                    <!-- <div class="drop-zone__thumb" data-label="myfile.txt"></div> -->
+                                @endforeach
+                                    <input type="file" name="myFile" name="fileimg" class="drop-zone-img__input">
                                 </div>
+                                
+                                <!-- <div class="col-md-4">
+                                    <img id="showimage" style="background:#9d9d9d;width:200px;height:300px;margin-right:10px;">
+                                </div> -->
+                                    <!-- <input type="file" name="filelogo" id="fileimgToUpload" class="" OnChange="showPreviewlogo(this)"><br>
+                                    <label for="text" class="">ภาพโชว์ผลงาน</label><span class="text-muted">(.PDF)</span><br>
+                                    <input type="file" name="fileimg" id="fileimgToUpload" class="" OnChange="showPreview(this)"><br>
+                            </div> -->
+                            <!-- <div class="drop-zone">
+                                <span class="drop-zone__prompt">Drop file here or click to upload</span>
+                                <div class="drop-zone__thumb" data-label="myfile.txt"></div> -->
+                                <!-- <input type="file" name="myFile" class="drop-zone__input">
+                            </div> -->
 
-                                <label for="text" class="">ภาพ ถ้ามี</label><span class="text-muted">(.PNG)</span><br>
-                                    <input type="file" name="fileimgToUpload" id="fileimgToUpload" class="" OnChange="showPreview(this)"><br>
-
-                                <label for="text" class="">อัพโหลดไฟล์เอกสารตัวเต็ม </label><span class="text-muted">(.PDF)</span><br>
-                                        <input type="file" name="fileToUpload" id="fileToUpload">
+                                
+                                <!-- <div class="container my-4">   
+                                    <div class="form-group">
+                                    <label for="text" class="">โลโก้</label><span class="text-muted">(.PNG)</span>
+                                        <div class="file-loading">
+                                            <input id="file-4" type="file" class="file" name="filelogo"  data-theme="fas">
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="form-group">
+                                    <label for="text" class="">ภาพโชว์ผลงาน</label><br>
+                                        <div class="file-loading">
+                                            <input id="file-5" class="file" type="file" multiple data-preview-file-type="any" data-upload-url="#" data-theme="fas">
+                                        </div>
+                                    </div>
+                                </form>    -->
                             </center>
 
                             <center><label for="text" class="">เกี่ยวกับผลงาน</label><br></center>
@@ -244,7 +424,7 @@
                             <center style="margin-top:10px;margin-left:-30px;">สาขา: <select name="branch_project" class="select-tbbbbb" id="branch_project" oninput="this.className = ''">
                                         <option value="" disabled selected>เลือกสาขา</option>
                                         @foreach($chk_branch as $branch)
-                                            <option value="{{$branch->id}}">{{$branch->branch_name}}</option>
+                                            <option value="{{$branch->branch_id}}">{{$branch->branch_name}}</option>
                                         @endforeach
                                     </select><br></center>
                                     <center><label for="text" class="">ข้อมูลติดต่อ</label><br></center>
@@ -303,6 +483,16 @@
             });
         </script>
 
+        <script src="js/formimg.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="../js/plugins/piexif.js" type="text/javascript"></script>
+        <script src="../js/plugins/sortable.js" type="text/javascript"></script>
+        <script src="../js/fileinput.js" type="text/javascript"></script>
+        <script src="../js/locales/fr.js" type="text/javascript"></script>
+        <script src="../js/locales/es.js" type="text/javascript"></script>
+        <script src="../themes/fas/theme.js" type="text/javascript"></script>
+        <script src="../themes/explorer-fas/theme.js" type="text/javascript"></script>
         <script src="{{ asset('js/app.js') }}" defer></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>

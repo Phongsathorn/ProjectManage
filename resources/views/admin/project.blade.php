@@ -49,8 +49,8 @@
                                 <td>{{$data->project_name}}</td>
                                 <td>{{$data->keyword_project}}</td>
                                 <td>{{$data->des_project}}</td>
-                                <td>{{$data->type_project}}</td>
-                                <td>{{$data->user->name}}</td>
+                                <td>{{$data->type_name}}</td>
+                                <td>{{$data->name}}</td>
                                 <td>1</td>
                                 <td>1</td>
                                 

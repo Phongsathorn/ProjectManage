@@ -282,7 +282,7 @@
             
             $('#genre_project').change(function(){
                 if($(this).val()!=""){
-                    var type_project=$(this).val();
+                    var genre_project=$(this).val();
                     var _token=$('input[name="_token"]').val();
                     $.ajax({
                         url:"{{route('insertproject')}}",
@@ -294,7 +294,7 @@
 
             $('#category_project').change(function(){
                 if($(this).val()!=""){
-                    var type_project=$(this).val();
+                    var category_project=$(this).val();
                     var _token=$('input[name="_token"]').val();
                     $.ajax({
                         url:"{{route('insertproject')}}",

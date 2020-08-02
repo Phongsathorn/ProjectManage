@@ -15,7 +15,7 @@ class ProjectsTable extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id('project_id');
-            $table->bigInteger('user_id')->unsigned();
+            $table->bigInteger('user_id');
             $table->string('project_name');
             $table->string('keyword_project');
             $table->string('des_project');
@@ -27,7 +27,6 @@ class ProjectsTable extends Migration
             $table->bigInteger('category_id');
             $table->bigInteger('branch_id');
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users');
             
         });
     }

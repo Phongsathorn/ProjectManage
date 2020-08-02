@@ -13,17 +13,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('homeBD', function () {
-    return view('homeBD');
-});
+Route::get('homeBD', 'ProjectController@itemproject');
 
 Route::get('index', function () {
     return view('homeBDuser');
 });
-Route::get('homeMDD', function () {
-    return view('homeMDD');
+
+
+Route::get('test', function () {
+    return view('test');
 });
 
+
+// Route::get('homeMDD', 'ProfileMDDController@show');
+Route::get('homeMDD', 'Project_MDDController@itemproject');
+// Route::get('homeMDD', 'ProfileMDDController@show');
+
+Route::get('addprojectmdd', 'Project_MDDController@viewadd');
+Route::post('insertprojectmdd', 'Project_MDDController@insertproject')->name('insertproject');
+Route::post('editprojectmdd', 'Project_MDDController@editproject');
+Route::get('showdataprojectmdd', 'Project_MDDController@showproject');
+Route::get('projectviewmdd', 'Project_MDDController@project');
 
 // Route::get('db', 'ListdataController@addproject');
 
@@ -65,6 +75,10 @@ Route::get('Detailproject', function () {
     return view('project.detailproject');
 });
 
+Route::get('search', function () {
+    return view('search.beforesearchBD');
+});
+
 Route::get('addproject', 'ProjectController@viewadd');
 Route::post('insertproject', 'ProjectController@insertproject')->name('insertproject');
 Route::post('editproject', 'ProjectController@editproject');
@@ -79,9 +93,8 @@ Route::get('project', function () {
     return view('detailproject');
 });
 
-Route::get('admin', function () {
-    return view('homeadmin');
-});
+// Route::get('admin', 'ProjectController@itemproject');
+Route::get('homeadmin', 'profileadminController@pageadmin');
 
 
 Route::get('teststap', function () {
@@ -96,9 +109,9 @@ Route::get('teststap', function () {
 
 // Auth::routes();
 
-Route::get('register', function () {
-    return view('auth.register');
-});
+
+Route::view('register','auth.register');
+Route::post('registers','RegisterController@register');
 
 Route::get('dbconnect', function () {
     return view('dbconnect');
@@ -129,7 +142,7 @@ Route::get('home', 'HomeController@index')->name('home');
 // โชว์ข้อมูล
 Route::get('dataview', 'ListdataController@Datalist');
 Route::get('viewadmin', 'ListdataController@Datalistadmin');
-Route::get('viewproject', 'ListdataController@Datalistproject');
+Route::get('viewproject', 'ProjectdataController@showdata');
 // ลบข้อมูล
 Route::get('delete/{id}', 'ListdataController@destroy');
 Route::get('delete/{id}', 'DataadminController@destroy');
@@ -149,9 +162,12 @@ Route::post('edituseradmin/{id}', 'DataadminController@update');
 // Route::post('profile/{id}', 'ProfileController@update');
 
 
-Route::get('profile','ProfileController@edit')->name('edit');
-Route::post('profile', 'ProfileController@update')->name('update');
-Route::post('uploadimg', 'ProfileController@store')->name('store');
+// Route::view('profile','profileuser');
+Route::get('profile','ProfileController@show');
+Route::post('profileupdate', 'ProfileController@store')->name('update');
+Route::get('profileadmin','profileadminController@show');
+Route::post('profileupdateadmin', 'profileadminController@store')->name('update');
+// Route::post('uploadimg', 'ProfileController@store')->name('store');
 // Route::get('uploadimg', function () {
 //     dd(request()->all());
 // });

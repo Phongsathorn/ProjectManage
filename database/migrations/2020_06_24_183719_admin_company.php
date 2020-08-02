@@ -14,11 +14,13 @@ class AdminCompany extends Migration
     public function up()
     {
         //
-        Schema::create('admin_company', function (Blueprint $table) {
-            $table->id('admin_company_id');
-            $table->string('admin_company_user');
-            $table->string('admin_company_pass');
-            $table->string('admin_company_name');
+        Schema::create('admin', function (Blueprint $table) {
+            $table->id('admin_id');
+            $table->string('admin_user');
+            $table->string('admin_pass');
+            $table->string('admin_name');
+            $table->string('status');
+            $table->timestamps();
         });
     }
 

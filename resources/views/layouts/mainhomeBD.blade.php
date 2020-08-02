@@ -15,20 +15,14 @@
         <meta charset="utf-8">
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
         <!-- Twitter meta-->
         <!-- Open Graph Meta-->
         <meta property="og:url" content="http://pratikborsadiya.in/blog/vali-admin">
         <meta property="og:image" content="http://pratikborsadiya.in/blog/vali-admin/hero-social.png">
-        <meta property="og:description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta http-equiv=”refresh” content="0;/homeBD">
         <!-- Main CSS-->
         <link rel="stylesheet" type="text/css" href="css/main.css">
-       
-        <!-- Font-icon css-->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
              
@@ -36,9 +30,6 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <link href="css/styles.css" rel="stylesheet" />
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-        <link href="css/styles.css" rel="stylesheet" />
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-        <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <!-- import icon -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <!-- font Athiti -->
@@ -53,8 +44,9 @@
            }
 
            .user-sizes {
-                width: 30%;
-                margin-top:-5px;
+                width: 100px;
+                margin-top:-6px;
+                margin-left: 20px;
            }
 
            .content{
@@ -82,7 +74,9 @@
                 -ms-flex-item-align: center;
                     align-self: center;
                 margin-top: -30px;
-                margin-left: 90px;
+                margin-left: 70px;
+                font-family: 'Athiti', sans-serif;
+                
            }
 
            .img-top {
@@ -166,7 +160,7 @@
             }
 
             .user-size-size {
-                width: 23%;
+                width: 100px;
             }
 
             .layoutname-top-BD {
@@ -177,6 +171,16 @@
             .layoutprovince-size-p {
                 width: 42%;
             }
+
+            .img-profile{
+                width: 39px;
+            }
+
+            .img-user-size {
+               width: 100%;
+           }
+
+           
                             
         </style>
     </head>
@@ -208,11 +212,48 @@
                 });
                 </script>
             @endif
+            <!-- login pupup -->
+            @if(isset($_SESSION['message'])){
+                <script>
+                    swal({
+                        title: "ยินดีต้อนรับเข้าสู่ระบบ",
+                        icon: "success",
+                        button: "ตกลง",
+                    });
+                </script>
+                <?php unset($_SESSION['message']); ?> 
+            }
+            @endif
+            <!-- logout popup -->
 
-            @if ($message = Session::get('successhomeuser'))
+            @if (!empty($_GET['logout'])) {
+                <script>
+                    swal({
+                        title: "ออกจากระบบเรียบร้อย",
+                        icon: "success",
+                        button: "ตกลง",
+                    });
+                </script>
+                <?php unset($_GET['logout']); ?>
+            }
+            @endif
+            
+            
+
+            @if ($message = Session::get('successupdate'))
                 <script>
                 swal({
-                    title: "ยินดีต้อนรับเข้าสู่ระบบ",
+                    title: "อัพเดทข้อมูลเรียบร้อย",
+                    icon: "success",
+                    button: "ตกลง",
+                });
+                </script>
+            @endif
+
+            @if ($message = Session::get('successregister'))
+                <script>
+                swal({
+                    title: "สมัครสมาชิกเรียบร้อย",
                     icon: "success",
                     button: "ตกลง",
                 });
@@ -229,7 +270,7 @@
                     <div class="modal-body" style="margin-top:-5px;">
                         <h3><div class="card-header">{{ __('สมัครสมาชิก') }}</div></h3>
                             <div class="card-body">
-                                <form method="POST" action="register">
+                                <form method="POST" action="registers">
                                     @csrf
                                     <div class="form-group row layoutname layoutname-BD">
                                         
@@ -411,11 +452,11 @@
             <!-- main.css-->
             <ul class="app-nav">
                 <li class="app-search search-left">
-                    <input class="app-search__input" type="search" placeholder="ค้นหาวิจัย โครงงาน วิทยานิพน">
+                    <input class="app-search__input" type="search" placeholder="ค้นหา...">
                     <button class="app-search__button"><i class="fa fa-search"></i></button>
                 </li>
-                <div class="app-navbar__overlay" data-toggle="sidebar" aria-label="Hide Sidebar"></div>
-                <nav class="app-navmenu" >    
+                <!-- <div class="app-navbar__overlay" data-toggle="sidebar" aria-label="Hide Sidebar"></div> -->
+                <nav class="app-navmenu " >    
                     <li class="active1 menulink fontlink" ><a href="homeBD">หน้าเเรก</a></li>
                     <li class="active2 menulink fontlink"><a href="SearchAdvance" >ค้นหาเเบบละเอียด</a></li>
                     <li class="active3 menulink fontlink"><a href="#">เกี่ยวกับ</a></li>
@@ -425,7 +466,7 @@
                     <ul class="navbar-nav ml-auto ml-md-0">
 
                         
-                        <?php session_start(); if(!isset($_SESSION['usernameguest'])) { ?>
+                        <?php if(!isset($_SESSION['status'])=='user' || !isset($_SESSION['status'])=='admin') { ?>
                                 <div class="front nav-item" style="margin-top: px;font-family: 'Athiti', sans-serif;font-size: 16px;">
                                         <a class="text-item"  id="userDropdown" href="login" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><button class="btn-login btn btn-outline-primaryy"><i class="fas fa-user-circle span-i-user"></i><div class="text-mage">เข้าสู่ระบบ</div></button></a>
                                             <div class="dropdown-menu dropdown-menu-right" style="margin-top: 13px;" aria-labelledby="userDropdown">
@@ -501,27 +542,83 @@
                                 </div>
                              <?php }
                             
-                            else if(isset($_SESSION['usernameguest'])){
+                            else if(isset($_SESSION['status'])=='user'){
+                            ?>
+                            
+                                <li class="nav-item dropdown">
+                                
+                                    <a class="nav-link " id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    @foreach($imgaccount as $img)
+                                        <img class="rounded-circle user-sizes img-profile" src="imgaccount/<?php echo $img->pathimg; ?>" alt="USer Atver" >
+                                        
+                                    @endforeach
+                                        <div class="name-scle dropdown-toggle "><?php echo $_SESSION['nameuser'];?></div> 
+                                    </a>
+                                  
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                                        <ul class="navbar-nav ml-auto">
+                                            <div class="account-dropdown js-dropdown">
+                                                <div class="info clearfix">
+                                                    <center><div class="image">
+                                                        <a href="profile">
+                                                        @foreach($imgaccount as $img)
+                                                            <img src="imgaccount\<?php echo $img->pathimg; ?>" alt="" class="img-user-size user-avatar rounded-circle"/>
+                                                        @endforeach
+                                                        </a>
+
+                                                    </div></center>
+                                                    <div class="content">
+                                                        <h5 class="name">
+                                                            <span class="caret"><?php echo $_SESSION['nameuser'];?></span>
+                                                        </h5>
+                                                        <span class="email"><?php echo $_SESSION['emailuser'];?></span>
+                                                    </div>
+                                                </div>
+                                            
+                                                <a href="profile" class="top dropdown-item"><i class="zmdi zmdi-account"></i>โปรไฟล์</a>
+                                                    <a class="dropdown-item" href="logout"
+                                                    onclick="event.preventDefault();
+                                                                    document.getElementById('logout-form').submit();">
+                                                        {{ __('ออกจากระบบ') }}
+                                                    </a>
+                                                    <form id="logout-form" action="logout" method="POST" style="display: none;">
+                                                        @csrf
+                                                    </form>
+                                            </div>    
+                                        </ul>
+                                    </div> 
+                                </li>
+                            <?php }
+                            // admin
+                            else if(isset($_SESSION['adminauser'])){
                             ?>
                                 <li class="nav-item dropdown">
+                                
                                     <a class="nav-link " id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <img class=" col-sm-5  rounded-circle user-sizes" src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="User Avatar">
-                                        <div class="name-scle dropdown-toggle"><?php echo $_SESSION['nameuser'];?></div> 
+                                    @foreach($adminaccount as $img)
+                                        <img class="rounded-circle user-sizes img-profile" src="imgaccount/<?php echo $img->pathimg; ?>" alt="USer Atver" >
+                                        
+                                    @endforeach
+                                        <div class="name-scle dropdown-toggle "><?php echo $_SESSION['adminname'];?></div> 
                                     </a>
+                                  
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                                         <ul class="navbar-nav ml-auto">
                                             <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
                                                 <center><div class="image">
                                                     <a href="profile">
-                                                        <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="" class="user-avatar rounded-circle"/>
+                                                    @foreach($adminaccount as $img)
+                                                        <img src="imgaccount\<?php echo $img->pathimg; ?>" alt="" class="img-user-size user-avatar rounded-circle"/>
+                                                    @endforeach
                                                     </a>
+
                                                 </div></center>
                                                 <div class="content">
                                                     <h5 class="name">
-                                                        <span class="caret"><?php echo $_SESSION['nameuser'];?></span>
+                                                        <span class="caret"><?php echo $_SESSION['adminname'];?></span>
                                                     </h5>
-                                                    <span class="email"><?php echo $_SESSION['emailuser'];?></span>
+                                                    <span class="email"><?php echo $_SESSION['adminemail'];?></span>
                                                 </div>
                                             </div>
                                             
@@ -533,14 +630,11 @@
                                             </a>
                                             <form id="logout-form" action="logout" method="POST" style="display: none;">
                                                 @csrf
-                                            </form>
-                                                
-                                            
+                                            </form>   
                                         </ul>
                                     </div>
                                 </li>
-                            <?php } ?>
-                                        
+                            <?php } ?>              
                     </ul>
                 </div>
                 <a class="app-navbar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a> 
@@ -632,7 +726,7 @@
                     
                     <div class="layoutlogre">
                         <?php 
-                        if(!isset($_SESSION['usernameguest'])) {
+                        if(!isset($_SESSION['status'])=='user' || !isset($_SESSION['status'])=='admin') {
 
                         }
 
@@ -640,6 +734,11 @@
                             <div class="links front">
                                 <a href="addproject" class="view">สร้างผลงาน</a><br>
                                 <a href="projectview" class="view">ผลงานของฉัน</a><br>
+                            </div>
+                       <?php } 
+                       else if(isset($_SESSION['status'])=='admin'){ ?>
+                            <div class="links front">
+                                <a href="homeadmin" class="view">กลับสู่หน้าผู้ดูเเลระบบบ</a><br>
                             </div>
                        <?php } ?>
                             
@@ -658,25 +757,16 @@
         <script src="{{ asset('js/app.js') }}" defer></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="{{ asset('js/app.js') }}" defer></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
         <script src="js/jquery-3.3.1.min.js"></script>
-        <script src="js/popper.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/main.js"></script>
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
-        <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
         
-        
-        
-        <script src="assets/demo/datatables-demo.js"></script>
         <!-- The javascript plugin to display page loading on top-->
         <script src="js/plugins/pace.min.js"></script>
         <!-- Page specific javascripts-->

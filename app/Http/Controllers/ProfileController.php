@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\User;
+use App\Imgaccount;
 use Illuminate\Support\Facades\Auth;
+use Intervention\Image\ImageManagerStatic as Image;
 
 
 class ProfileController extends Controller
@@ -40,9 +42,43 @@ class ProfileController extends Controller
     public function store(Request $request)
     {
         //
-        // echo ("อัพโหลดเรียบร้อย...");
-        $path=$request->file('img')->store('imgupload');
-        return ['path'=>$path,'upload'=>'success'];
+        session_start();
+        $chkuser = $_SESSION['usersid'];
+        
+        if ($_SESSION['staus'] = 'user') {
+            // echo ("อัพโหลดเรียบร้อย...");
+            $this->validate($request,
+            ['img' => 'required|image|mimes:png,jpeg|max:5048']);
+        
+            //upload
+            $foder = 'imgaccount';
+            $filename = $request->file('img')->getClientOriginalName();
+            $nameimg = rand() . '.' . $filename;
+            
+            
+            // $pathimg = $request->file('img')->store('imgaccount/',$nameimg);
+            $pathimg = Image::make($request->file('img'))->fit(300, 300, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+            
+            $pathimg->save(public_path($foder. '/' .$nameimg));
+            
+            $img=$nameimg;
+            // return ['path'=>$path,'upload'=>'success'];
+            
+            $name = $request->input('name');
+            $gender = $request->input('gender');
+            $province = $request->input('province');
+            $email = $request->input('email');
+            $username = $request->input('username');
+            DB::update("UPDATE users SET name = '$name', gender ='$gender', province ='$province', email ='$email',
+            username ='$username', pathimg='$img' WHERE id='$chkuser'");
+            return redirect('profile')->with('successupdate', 'อัพเดทข้อมูลเรียบร้อย');
+        }
+        else {
+            echo 'error';
+        }
+        
     }
 
     /**
@@ -51,12 +87,18 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
-        // $users = DB::select('SELECT * FROM users WHERE id = ?',[$id]);
-        // return view('profileuser',['users'=>$users]);
+        session_start();
+        $chkidproject = $_SESSION['usersid'];
+        
+        // $imgaccount = DB::select("SELECT * FROM imgaccount,users WHERE  AND id='$chkidproject'");
+        $imgaccount = DB::select("SELECT * FROM users WHERE id='$chkidproject'");
+        $user = DB::select("SELECT * FROM users WHERE users.id and id='$chkidproject'");
+        return view('profileuser',compact('user','imgaccount'));
     }
+
+
 
     /**
      * Show the form for editing the specified resource.
@@ -66,26 +108,14 @@ class ProfileController extends Controller
      */
     public function edit()
     {
-        if (Auth::user()) {
-            $users = User::find(Auth::user()->id);
-            if ($users) {
-                return view('profileuser')->withUser($users);
-            }else{
-                return redirect()->back();
-            }
-            
-        }else{
-            return redirect()->back();
-        }
-
-        //
-        // $name = $request->input('name');
-        // $gender = $request->input('gender');
-        // $province = $request->input('province');
-        // $username = $request->input('username');
-        // $email = $request->input('email');
-        // DB::update('UPDATE users SET name=?, gender=?, province=?, username=?, email=? WHERE id = ?',[$name,$gender,$province,$username,$email,$id]);
-        // return redirect('profileuser')->with('success', 'อัพเดทข้อมูลเรียบร้อย');
+ 
+        $name = $request->input('name');
+        $gender = $request->input('gender');
+        $province = $request->input('province');
+        $username = $request->input('username');
+        $email = $request->input('email');
+        DB::update('UPDATE users SET name=?, gender=?, province=?, username=?, email=? WHERE id = ?',[$name,$gender,$province,$username,$email,$id]);
+        return redirect('profileuser')->with('successupdate', 'อัพเดทข้อมูลเรียบร้อย');
 
         
     }

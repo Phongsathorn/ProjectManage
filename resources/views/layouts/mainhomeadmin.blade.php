@@ -12,13 +12,11 @@
         <meta property="og:image" content="http://pratikborsadiya.in/blog/vali-admin/hero-social.png">
         <meta property="og:description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta http-equiv=”refresh” content="0;/admin">
+        <meta http-equiv="Loaction" content="0;url=/homeadmin">
+        
         <!-- Main CSS-->
         <link rel="stylesheet" type="text/css" href="css/main.css">
         <!-- Font-icon css-->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="css/app.css">       
         <!-- Fonts -->
@@ -27,16 +25,13 @@
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
         <script src="{{ asset('js/app.js') }}" defer></script>
-        <!-- js ของสไล์ account -->
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+
         <!-- Main CSS-->
         <link rel="stylesheet" type="text/css" href="css/main.css">
         <!-- Font-icon css-->
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/css2?family=Athiti:wght@600&display=swap" rel="stylesheet">
-        
+        <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         
         <title>ICTSTORE</title>
@@ -48,7 +43,7 @@
             }
 
             .user-size {
-                width: 30%;
+                width: 100px;
                 margin-top:-6px;
 
             }
@@ -85,7 +80,7 @@
                 font-size: 33px; 
                 color: none; 
                 margin-left: -85px;
-                margin-top:-1.5px;
+                margin-top:100px;
                 margin-right: -7px;
            }
            
@@ -96,24 +91,31 @@
                margin-top:-35px;
            }
 
+           .img-user-size {
+               width: 100%;
+           }
+
         </style>
     </head>
     <body class="app sidebar-mini">
 
-        @if ($message = Session::get('successlogintest'))
-            <script>
-            swal({
-                title: "ยินดีต้อนรับเข้าสู่ระบบ",
-                icon: "success",
-                button: "ตกลง",
-            });
-            </script>
+         <!-- login pupup -->
+        @if(isset($_SESSION['successloginadmin'])){
+                <script>
+                    swal({
+                        title: "ยินดีต้อนรับเข้าสู่ระบบ",
+                        icon: "success",
+                        button: "ตกลง",
+                    });
+                </script>
+                <?php unset($_SESSION['successloginadmin']); ?> 
+            }
         @endif
 
         <div class="app sidebar-mini " >
         <header class="app-header">
             <!-- font Athiti -->
-            <a href="homeBD" class="app-header__logo font-Athiti" >ICTSTORE</a> 
+            <a href="homeBD" class="app-header__logo" >ICTSTORE</a> 
             <!-- main.css-->
             <ul class="app-nav">
                 <li class="app-search search-left">
@@ -130,7 +132,7 @@
                 <div class="navbar-dark layoutaccout ">
                     <ul class="navbar-nav ml-auto ml-md-0">
             
-                <?php session_start(); if(!isset($_SESSION['adminauser'])) { ?>
+                <?php if(!isset($_SESSION['adminauser'])) { ?>
                         <div class="front nav-item" style="margin-top: px;font-family: 'Athiti', sans-serif;font-size: 16px;">
                                 <a class="text-item"  id="userDropdown" href="login" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><button class="btn-login btn btn-outline-primaryy"><i class="fas fa-user-circle span-i-user"></i><div class="text-mage">เข้าสู่ระบบ</div></button></a>
                                     <div class="dropdown-menu dropdown-menu-right" style="margin-top: 13px;" aria-labelledby="userDropdown">
@@ -210,7 +212,9 @@
                             ?>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link " id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <img class=" col-sm-5  rounded-circle user-size" src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="User Avatar">
+                                        @foreach($imgaccount as $img)
+                                        <img class=" col-sm-5  rounded-circle user-size" src="img_admin/<?php echo $img->pathimg; ?>" alt="User Avatar">
+                                        @endforeach
                                         <div class="name-scle dropdown-toggle"><?php echo $_SESSION['adminname'];?></div> 
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
@@ -218,19 +222,21 @@
                                             <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
                                                 <center><div class="image">
-                                                    <a href="profile">
-                                                        <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="" class="user-avatar rounded-circle"/>
+                                                    <a href="profileadmin">
+                                                    @foreach($imgaccount as $img)
+                                                        <img src="img_admin/<?php echo $img->pathimg; ?>" alt="" class="img-user-size user-avatar rounded-circle"/>
+                                                    @endforeach
                                                     </a>
                                                 </div></center>
                                                 <div class="content">
                                                     <h5 class="name">
                                                         <span class="caret"><?php echo $_SESSION['adminname'];?></span>
                                                     </h5>
-                                                    <span class="email"><?php echo $_SESSION['adminname'];?></span>
+                                                    <span class="email"><?php echo $_SESSION['adminemail'];?></span>
                                                 </div>
                                             </div>
                                             
-                                            <a href="profile" class="top dropdown-item"><i class="zmdi zmdi-account"></i>โปรไฟล์</a>
+                                            <a href="profileadmin" class="top dropdown-item"><i class="zmdi zmdi-account"></i>โปรไฟล์</a>
                                             <a class="dropdown-item" href="logout"
                                             onclick="event.preventDefault();
                                                             document.getElementById('logout-form').submit();">
@@ -258,10 +264,11 @@
                                     <div class="sb-sidenav-menu">
                                         <div class="nav">
                                             <div class="layoutlogre">
-                                                <div class="links front">
-
+                                                <a href="homeBD"><button type="button" class="btn-control btn-default btn-outline-primaryy "  style="font-size:18px;font-family: 'Athiti', sans-serif;">ปริญญาตรี</button></a> 
+                                                <a href="homeMDD"><button type="button" class="btn-control btn-default btn-outline-primaryy " style="font-size:18px;font-family: 'Athiti', sans-serif;">ปริญญาเอก โท </button></a>
+                                                <div class="links front font-Athiti">
                                                 <?php if(isset($_SESSION['adminauser'])) { ?>
-                                                    <a href="{{ url('dataview') }}" class="view">ข้อมูลรายละเอียดผู้ใช้</a><br>
+                                                    <a href="{{ url('dataview') }}" class="view ">ข้อมูลรายละเอียดผู้ใช้</a><br>
                                                     <a href="{{ url('viewadmin') }}" class="view">ข้อมูลรายละเอียดผู้ดูเเลระบบ</a><br>
                                                     <a href="{{ url('viewproject') }}" class="view">ข้อมูลรายละเอียดผลงาน</a><br>
                                                     <a href="{{ url('dataview') }}" class="view">คำขอสร้างผลงาน</a><br>

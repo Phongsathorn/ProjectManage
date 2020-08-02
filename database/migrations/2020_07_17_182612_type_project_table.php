@@ -14,7 +14,7 @@ class TypeProjectTable extends Migration
     public function up()
     {
         Schema::create('type_project', function (Blueprint $table) {
-            $table->id();
+            $table->id('type_id');
             $table->string('type_name');
             $table->timestamps();
         });
