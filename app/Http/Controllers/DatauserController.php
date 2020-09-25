@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-use DB;
+use Illuminate\Support\Facades\DB;
 
 class DatauserController extends Controller
 {
@@ -17,7 +17,7 @@ class DatauserController extends Controller
     {
         //
         $users = DB::select('SELECT * FROM users');
-        return view('editdatauser',['users'=>$users]);
+        return view('admin.editdatauser',['users'=>$users]);
     }
 
     /**
@@ -52,8 +52,8 @@ class DatauserController extends Controller
     public function show($id)
     {
         //
-        $users = DB::select('SELECT * FROM users WHERE id = ?',[$id]);
-        return view('editdatauser',['users'=>$users]);
+        $users = DB::select('SELECT * FROM users WHERE U_id = ?',[$id]);
+        return view('admin.editdatauser',['users'=>$users]);
     
     }
 
@@ -68,7 +68,7 @@ class DatauserController extends Controller
         //
         $name = $request->input('name');
         $email = $request->input('email');
-        DB::update('UPDATE users SET name = ?,email=? WHERE id = ?',[$name,$email,$id]);
+        DB::update('UPDATE users SET name = ?,email=? WHERE U_id = ?',[$name,$email,$id]);
         return redirect('dataview')->with('success', 'อัพเดทข้อมูลเรียบร้อย');
         // $userdata = User::find($id);
         // return view('editdatauser', compact('userdata', 'id'));

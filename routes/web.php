@@ -13,16 +13,28 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
 Route::get('homeBD', 'ProjectController@itemproject');
 
-Route::get('index', function () {
-    return view('homeBDuser');
+Route::view('index', 'homeBD');
+
+
+Route::get('intest', function () {
+    return view('test1');
 });
+
+Route::post('keyword_project', 'ProjectController@keyword')->name('keyword_project');
+Route::get('adddes_project', 'ProjectController@getdes_project')->name('adddes_project');
+Route::get('list_keyword', 'ProjectController@list_keyword')->name('list_keyword');
+Route::get('input_rate', 'ProjectController@test');
+Route::post('des_project', 'ProjectController@des_project')->name('des_project');
 
 
 Route::get('test', function () {
     return view('test');
 });
+
 
 
 // Route::get('homeMDD', 'ProfileMDDController@show');
@@ -35,13 +47,31 @@ Route::post('editprojectmdd', 'Project_MDDController@editproject');
 Route::get('showdataprojectmdd', 'Project_MDDController@showproject');
 Route::get('projectviewmdd', 'Project_MDDController@project');
 
+//search engine
+//Route::get('/search1', 'AutocompleteController@index');
+Route::get('/search', 'AutocompleteController@easysearch')->name('search');
+Route::get('/AVsearch', 'AutocompleteController@detailsearch')->name('AVsearch');
+Route::get('/autocomplete/fetch', 'AutocompleteController@dropdownsearch')->name('autocomplete.dropdownsearch');
+Route::get('SearchAdvance', 'AutocompleteController@detailview')->name('SearchAdvance');
+Route::get('dropdownsearch', 'AutocompleteController@dropdown')->name('dropdownsearch');
+// Route::get('search', function () {
+//     return view('beforesearchBD');
+// });
+
 // Route::get('db', 'ListdataController@addproject');
 
 Route::get('Newarrival', 'ListdataController@Newarrivaldata');
+Route::get('itemtypeBD/{type_id}', 'ProjectController@typeitem');
+Route::get('pageIot', 'ListdataController@dataIot');
 
-Route::get('Popular', function () {
-    return view('pagewedsum.pagePopular');
-});
+// page MDD
+Route::get('pursue', 'ListdataController@pursue');
+Route::post('download_m', 'Project_MDDController@downloadfile');
+
+
+// Route::get('Popular', function () {
+//     return view('pagewedsum.pagePopular');
+// });
 
 Route::get('wed', function () {
     return view('wedType.wed');
@@ -59,25 +89,23 @@ Route::get('game', function () {
     return view('wedType.game');
 });
 
-Route::get('SearchAdvance', function () {
-    return view('searchAV');
-});
 
-Route::get('itemdetaliBD', function () {
-    return view('project.itemdetaliBD');
-});
-Route::get('itemdetaliMDD', function () {
-    return view('project.itemdetaliMDD');
-});
+// page homemain
+
+    //itemclcikBD
+    Route::get('itemdetaliBD','ProjectController@index');
+    Route::get('itemdetaliBD/{project_id}','ProjectController@detailitem');
+    Route::get('itemtypeBD/{type_id}','ProjectController@typeitem');
+    //itemclcikMDD
+    Route::get('itemdetaliMDD','ProjectController@indexmdd');
+    Route::get('itemdetaliMDD/{project_m_id}','ProjectController@detailitemmdd');
+    Route::get('itemtypeMDD/{type_id}','ProjectController@detailitem');
 
 
 Route::get('Detailproject', function () {
     return view('project.detailproject');
 });
 
-Route::get('search', function () {
-    return view('search.beforesearchBD');
-});
 
 Route::get('addproject', 'ProjectController@viewadd');
 Route::post('insertproject', 'ProjectController@insertproject')->name('insertproject');
@@ -89,12 +117,15 @@ Route::get('projectview', 'ProjectController@project');
 // Route::get('process', 'inputprojectController@addproject') ;
 // Route::post('dataproject', 'ListdataController@dataproject');
 
+Route::post('download', 'ProjectController@downloadfile');
+
 Route::get('project', function () {
     return view('detailproject');
 });
 
 // Route::get('admin', 'ProjectController@itemproject');
-Route::get('homeadmin', 'profileadminController@pageadmin');
+// Route::get('homeadmin', 'profileadminController@pageadmin');
+Route::get('homeadmin', 'AdminController@datadetil');
 
 
 Route::get('teststap', function () {
@@ -142,41 +173,14 @@ Route::get('home', 'HomeController@index')->name('home');
 // โชว์ข้อมูล
 Route::get('dataview', 'ListdataController@Datalist');
 Route::get('viewadmin', 'ListdataController@Datalistadmin');
-Route::get('viewproject', 'ProjectdataController@showdata');
+Route::get('viewproject', 'ProjectController@showdata');
+Route::get('viewprojectmdd', 'ProjectController@showdatamdd');
 // ลบข้อมูล
 Route::get('delete/{id}', 'ListdataController@destroy');
 Route::get('delete/{id}', 'DataadminController@destroy');
 Route::get('delete/{id}', 'ListdataController@deleteproject');
 
 // Route::get('edit/{id}', 'DatauserController@edit');
-Route::get('edit','DatauserController@index');
-Route::get('edit/{id}','DatauserController@show');
-Route::post('edit/{id}', 'DatauserController@edit');
-
-Route::get('edituseradmin','DataadminController@index');
-Route::get('edituseradmin/{id}','DataadminController@show');
-Route::post('edituseradmin/{id}', 'DataadminController@update');
-
-// Route::get('profile','ProfileController@index');
-// Route::get('profile/{id}','ProfileController@show');
-// Route::post('profile/{id}', 'ProfileController@update');
-
-
-// Route::view('profile','profileuser');
-Route::get('profile','ProfileController@show');
-Route::post('profileupdate', 'ProfileController@store')->name('update');
-Route::get('profileadmin','profileadminController@show');
-Route::post('profileupdateadmin', 'profileadminController@store')->name('update');
-// Route::post('uploadimg', 'ProfileController@store')->name('store');
-// Route::get('uploadimg', function () {
-//     dd(request()->all());
-// });
-
-
-// Route::get('homeBD', 'ListdataController@Data');
-
-// Route::view('edit', 'editdatauser');
-
 
 
 // Route::get('update/{id}', 'DatauserController@update');
@@ -184,14 +188,54 @@ Route::post('profileupdateadmin', 'profileadminController@store')->name('update'
 Route::view('adduser', 'createdatauser');
 Route::post('adddata', 'ListdataController@adduser');
 
-// Route::post('adduser', 'ListdataController@adduser');
+// USER..
 
-// Route::view('adduser', 'createdatauser');
+    // โปรไฟล์ผู้ใช้ทั่วไป
+    Route::get('profile','ProfileController@show');
+    Route::post('profileupdate', 'ProfileController@store')->name('update');
+    
+    
 
-// Route::resource('adduser', 'DatauserController');
+// ADMIN...
 
-// Route::view('form', 'edittest');
-// Route::get('update', 'updatedatauserController@update');
+    // โปรไฟล์ผู้ดูเเลระบบ
+    Route::get('profileadmin','profileadminController@show');
+    Route::post('profileupdateadmin', 'profileadminController@store')->name('update');
 
+    // อัพเดทโปรเจคป.ตรี
+    Route::post('editprojectbd', 'ProjectController@editprojectbd')->name('editprojectbd');
+    Route::post('editprojectbd_ad', 'ProjectController@editprojectbd_ad')->name('editprojectbd_ad');
+    Route::get('projectviewbd/{project_id}', 'ProjectController@projectbd');
+    Route::get('projectviewbd_A/{project_id}', 'ProjectController@projectbd_A');
 
-// Route::get('update/{id}', 'ListdataController@update');
+    //การตรวจสอบ admin ก่อนออกสู่ระบบ
+    Route::get('confirm_p/{project_id}', 'AdminController@confirmproject');
+
+    // อัพเดทโปรเจคป.โท/ป.เอก
+    Route::post('editprojectmdd', 'Project_MDDController@editprojectadmin');
+    Route::get('projectviewmdd/{project_id}', 'Project_MDDController@projectmdd');
+    
+
+    // เเก้ไขข้อมูลผู้ใช้ทั่วไป
+    Route::get('edit','DatauserController@index');
+    Route::get('edit/{id}','DatauserController@show');
+    Route::post('edit/{id}', 'DatauserController@edit');
+
+    // เเก้ไขข้อมูลผู้ดูเเลระบบ
+    Route::get('edituseradmin','DataadminController@index');
+    Route::get('edituseradmin/{admin_company_id}','DataadminController@show');
+    Route::post('edituseradmin/{admin_company_id}', 'DataadminController@update');
+
+    //เพิ่มข้อมูลprojectBD
+    Route::get('addBD','AdminController@viewaddbd');
+    Route::post('insertBD','AdminController@insertprojectBD_Ad')->name('insertBD');
+
+    //เพิ่มข้อมูลprojectMDD
+    Route::get('addMDD','AdminController@viewaddmdd');
+    Route::post('insertMDD','AdminController@insertprojectMDD_Ad')->name('insertMDD');
+
+    //ลบข้อมูล โปรเจคป.ตรี
+    Route::get('delete_p_bd/{project_id}','AdminController@delete_project');
+
+    //ลบข้อมูล โปรเจคป.โท
+    Route::get('delete_p_mdd/{project_m_id}','AdminController@delete_projectmdd');
