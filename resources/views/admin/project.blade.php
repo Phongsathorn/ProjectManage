@@ -1,9 +1,9 @@
 @extends('layouts.mainhomeadmin')
 @section('content')
         <main class="app-content">
-            <div class="app-title">
+            <div class="app-title" style="width: 100%;margin-left:1px;">
                 <div>
-                    <h1><i class="fa fa-th-list"></i>รายละเอียดผลงาน</h1>
+                    <h1><i class="fa fa-th-list"></i> รายละเอียดผลงาน</h1>
                 </div>
                 <ul class="app-breadcrumb breadcrumb side">
                     <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
@@ -42,14 +42,15 @@
             </script>
         @endif
         
-        <h2>ผลงงานปริญญาตรี</h2>
+        
             <div class="row">
+            
                 <div class="col-md-12">
                     <div class="tile">
+                    <h2>ผลงงานปริญญาตรี</h2>
                         <div class="tile-body">
                             <div class="table-responsive">
-
-                                <table class="table table-hover table-bordered" id="sampleTable">
+                                <table id="example" class="table table-bordered" cellspacing="0" width="100%">
                                     <thead>
                                         <tr>
                                             <th>ลำดับที่</th>
@@ -60,7 +61,7 @@
                                             <th>เจ้าของ</th>
                                             <th>ผู้สร้าง</th>
                                             <th>โลโก้</th>
-                                            <th>วันเดือนปี</th>
+                                            <th>ปีที่จัดทำเอกสาร</th>
                                             <th>จัดการ</th>
                                         </tr>
                                     </thead>
@@ -71,13 +72,13 @@
                                             <tr>
                                                 <td>{{$loop->iteration}}</td>
                                                 <td>{{$data->project_name}}</td>
-                                                <td>{{$data->keyword_project}}</td>
+                                                <td>{{$data->keyword_project1}} {{$data->keyword_project2}} {{$data->keyword_project3}} {{$data->keyword_project4}}</td>
                                                 <td>{{$data->des_project}}</td>
                                                 <td>{{$data->type_name}}</td>
                                                 <td>{{$data->name}}</td>
                                                 <td>{{$data->status}}</td>
                                                 <td><img src="project/img_logo/{{$data->logo}}" alt="" width="100" height="100"></td>
-                                                <td>1</td>
+                                                <td>{{$data->year}}</td>
                                                 
                                                 
                                                 <td>
@@ -95,15 +96,15 @@
                     </div>
                 </div>
             </div>
-            <div align="right"><a href="addBD" class="btn btn-success">เพิ่มข้อมูล</a></div>
-            <h2>ผลงงานปริญญาตรี(ผู้ดูเเลระบบ)</h2>
+            
+            <div align="right" style="margin:0 0 5px 0;"><a href="addBD" class="btn btn-success">เพิ่มข้อมูล</a></div>
             <div class="row">
                 <div class="col-md-12">
                     <div class="tile">
+                    <h2>ผลงงานปริญญาตรี(ผู้ดูเเลระบบ)</h2>
                         <div class="tile-body">
                             <div class="table-responsive">
-
-                                <table class="table table-hover table-bordered" id="sampleTable">
+                                <table id="example2" class="table table-bordered" cellspacing="0" width="100%">
                                     <thead>
                                         <tr>
                                             <th>ลำดับที่</th>
@@ -114,7 +115,7 @@
                                             <th>เจ้าของ</th>
                                             <th>ผู้สร้าง</th>
                                             <th>โลโก้</th>
-                                            <th>วันเดือนปี</th>
+                                            <th>ปีที่จัดทำเอกสาร</th>
                                             <th>จัดการ</th>
                                         </tr>
                                     </thead>
@@ -125,13 +126,13 @@
                                             <tr>
                                                 <td>{{$loop->iteration}}</td>
                                                 <td>{{$data->project_name}}</td>
-                                                <td>{{$data->keyword_project}}</td>
+                                                <td>{{$data->keyword_project1}} {{$data->keyword_project2}} {{$data->keyword_project3}} {{$data->keyword_project4}}</td>
                                                 <td>{{$data->des_project}}</td>
                                                 <td>{{$data->type_name}}</td>
                                                 <td>{{$data->owner_name}}</td>
                                                 <td>{{$data->status}}</td>
                                                 <td><img src="project/img_logo/{{$data->logo}}" alt="" width="100" height="100"></td>
-                                                <td>1</td>
+                                                <td>{{$data->year}}</td>
                                                 
                                                 
                                                 <td>

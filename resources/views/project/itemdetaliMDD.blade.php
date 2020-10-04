@@ -29,7 +29,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
         
-        <title>ICTSTORE</title>
+        <title>ICTThesis</title>
 
         <style>
            .user-size {
@@ -255,7 +255,7 @@
                             <form action="{{action ('Project_MDDController@downloadfile')}}" method="POST">
                                 @csrf
                                 @foreach($item as $datas)
-                                <input type="text" name="project_id" id="project_id" value="<?php echo $datas->project_m_id; ?>">
+                                <input type="text" name="project_id" id="project_id" style="display: none;" value="<?php echo $datas->project_m_id; ?>">
                                 @endforeach
                                 @foreach($itemadmin as $datas)
                                 <input type="text" name="project_id" id="project_id" value="<?php echo $datas->project_m_id; ?>">
@@ -459,7 +459,7 @@
     <div class="app sidebar-mini " >
         <header class="app-header">
             <!-- font Athiti -->
-            <a href="{{action('Project_MDDController@itemproject')}}" class="app-header__logo font-Athiti" >ICTSTORE</a> 
+            <a href="{{action('Project_MDDController@itemproject')}}" class="app-header__logo font-Athiti" >ICTThesis</a> 
             <!-- main.css-->
             <ul class="app-nav">
                 <li class="app-search search-left">
@@ -473,7 +473,7 @@
                     <li class="active3 menulink fontlink"><a href="#">เกี่ยวกับ</a></li>
                     <li class="active4 menulink fontlink"><a href="#">ติดต่อ</a></li>
                 </nav>
-                <div class="navbar-dark layoutaccout ">
+                <div class="navbar-dark layoutaccout-MDD ">
                     <ul class="navbar-nav ml-auto ml-md-0">
 
                         
@@ -752,7 +752,11 @@
                                     </table>
                                     
                                     <div class="a-top-layout">
-                                        <p>ดาวน์โหลดไฟล์ข้อมูล<a href="" class="a-layout" data-toggle="modal" data-target="#exampleModalLong">คลิก</a></p>
+                                        @if(!isset($_SESSION['status'])=='user')
+                                            <p>ดาวน์โหลดไฟล์ข้อมูล<a href="" class="a-layout">คลิก</a></p>
+                                        @elseif(isset($_SESSION['status'])=='user')
+                                            <p>ดาวน์โหลดไฟล์ข้อมูล<a href="" class="a-layout" data-toggle="modal" data-target="#exampleModalLong">คลิก</a></p>
+                                        @endif
                                     </div>
                                 </div>
                                 @endforeach  

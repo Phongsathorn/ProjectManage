@@ -342,7 +342,7 @@
                                         <div class="form-group">
                                             <label for="text" class="text-left fontdetail control-label" style="margin-top:-20px;">ชื่อเรื่อง(EH):<span style="color: red;font-size: 20;">*</span></label>
                                             <div class="col-sm-11">
-                                                <input type="text" class="form-control" ame="project_name" id="project_name_en" oninput="this.className = ''" placeholder="ชื่อโครงงานภาษาอังกฤษ">
+                                                <input type="text" class="form-control" name="project_name" id="project_name_en" oninput="this.className = ''" placeholder="ชื่อโครงงานภาษาอังกฤษ">
                                             </div>
                                         </div>
                                     </div>
@@ -352,7 +352,7 @@
                                         <div class="form-group ">
                                             <label for="text" class="text-left fontdetail" style="margin-top:-20px;">ชนิดเอกสาร:<span style="color: red;font-size: 20;">*</span></label>
                                             <div class="col-sm-9">
-                                                <select name="type_project" class="form-control " id="type_project" oninput="this.className = ''">
+                                                <select name="type_project" class="form-control " id="type_project" oninput="this.className = ''" disabled>
                                                     <option value="" disabled selected>เลือกชนิดเอกสาร</option>
                                                     @foreach($chk_type as $type)
                                                     <option value="{{$type->type_id}}">{{$type->type_name}}</option>
@@ -362,9 +362,9 @@
                                         </div>
 
                                         <div class="form-group ">
-                                            <label for="text" class="text-left fontdetail" style="margin-top:-20px;">ชนิดเอกสาร:<span style="color: red;font-size: 20;">*</span></label>
+                                            <label for="text" class="text-left fontdetail" style="margin-top:-20px;">ประเภทเอกสาร:<span style="color: red;font-size: 20;">*</span></label>
                                             <div class="col-sm-9">
-                                                <select name="genre_project" class="form-control" id="genre_project" oninput="this.className = ''">
+                                                <select name="genre_project" class="form-control" id="genre_project" oninput="this.className = ''" disabled>
                                                     <option value="" disabled selected>เลือกประเภท</option>
                                                     @foreach($chk_genre as $genre)
                                                     <option value="{{$genre->genre_id}}">{{$genre->genre_name}}</option>
@@ -373,10 +373,10 @@
                                             </div>
                                         </div>
                                         <div class="form-group ">
-                                            <label for="text" class="text-left fontdetail" style="margin-top:-20px;">ชนิดเอกสาร:<span style="color: red;font-size: 20;">*</span></label>
+                                            <label for="text" class="text-left fontdetail" style="margin-top:-20px;">หมวดหมู่เอกสาร:<span style="color: red;font-size: 20;">*</span></label>
                                             <div class="col-sm-9">
-                                                <select name="category_project" class="form-control" id="category_project" oninput="this.className = ''">
-                                                    <option value="" disabled selected>เลือกหมวดหมู่</option>
+                                                <select name="category_project" class="form-control" id="category_project" oninput="this.className = ''" disabled>
+                                                    <option value="" disabled selected>เลือกหมวดหมู่า</option>
                                                     @foreach($chk_category as $category)
                                                     <option value="{{$category->category_id}}">{{$category->category_name}}</option>
                                                     @endforeach
@@ -398,78 +398,8 @@
                                                 <div class="col-sm-11">
                                                     <textarea type="text" class="form-control" name="des_project" id="des_project" rows="7" oninput="this.className = ''" data-toggle="tooltip" data-placement="top" title="ใส่บทคัทย่อ หลังจากนั้นกดปุ่มค้นหาคำสำคัญ" ></textarea>
                                                 </div><br>
-                                                <center><button type="button" class="Sse_des" id="des_p" onclick="UpdateStatus()" >ค้นหาคำสำคัญ</button></center>
+                                                <center><button type="button" class="Sse_des" id="des_p" onClick="UpdateStatus()" >ค้นหาคำสำคัญ</button></center>
                                             </div>
-
-                                            <script type="text/javascript">
-                                                function UpdateStatus(){
-                                                    var var1= document.getElementById("des_project").value;
-                                                    
-                                                    $.ajax({
-                                                            method:"GET",
-                                                            url:"{{route('adddes_project')}}",    
-                                                            data:{data1:var1},
-                                                            success:function(responsedata){
-                                                                // $('#keyword_project_1').html(responsedata);
-                                                            }
-                                                        })
-                                                }
-                                                    
-                                            </script>
-                                            <script type="text/javascript">
-                                                $("#des_p").bind("click", function() {
-                                                    var des = document.getElementById("des_project").value;
-                                                    
-                                                    $.ajax({
-                                                            method:"GET",
-                                                            url:"{{route('list_keyword')}}",    
-                                                            data:{key1:des},
-                                                            success:function(response){
-                                                                $('#listkey1').html(response);
-                                                                
-                                                            }
-                                                        })
-                                                });
-                                                $("#des_p").bind("click", function() {
-                                                    var des = document.getElementById("des_project").value;
-                                                    
-                                                    $.ajax({
-                                                            method:"GET",
-                                                            url:"{{route('list_keyword')}}",    
-                                                            data:{key2:des},
-                                                            success:function(response){
-                                                                $('#listkey2').html(response);
-                                                                
-                                                            }
-                                                        })
-                                                });
-                                                $("#des_p").bind("click", function() {
-                                                    var des = document.getElementById("des_project").value;
-                                                    
-                                                    $.ajax({
-                                                            method:"GET",
-                                                            url:"{{route('list_keyword')}}",    
-                                                            data:{key3:des},
-                                                            success:function(response){
-                                                                $('#listkey3').html(response);
-                                                                
-                                                            }
-                                                        })
-                                                });
-                                                $("#des_p").bind("click", function() {
-                                                    var des = document.getElementById("des_project").value;
-                                                    
-                                                    $.ajax({
-                                                            method:"GET",
-                                                            url:"{{route('list_keyword')}}",    
-                                                            data:{key4:des},
-                                                            success:function(response){
-                                                                $('#listkey4').html(response);
-                                                                
-                                                            }
-                                                        })
-                                                });
-                                            </script>
 
                                         </div>
                                         <div class="align-self-start " style="margin-left:120px;">
@@ -477,7 +407,7 @@
                                                 <label for="text" class="text-left fontdetail" style="margin-top:-20px;">คำสำคัญ1:</label>
                                                 @if(!isset($_SESSION['keyid1']))
                                                 <div class="col-sm-8" id="listkey1">
-                                                    <input type="text" class="hol" name="keyword_project_1" id="keyword_project_1" disabled>
+                                                    <input type="text" class="hol" name="keyword_project_1" id="keyword_project_1" >
                                                 </div>
                                                 @elseif(isset($_SESSION['keyid1']))
                                                 <div class="col-sm-8" id="listkey1">
@@ -496,56 +426,45 @@
                                                 <label for="text" class="text-left fontdetail" style="margin-top:-20px;">คำสำคัญ2:</label>
                                                 @if(!isset($_SESSION['keyid2']))
                                                 <div class="col-sm-8" id="listkey2">
-                                                    <input type="text" class="hol" name="keyword_project_2" id="keyword_project_2" disabled>
+                                                    <input type="text" class="hol" name="keyword_project_2" id="keyword_project_2" >
                                                 </div>
                                                 @elseif(isset($_SESSION['keyid2']))
-                                                <div class="col-sm-8" id="listkey2">
-                                                    
-                                                </div>
-                                                @endif
-                                                
                                                 <div class="col-md-5" style="position: relative;margin-top: -2px;margin-left: 125px;">
                                                     <div class="list-group2" id="show-list2">
 
                                                     </div>
                                                 </div>
+                                                @endif
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="text" class="text-left fontdetail" style="margin-top:-20px;">คำสำคัญ3:</label>
                                                 @if(!isset($_SESSION['keyid3']))
                                                 <div class="col-sm-8" id="listkey3">
-                                                    <input type="text" class="hol" name="keyword_project_3" id="keyword_project_3" disabled>
+                                                    <input type="text" class="" name="keyword_project_3" id="keyword_project_3" >
                                                 </div>
-                                                @elseif(isset($_SESSION['keyid3']))
-                                                <div class="col-sm-8" id="listkey3">
-                                                    
-                                                </div>
-                                                @endif
-                                                
+                                                @elseif(isset($_SESSION['keyid4']))
                                                 <div class="col-md-5" style="position: relative;margin-top: -2px;margin-left: 125px;">
                                                     <div class="list-group3" id="show-list3">
 
                                                     </div>
                                                 </div>
+                                                @endif
                                             </div>
                                             
                                             <div class="form-group">
                                                 <label for="text" class="text-left fontdetail" style="margin-top:-20px;">คำสำคัญ4:</label>
-                                                @if(!isset($_SESSION['keyid4']))
+                                                @if(!isset($_SESSION['keyid3']))
                                                 <div class="col-sm-8" id="listkey4">
-                                                    <input type="text" class="hol" name="keyword_project_4" id="keyword_project_4" disabled>
+                                                    <input type="text" class="" name="keyword_project_4" id="keyword_project_4" >
                                                 </div>
                                                 @elseif(isset($_SESSION['keyid4']))
-                                                <div class="col-sm-8" id="listkey4">
-                                                    
-                                                </div>
-                                                @endif
                                                 <div class="col-md-5" style="position: relative;margin-top: -2px;margin-left: 125px;">
                                                     <div class="list-group4" id="show-list4">
 
                                                     </div>
                                                 </div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -554,15 +473,27 @@
                         </div>
 
                             <div class="tab">
-                                <center><label for="text" class="" style="margin-top: -5px;">ขั้นตอนที่ 3</label><br></center>
-                                <center>
-                                    <label for="text" class="">อัปโหลดไฟล์เอกสาร<span style="color: red;font-size: 20;">*</span></label><br>
-                                    <p class="danger">เลือกไฟล์ต้องเป็น .pdf เท่านั้น</p>
-                                    <input type="file" class="" name="fileproject" id="file_project" accept=".pdf" required>      
-                                    <div class="invalid-feedback">
-                                        กรุณาเลือกไฟล์
+                                <center><label for="text" class="" style="margin-top: -5px;">ขั้นตูดอนที่ 3</label><br></center>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col">
+                                            <center><label for="text" class="">อัปโหลดไฟล์เอกสาร<span style="color: red;font-size: 20;">*</span></label><br></center>
+                                            <center><p class="danger">เลือกไฟล์ต้องเป็น .pdf เท่านั้น</p></center>
+                                            <input type="file" class="" name="fileproject" id="file_project" accept=".pdf" required>      
+                                            <div class="invalid-feedback">
+                                                กรุณาเลือกไฟล์
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <center><label for="text" class="">อัปโหลดไฟล์เอกสารตรวจสอบเอกสาร<span style="color: red;font-size: 20;">*</span></label><br></center>
+                                            <center><p class="danger_d">**กรุณาตรวจสอบเอกสารผ่านเว็บไซต์นี้<a href="https://www.prepostseo.com/plagiarism-checker" target="_blank">คลิก</a>เเละทำการดาวน์โหลดไฟล์เอกสารเพื่อนำมาอัปโหลด**</p></center>
+                                            <input type="file" class="" name="fileproject_chk" id="file_project_chk" required>      
+                                            <div class="invalid-feedback">
+                                                กรุณาเลือกไฟล์
+                                            </div>
+                                        </div>
                                     </div>
-                                </center>
+                                </div>
 
                             </div>
 
@@ -590,6 +521,109 @@
     </script>
 
 
+    <script type="text/javascript">
+            function UpdateStatus(){
+                var var1= document.getElementById("des_project").value;
+                
+                $.ajax({
+                        method:"GET",
+                        url:"{{route('adddes_project')}}",    
+                        data:{'data1':var1},
+                        success:function(responsedata){
+                            // $('#keyword_project_1').html(responsedata);
+                        }
+                    })
+            }
+                
+        </script>
+
+    <script type="text/javascript">
+        $("#des_p").bind("click", function() {
+            var des = document.getElementById("des_project").value;
+            $.ajax({
+                    method:"GET",
+                    url:"{{route('list_keyword')}}",    
+                    data:{key1:des},
+                    success:function(response){
+                        $('#listkey1').html(response);
+                        
+                    }
+                })
+        });
+
+        $("#des_p").bind("click", function() {
+            var des = document.getElementById("des_project").value;
+            $.ajax({
+                    method:"GET",
+                    url:"{{route('list_keyword')}}",    
+                    data:{key2:des},
+                    success:function(response){
+                        $('#listkey2').html(response);
+                        
+                    }
+                })
+        });
+
+        $("#des_p").bind("click", function() {
+            var des = document.getElementById("des_project").value;
+            $.ajax({
+                    method:"GET",
+                    url:"{{route('list_keyword')}}",    
+                    data:{key3:des},
+                    success:function(response){
+                        $('#listkey3').html(response);
+                        
+                    }
+                })
+        });
+
+        $("#des_p").bind("click", function() {
+            var des = document.getElementById("des_project").value;
+            $.ajax({
+                    method:"GET",
+                    url:"{{route('list_keyword')}}",    
+                    data:{key4:des},
+                    success:function(response){
+                        $('#listkey4').html(response);
+                        
+                    }
+                })
+        });
+    </script>
+
+
+    <script>
+        $(document).ready(function() {
+            $('#project_name_en').keyup(function() {
+                var data= document.getElementById("project_name_en").value;
+                if(data!=''){
+                    document.getElementById("type_project").disabled = false;
+                    // document.getElementById("type_project").disabled = true;
+                }else{
+                    document.getElementById("type_project").disabled = true;
+                }
+            })
+            $('#type_project').change(function() {
+                var data= document.getElementById("type_project").value;
+                if(data!=''){
+                    document.getElementById("genre_project").disabled = false;
+                    // document.getElementById("type_project").disabled = true;
+                }else{
+                    document.getElementById("genre_project").disabled = true;
+                }
+            })
+            $('#genre_project').change(function() {
+                var data= document.getElementById("genre_project").value;
+                if(data!=''){
+                    document.getElementById("category_project").disabled = false;
+                    // document.getElementById("type_project").disabled = true;
+                }else{
+                    document.getElementById("category_project").disabled = true;
+                }
+            })
+        });
+    </script>
+        
     <!-- <script type="text/javascript">
         function UpdateStatus(){  
             //make an ajax call and get status value using the same 'id'
@@ -785,7 +819,6 @@
             //... and run a function that will display the correct step indicator:
             fixStepIndicator(n)
         }
-
         function nextPrev(n) {
             // This function will figure out which tab to display
             // นำค่าที่ได้จาก class tab มาเก็บไว้ที่ตัวเเปร x
@@ -795,7 +828,6 @@
             //เช็คข้อมูลว่ามีใน textbox หรือไม่ ไปเช็คที่ฟังก์ชัน validateForm เเละ retrun false ไป 
             if (n == 1 && !validateForm()) return false;
             // Hide the current tab:
-
             x[currentTab].style.display = "none";
             // Increase or decrease the current tab by 1:
             currentTab = currentTab + n;
@@ -808,8 +840,6 @@
             // Otherwise, display the correct tab:
             showTab(currentTab);
         }
-
-
         function uploadPrev(n) {
             // This function will figure out which tab to display
             // นำค่าที่ได้จาก class tab มาเก็บไว้ที่ตัวเเปร x
@@ -818,7 +848,6 @@
             //เช็คข้อมูลว่ามีใน textbox หรือไม่ ไปเช็คที่ฟังก์ชัน validateForm เเละ retrun false ไป 
             if (n == 1 && !validateForm()) return false;
             // Hide the current tab:
-
             x[currentTab].style.display = "none";
             // Increase or decrease the current tab by 1:
             currentTab = currentTab + n;
@@ -831,7 +860,6 @@
             // Otherwise, display the correct tab:
             showTabupload(currentTab);
         }
-
         function validateForm() {
             // This function deals with validation of the form fields
             var x, y, i, z, valid = true;
@@ -952,7 +980,6 @@
                     })
                 }
             }
-
             
             // If the valid status is true, mark the step as finished and valid:
             if (valid) {
@@ -960,7 +987,6 @@
             }
             return valid; // return the valid status
         }
-
         function fixStepIndicator(n) {
             // This function removes the "active" class of all steps...
             var i, x = document.getElementsByClassName("step");

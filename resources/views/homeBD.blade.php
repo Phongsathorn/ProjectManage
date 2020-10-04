@@ -37,6 +37,9 @@
                                                                                         create_str($count,$str,$items)  
                                                                                     ?></div></a></center>
                                                                                     <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
+                                                                                    <center>
+                                                                                        <?php create_star($svgrate4); ?>
+                                                                                    </center>
                                                                                 </div>
                                                                             @endforeach
                                                                     @endforeach
@@ -51,6 +54,9 @@
                                                                                         create_str($count,$str,$items)  
                                                                                     ?></div></a></center>
                                                                                     <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
+                                                                                    <center>
+                                                                                        <?php create_star($svgrate5); ?>
+                                                                                    </center>
                                                                                 </div>
                                                                             @endforeach
                                                                     @endforeach
@@ -65,6 +71,9 @@
                                                                                         create_str($count,$str,$items)  
                                                                                     ?></div></a></center>
                                                                                     <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
+                                                                                    <center>
+                                                                                        <?php create_star($svgrate6); ?>
+                                                                                    </center>
                                                                                 </div>
                                                                             @endforeach
                                                                     @endforeach
@@ -79,6 +88,9 @@
                                                                                         create_str($count,$str,$items)  
                                                                                     ?></div></a></center>
                                                                                     <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
+                                                                                    <center>
+                                                                                        <?php create_star($svgrate7); ?>
+                                                                                    </center>
                                                                                 </div>
                                                                             @endforeach
                                                                     @endforeach
@@ -89,10 +101,14 @@
                                                                                     <center><a href="itemdetaliBD/{{$items->project_id}}"><div class="textimg">
                                                                                     <?php 
                                                                                         $str = $items->project_name;
-                                                                                        $count = utf8_strlen("$str");
+                                                                                        $count = utf8_strlen($str);
+                                                                                        // echo $count;
                                                                                         create_str($count,$str,$items)  
                                                                                     ?></div></a></center>
                                                                                     <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
+                                                                                    <center>
+                                                                                        <?php create_star($svgrate3); ?>
+                                                                                    </center>
                                                                                 </div>
                                                                             @endforeach
                                                                             @foreach($itemlp4 as $items)
@@ -102,10 +118,13 @@
                                                                                             <center><a href="itemdetaliBD/{{$items->project_id}}"><div class="textimg">
                                                                                             <?php 
                                                                                                 $str = $items->project_name;
-                                                                                                $count = utf8_strlen("$str");
+                                                                                                $count = utf8_strlen($str);
                                                                                                 create_str($count,$str,$items);  
                                                                                             ?></div></a></center>
                                                                                             <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
+                                                                                            <center>
+                                                                                                <?php create_star($svgrate4); ?>
+                                                                                            </center>
                                                                                         </div>
                                                                                     @endforeach
                                                                             @endforeach
@@ -120,6 +139,9 @@
                                                                                                 create_str($count,$str,$items);  
                                                                                             ?></div></a></center>
                                                                                             <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
+                                                                                            <center>
+                                                                                                <?php create_star($svgrate5); ?>
+                                                                                            </center>
                                                                                         </div>
                                                                                     @endforeach
                                                                             @endforeach
@@ -134,6 +156,9 @@
                                                                                                 create_str($count,$str,$items);  
                                                                                             ?></div></a></center>
                                                                                             <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
+                                                                                            <center>
+                                                                                                <?php create_star($svgrate6); ?>
+                                                                                            </center>
                                                                                         </div>
                                                                                     @endforeach
                                                                             @endforeach
@@ -147,6 +172,9 @@
                                                                                         create_str($count,$str,$items)  
                                                                                     ?></div></a></center>
                                                                                     <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
+                                                                                    <center>
+                                                                                        <?php create_star($svgrate2); ?>
+                                                                                    </center>
                                                                                 </div>
                                                                             @endforeach
                                                                             @foreach($itemlp3 as $items)
@@ -158,6 +186,9 @@
                                                                                         create_str($count,$str,$items)  
                                                                                     ?></div></a></center>
                                                                                     <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
+                                                                                    <center>
+                                                                                        <?php create_star($svgrate3); ?>
+                                                                                    </center>
                                                                                 </div>
                                                                             @endforeach
                                                                             @foreach($itemlp4 as $items)
@@ -171,6 +202,9 @@
                                                                                                 create_str($count,$str,$items);  
                                                                                             ?></div></a></center>
                                                                                             <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
+                                                                                            <center>
+                                                                                                <?php create_star($svgrate4); ?>
+                                                                                            </center>
                                                                                         </div>
                                                                                     @endforeach
                                                                             @endforeach
@@ -185,6 +219,9 @@
                                                                                                 create_str($count,$str,$items);  
                                                                                             ?></div></a></center>
                                                                                             <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
+                                                                                            <center>
+                                                                                                <?php create_star($svgrate5); ?>
+                                                                                            </center>
                                                                                         </div>
                                                                                     @endforeach
                                                                             @endforeach
@@ -199,6 +236,9 @@
                                                                                         create_str($count,$str,$items)  
                                                                                     ?></div></a></center>
                                                                                     <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
+                                                                                    <center>
+                                                                                        <?php create_star($svgrate1); ?>
+                                                                                    </center>
                                                                                 </div>
                                                                             @endforeach
                                                                             @foreach($itemlp2 as $items)
@@ -210,6 +250,9 @@
                                                                                         create_str($count,$str,$items)
                                                                                     ?></div></a></center>
                                                                                     <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
+                                                                                    <center>
+                                                                                        <?php create_star($svgrate2); ?>
+                                                                                    </center>
                                                                                 </div>
                                                                             @endforeach
                                                                             @foreach($itemlp3 as $items)
@@ -221,6 +264,9 @@
                                                                                         create_str($count,$str,$items)
                                                                                     ?></div></a></center>
                                                                                     <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
+                                                                                    <center>
+                                                                                        <?php create_star($svgrate3); ?>
+                                                                                    </center>
                                                                                 </div>
                                                                             @endforeach
                                                                             @foreach($itemlp4 as $items)
@@ -234,6 +280,9 @@
                                                                                                 create_str($count,$str,$items);  
                                                                                             ?></div></a></center>
                                                                                             <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
+                                                                                            <center>
+                                                                                                <?php create_star($svgrate4); ?>
+                                                                                            </center>
                                                                                         </div>
                                                                                     @endforeach
                                                                             @endforeach
@@ -244,46 +293,13 @@
                                                                                     <center><a href="itemdetaliBD/{{$items->project_id}}"><div class="textimg">
                                                                                     <?php 
                                                                                         $str = $items->project_name;
-                                                                                        $count = utf8_strlen("$str");
+                                                                                        $count = utf8_strlen($str);
                                                                                         create_str($count,$str,$items)
                                                                                     ?></div></a></center>
                                                                                     <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
-                                                                                   <center>
-                                                                                    @if(isset($svgrate0)?$svgrate0:'')
-                                                                                        @if($svgrate0 < 2 & $svgrate0 > 0)
-                                                                                       <div class="rating">
-                                                                                       <span style="font-size: 48px; color:#D9A327;">
-                                                                                            <i class="fas fa-star " ></i>
-                                                                                       </span>
-                                                                                       <?php check_rating(floor($svgrate0)); ?> @if(isset($svgrate0)?$svgrate0:'')<span class="">(<?php echo round($svgrate0,$precision=2); ?>)</span>@endif
-                                                                                        </div>
-                                                                                        @elseif($svgrate0 >= 2 & $svgrate0 < 3)
-                                                                                        <div class="rating">
-                                                                                            <?php check_rating(floor($svgrate0)); ?> @if(isset($svgrate0)?$svgrate0:'')<span class="">(<?php echo round($svgrate0,$precision=2); ?>)</span>@endif
-                                                                                        </div>
-                                                                                        @elseif($svgrate0 >= 3 & $svgrate0 < 4)
-                                                                                        <div class="rating">
-                                                                                        <?php check_rating(floor($svgrate0)); ?> @if(isset($svgrate0)?$svgrate0:'')<span class="">(<?php echo round($svgrate0,$precision=2); ?>)</span>@endif
-                                                                                        </div>
-                                                                                        @elseif($svgrate0 >= 4 & $svgrate0 < 5)
-                                                                                        <div class="rating">
-                                                                                        <?php check_rating(floor($svgrate0)); ?> @if(isset($svgrate0)?$svgrate0:'')<span class="">(<?php echo round($svgrate0,$precision=2); ?>)</span>@endif
-                                                                                        </div>
-                                                                                        @elseif($svgrate0 >= 5)
-                                                                                        <div class="rating">
-                                                                                        <?php check_rating(floor($svgrate0)); ?> @if(isset($svgrate0)?$svgrate0:'')<span class="">(<?php echo round($svgrate0,$precision=2); ?>)</span>@endif
-                                                                                        </div>
-                                                                                        @else
-                                                                                        <div class="rating">
-                                                                                        <?php check_rating(floor($svgrate0)); ?> @if(isset($svgrate0)?$svgrate0:'')<span class="">(<?php echo round($svgrate0,$precision=2); ?>)</span>@endif
-                                                                                        </div>
-                                                                                        @endif
-                                                                                    @else
-                                                                                        <div class="rating">
-                                                                                        <?php check_rating(floor(0)); ?> <span class="">(0)</span>
-                                                                                        </div>
-                                                                                    @endif
-                                                                                   </center>
+                                                                                    <center>
+                                                                                        <?php create_star($svgrate0); ?>
+                                                                                    </center>
                                                                                 </div>
                                                                             @endforeach
                                                                             @foreach($itemlp1 as $items)
@@ -291,43 +307,13 @@
                                                                                     <center><a href="itemdetaliBD/{{$items->project_id}}"><div class="textimg">
                                                                                     <?php 
                                                                                         $str = $items->project_name;
-                                                                                        $count = utf8_strlen("$str");
+                                                                                        $count = utf8_strlen($str);
                                                                                         create_str($count,$str,$items)
                                                                                     ?></div></a></center>
                                                                                     <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
                                                                                     <center>
-                                                                                    @if(isset($svgrate1)?$svgrate1:'')
-                                                                                        @if($svgrate1 < 2 & $svgrate1 > 0)
-                                                                                       <div class="rating">
-                                                                                       <?php check_rating(floor($svgrate1)); ?> @if(isset($svgrate1)?$svgrate1:'')<span class="">(<?php echo round($svgrate1,$precision=2); ?>)</span>@endif
-                                                                                        </div>
-                                                                                        @elseif($svgrate1 >= 2 & $svgrate1 < 3)
-                                                                                        <div class="rating">
-                                                                                        <?php check_rating(floor($svgrate1)); ?> @if(isset($svgrate1)?$svgrate1:'')<span class="">(<?php echo round($svgrate1,$precision=2); ?>)</span>@endif
-                                                                                        </div>
-                                                                                        @elseif($svgrate1 >= 3 & $svgrate1 < 4)
-                                                                                        <div class="rating">
-                                                                                        <?php check_rating(floor($svgrate1)); ?> @if(isset($svgrate1)?$svgrate0:'')<span class="">(<?php echo round($svgrate1,$precision=2); ?>)</span>@endif
-                                                                                        </div>
-                                                                                        @elseif($svgrate1 >= 4 & $svgrate1 < 5)
-                                                                                        <div class="rating">
-                                                                                        <?php check_rating(floor($svgrate1)); ?> @if(isset($svgrate0)?$svgrate1:'')<span class="">(<?php echo round($svgrate1,$precision=2); ?>)</span>@endif
-                                                                                        </div>
-                                                                                        @elseif($svgrate1 >= 5)
-                                                                                        <div class="rating">
-                                                                                        <?php check_rating(floor($svgrate1)); ?> @if(isset($svgrate1)?$svgrate1:'')<span class="">(<?php echo round($svgrate1,$precision=2); ?>)</span>@endif
-                                                                                        </div>
-                                                                                        @else
-                                                                                        <div class="rating">
-                                                                                        <?php check_rating(floor($svgrate1)); ?> @if(isset($svgrate0)?$svgrate1:'')<span class="">(<?php echo round($svgrate1,$precision=2); ?>)</span>@endif
-                                                                                        </div>
-                                                                                        @endif
-                                                                                    @else
-                                                                                        <div class="rating">
-                                                                                        <?php check_rating(floor(0)); ?> <span class="">(0)</span>
-                                                                                        </div>
-                                                                                    @endif
-                                                                                   </center>
+                                                                                        <?php create_star($svgrate1); ?>
+                                                                                    </center>
                                                                                 </div>
                                                                             @endforeach
                                                                             @foreach($itemlp2 as $items)
@@ -335,43 +321,13 @@
                                                                                     <center><a href="itemdetaliBD/{{$items->project_id}}"><div class="textimg">
                                                                                     <?php 
                                                                                         $str = $items->project_name;
-                                                                                        $count = utf8_strlen("$str");
+                                                                                        $count = utf8_strlen($str);
                                                                                         create_str($count,$str,$items)
                                                                                     ?></div></a></center>
                                                                                     <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
                                                                                     <center>
-                                                                                    @if(isset($svgrate2)?$svgrate2:'')
-                                                                                        @if($svgrate2 < 2 & $svgrate2 > 0)
-                                                                                       <div class="rating">
-                                                                                       <?php check_rating(floor($svgrate2)); ?>@if(isset($svgrate2)?$svgrate2:'')<span class="">(<?php echo round($svgrate2,$precision=2); ?>)</span>@endif
-                                                                                        </div>
-                                                                                        @elseif($svgrate2 >= 2 & $svgrate2 < 3)
-                                                                                        <div class="rating">
-                                                                                        <?php check_rating(floor($svgrate2)); ?> @if(isset($svgrate2)?$svgrate2:'')<span class="">(<?php echo round($svgrate2,$precision=2); ?>)</span>@endif
-                                                                                        </div>
-                                                                                        @elseif($svgrate2 >= 3 & $svgrate2 < 4)
-                                                                                        <div class="rating">
-                                                                                        <?php check_rating(floor($svgrate2)); ?> @if(isset($svgrate2)?$svgrate0:'')<span class="">(<?php echo round($svgrate2,$precision=2); ?>)</span>@endif
-                                                                                        </div>
-                                                                                        @elseif($svgrate2 >= 4 & $svgrate2 < 5)
-                                                                                        <div class="rating">
-                                                                                        <?php check_rating(floor($svgrate2)); ?> @if(isset($svgrate0)?$svgrate2:'')<span class="">(<?php echo round($svgrate2,$precision=2); ?>)</span>@endif
-                                                                                        </div>
-                                                                                        @elseif($svgrate2 >= 5)
-                                                                                        <div class="rating">
-                                                                                        <?php check_rating(floor($svgrate2)); ?> @if(isset($svgrate2)?$svgrate2:'')<span class="">(<?php echo round($svgrate2,$precision=2); ?>)</span>@endif
-                                                                                        </div>
-                                                                                        @else
-                                                                                        <div class="rating">
-                                                                                        <?php check_rating(floor($svgrate2)); ?>@if(isset($svgrate2)?$svgrate2:'')<span class="">(<?php echo round($svgrate2,$precision=2); ?>)</span>@endif
-                                                                                        </div>
-                                                                                        @endif
-                                                                                    @else
-                                                                                        <div class="rating">
-                                                                                        <?php check_rating(floor(0)); ?> <span class="">(0)</span>
-                                                                                        </div>
-                                                                                    @endif
-                                                                                   </center>
+                                                                                        <?php create_star($svgrate2); ?>
+                                                                                    </center>
                                                                                 </div>
                                                                             @endforeach
                                                                             @foreach($itemlp3 as $items)
@@ -379,43 +335,13 @@
                                                                                     <center><a href="itemdetaliBD/{{$items->project_id}}"><div class="textimg">
                                                                                     <?php 
                                                                                         $str = $items->project_name;
-                                                                                        $count = utf8_strlen("$str");
+                                                                                        $count = utf8_strlen($str);
                                                                                         create_str($count,$str,$items)
                                                                                     ?></div></a></center>
                                                                                     <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
                                                                                     <center>
-                                                                                    @if(isset($svgrate3)?$svgrate3:'')
-                                                                                        @if($svgrate3 < 2 & $svgrate3 > 0)
-                                                                                       <div class="rating">
-                                                                                       <?php check_rating(floor($svgrate3)); ?> @if(isset($svgrate3)?$svgrate3:'')<span class="">(<?php echo round($svgrate3,$precision=2); ?>)</span>@endif
-                                                                                        </div>
-                                                                                        @elseif($svgrate3 >= 2 & $svgrate3 < 3)
-                                                                                        <div class="rating">
-                                                                                        <?php check_rating(floor($svgrate3)); ?> @if(isset($svgrate3)?$svgrate3:'')<span class="">(<?php echo round($svgrate3,$precision=2); ?>)</span>@endif
-                                                                                        </div>
-                                                                                        @elseif($svgrate3 >= 3 & $svgrate3 < 4)
-                                                                                        <div class="rating">
-                                                                                        <?php check_rating(floor($svgrate3)); ?> @if(isset($svgrate3)?$svgrate0:'')<span class="">(<?php echo round($svgrate3,$precision=2); ?>)</span>@endif
-                                                                                        </div>
-                                                                                        @elseif($svgrate3 >= 4 & $svgrate3 < 5)
-                                                                                        <div class="rating">
-                                                                                            <?php check_rating(floor($svgrate3)); ?>@if(isset($svgrate3)?$svgrate3:'')<span class="">(<?php echo round($svgrate3,$precision=2); ?>)</span>@endif
-                                                                                        </div>
-                                                                                        @elseif($svgrate3 >= 5)
-                                                                                        <div class="rating">
-                                                                                        <?php check_rating(floor($svgrate3)); ?> @if(isset($svgrate3)?$svgrate3:'')<span class="">(<?php echo round($svgrate3,$precision=2); ?>)</span>@endif
-                                                                                        </div>
-                                                                                        @else
-                                                                                        <div class="rating">
-                                                                                        <?php check_rating(floor($svgrate3)); ?> @if(isset($svgrate3)?$svgrate3:'')<span class="">(<?php echo round($svgrate3,$precision=2); ?>)</span>@endif
-                                                                                        </div>
-                                                                                        @endif
-                                                                                    @else
-                                                                                        <div class="rating">
-                                                                                        <?php check_rating(floor(0)); ?> <span class="">(0)</span>
-                                                                                        </div>
-                                                                                    @endif
-                                                                                   </center>
+                                                                                        <?php create_star($svgrate3); ?>
+                                                                                    </center>
                                                                                 </div>
                                                                             @endforeach
                                                                         @elseif($status_p0=='1' & $status_p1=='0' & $status_p2=='0' & $status_p3=='1')
@@ -424,10 +350,13 @@
                                                                                     <center><a href="itemdetaliBD/{{$items->project_id}}"><div class="textimg">
                                                                                     <?php 
                                                                                         $str = $items->project_name;
-                                                                                        $count = utf8_strlen("$str");
+                                                                                        $count = utf8_strlen($str);
                                                                                         create_str($count,$str,$items)
                                                                                     ?></div></a></center>
                                                                                     <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
+                                                                                    <center>
+                                                                                        <?php create_star($svgrate0); ?>
+                                                                                    </center>
                                                                                 </div>
                                                                             @endforeach
                                                                             @foreach($itemlp3 as $items)
@@ -435,10 +364,13 @@
                                                                                     <center><a href="itemdetaliBD/{{$items->project_id}}"><div class="textimg">
                                                                                     <?php 
                                                                                         $str = $items->project_name;
-                                                                                        $count = utf8_strlen("$str");
+                                                                                        $count = utf8_strlen($str);
                                                                                         create_str($count,$str,$items)
                                                                                     ?></div></a></center>
                                                                                     <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
+                                                                                    <center>
+                                                                                        <?php create_star($svgrate3); ?>
+                                                                                    </center>
                                                                                 </div>
                                                                             @endforeach
                                                                             @foreach($itemlp4 as $items)
@@ -448,10 +380,13 @@
                                                                                             <center><a href="itemdetaliBD/{{$items->project_id}}"><div class="textimg">
                                                                                             <?php 
                                                                                                 $str = $items->project_name;
-                                                                                                $count = utf8_strlen("$str");
+                                                                                                $count = utf8_strlen($str);
                                                                                                 create_str($count,$str,$items);  
                                                                                             ?></div></a></center>
                                                                                             <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
+                                                                                            <center>
+                                                                                                <?php create_star($svgrate4); ?>
+                                                                                            </center>
                                                                                         </div>
                                                                                     @endforeach
                                                                             @endforeach
@@ -462,7 +397,7 @@
                                                                                         <center><a href="itemdetaliBD/{{$items->project_id}}"><div class="textimg">
                                                                                         <?php 
                                                                                             $str = $items->project_name;
-                                                                                            $count = utf8_strlen("$str");
+                                                                                            $count = utf8_strlen($str);
                                                                                             create_str($count,$str,$items);  
                                                                                         ?></div></a></center>
                                                                                         <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
@@ -476,10 +411,13 @@
                                                                                     <center><a href="itemdetaliBD/{{$items->project_id}}"><div class="textimg">
                                                                                     <?php 
                                                                                         $str = $items->project_name;
-                                                                                        $count = utf8_strlen("$str");
+                                                                                        $count = utf8_strlen($str);
                                                                                         create_str($count,$str,$items)
                                                                                     ?></div></a></center>
                                                                                     <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
+                                                                                    <center>
+                                                                                        <?php create_star($svgrate4); ?>
+                                                                                    </center>
                                                                                 </div>
                                                                             @endforeach
                                                                             @foreach($itemlp1 as $items)
@@ -487,10 +425,13 @@
                                                                                     <center><a href="itemdetaliBD/{{$items->project_id}}"><div class="textimg">
                                                                                     <?php 
                                                                                         $str = $items->project_name;
-                                                                                        $count = utf8_strlen("$str");
+                                                                                        $count = utf8_strlen($str);
                                                                                         create_str($count,$str,$items)
                                                                                     ?></div></a></center>
                                                                                     <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
+                                                                                    <center>
+                                                                                        <?php create_star($svgrate1); ?>
+                                                                                    </center>
                                                                                 </div>
                                                                             @endforeach
                                                                             @foreach($itemlp3 as $items)
@@ -498,10 +439,13 @@
                                                                                     <center><a href="itemdetaliBD/{{$items->project_id}}"><div class="textimg">
                                                                                     <?php 
                                                                                         $str = $items->project_name;
-                                                                                        $count = utf8_strlen("$str");
+                                                                                        $count = utf8_strlen($str);
                                                                                         create_str($count,$str,$items)
                                                                                     ?></div></a></center>
                                                                                     <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
+                                                                                    <center>
+                                                                                        <?php create_star($svgrate3); ?>
+                                                                                    </center>
                                                                                 </div>
                                                                             @endforeach
                                                                             @foreach($itemlp4 as $items)
@@ -511,10 +455,13 @@
                                                                                         <center><a href="itemdetaliBD/{{$items->project_id}}"><div class="textimg">
                                                                                         <?php 
                                                                                             $str = $items->project_name;
-                                                                                            $count = utf8_strlen("$str");
+                                                                                            $count = utf8_strlen($str);
                                                                                             create_str($count,$str,$items);  
                                                                                         ?></div></a></center>
                                                                                         <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
+                                                                                        <center>
+                                                                                            <?php create_star($svgrate4); ?>
+                                                                                        </center>
                                                                                     </div>
                                                                                     @endforeach
                                                                             @endforeach
@@ -525,10 +472,13 @@
                                                                                     <center><a href="itemdetaliBD/{{$items->project_id}}"><div class="textimg">
                                                                                     <?php 
                                                                                         $str = $items->project_name;
-                                                                                        $count = utf8_strlen("$str");
+                                                                                        $count = utf8_strlen($str);
                                                                                         create_str($count,$str,$items)
                                                                                     ?></div></a></center>
                                                                                     <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
+                                                                                    <center>
+                                                                                        <?php create_star($svgrate0); ?>
+                                                                                    </center>
                                                                                 </div>
                                                                             @endforeach
                                                                             @foreach($itemlp1 as $items)
@@ -536,10 +486,13 @@
                                                                                     <center><a href="itemdetaliBD/{{$items->project_id}}"><div class="textimg">
                                                                                     <?php 
                                                                                         $str = $items->project_name;
-                                                                                        $count = utf8_strlen("$str");
+                                                                                        $count = utf8_strlen($str);
                                                                                         create_str($count,$str,$items)  
                                                                                     ?></div></a></center>
                                                                                     <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
+                                                                                    <center>
+                                                                                        <?php create_star($svgrate1); ?>
+                                                                                    </center>
                                                                                 </div>
                                                                             @endforeach
                                                                             @foreach($itemlp2 as $items)
@@ -547,10 +500,13 @@
                                                                                     <center><a href="itemdetaliBD/{{$items->project_id}}"><div class="textimg">
                                                                                     <?php 
                                                                                         $str = $items->project_name;
-                                                                                        $count = utf8_strlen("$str");
+                                                                                        $count = utf8_strlen($str);
                                                                                         create_str($count,$str,$items)  
                                                                                     ?></div></a></center>
                                                                                     <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
+                                                                                    <center>
+                                                                                        <?php create_star($svgrate2); ?>
+                                                                                    </center>
                                                                                 </div>
                                                                             @endforeach
                                                                             @foreach($itemlp4 as $items)
@@ -560,10 +516,13 @@
                                                                                             <center><a href="itemdetaliBD/{{$items->project_id}}"><div class="textimg">
                                                                                             <?php 
                                                                                                 $str = $items->project_name;
-                                                                                                $count = utf8_strlen("$str");
+                                                                                                $count = utf8_strlen($str);
                                                                                                 create_str($count,$str,$items);  
                                                                                             ?></div></a></center>
                                                                                             <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
+                                                                                            <center>
+                                                                                                <?php create_star($svgrate4); ?>
+                                                                                            </center>
                                                                                         </div>
                                                                                     @endforeach
                                                                             @endforeach
@@ -574,10 +533,13 @@
                                                                                     <center><a href="itemdetaliBD/{{$items->project_id}}"><div class="textimg">
                                                                                     <?php 
                                                                                         $str = $items->project_name;
-                                                                                        $count = utf8_strlen("$str");
+                                                                                        $count = utf8_strlen($str);
                                                                                         create_str($count,$str,$items)  
                                                                                     ?></div></a></center>
                                                                                     <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
+                                                                                    <center>
+                                                                                        <?php create_star($svgrate0); ?>
+                                                                                    </center>
                                                                                 </div>
                                                                             @endforeach
                                                                             @foreach($itemlp4 as $items)
@@ -587,10 +549,13 @@
                                                                                             <center><a href="itemdetaliBD/{{$items->project_id}}"><div class="textimg">
                                                                                             <?php 
                                                                                                 $str = $items->project_name;
-                                                                                                $count = utf8_strlen("$str");
+                                                                                                $count = utf8_strlen($str);
                                                                                                 create_str($count,$str,$items);  
                                                                                             ?></div></a></center>
                                                                                             <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
+                                                                                            <center>
+                                                                                                <?php create_star($svgrate4); ?>
+                                                                                            </center>
                                                                                         </div>
                                                                                     @endforeach
                                                                             @endforeach
@@ -601,10 +566,13 @@
                                                                                             <center><a href="itemdetaliBD/{{$items->project_id}}"><div class="textimg">
                                                                                             <?php 
                                                                                                 $str = $items->project_name;
-                                                                                                $count = utf8_strlen("$str");
+                                                                                                $count = utf8_strlen($str);
                                                                                                 create_str($count,$str,$items);  
                                                                                             ?></div></a></center>
                                                                                             <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
+                                                                                            <center>
+                                                                                                <?php create_star($svgrate5); ?>
+                                                                                            </center>
                                                                                         </div>
                                                                                     @endforeach
                                                                             @endforeach
@@ -615,26 +583,30 @@
                                                                                             <center><a href="itemdetaliBD/{{$items->project_id}}"><div class="textimg">
                                                                                             <?php 
                                                                                                 $str = $items->project_name;
-                                                                                                $count = utf8_strlen("$str");
+                                                                                                $count = utf8_strlen($str);
                                                                                                 create_str($count,$str,$items);  
                                                                                             ?></div></a></center>
                                                                                             <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
+                                                                                            <center>
+                                                                                                <?php create_star($svgrate6); ?>
+                                                                                            </center>
                                                                                         </div>
                                                                                     @endforeach
                                                                             @endforeach
-                                                                @endif
+                                                                        @endif
+                                                                @endforeach
+                                                            @endforeach
                                                         @endforeach
                                                     @endforeach
-                                                @endforeach
-                                            @endforeach
 
-                                        </div>
+                                                </div>
+                                            </div>
+                                        </div>   
                                     </div>
-                                </div>   
-                    </div>
-                </div>
-            </div>
-        </div>
+                                </div>
+                            </div>
+                        </div>
+                        
     
 
         <div class="rowcolumn">
@@ -659,42 +631,12 @@
                                                             <center><a href="itemdetaliBD/{{$items->project_id}}"><div class="textimg">
                                                             <?php 
                                                                 $str = $items->project_name;
-                                                                $count = utf8_strlen("$str");
+                                                                $count = utf8_strlen($str);
                                                                 create_str($count,$str,$items)  
                                                             ?></div></a></center>
                                                             <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
                                                             <center>
-                                                            @if(isset($avgpop0)?$avgpop0:'')
-                                                                @if($avgpop0 < 2 & $avgpop0 > 0)
-                                                                <div class="rating">
-                                                                    <?php check_rating(floor($avgpop0)); ?> @if(isset($avgpop0)?$avgpop0:'')<span class="">(<?php echo round($avgpop0,$precision=2); ?>)</span>@endif
-                                                                </div>
-                                                                @elseif($avgpop0 >= 2 & $avgpop0 < 3)
-                                                                <div class="rating">
-                                                                <?php check_rating(floor($avgpop0)); ?> @if(isset($avgpop0)?$avgpop0:'')<span class="">(<?php echo round($avgpop0,$precision=2); ?>)</span>@endif
-                                                                </div>
-                                                                @elseif($avgpop0 >= 3 & $avgpop0 < 4)
-                                                                <div class="rating">
-                                                                <?php check_rating(floor($avgpop0)); ?> @if(isset($avgpop0)?$svgrate0:'')<span class="">(<?php echo round($avgpop0,$precision=2); ?>)</span>@endif
-                                                                </div>
-                                                                @elseif($avgpop0 >= 4 & $avgpop0 < 5)
-                                                                <div class="rating">
-                                                                <?php check_rating(floor($avgpop0)); ?> @if(isset($svgrate0)?$avgpop0:'')<span class="">(<?php echo round($avgpop0,$precision=2); ?>)</span>@endif
-                                                                </div>
-                                                                @elseif($avgpop0 >= 5)
-                                                                <div class="rating">
-                                                                    <?php check_rating(floor($avgpop0)); ?> @if(isset($avgpop0)?$avgpop0:'')<span class="">(<?php echo round($avgpop0,$precision=2); ?>)</span>@endif
-                                                                </div>
-                                                                @else
-                                                                <div class="rating">
-                                                                <?php check_rating(floor($avgpop0)); ?> @if(isset($svgrate0)?$avgpop0:'')<span class="">(<?php echo round($avgpop0,$precision=2); ?>)</span>@endif
-                                                                </div>
-                                                                @endif
-                                                            @else
-                                                                <div class="rating">
-                                                                <?php check_rating(floor(0)); ?> <span class="">(0)</span>
-                                                                </div>
-                                                            @endif
+                                                                <?php create_star($avgpop0); ?>
                                                             </center>
                                                         </div>
                                                     @endforeach
@@ -703,42 +645,12 @@
                                                             <center><a href="itemdetaliBD/{{$items->project_id}}"><div class="textimg">
                                                             <?php 
                                                                 $str = $items->project_name;
-                                                                $count = utf8_strlen("$str");
+                                                                $count = utf8_strlen($str);
                                                                 create_str($count,$str,$items)  
                                                             ?></div></a></center>
                                                             <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
                                                             <center>
-                                                            @if(isset($avgpop1)?$avgpop1:'')
-                                                                @if($avgpop1 < 2 & $avgpop1 > 0)
-                                                                <div class="rating">
-                                                                <?php check_rating(floor($avgpop1)); ?> @if(isset($avgpop1)?$avgpop1:'')<span class="">(<?php echo round($avgpop1,$precision=2); ?>)</span>@endif
-                                                                </div>
-                                                                @elseif($avgpop1 >= 2 & $avgpop1 < 3)
-                                                                <div class="rating">
-                                                                <?php check_rating(floor($avgpop1)); ?> @if(isset($avgpop1)?$avgpop1:'')<span class="">(<?php echo round($avgpop1,$precision=2); ?>)</span>@endif
-                                                                </div>
-                                                                @elseif($avgpop1 >= 3 & $avgpop1 < 4)
-                                                                <div class="rating">
-                                                                <?php check_rating(floor($avgpop1)); ?> @if(isset($avgpop1)?$svgrate0:'')<span class="">(<?php echo round($avgpop1,$precision=2); ?>)</span>@endif
-                                                                </div>
-                                                                @elseif($avgpop1 >= 4 & $avgpop1 < 5)
-                                                                <div class="rating">
-                                                                <?php check_rating(floor($avgpop1)); ?> @if(isset($svgrate0)?$avgpop1:'')<span class="">(<?php echo round($avgpop1,$precision=2); ?>)</span>@endif
-                                                                </div>
-                                                                @elseif($avgpop1 >= 5)
-                                                                <div class="rating">
-                                                                <?php check_rating(floor($avgpop1)); ?> @if(isset($avgpop1)?$avgpop1:'')<span class="">(<?php echo round($avgpop1,$precision=2); ?>)</span>@endif
-                                                                </div>
-                                                                @else
-                                                                <div class="rating">
-                                                                <?php check_rating(floor($avgpop1)); ?> @if(isset($svgrate0)?$avgpop1:'')<span class="">(<?php echo round($avgpop1,$precision=2); ?>)</span>@endif
-                                                                </div>
-                                                                @endif
-                                                            @else
-                                                                <div class="rating">
-                                                                <?php check_rating(floor(0)); ?> <span class="">(0)</span>
-                                                                </div>
-                                                            @endif
+                                                                <?php create_star($avgpop1); ?>
                                                             </center>
                                                         </div>
                                                     @endforeach
@@ -747,42 +659,12 @@
                                                             <center><a href="itemdetaliBD/{{$items->project_id}}"><div class="textimg">
                                                             <?php 
                                                                 $str = $items->project_name;
-                                                                $count = utf8_strlen("$str");
+                                                                $count = utf8_strlen($str);
                                                                 create_str($count,$str,$items)  
                                                             ?></div></a></center>
                                                             <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
                                                             <center>
-                                                            @if(isset($avgpop2)?$avgpop2:'')
-                                                                @if($avgpop2 < 2 & $avgpop2 > 0)
-                                                                <div class="rating">
-                                                                <?php check_rating(floor($avgpop2)); ?> @if(isset($avgpop2)?$avgpop2:'')<span class="">(<?php echo round($avgpop2,$precision=2); ?>)</span>@endif
-                                                                </div>
-                                                                @elseif($avgpop2 >= 2 & $avgpop2 < 3)
-                                                                <div class="rating">
-                                                                <?php check_rating(floor($avgpop2)); ?> @if(isset($avgpop2)?$avgpop2:'')<span class="">(<?php echo round($avgpop2,$precision=2); ?>)</span>@endif
-                                                                </div>
-                                                                @elseif($avgpop2 >= 3 & $avgpop2 < 4)
-                                                                <div class="rating">
-                                                                <?php check_rating(floor($avgpop2)); ?> @if(isset($avgpop2)?$svgrate0:'')<span class="">(<?php echo round($avgpop2,$precision=2); ?>)</span>@endif
-                                                                </div>
-                                                                @elseif($avgpop2 >= 4 & $avgpop2 < 5)
-                                                                <div class="rating">
-                                                                <?php check_rating(floor($avgpop2)); ?> @if(isset($svgrate0)?$avgpop2:'')<span class="">(<?php echo round($avgpop2,$precision=2); ?>)</span>@endif
-                                                                </div>
-                                                                @elseif($avgpop2 >= 5)
-                                                                <div class="rating">
-                                                                <?php check_rating(floor($avgpop2)); ?> @if(isset($avgpop2)?$avgpop2:'')<span class="">(<?php echo round($avgpop2,$precision=2); ?>)</span>@endif
-                                                                </div>
-                                                                @else
-                                                                <div class="rating">
-                                                                <?php check_rating(floor($avgpop2)); ?> @if(isset($svgrate0)?$avgpop2:'')<span class="">(<?php echo round($avgpop2,$precision=2); ?>)</span>@endif
-                                                                </div>
-                                                                @endif
-                                                            @else
-                                                                <div class="rating">
-                                                                <?php check_rating(floor(0)); ?> <span class="">(0)</span>
-                                                                </div>
-                                                            @endif
+                                                                <?php create_star($avgpop2); ?>
                                                             </center>
                                                         </div>
                                                     @endforeach
@@ -791,42 +673,12 @@
                                                             <center><a href="itemdetaliBD/{{$items->project_id}}"><div class="textimg">
                                                             <?php 
                                                                 $str = $items->project_name;
-                                                                $count = utf8_strlen("$str");
+                                                                $count = utf8_strlen($str);
                                                                 create_str($count,$str,$items)  
                                                             ?></div></a></center>
                                                             <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
                                                             <center>
-                                                            @if(isset($avgpop3)?$avgpop3:'')
-                                                                @if($avgpop3 < 2 & $avgpop3 > 0)
-                                                                <div class="rating">
-                                                                <?php check_rating(floor($avgpop3)); ?> @if(isset($avgpop3)?$avgpop3:'')<span class="">(<?php echo round($avgpop3,$precision=2); ?>)</span>@endif
-                                                                </div>
-                                                                @elseif($avgpop3 >= 2 & $avgpop3 < 3)
-                                                                <div class="rating">
-                                                                <?php check_rating(floor($avgpop3)); ?> @if(isset($avgpop3)?$avgpop3:'')<span class="">(<?php echo round($avgpop3,$precision=2); ?>)</span>@endif
-                                                                </div>
-                                                                @elseif($avgpop3 >= 3 & $avgpop3 < 4)
-                                                                <div class="rating">
-                                                                <?php check_rating(floor($avgpop3)); ?> @if(isset($avgpop3)?$svgrate0:'')<span class="">(<?php echo round($avgpop3,$precision=2); ?>)</span>@endif
-                                                                </div>
-                                                                @elseif($avgpop3 >= 4 & $avgpop3 < 5)
-                                                                <div class="rating">
-                                                                <?php check_rating(floor($avgpop3)); ?> @if(isset($svgrate0)?$avgpop3:'')<span class="">(<?php echo round($avgpop3,$precision=2); ?>)</span>@endif
-                                                                </div>
-                                                                @elseif($avgpop3 >= 5)
-                                                                <div class="rating">
-                                                                <?php check_rating(floor($avgpop3)); ?> @if(isset($avgpop3)?$avgpop3:'')<span class="">(<?php echo round($avgpop3,$precision=2); ?>)</span>@endif
-                                                                </div>
-                                                                @else
-                                                                <div class="rating">
-                                                                <?php check_rating(floor($avgpop3)); ?> @if(isset($svgrate0)?$avgpop3:'')<span class="">(<?php echo round($avgpop3,$precision=2); ?>)</span>@endif
-                                                                </div>
-                                                                @endif
-                                                            @else
-                                                                <div class="rating">
-                                                                <?php check_rating(floor(0)); ?> <span class="">(0)</span>
-                                                                </div>
-                                                            @endif
+                                                                <?php create_star($avgpop3); ?>
                                                             </center>
                                                         </div>
                                                     @endforeach
@@ -871,7 +723,7 @@
                                                                                                 <center><a href="itemdetaliBD/{{$items->project_id}}"><div class="textimg">
                                                                                                 <?php 
                                                                                                     $str = $items->project_name;
-                                                                                                    $count = utf8_strlen("$str");
+                                                                                                    $count = utf8_strlen($str);
                                                                                                     create_str($count,$str,$items);
                                                                                                 ?></div></a></center>
                                                                                                 <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
@@ -892,7 +744,7 @@
                                                                                                 <center><a href="itemdetaliBD/{{$items->project_id}}"><div class="textimg">
                                                                                                 <?php 
                                                                                                     $str = $items->project_name;
-                                                                                                    $count = utf8_strlen("$str");
+                                                                                                    $count = utf8_strlen($str);
                                                                                                     create_str($count,$str,$items);
                                                                                                 ?></div></a></center>
                                                                                                 <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
@@ -913,7 +765,7 @@
                                                                                                 <center><a href="itemdetaliBD/{{$items->project_id}}"><div class="textimg">
                                                                                                 <?php 
                                                                                                     $str = $items->project_name;
-                                                                                                    $count = utf8_strlen("$str");
+                                                                                                    $count = utf8_strlen($str);
                                                                                                     create_str($count,$str,$items);
                                                                                                 ?></div></a></center>
                                                                                                 <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
@@ -934,7 +786,7 @@
                                                                                                 <center><a href="itemdetaliBD/{{$items->project_id}}"><div class="textimg">
                                                                                                 <?php 
                                                                                                     $str = $items->project_name;
-                                                                                                    $count = utf8_strlen("$str");
+                                                                                                    $count = utf8_strlen($str);
                                                                                                     create_str($count,$str,$items);
                                                                                                 ?></div></a></center>
                                                                                                 <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
@@ -955,7 +807,7 @@
                                                                                         <center><a href="itemdetaliBD/{{$items->project_id}}"><div class="textimg">
                                                                                         <?php 
                                                                                             $str = $items->project_name;
-                                                                                            $count = utf8_strlen("$str");
+                                                                                            $count = utf8_strlen($str);
                                                                                             create_str($count,$str,$items);  
                                                                                         ?></div></a></center>
                                                                                         <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
@@ -975,7 +827,7 @@
                                                                                                 <center><a href="itemdetaliBD/{{$items->project_id}}"><div class="textimg">
                                                                                                 <?php 
                                                                                                     $str = $items->project_name;
-                                                                                                    $count = utf8_strlen("$str");
+                                                                                                    $count = utf8_strlen($str);
                                                                                                     create_str($count,$str,$items);  
                                                                                                 ?></div></a></center>
                                                                                                 <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
@@ -996,7 +848,7 @@
                                                                                                 <center><a href="itemdetaliBD/{{$items->project_id}}"><div class="textimg">
                                                                                                 <?php 
                                                                                                     $str = $items->project_name;
-                                                                                                    $count = utf8_strlen("$str");
+                                                                                                    $count = utf8_strlen($str);
                                                                                                     create_str($count,$str,$items);  
                                                                                                 ?></div></a></center>
                                                                                                 <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
@@ -1017,7 +869,7 @@
                                                                                             <center><a href="itemdetaliBD/{{$items->project_id}}"><div class="textimg">
                                                                                             <?php 
                                                                                                 $str = $items->project_name;
-                                                                                                $count = utf8_strlen("$str");
+                                                                                                $count = utf8_strlen($str);
                                                                                                 create_str($count,$str,$items);  
                                                                                             ?></div></a></center>
                                                                                             <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
@@ -1037,7 +889,7 @@
                                                                                         <center><a href="itemdetaliBD/{{$items->project_id}}"><div class="textimg">
                                                                                         <?php 
                                                                                             $str = $items->project_name;
-                                                                                            $count = utf8_strlen("$str");
+                                                                                            $count = utf8_strlen($str);
                                                                                             create_str($count,$str,$items);  
                                                                                         ?></div></a></center>
                                                                                         <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
@@ -1055,7 +907,7 @@
                                                                                         <center><a href="itemdetaliBD/{{$items->project_id}}"><div class="textimg">
                                                                                         <?php 
                                                                                             $str = $items->project_name;
-                                                                                            $count = utf8_strlen("$str");
+                                                                                            $count = utf8_strlen($str);
                                                                                             create_str($count,$str,$items);  
                                                                                         ?></div></a></center>
                                                                                         <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
@@ -1075,7 +927,7 @@
                                                                                                 <center><a href="itemdetaliBD/{{$items->project_id}}"><div class="textimg">
                                                                                                 <?php 
                                                                                                     $str = $items->project_name;
-                                                                                                    $count = utf8_strlen("$str");
+                                                                                                    $count = utf8_strlen($str);
                                                                                                     create_str($count,$str,$items);  
                                                                                                 ?></div></a></center>
                                                                                                 <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
@@ -1096,7 +948,7 @@
                                                                                                 <center><a href="itemdetaliBD/{{$items->project_id}}"><div class="textimg">
                                                                                                 <?php 
                                                                                                     $str = $items->project_name;
-                                                                                                    $count = utf8_strlen("$str");
+                                                                                                    $count = utf8_strlen($str);
                                                                                                     create_str($count,$str,$items);  
                                                                                                 ?></div></a></center>
                                                                                                 <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
@@ -1116,7 +968,7 @@
                                                                                         <center><a href="itemdetaliBD/{{$items->project_id}}"><div class="textimg">
                                                                                         <?php 
                                                                                             $str = $items->project_name;
-                                                                                            $count = utf8_strlen("$str");
+                                                                                            $count = utf8_strlen($str);
                                                                                             create_str($count,$str,$items);  
                                                                                         ?></div></a></center>
                                                                                         <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
@@ -1134,7 +986,7 @@
                                                                                         <center><a href="itemdetaliBD/{{$items->project_id}}"><div class="textimg">
                                                                                         <?php 
                                                                                             $str = $items->project_name;
-                                                                                            $count = utf8_strlen("$str");
+                                                                                            $count = utf8_strlen($str);
                                                                                             create_str($count,$str,$items);  
                                                                                         ?></div></a></center>
                                                                                         <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
@@ -1193,43 +1045,13 @@
                                                                                         <center><a href="itemdetaliBD/{{$items->project_id}}"><div class="textimg">
                                                                                         <?php 
                                                                                             $str = $items->project_name;
-                                                                                            $count = utf8_strlen("$str");
+                                                                                            $count = utf8_strlen($str);
                                                                                             create_str($count,$str,$items);
                                                                                             
                                                                                         ?></div></a></center>
                                                                                         <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
                                                                                         <center>
-                                                                                            @if(isset($svgrateg0)?$svgrateg0:'')
-                                                                                                @if($svgrateg0 < 2 & $svgrateg0 > 0)
-                                                                                            <div class="rating">
-                                                                                            <?php check_rating(floor($svgrateg0)); ?> @if(isset($svgrateg0)?$svgrateg0:'')<span class="">(<?php echo round($svgrateg0,$precision=2); ?>)</span>@endif
-                                                                                                </div>
-                                                                                                @elseif($svgrateg0 >= 2 & $svgrateg0 < 3)
-                                                                                                <div class="rating">
-                                                                                                <?php check_rating(floor($svgrateg0)); ?> @if(isset($svgrateg0)?$svgrateg0:'')<span class="">(<?php echo round($svgrateg0,$precision=2); ?>)</span>@endif
-                                                                                                </div>
-                                                                                                @elseif($svgrateg0 >= 3 & $svgrateg0 < 4)
-                                                                                                <div class="rating">
-                                                                                                <?php check_rating(floor($svgrateg0)); ?> @if(isset($svgrateg0)?$svgrateg0:'')<span class="">(<?php echo round($svgrateg0,$precision=2); ?>)</span>@endif
-                                                                                                </div>
-                                                                                                @elseif($svgrateg0 >= 4 & $svgrateg0 < 5)
-                                                                                                <div class="rating">
-                                                                                                <?php check_rating(floor($svgrateg0)); ?> @if(isset($svgrateg0)?$svgrateg0:'')<span class="">(<?php echo round($svgrateg0,$precision=2); ?>)</span>@endif
-                                                                                                </div>
-                                                                                                @elseif($svgrateg0 >= 5)
-                                                                                                <div class="rating">
-                                                                                                <?php check_rating(floor($svgrateg0)); ?> @if(isset($svgrateg0)?$svgrateg0:'')<span class="">(<?php echo round($svgrateg0,$precision=2); ?>)</span>@endif
-                                                                                                </div>
-                                                                                                @else
-                                                                                                <div class="rating">
-                                                                                                <?php check_rating(floor($svgrateg0)); ?>  @if(isset($svgrateg0)?$svgrateg0:'')<span class="">(<?php echo round($svgrateg0,$precision=2); ?>)</span>@endif
-                                                                                                </div>
-                                                                                                @endif
-                                                                                            @else
-                                                                                                <div class="rating">
-                                                                                                <?php check_rating(floor(0)); ?>  <span class="">(0)</span>
-                                                                                                </div>
-                                                                                            @endif
+                                                                                            <?php create_star($svgrateg0); ?>
                                                                                         </center>
                                                                                     </div>
                                                                                 @endforeach
@@ -1245,43 +1067,13 @@
                                                                                         <center><a href="itemdetaliBD/{{$items->project_id}}"><div class="textimg">
                                                                                         <?php 
                                                                                             $str = $items->project_name;
-                                                                                            $count = utf8_strlen("$str");
+                                                                                            $count = utf8_strlen($str);
                                                                                             create_str($count,$str,$items);
                                                                                             
                                                                                         ?></div></a></center>
                                                                                         <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
                                                                                         <center>
-                                                                                            @if(isset($svgrateg1)?$svgrateg1:'')
-                                                                                                @if($svgrateg1 < 2 & $svgrateg1 > 0)
-                                                                                            <div class="rating">
-                                                                                            <?php check_rating(floor($svgrateg1)); ?>  @if(isset($svgrateg1)?$svgrateg1:'')<span class="">(<?php echo round($svgrateg1,$precision=2); ?>)</span>@endif
-                                                                                                </div>
-                                                                                                @elseif($svgrateg1 >= 2 & $svgrateg1 < 3)
-                                                                                                <div class="rating">
-                                                                                                <?php check_rating(floor($svgrateg1)); ?>  @if(isset($svgrateg1)?$svgrateg1:'')<span class="">(<?php echo round($svgrateg1,$precision=2); ?>)</span>@endif
-                                                                                                </div>
-                                                                                                @elseif($svgrateg1 >= 3 & $svgrateg1 < 4)
-                                                                                                <div class="rating">
-                                                                                                <?php check_rating(floor($svgrateg1)); ?>  @if(isset($svgrateg1)?$svgrateg1:'')<span class="">(<?php echo round($svgrateg1,$precision=2); ?>)</span>@endif
-                                                                                                </div>
-                                                                                                @elseif($svgrateg1 >= 4 & $svgrateg1 < 5)
-                                                                                                <div class="rating">
-                                                                                                <?php check_rating(floor($svgrateg1)); ?>  @if(isset($svgrateg1)?$svgrateg1:'')<span class="">(<?php echo round($svgrateg1,$precision=2); ?>)</span>@endif
-                                                                                                </div>
-                                                                                                @elseif($svgrateg1 >= 5)
-                                                                                                <div class="rating">
-                                                                                                <?php check_rating(floor($svgrateg1)); ?>  @if(isset($svgrateg1)?$svgrateg1:'')<span class="">(<?php echo round($svgrateg1,$precision=2); ?>)</span>@endif
-                                                                                                </div>
-                                                                                                @else
-                                                                                                <div class="rating">
-                                                                                                <?php check_rating(floor($svgrateg1)); ?> @if(isset($svgrateg1)?$svgrateg1:'')<span class="">(<?php echo round($svgrateg1,$precision=2); ?>)</span>@endif
-                                                                                                </div>
-                                                                                                @endif
-                                                                                            @else
-                                                                                                <div class="rating">
-                                                                                                <?php check_rating(floor(0)); ?> <span class="">(0)</span>
-                                                                                                </div>
-                                                                                            @endif
+                                                                                            <?php create_star($svgrateg1); ?>
                                                                                         </center>
                                                                                         
                                                                                     </div>
@@ -1298,43 +1090,13 @@
                                                                                         <center><a href="itemdetaliBD/{{$items->project_id}}"><div class="textimg">
                                                                                         <?php 
                                                                                             $str = $items->project_name;
-                                                                                            $count = utf8_strlen("$str");
+                                                                                            $count = utf8_strlen($str);
                                                                                             create_str($count,$str,$items);
                                                                                             
                                                                                         ?></div></a></center>
                                                                                         <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
                                                                                         <center>
-                                                                                            @if(isset($svgrateg2)?$svgrateg2:'')
-                                                                                                @if($svgrateg2 < 2 & $svgrateg2 > 0)
-                                                                                            <div class="rating">
-                                                                                            <?php check_rating(floor($svgrateg2)); ?> @if(isset($svgrateg2)?$svgrateg2:'')<span class="">(<?php echo round($svgrateg2,$precision=2); ?>)</span>@endif
-                                                                                                </div>
-                                                                                                @elseif($svgrateg2 >= 2 & $svgrateg2 < 3)
-                                                                                                <div class="rating">
-                                                                                                <?php check_rating(floor($svgrateg2)); ?> @if(isset($svgrateg2)?$svgrateg2:'')<span class="">(<?php echo round($svgrateg2,$precision=2); ?>)</span>@endif
-                                                                                                </div>
-                                                                                                @elseif($svgrateg2 >= 3 & $svgrateg2 < 4)
-                                                                                                <div class="rating">
-                                                                                                <?php check_rating(floor($svgrateg2)); ?> @if(isset($svgrateg2)?$svgrateg2:'')<span class="">(<?php echo round($svgrateg2,$precision=2); ?>)</span>@endif
-                                                                                                </div>
-                                                                                                @elseif($svgrateg2 >= 4 & $svgrateg2 < 5)
-                                                                                                <div class="rating">
-                                                                                                <?php check_rating(floor($svgrateg2)); ?> @if(isset($svgrateg2)?$svgrateg2:'')<span class="">(<?php echo round($svgrateg2,$precision=2); ?>)</span>@endif
-                                                                                                </div>
-                                                                                                @elseif($svgrateg2 >= 5)
-                                                                                                <div class="rating">
-                                                                                                <?php check_rating(floor($svgrateg2)); ?> @if(isset($svgrateg2)?$svgrateg2:'')<span class="">(<?php echo round($svgrateg2,$precision=2); ?>)</span>@endif
-                                                                                                </div>
-                                                                                                @else
-                                                                                                <div class="rating">
-                                                                                                <?php check_rating(floor($svgrateg2)); ?> @if(isset($svgrateg2)?$svgrateg2:'')<span class="">(<?php echo round($svgrateg2,$precision=2); ?>)</span>@endif
-                                                                                                </div>
-                                                                                                @endif
-                                                                                            @else
-                                                                                                <div class="rating">
-                                                                                                <?php check_rating(floor(0)); ?> <span class="">(0)</span>
-                                                                                                </div>
-                                                                                            @endif
+                                                                                            <?php create_star($svgrateg2); ?>
                                                                                         </center>
                                                                                     </div>
                                                                                 @endforeach
@@ -1350,42 +1112,12 @@
                                                                                         <center><a href="itemdetaliBD/{{$items->project_id}}"><div class="textimg">
                                                                                         <?php 
                                                                                             $str = $items->project_name;
-                                                                                            $count = utf8_strlen("$str");
+                                                                                            $count = utf8_strlen($str);
                                                                                             create_str($count,$str,$items);  
                                                                                         ?></div></a></center>
                                                                                         <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
                                                                                         <center>
-                                                                                            @if(isset($svgrateg3)?$svgrateg3:'')
-                                                                                                @if($svgrateg3 < 2 & $svgrateg3 > 0)
-                                                                                            <div class="rating">
-                                                                                            <?php check_rating(floor($svgrateg3)); ?> @if(isset($svgrateg3)?$svgrateg3:'')<span class="">(<?php echo round($svgrateg3,$precision=2); ?>)</span>@endif
-                                                                                                </div>
-                                                                                                @elseif($svgrateg3 >= 2 & $svgrateg3 < 3)
-                                                                                                <div class="rating">
-                                                                                                <?php check_rating(floor($svgrateg3)); ?> @if(isset($svgrateg3)?$svgrateg3:'')<span class="">(<?php echo round($svgrateg3,$precision=2); ?>)</span>@endif
-                                                                                                </div>
-                                                                                                @elseif($svgrateg3 >= 3 & $svgrateg3 < 4)
-                                                                                                <div class="rating">
-                                                                                                <?php check_rating(floor($svgrateg3)); ?> @if(isset($svgrateg3)?$svgrateg3:'')<span class="">(<?php echo round($svgrateg3,$precision=2); ?>)</span>@endif
-                                                                                                </div>
-                                                                                                @elseif($svgrateg3 >= 4 & $svgrateg3 < 5)
-                                                                                                <div class="rating">
-                                                                                                <?php check_rating(floor($svgrateg3)); ?> @if(isset($svgrateg3)?$svgrateg3:'')<span class="">(<?php echo round($svgrateg3,$precision=2); ?>)</span>@endif
-                                                                                                </div>
-                                                                                                @elseif($svgrateg3 >= 5)
-                                                                                                <div class="rating">
-                                                                                                <?php check_rating(floor($svgrateg3)); ?> @if(isset($svgrateg3)?$svgrateg3:'')<span class="">(<?php echo round($svgrateg3,$precision=2); ?>)</span>@endif
-                                                                                                </div>
-                                                                                                @else
-                                                                                                <div class="rating">
-                                                                                                <?php check_rating(floor($svgrateg3)); ?> @if(isset($svgrateg3)?$svgrateg3:'')<span class="">(<?php echo round($svgrateg3,$precision=2); ?>)</span>@endif
-                                                                                                </div>
-                                                                                                @endif
-                                                                                            @else
-                                                                                                <div class="rating">
-                                                                                                <?php check_rating(floor(0)); ?> <span class="">(0)</span>
-                                                                                                </div>
-                                                                                            @endif
+                                                                                            <?php create_star($svgrateg3); ?>
                                                                                         </center>
                                                                                     </div>
                                                                                 @endforeach
@@ -1403,10 +1135,13 @@
                                                                                         <center><a href="itemdetaliBD/{{$items->project_id}}"><div class="textimg">
                                                                                         <?php 
                                                                                             $str = $items->project_name;
-                                                                                            $count = utf8_strlen("$str");
+                                                                                            $count = utf8_strlen($str);
                                                                                             create_str($count,$str,$items);  
                                                                                         ?></div></a></center>
                                                                                         <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
+                                                                                        <center>
+                                                                                            <?php create_star($svgrateg0); ?>
+                                                                                        </center>
                                                                                     </div>
                                                                                 @endforeach
                                                                                 @else
@@ -1421,10 +1156,13 @@
                                                                                         <center><a href="itemdetaliBD/{{$items->project_id}}"><div class="textimg">
                                                                                         <?php 
                                                                                             $str = $items->project_name;
-                                                                                            $count = utf8_strlen("$str");
+                                                                                            $count = utf8_strlen($str);
                                                                                             create_str($count,$str,$items);  
                                                                                         ?></div></a></center>
                                                                                         <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
+                                                                                        <center>
+                                                                                            <?php create_star($svgrateg3); ?>
+                                                                                        </center>
                                                                                     </div>
                                                                                 @endforeach
                                                                                 @else
@@ -1441,10 +1179,13 @@
                                                                                                 <center><a href="itemdetaliBD/{{$items->project_id}}"><div class="textimg">
                                                                                                 <?php 
                                                                                                     $str = $items->project_name;
-                                                                                                    $count = utf8_strlen("$str");
+                                                                                                    $count = utf8_strlen($str);
                                                                                                     create_str($count,$str,$items);  
                                                                                                 ?></div></a></center>
                                                                                                 <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
+                                                                                                <center>
+                                                                                                    <?php create_star($svgrateg4); ?>
+                                                                                                </center>
                                                                                             </div>
                                                                                         @endforeach
                                                                                 @endforeach
@@ -1462,10 +1203,13 @@
                                                                                                 <center><a href="itemdetaliBD/{{$items->project_id}}"><div class="textimg">
                                                                                                 <?php 
                                                                                                     $str = $items->project_name;
-                                                                                                    $count = utf8_strlen("$str");
+                                                                                                    $count = utf8_strlen($str);
                                                                                                     create_str($count,$str,$items);  
                                                                                                 ?></div></a></center>
                                                                                                 <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
+                                                                                                <center>
+                                                                                                    <?php create_star($svgrateg5); ?>
+                                                                                                </center>
                                                                                             </div>
                                                                                         @endforeach
                                                                                 @endforeach
@@ -1488,6 +1232,9 @@
                                                                                             create_str($count,$str,$items);  
                                                                                         ?></div></a></center>
                                                                                         <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
+                                                                                        <center>
+                                                                                            <?php create_star($svgrateg0); ?>
+                                                                                        </center>
                                                                                     </div>
                                                                                 @endforeach
                                                                                 @else
@@ -1506,6 +1253,9 @@
                                                                                             create_str($count,$str,$items);  
                                                                                         ?></div></a></center>
                                                                                         <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
+                                                                                        <center>
+                                                                                            <?php create_star($svgrateg1); ?>
+                                                                                        </center>
                                                                                     </div>
                                                                                 @endforeach
                                                                                 @else
@@ -1524,6 +1274,9 @@
                                                                                             create_str($count,$str,$items);  
                                                                                         ?></div></a></center>
                                                                                         <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
+                                                                                        <center>
+                                                                                            <?php create_star($svgrateg3); ?>
+                                                                                        </center>
                                                                                     </div>
                                                                                 @endforeach
                                                                                 @else
@@ -1544,6 +1297,9 @@
                                                                                                     create_str($count,$str,$items);  
                                                                                                 ?></div></a></center>
                                                                                                 <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
+                                                                                                <center>
+                                                                                                    <?php create_star($svgrateg4); ?>
+                                                                                                </center>
                                                                                             </div>
                                                                                         @endforeach
                                                                                 @endforeach
@@ -1565,6 +1321,9 @@
                                                                                             create_str($count,$str,$items);  
                                                                                         ?></div></a></center>
                                                                                         <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
+                                                                                        <center>
+                                                                                            <?php create_star($svgrateg0); ?>
+                                                                                        </center>
                                                                                     </div>
                                                                                 @endforeach
                                                                                 @else
@@ -1583,6 +1342,9 @@
                                                                                             create_str($count,$str,$items);  
                                                                                         ?></div></a></center>
                                                                                         <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
+                                                                                        <center>
+                                                                                            <?php create_star($svgrateg1); ?>
+                                                                                        </center>
                                                                                     </div>
                                                                                 @endforeach
                                                                                 @else
@@ -1601,6 +1363,9 @@
                                                                                             create_str($count,$str,$items);  
                                                                                         ?></div></a></center>
                                                                                         <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
+                                                                                        <center>
+                                                                                            <?php create_star($svgrateg2); ?>
+                                                                                        </center>
                                                                                     </div>
                                                                                 @endforeach
                                                                                 @else
@@ -1621,6 +1386,9 @@
                                                                                                     create_str($count,$str,$items);  
                                                                                                 ?></div></a></center>
                                                                                                 <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
+                                                                                                <center>
+                                                                                                    <?php create_star($svgrateg4); ?>
+                                                                                                </center>
                                                                                             </div>
                                                                                         @endforeach
                                                                                 @endforeach
@@ -1642,6 +1410,9 @@
                                                                                             create_str($count,$str,$items);  
                                                                                         ?></div></a></center>
                                                                                         <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
+                                                                                        <center>
+                                                                                            <?php create_star($svgrateg0); ?>
+                                                                                        </center>
                                                                                     </div>
                                                                                 @endforeach
                                                                                 @else
@@ -1662,6 +1433,9 @@
                                                                                                     create_str($count,$str,$items);  
                                                                                                 ?></div></a></center>
                                                                                                 <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
+                                                                                                <center>
+                                                                                                    <?php create_star($svgrateg4); ?>
+                                                                                                </center>
                                                                                             </div>
                                                                                         @endforeach
                                                                                 @endforeach
@@ -1683,6 +1457,9 @@
                                                                                                 create_str($count,$str,$items);  
                                                                                             ?></div></a></center>
                                                                                             <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
+                                                                                            <center>
+                                                                                                <?php create_star($svgrateg5); ?>
+                                                                                            </center>
                                                                                         </div>
                                                                                         @endforeach
                                                                                 @endforeach
@@ -1705,6 +1482,9 @@
                                                                                                      
                                                                                                 ?></div></a></center>
                                                                                                 <center><a href="itemtypeBD/{{$items->type_id}}"><div class="textimg2"><?php echo $items->type_name;?></div></a></center>
+                                                                                                <center>
+                                                                                                    <?php create_star($svgrateg6); ?>
+                                                                                                </center>
                                                                                             </div>
                                                                                         @endforeach
                                                                                 @endforeach
@@ -1744,21 +1524,29 @@
         } 
 
         function create_str($count,$str,$items) {
-            if($count>20) {
+            // echo $count;
+            if($count>20 & $count<=30) {
                 $strcount = substr($str,0,-10);
                 $strcount1 = substr($strcount,0,-8);
                 $strcut = $strcount1."...";
                 echo $strcut;
-            }elseif($count>30){
+            }elseif($count>30 & $count <40){
                 $strcount = substr($str,0,-10);
                 $strcount1 = substr($strcount,0,-8);
                 $strcount2 = substr($strcount1,0,-10);
                 $strcount3 = substr($strcount2,0,-8);
                 $strcut = $strcount3."...";
                 echo $strcut;
-            }else {
+            }elseif($count>40 & $count <50){
+                $strcount = substr($str,0,-50);
+                $strcount1 = substr($strcount,0,-50);
+                $strcount2 = substr($strcount1,0,-5);
+                $strcut = $strcount2."...";
+                echo $strcut;
+            }else{
                 echo $items->project_name;
-            }  
+            } 
+              
         }
 
         function check_rating($rating) {
@@ -1768,8 +1556,54 @@
             for($i=0;$i < 5-$rating;$i++) {
                 echo '<i class="far fa-star" style="color: #ffb712;"></i>';
             }
-            
-}
+        }
+
+        function create_star($svgrate){
+            if(isset($svgrate)?$svgrate:''){
+                if($svgrate < 2 & $svgrate > 0){
+                    echo'<div class="rating">';
+                        check_rating(floor($svgrate));
+                        if(isset($svgrate)?$svgrate:''){echo'<span class="">('.round($svgrate,$precision=2).')</span>';}
+                    echo'</div>';
+                }
+                elseif($svgrate >= 2 & $svgrate < 3){
+                    echo'<div class="rating">';
+                        check_rating(floor($svgrate));
+                        if(isset($svgrate)?$svgrate:''){echo'<span class="">('.round($svgrate,$precision=2).')</span>';}
+                    echo'</div>';
+                }
+                elseif($svgrate >= 3 & $svgrate < 4){
+                    echo'<div class="rating">';
+                        check_rating(floor($svgrate));
+                        if(isset($svgrate)?$svgrate:''){echo'<span class="">('.round($svgrate,$precision=2).')</span>';}
+                    echo'</div>';
+                }
+                elseif($svgrate >= 4 & $svgrate < 5){
+                    echo'<div class="rating">';
+                        check_rating(floor($svgrate));
+                        if(isset($svgrate)?$svgrate:''){echo'<span class="">('.round($svgrate,$precision=2).')</span>';}
+                    echo'</div>';
+                }
+                elseif($svgrate >= 5){
+                    echo'<div class="rating">';
+                        check_rating(floor($svgrate));
+                        if(isset($svgrate)?$svgrate:''){echo'<span class="">('.round($svgrate,$precision=2).')</span>';}
+                    echo'</div>';
+                }
+                else{
+                    echo'<div class="rating">';
+                        check_rating(floor($svgrate));
+                        if(isset($svgrate)?$svgrate:''){echo'<span class="">('.round($svgrate,$precision=2).')</span>';}
+                    echo'</div>';
+                }
+            }
+            else{
+                echo'<div class="rating">';
+                check_rating(floor(0)); echo'<span class="">(0)</span>';
+                echo'</div>';
+            }
+        }
+      
     ?>
 
         

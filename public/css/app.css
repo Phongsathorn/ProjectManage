@@ -66,6 +66,8 @@ body {
     background-size: 100% 100%, auto;
 }
 
+
+
 .addproject {
     background-image: url("img/background-body-addproject-4.jpg");
     background-repeat: no-repeat;
@@ -75,6 +77,7 @@ body {
     -moz-background-size: 100% 100%, auto;
     -webkit-background-size: 100% 100%, auto;
     background-size: 100% 100%, auto;
+    
 }
 
 .font-Athiti {
@@ -1049,6 +1052,27 @@ pre code {
     margin-left: 5px;
     padding-top: 5%;
     padding-left: 15.5%;
+    
+}
+
+.rowcolumn-resolf {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 5px;
+    margin-left: 5px;
+    padding-top: 50px;
+    padding-left: 15.5%;
+    
+}
+
+.rowcolumn-AV {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 5px;
+    margin-left: 5px;
+    padding-top: 20%;
+    padding-left: 15.5%;
+    
 }
 
 .rowcolumn1 {
@@ -2724,6 +2748,7 @@ textarea.form-control {
     position: absolute;
     margin-top: 0.3rem;
     margin-left: -1.25rem;
+    
 }
 
 .form-check-input[disabled]~.form-check-label,
@@ -2732,6 +2757,7 @@ textarea.form-control {
 .form-check-label {
     margin-bottom: 0;
     color: rgb(27, 122, 211);
+
 }
 
 .form-check-inline {

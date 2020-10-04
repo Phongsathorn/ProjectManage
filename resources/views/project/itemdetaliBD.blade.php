@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="img-down">
+<html >
 
 <head>
     <meta charset="utf-8">
@@ -31,7 +31,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
 
-    <title>ICTSTORE</title>
+    <title>ICTThesis</title>
 
     <style>
         .user-size {
@@ -74,16 +74,14 @@
 
         }
 
-        html {
-            background-image: url("/img/background-BD-item.jpg");
-        }
-
+ 
         .img-top {
             background-image: url("/img/background-BD-item.jpg");
             height: 100%;
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
+            
         }
 
         .img-down {
@@ -92,6 +90,7 @@
             background-position: center 550px;
             background-repeat: no-repeat;
             background-size: cover;
+            /* opacity: 0.5; */
         }
 
         .span-i-user {
@@ -184,10 +183,22 @@
             margin-top: 30px;
             margin-right: -300px;
         }
+
+        .size-img-re{
+            width: 100%;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-attachment: fixed;
+            -o-background-size: 100% 100%, auto;
+            -moz-background-size: 100% 100%, auto;
+            -webkit-background-size: 100% 100%, auto;
+            background-size: 100% 100%, auto;
+        }
+
     </style>
 </head>
 
-<body class="img-top">
+<body >
 
 
     <!-- successappproject -->
@@ -479,7 +490,7 @@
     <div class="app sidebar-mini ">
         <header class="app-header">
             <!-- font Athiti -->
-            <a href="{{action('ProjectController@itemproject')}}" class="app-header__logo font-Athiti">ICTSTORE</a>
+            <a href="{{action('ProjectController@itemproject')}}" class="app-header__logo font-Athiti">ICTThesis</a>
             <!-- main.css-->
             <ul class="app-nav">
                 <li class="app-search search-left">
@@ -687,7 +698,8 @@
 
         </header>
         </aside>
-        <div class="rowcolumn1">
+
+        <div class="rowcolumn1 img-top">
             <div class="col-md-12">
                 <ul class="app-breadcrumb breadcrumb magne-right">
                     <li class="breadcrumb-item magne-right-text"><a href="{{action('ProjectController@itemproject')}}">หน้าหลัก</a></li>
@@ -702,13 +714,12 @@
                     </li>
                     @endforeach
 
-
                 </ul><br>
-                <div class="tile">
+             
+                <div class="tile ">
                     <div class="tile-body">
                         <div class="row">
                             <div class="imgfromming">
-
                                 @foreach($item as $datas)
                                 <div class="columnimgitem">
                                     <img src="/project/img_logo/<?php echo $datas->logo; ?>" alt="" class="fromimg">
@@ -727,7 +738,7 @@
                                 @foreach($item as $datas)
                                 <label for="text"><?php echo $datas->project_name; ?></label>
                                 <div class="text-auth-d">
-                                    <label for="text">คำสำคัญ : <?php echo $datas->keyword_project; ?></label><br>
+                                    <label for="text">คำสำคัญ : <?php echo $datas->keyword_project1; ?> <?php echo $datas->keyword_project2; ?> <?php echo $datas->keyword_project3; ?> <?php echo $datas->keyword_project4; ?></label><br>
                                     <label for="text">หมวดหมู่ : <?php echo $datas->genre_name; ?></label>
                                 </div>
                                 <div class="text-auth-N-d">
@@ -739,7 +750,7 @@
                                 @foreach($itemadmin as $itemadmins)
                                 <label for="text"><?php echo $itemadmins->project_name; ?></label>
                                 <div class="text-auth-d">
-                                    <label for="text">คำสำคัญ : <?php echo $itemadmins->keyword_project; ?></label><br>
+                                    <label for="text">คำสำคัญ : <?php echo $itemadmins->keyword_project1; ?> <?php echo $itemadmins->keyword_project2; ?> <?php echo $itemadmins->keyword_project3; ?> <?php echo $itemadmins->keyword_project4; ?></label><br>
                                     <label for="text">หมวดหมู่ : <?php echo $itemadmins->genre_name; ?></label>
                                 </div>
                                 <div class="text-auth-N-d">
@@ -764,17 +775,17 @@
                                 <div class="carousel-inner">
                                     <div class="carousel-item active ">
                                         <div class="backgroundimgproject">
-                                            <img class="" src="/project/img_backgrund/<?php echo $datas->img_p_1; ?>" alt="First slide">
+                                            <img class="size-img-re"  src="/project/img_backgrund/<?php echo $datas->img_p_1; ?>" alt="First slide">
                                         </div>
                                     </div>
                                     <div class="carousel-item">
                                         <div class="backgroundimgprojectt">
-                                            <img class="" src="/project/img_backgrund/<?php echo $datas->img_p_2; ?>" alt="Second slide">
+                                            <img class="size-img-re" src="/project/img_backgrund/<?php echo $datas->img_p_2; ?>" alt="Second slide">
                                         </div>
                                     </div>
                                     <div class="carousel-item">
                                         <div class="backgroundimgprojecttt">
-                                            <img class="" src="/project/img_backgrund/<?php echo $datas->img_p_3; ?>" alt="Third slide">
+                                            <img class="size-img-re" src="/project/img_backgrund/<?php echo $datas->img_p_3; ?>" alt="Third slide">
                                         </div>
                                     </div>
                                 </div>
@@ -834,7 +845,12 @@
                                                             <td colspan=1><?php echo $datas->advisor_p; ?></td>
                                                         <tr>
                                                             <td><label for="text"><b>คำสำคัญ :</b></label></td>
-                                                            <td colspan=1><?php echo $datas->keyword_project; ?></td>
+                                                            <td colspan=1>
+                                                                <?php echo $datas->keyword_project1; ?>
+                                                                <?php echo $datas->keyword_project2; ?>
+                                                                <?php echo $datas->keyword_project3; ?>
+                                                                <?php echo $datas->keyword_project4; ?>
+                                                            </td>
                                                         <tr>
                                                             <td><label for="text" class=""><b>บทคัดย่อ :</b></label></td>
                                                             <td colspan=1><?php echo $datas->des_project; ?></td>
@@ -875,7 +891,12 @@
                                                             <td colspan=1><?php echo $datas->type_name; ?></td>
                                                         <tr>
                                                             <td><label for="text"><b>คำสำคัญ :</b></label></td>
-                                                            <td colspan=1><?php echo $datas->keyword_project; ?></td>
+                                                            <td colspan=1>
+                                                                <?php echo $datas->keyword_project1; ?>
+                                                                <?php echo $datas->keyword_project2; ?>
+                                                                <?php echo $datas->keyword_project3; ?>
+                                                                <?php echo $datas->keyword_project4; ?>
+                                                            </td>
                                                         <tr>
                                                             <td><label for="text" class=""><b>บทคัดย่อ :</b></label></td>
                                                             <td colspan=1><?php echo $datas->des_project; ?></td>
@@ -949,6 +970,7 @@
                             </div>
                         </div>
                     </div>
+                </div>
                 </div>
             </div>
         </div>

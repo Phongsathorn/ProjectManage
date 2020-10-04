@@ -20,21 +20,42 @@ Route::get('homeBD', 'ProjectController@itemproject');
 Route::view('index', 'homeBD');
 
 
+
+
 Route::get('intest', function () {
     return view('test1');
 });
 
 Route::post('keyword_project', 'ProjectController@keyword')->name('keyword_project');
-Route::get('adddes_project', 'ProjectController@getdes_project')->name('adddes_project');
-Route::get('list_keyword', 'ProjectController@list_keyword')->name('list_keyword');
-Route::get('input_rate', 'ProjectController@test');
 Route::post('des_project', 'ProjectController@des_project')->name('des_project');
+    
+    //ส่งค่าให้ไปตัดคีย์
+    Route::get('adddes_project', 'ProjectController@getdes_project')->name('adddes_project');
+    //เรียกค่ากลับมาโชว์
+    Route::get('list_keyword', 'ProjectController@list_keyword')->name('list_keyword');
+
+Route::get('input_rate', 'ProjectController@test');
+// Route::get('test_input', function () {
+//     return view('api.page');
+// });
+
+
+    //search engine
+    //Route::get('/search1', 'AutocompleteController@index');
+    Route::get('/search', 'AutocompleteController@easysearch')->name('search');
+    Route::get('/AVsearch', 'AutocompleteController@detailsearch')->name('AVsearch');
+    Route::get('/autocomplete/fetch', 'AutocompleteController@dropdownsearch')->name('autocomplete.dropdownsearch');
+    Route::get('SearchAdvance', 'AutocompleteController@detailview')->name('SearchAdvance');
+    Route::get('dropdownsearch', 'AutocompleteController@dropdown')->name('dropdownsearch');
+    // Route::get('search', function () {
+    //     return view('beforesearchBD');
+    // });
+
 
 
 Route::get('test', function () {
     return view('test');
 });
-
 
 
 // Route::get('homeMDD', 'ProfileMDDController@show');
@@ -47,27 +68,18 @@ Route::post('editprojectmdd', 'Project_MDDController@editproject');
 Route::get('showdataprojectmdd', 'Project_MDDController@showproject');
 Route::get('projectviewmdd', 'Project_MDDController@project');
 
-//search engine
-//Route::get('/search1', 'AutocompleteController@index');
-Route::get('/search', 'AutocompleteController@easysearch')->name('search');
-Route::get('/AVsearch', 'AutocompleteController@detailsearch')->name('AVsearch');
-Route::get('/autocomplete/fetch', 'AutocompleteController@dropdownsearch')->name('autocomplete.dropdownsearch');
-Route::get('SearchAdvance', 'AutocompleteController@detailview')->name('SearchAdvance');
-Route::get('dropdownsearch', 'AutocompleteController@dropdown')->name('dropdownsearch');
-// Route::get('search', function () {
-//     return view('beforesearchBD');
-// });
-
 // Route::get('db', 'ListdataController@addproject');
 
-Route::get('Newarrival', 'ListdataController@Newarrivaldata');
-Route::get('itemtypeBD/{type_id}', 'ProjectController@typeitem');
-Route::get('pageIot', 'ListdataController@dataIot');
+// page BD
+    
+    Route::get('Newarrival', 'ListdataController@Newarrivaldata');
+    Route::get('Popular', 'ListdataController@ratingMax');
+    Route::get('itemtypeBD/{type_id}', 'ProjectController@typeitem');
+    Route::get('pageIot', 'ListdataController@dataIot');
 
 // page MDD
-Route::get('pursue', 'ListdataController@pursue');
-Route::post('download_m', 'Project_MDDController@downloadfile');
-
+    Route::get('pursue', 'ListdataController@pursue');
+    Route::post('download_m', 'Project_MDDController@downloadfile');
 
 // Route::get('Popular', function () {
 //     return view('pagewedsum.pagePopular');
@@ -75,6 +87,23 @@ Route::post('download_m', 'Project_MDDController@downloadfile');
 
 Route::get('wed', function () {
     return view('wedType.wed');
+});
+
+
+Route::get('copyapi', function () {
+    return view('api.page');
+});
+
+Route::get('testapi', function () {
+    return view('api.copy');
+});
+
+Route::get('copylek', function () {
+    return view('api.example_asynchronous');
+});
+
+Route::get('prepostseos', function () {
+    return view('api.prepostseo');
 });
 
 Route::get('wedapp', function () {
@@ -88,6 +117,7 @@ Route::get('app', function () {
 Route::get('game', function () {
     return view('wedType.game');
 });
+
 
 
 // page homemain
@@ -239,3 +269,6 @@ Route::post('adddata', 'ListdataController@adduser');
 
     //ลบข้อมูล โปรเจคป.โท
     Route::get('delete_p_mdd/{project_m_id}','AdminController@delete_projectmdd');
+    
+    //อ่านไฟล์ตรวจสอบ
+    Route::get('read_chk/{project_id}', 'AdminController@readfile');

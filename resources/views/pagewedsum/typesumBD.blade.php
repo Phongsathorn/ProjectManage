@@ -27,7 +27,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Athiti:wght@400;500;600&display=swap" rel="stylesheet">
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         
-        <title>ICTSTORE</title>
+        <title>ICTThesis</title>
 
         <style>
            .user-size {
@@ -443,7 +443,7 @@
     <div class="app sidebar-mini " >
         <header class="app-header">
             <!-- font Athiti -->
-            <a href="{{action('ProjectController@itemproject')}}" class="app-header__logo font-Athiti" >ICTSTORE</a> 
+            <a href="{{action('ProjectController@itemproject')}}" class="app-header__logo font-Athiti" >ICTThesis</a> 
             <!-- main.css-->
             <ul class="app-nav">
                 <li class="app-search search-left">

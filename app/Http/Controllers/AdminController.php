@@ -175,29 +175,45 @@ class AdminController extends Controller
         $sum_upload = $cp_project+$cm_project;
         $_SESSION['project0']='peoject0';
 
-        $chk_project0 = DB::select("SELECT * FROM projects WHERE projects.status_p in ('0')");
-        if(isset($chk_project0) ? $chk_project0:'') {
-            foreach($chk_project0 as $chk_project0){
-                $chk_id = $chk_project0->user_id;
-                // echo $chk_id;
-            }
-            if(DB::select("SELECT * FROM projects,users WHERE projects.user_id=users.U_id AND projects.user_id='$chk_id'")){
-                $project0 = DB::select("SELECT * FROM projects,users WHERE projects.user_id=users.U_id AND projects.user_id='$chk_id'");
-            }
-            elseif(DB::select("SELECT * FROM projects,owner_project WHERE owner_project.owner_id=projects.user_id AND projects.user_id='$chk_id'")){
-                $project0 = DB::select("SELECT * FROM projects,owner_project WHERE owner_project.owner_id=projects.user_id AND projects.user_id='$chk_id'");
-                $_SESSION['status_p'] = 'owner';
-            }
-            else {
-                echo 'ไม่มีข้อมูลเเสดง';
-            }
-
+        $chk_project0 = DB::select("SELECT * FROM projects,users WHERE projects.user_id=users.U_id and projects.status_p in ('0')");
+        $chk_projectA0 = DB::select("SELECT * FROM projects,owner_project WHERE owner_project.owner_id=projects.user_id and projects.status_p in ('0')");
+        $countID = count(DB::select("SELECT * FROM projects WHERE projects.status_p in ('0')"));
+        // print_r($chk_projectA0);
+        return view('admin.homeadmin',compact('imgaccount','sum_user','sum_project','chk_project0','chk_projectA0','sum_upload','countID'));
+        // print_r($chk_project0);
+        // if(isset($chk_project0) ? $chk_project0:'') {
+        //     // foreach($chk_project0 as $chk_project0){
+        //     //     $chk_id = $chk_project0->project_id;
+        //     //     echo $chk_id;
+        //     for($i=0;$i<$countID;$i++){
+        //         $chk_id = $chk_project0[$i];
+        //         compact('chk_id');
+        //         foreach($chk_id as $chk_id){
+        //             echo $chk_id;
+                    
+        //         }
+        //         if(DB::select("SELECT * FROM projects,users WHERE projects.user_id=users.U_id AND projects.project_id='$chk_id'")){
+        //             $project0 = DB::select("SELECT * FROM projects,users WHERE projects.user_id=users.U_id AND projects.project_id='$chk_id'");
+        //             // print_r($project0);
+        //             // return view('admin.homeadmin',compact('imgaccount','sum_user','sum_project','project0','sum_upload','countID'));
+        //         }
+        //         elseif(DB::select("SELECT * FROM projects,owner_project WHERE owner_project.owner_id=projects.user_id AND projects.project_id='$chk_id'")){
+        //             $project0 = DB::select("SELECT * FROM projects,owner_project WHERE owner_project.owner_id=projects.user_id AND projects.project_id='$chk_id'");
+        //             $_SESSION['status_p'] = 'owner';
+        //             // print_r($project0);
+        //             return view('admin.homeadmin',compact('imgaccount','sum_user','sum_project','project0','sum_upload','countID'));
+        //         }
+        //         else {
+        //             echo 'ไม่มีข้อมูลเเสดง';
+        //         }
+                
+        //     }
             
-        }else {
-            $project0='';
-        }
+            
+        // }
+        // print_r($project0);
 
-        return view('admin.homeadmin',compact('imgaccount','sum_user','sum_project','project0','sum_upload'));
+        
         
     }
 
@@ -205,5 +221,24 @@ class AdminController extends Controller
         $confirm = '1';
         DB::update("UPDATE projects SET projects.status_p='$confirm' WHERE projects.project_id ='$project_id'");
         return back()->with('successconfirm', 'ยืนยันเรียบร้อย');
+    }
+
+    public function readfile($project_id){
+        $chk_file = DB::select("SELECT * FROM projects WHERE project_id='$project_id' ");
+        compact('chk_file');
+        // print_r($chk_file);
+        foreach($chk_file as $chk_file){
+            $file_chk = $chk_file->temp_file_chk;
+            $namefile_chk = $chk_file->temp_namefile_chk;
+        }
+        // $file = 'project'.$file_chk;
+        // $filename = $namefile_chk;
+        // // echo $filename;
+        // // header('Content-type: application/html');
+        // // header('Content-Disposition: inline; filename="' . $filename . '"');
+        // // header('Content-Transfer-Encoding: binary');
+        // // header('Accept-Ranges: bytes');
+        // @readfile($file);
+        return view('admin.readfile',compact('file_chk','namefile_chk'));
     }
 }

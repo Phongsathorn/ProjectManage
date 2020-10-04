@@ -35,12 +35,14 @@
                     <option value="{{$type->type_id}}">{{$type->type_name}}</option>
                 @endforeach
             </select>
-            <!-- <label>ปีที่จัดทำเอกสาร</label> -->
-            <select id="inputState" class="form-control input-group-sizee input-group-toppp">
-                <option selected>สาขา</option>
-                <option>...</option>
-            </select>
             <!-- <label>สาขา</label> -->
+            <select name="branch_project" class="select-tbb" id="branch_project" oninput="this.className = ''">
+                <option value="" disabled selected>เลือกสาขา</option>
+                @foreach($chk_branch as $branch)
+                    <option value="{{$branch->branch_id}}">{{$branch->branch_name}}</option>
+                @endforeach
+            </select>
+            <!-- <label>ปีที่จัดทำเอกสาร</label> -->
             <select id="inputState" class="form-control input-group-size input-group-topppp">
                 <option selected>ปีที่จัดทำเอกสาร</option>
                 <option>...</option>
@@ -84,6 +86,17 @@
                         url:"{{route('AVsearch')}}",
                         method:'GET',
                         data:{category_project:category_project,_token:_token}
+                    })
+                }
+            });
+            $('#branch_project').change(function(){
+                if($(this).val()!=""){
+                    var branch_project=$(this).val();
+                    var _token=$('input[name="_token"]').val();
+                    $.ajax({
+                        url:"{{route('AVsearch')}}",
+                        method:'GET',
+                        data:{branch_project:branch_project,_token:_token}
                     })
                 }
             });

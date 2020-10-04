@@ -99,7 +99,6 @@ class Project_MDDController extends Controller
 
     public function itemproject() {
         session_start();
-        // $chkid = $_SESSION['usersid'];
         $chkid = (isset($_SESSION['usersid'])) ? $_SESSION['usersid'] : '';
         $chkidadmin = (isset($_SESSION['adminid'])) ? $_SESSION['adminid'] : '';
         $userimg = DB::select("SELECT * FROM users WHERE U_id='$chkid'");
@@ -108,6 +107,12 @@ class Project_MDDController extends Controller
 
         $chk_follow = count(DB::select("SELECT NO_PM FROM projectmdd,category_project WHERE projectmdd.status_m in ('1') AND projectmdd.category_id=category_project.category_id AND category_project.category_name in ('ติดตาม')"));
         $sum_follow = $chk_follow;
+
+        $chk_health = count(DB::select("SELECT NO_PM FROM projectmdd,category_project WHERE projectmdd.status_m in ('1') AND projectmdd.category_id=category_project.category_id AND category_project.category_name in ('เพื่อสุขภาพ')"));
+        $sum_health = $chk_health;
+
+        $chk_game = count(DB::select("SELECT NO_PM FROM projectmdd,category_project WHERE projectmdd.status_m in ('1') AND projectmdd.category_id=category_project.category_id AND category_project.category_name in ('เกม')"));
+        $sum_game = $chk_game;
         // if($chk_follow){
         //     $sum_follow = $chk_follow;
         // }else{$sum_follow = $chk_follow-$chk_follow;
@@ -228,7 +233,7 @@ class Project_MDDController extends Controller
                 $svgrate0 = $svg0[0];
                 compact('svgrate0');
                 foreach($svgrate0 as $svgrate0){
-                    echo $svgrateA = round($svgrate0,$percision=1);
+                     $svgrateA = round($svgrate0,$percision=1);
                 }
                 
             }
@@ -238,9 +243,253 @@ class Project_MDDController extends Controller
         // $item2 = DB::select("SELECT * FROM projectmdd,type_project,category_project,admin_company,owner_projectmdd WHERE projectmdd.type_id=type_project.type_id 
         // and projectmdd.user_id=owner_projectmdd.owner_m_id and projectmdd.adm_id=admin_company.admin_id 
         // and projectmdd.category_id=category_project.category_id ORDER BY projectmdd.category_id=1");
-       
 
-        return view('homeMDD',compact('item_m0','item_m1','svgrate0','svgrateA','adminaccount','userimg','imgaccount','sum_follow','itemA1','itemA0'));
+        //เพื่อสุขภาพ
+        $item_h = DB::select("SELECT project_m_id FROM users,projectmdd,genre_project,type_project,category_project WHERE category_project.category_name in ('เพื่อสุขภาพ') AND projectmdd.type_id=type_project.type_id 
+        AND projectmdd.genre_id=genre_project.genre_id AND projectmdd.category_id=category_project.category_id AND projectmdd.user_id=users.U_id ORDER BY RAND()");
+        // print_r($item_m);
+        if(isset($item_h[0])? $item_h[0]:'') {
+            $item0 = $item_h[0]; //เลือกตำเเหน่งของข้อมูล
+            compact('item0'); // ส่งค่า item0 จากการเลือกตำเเหน่ง
+            foreach($item0 as $ite0){ // ทำการวง loop foreach เพื่อ เอาค่า id ออกจาก array
+                $ite0; // id ของ ตำเเหน่งที่ 0 ที่ได้มาจากการ loop 
+                // หลังจากได้ id ที่ เป็น str ก็นำมา select จาก database ทีละ id เเล้วส่งค่าไปแสดงผลหน้า homeBD
+                // $item = DB::select("SELECT * FROM projectmdd,type_project,genre_project,type_project,category_project WHERE projectmdd.type_id=type_project.type_id 
+                // AND projectmdd.genre_id=genre_project.genre_id AND projectmdd.category_id=category_project.category_id AND projects.project_m_id='$ite0'");  
+                
+                $item_h0 = DB::select("SELECT *,AVG(rate_m_index) AS AvgRate FROM rating_m,users,projectmdd,genre_project,type_project,category_project WHERE projectmdd.type_id=type_project.type_id 
+                AND projectmdd.genre_id=genre_project.genre_id AND projectmdd.category_id=category_project.category_id AND projectmdd.user_id=users.U_id AND projectmdd.project_m_id=rating_m.project_m_id AND projectmdd.project_m_id='$ite0' ");
+                //rateingproject
+                // print_r($item);
+                // $rate0 = DB::select("SELECT * FROM rating_p WHERE projects.type_id=type_project.type_id 
+                // AND projects.project_id='$ite0'");  
+
+                $svg0 = DB::select("SELECT AVG(rate_m_index) AS AvgRate FROM rating_m WHERE project_m_id='$ite0' GROUP BY rating_m.project_m_id"); 
+                $svgrate0 = $svg0[0];
+                compact('svgrate0');
+                foreach($svgrate0 as $svgrate0){
+                   $svgrate0 = round($svgrate0,$percision=1);
+                }
+                
+            }
+        }else {
+            $item_h0='';
+        }
+
+        if(isset($item_h[1])? $item_h[1]:'') {
+            $item1 = $item_h[1]; //เลือกตำเเหน่งของข้อมูล
+            compact('item1'); // ส่งค่า item0 จากการเลือกตำเเหน่ง
+            foreach($item1 as $ite1){ // ทำการวง loop foreach เพื่อ เอาค่า id ออกจาก array
+                $ite1; // id ของ ตำเเหน่งที่ 0 ที่ได้มาจากการ loop 
+                // หลังจากได้ id ที่ เป็น str ก็นำมา select จาก database ทีละ id เเล้วส่งค่าไปแสดงผลหน้า homeBD
+                // $item = DB::select("SELECT * FROM projectmdd,type_project,genre_project,type_project,category_project WHERE projectmdd.type_id=type_project.type_id 
+                // AND projectmdd.genre_id=genre_project.genre_id AND projectmdd.category_id=category_project.category_id AND projects.project_m_id='$ite0'");  
+                // echo $ite1;
+                $item_h1 = DB::select("SELECT * FROM users,projectmdd,genre_project,type_project,category_project WHERE projectmdd.type_id=type_project.type_id 
+                AND projectmdd.genre_id=genre_project.genre_id AND projectmdd.category_id=category_project.category_id AND projectmdd.user_id=users.U_id AND projectmdd.project_m_id='$ite1' ");
+                //rateingproject
+                // print_r($item);
+                // $rate0 = DB::select("SELECT * FROM rating_p WHERE projects.type_id=type_project.type_id 
+                // AND projects.project_id='$ite0'");  
+
+                $svg1 = DB::select("AVG(rate_m_index) AS AvgRate FROM rating_m WHERE project_m_id='$ite1' GROUP BY rating_m.project_m_id"); 
+                $svgrate1 = $svg0[0];
+                compact('svgrate0');
+                foreach($svgrate0 as $svgrate0){
+                   $svgrate0 = round($svgrate0,$percision=1);
+                }
+                
+            }
+        }else {
+            $item_h1='';
+        }
+       
+        $itemA_h = DB::select("SELECT project_m_id FROM owner_projectmdd,projectmdd,genre_project,type_project,category_project WHERE category_project.category_name in ('ติดตาม') AND projectmdd.type_id=type_project.type_id 
+        AND projectmdd.genre_id=genre_project.genre_id AND projectmdd.category_id=category_project.category_id AND projectmdd.user_id=owner_projectmdd.owner_m_id  ORDER BY RAND()");
+        // print_r($itemA);
+        if(isset($itemA_h[0])? $itemA_h[0]:'') {
+            $item0 = $itemA_h[0]; //เลือกตำเเหน่งของข้อมูล
+            compact('item0'); // ส่งค่า item0 จากการเลือกตำเเหน่ง
+            foreach($item0 as $ite0){ // ทำการวง loop foreach เพื่อ เอาค่า id ออกจาก array
+                $ite0; // id ของ ตำเเหน่งที่ 0 ที่ได้มาจากการ loop 
+                // หลังจากได้ id ที่ เป็น str ก็นำมา select จาก database ทีละ id เเล้วส่งค่าไปแสดงผลหน้า homeBD
+                // $item = DB::select("SELECT * FROM projectmdd,type_project,genre_project,type_project,category_project WHERE projectmdd.type_id=type_project.type_id 
+                // AND projectmdd.genre_id=genre_project.genre_id AND projectmdd.category_id=category_project.category_id AND projects.project_m_id='$ite0'");  
+                
+                $itemA_h0 = DB::select("SELECT *,AVG(rate_m_index) AS AvgRate FROM rating_m,owner_projectmdd,projectmdd,genre_project,type_project,category_project WHERE projectmdd.type_id=type_project.type_id 
+                AND projectmdd.genre_id=genre_project.genre_id AND projectmdd.category_id=category_project.category_id AND projectmdd.user_id=owner_projectmdd.owner_m_id AND projectmdd.project_m_id=rating_m.project_m_id AND projectmdd.project_m_id='$ite0' GROUP BY rating_m.project_m_id");
+                //rateingproject
+                // print_r($item);
+                // $rate0 = DB::select("SELECT * FROM rating_p WHERE projects.type_id=type_project.type_id 
+                // AND projects.project_id='$ite0'");  
+
+                $svgA0 = DB::select("SELECT AVG(rate_m_index) AS AvgRate FROM rating_m WHERE project_m_id='$ite0' GROUP BY rating_m.project_m_id"); 
+                // print_r($svg0);
+                $svgrate0 = $svg0[0];
+                compact('svgrate0');
+                foreach($svgrate0 as $svgrate0){
+                  $svgrateA = round($svgrate0,$percision=1);
+                }
+                
+            }
+        }else {
+            $itemA_h0='';
+        }
+
+        if(isset($itemA_h[1])? $itemA_h[1]:'') {
+            $item1 = $itemA_h[1]; //เลือกตำเเหน่งของข้อมูล
+            compact('item1'); // ส่งค่า item0 จากการเลือกตำเเหน่ง
+            foreach($item1 as $ite1){ // ทำการวง loop foreach เพื่อ เอาค่า id ออกจาก array
+                $ite1; // id ของ ตำเเหน่งที่ 0 ที่ได้มาจากการ loop 
+                // หลังจากได้ id ที่ เป็น str ก็นำมา select จาก database ทีละ id เเล้วส่งค่าไปแสดงผลหน้า homeBD
+                // $item = DB::select("SELECT * FROM projectmdd,type_project,genre_project,type_project,category_project WHERE projectmdd.type_id=type_project.type_id 
+                // AND projectmdd.genre_id=genre_project.genre_id AND projectmdd.category_id=category_project.category_id AND projects.project_m_id='$ite0'");  
+                
+                $itemA_h1 = DB::select("SELECT * FROM owner_projectmdd,projectmdd,genre_project,type_project,category_project WHERE projectmdd.type_id=type_project.type_id 
+                AND projectmdd.genre_id=genre_project.genre_id AND projectmdd.category_id=category_project.category_id AND projectmdd.user_id=owner_projectmdd.owner_m_id AND projectmdd.project_m_id='$ite1'");
+                
+                //rateingproject
+                // print_r($item);
+                // $rate0 = DB::select("SELECT * FROM rating_p WHERE projects.type_id=type_project.type_id 
+                // AND projects.project_id='$ite0'");  
+
+                $svgA1 = DB::select("SELECT AVG(rate_m_index) AS AvgRate
+                 FROM rating_m WHERE project_m_id='$ite1' 
+                 GROUP BY rating_m.project_m_id"); 
+                $svgrate0 = $svg0[0];
+                compact('svgrate0');
+                foreach($svgrate0 as $svgrate0){
+                     $svgrateA = round($svgrate0,$percision=1);
+                }
+                
+            }
+        }else {
+            $itemA_h1='';
+        }
+
+        $item_g = DB::select("SELECT project_m_id FROM users,projectmdd,genre_project,type_project,category_project WHERE category_project.category_name in ('เพื่อสุขภาพ') AND projectmdd.type_id=type_project.type_id 
+        AND projectmdd.genre_id=genre_project.genre_id AND projectmdd.category_id=category_project.category_id AND projectmdd.user_id=users.U_id ORDER BY RAND()");
+        // print_r($item_m);
+        if(isset($item_g[0])? $item_g[0]:'') {
+            $item0 = $item_g[0]; //เลือกตำเเหน่งของข้อมูล
+            compact('item0'); // ส่งค่า item0 จากการเลือกตำเเหน่ง
+            foreach($item0 as $ite0){ // ทำการวง loop foreach เพื่อ เอาค่า id ออกจาก array
+                $ite0; // id ของ ตำเเหน่งที่ 0 ที่ได้มาจากการ loop 
+                // หลังจากได้ id ที่ เป็น str ก็นำมา select จาก database ทีละ id เเล้วส่งค่าไปแสดงผลหน้า homeBD
+                // $item = DB::select("SELECT * FROM projectmdd,type_project,genre_project,type_project,category_project WHERE projectmdd.type_id=type_project.type_id 
+                // AND projectmdd.genre_id=genre_project.genre_id AND projectmdd.category_id=category_project.category_id AND projects.project_m_id='$ite0'");  
+                
+                $item_g0 = DB::select("SELECT *,AVG(rate_m_index) AS AvgRate FROM rating_m,users,projectmdd,genre_project,type_project,category_project WHERE projectmdd.type_id=type_project.type_id 
+                AND projectmdd.genre_id=genre_project.genre_id AND projectmdd.category_id=category_project.category_id AND projectmdd.user_id=users.U_id AND projectmdd.project_m_id=rating_m.project_m_id AND projectmdd.project_m_id='$ite0' ");
+                //rateingproject
+                // print_r($item);
+                // $rate0 = DB::select("SELECT * FROM rating_p WHERE projects.type_id=type_project.type_id 
+                // AND projects.project_id='$ite0'");  
+
+                $svg0 = DB::select("SELECT AVG(rate_m_index) AS AvgRate FROM rating_m WHERE project_m_id='$ite0' GROUP BY rating_m.project_m_id"); 
+                $svgrate0 = $svg0[0];
+                compact('svgrate0');
+                foreach($svgrate0 as $svgrate0){
+                   $svgrate0 = round($svgrate0,$percision=1);
+                }
+                
+            }
+        }else {
+            $item_g0='';
+        }
+
+        if(isset($item_g[1])? $item_g[1]:'') {
+            $item1 = $item_g[1]; //เลือกตำเเหน่งของข้อมูล
+            compact('item1'); // ส่งค่า item0 จากการเลือกตำเเหน่ง
+            foreach($item1 as $ite1){ // ทำการวง loop foreach เพื่อ เอาค่า id ออกจาก array
+                $ite1; // id ของ ตำเเหน่งที่ 0 ที่ได้มาจากการ loop 
+                // หลังจากได้ id ที่ เป็น str ก็นำมา select จาก database ทีละ id เเล้วส่งค่าไปแสดงผลหน้า homeBD
+                // $item = DB::select("SELECT * FROM projectmdd,type_project,genre_project,type_project,category_project WHERE projectmdd.type_id=type_project.type_id 
+                // AND projectmdd.genre_id=genre_project.genre_id AND projectmdd.category_id=category_project.category_id AND projects.project_m_id='$ite0'");  
+                // echo $ite1;
+                $item_g1 = DB::select("SELECT * FROM users,projectmdd,genre_project,type_project,category_project WHERE projectmdd.type_id=type_project.type_id 
+                AND projectmdd.genre_id=genre_project.genre_id AND projectmdd.category_id=category_project.category_id AND projectmdd.user_id=users.U_id AND projectmdd.project_m_id='$ite1' ");
+                //rateingproject
+                // print_r($item);
+                // $rate0 = DB::select("SELECT * FROM rating_p WHERE projects.type_id=type_project.type_id 
+                // AND projects.project_id='$ite0'");  
+
+                $svg1 = DB::select("AVG(rate_m_index) AS AvgRate FROM rating_m WHERE project_m_id='$ite1' GROUP BY rating_m.project_m_id"); 
+                $svgrate1 = $svg0[0];
+                compact('svgrate0');
+                foreach($svgrate0 as $svgrate0){
+                   $svgrate0 = round($svgrate0,$percision=1);
+                }
+                
+            }
+        }else {
+            $item_g1='';
+        }
+       
+        $itemA_g = DB::select("SELECT project_m_id FROM owner_projectmdd,projectmdd,genre_project,type_project,category_project WHERE category_project.category_name in ('ติดตาม') AND projectmdd.type_id=type_project.type_id 
+        AND projectmdd.genre_id=genre_project.genre_id AND projectmdd.category_id=category_project.category_id AND projectmdd.user_id=owner_projectmdd.owner_m_id  ORDER BY RAND()");
+        // print_r($itemA);
+        if(isset($itemA_g[0])? $itemA_g[0]:'') {
+            $item0 = $itemA_g[0]; //เลือกตำเเหน่งของข้อมูล
+            compact('item0'); // ส่งค่า item0 จากการเลือกตำเเหน่ง
+            foreach($item0 as $ite0){ // ทำการวง loop foreach เพื่อ เอาค่า id ออกจาก array
+                $ite0; // id ของ ตำเเหน่งที่ 0 ที่ได้มาจากการ loop 
+                // หลังจากได้ id ที่ เป็น str ก็นำมา select จาก database ทีละ id เเล้วส่งค่าไปแสดงผลหน้า homeBD
+                // $item = DB::select("SELECT * FROM projectmdd,type_project,genre_project,type_project,category_project WHERE projectmdd.type_id=type_project.type_id 
+                // AND projectmdd.genre_id=genre_project.genre_id AND projectmdd.category_id=category_project.category_id AND projects.project_m_id='$ite0'");  
+                
+                $itemA_g0 = DB::select("SELECT *,AVG(rate_m_index) AS AvgRate FROM rating_m,owner_projectmdd,projectmdd,genre_project,type_project,category_project WHERE projectmdd.type_id=type_project.type_id 
+                AND projectmdd.genre_id=genre_project.genre_id AND projectmdd.category_id=category_project.category_id AND projectmdd.user_id=owner_projectmdd.owner_m_id AND projectmdd.project_m_id=rating_m.project_m_id AND projectmdd.project_m_id='$ite0' GROUP BY rating_m.project_m_id");
+                //rateingproject
+                // print_r($item);
+                // $rate0 = DB::select("SELECT * FROM rating_p WHERE projects.type_id=type_project.type_id 
+                // AND projects.project_id='$ite0'");  
+
+                $svgA0 = DB::select("SELECT AVG(rate_m_index) AS AvgRate FROM rating_m WHERE project_m_id='$ite0' GROUP BY rating_m.project_m_id"); 
+                // print_r($svg0);
+                $svgrate0 = $svg0[0];
+                compact('svgrate0');
+                foreach($svgrate0 as $svgrate0){
+                  $svgrateA = round($svgrate0,$percision=1);
+                }
+                
+            }
+        }else {
+            $itemA_g0='';
+        }
+
+        if(isset($itemA_g[1])? $itemA_g[1]:'') {
+            $item1 = $itemA_g[1]; //เลือกตำเเหน่งของข้อมูล
+            compact('item1'); // ส่งค่า item0 จากการเลือกตำเเหน่ง
+            foreach($item1 as $ite1){ // ทำการวง loop foreach เพื่อ เอาค่า id ออกจาก array
+                $ite1; // id ของ ตำเเหน่งที่ 0 ที่ได้มาจากการ loop 
+                // หลังจากได้ id ที่ เป็น str ก็นำมา select จาก database ทีละ id เเล้วส่งค่าไปแสดงผลหน้า homeBD
+                // $item = DB::select("SELECT * FROM projectmdd,type_project,genre_project,type_project,category_project WHERE projectmdd.type_id=type_project.type_id 
+                // AND projectmdd.genre_id=genre_project.genre_id AND projectmdd.category_id=category_project.category_id AND projects.project_m_id='$ite0'");  
+                
+                $itemA_g1 = DB::select("SELECT * FROM owner_projectmdd,projectmdd,genre_project,type_project,category_project WHERE projectmdd.type_id=type_project.type_id 
+                AND projectmdd.genre_id=genre_project.genre_id AND projectmdd.category_id=category_project.category_id AND projectmdd.user_id=owner_projectmdd.owner_m_id AND projectmdd.project_m_id='$ite1'");
+                
+                //rateingproject
+                // print_r($item);
+                // $rate0 = DB::select("SELECT * FROM rating_p WHERE projects.type_id=type_project.type_id 
+                // AND projects.project_id='$ite0'");  
+
+                $svgA1 = DB::select("SELECT AVG(rate_m_index) AS AvgRate
+                 FROM rating_m WHERE project_m_id='$ite1' 
+                 GROUP BY rating_m.project_m_id"); 
+                $svgrate0 = $svg0[0];
+                compact('svgrate0');
+                foreach($svgrate0 as $svgrate0){
+                     $svgrateA = round($svgrate0,$percision=1);
+                }
+                
+            }
+        }else {
+            $itemA_g1='';
+        }
+
+        return view('homeMDD',compact('item_m0','item_m1','item_h0','item_h1','item_g0','item_g1','svgrate0','svgrateA','adminaccount','userimg','imgaccount','sum_follow','chk_health','sum_game','itemA1','itemA0','itemA_h0','itemA_h1','itemA_g0','itemA_g1'));
     }
     
     public function editprojectadmin(Request $request) {

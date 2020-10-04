@@ -23,11 +23,11 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         
-        <title>ICTSTORE</title>
+        <title>ICTThesis</title>
     </head>
     <body class="app sidebar-mini ">
         <header class="app-header">
-            <a href="homeBD" class="app-header__logo" >ICTSTORE</a>
+            <a href="homeBD" class="app-header__logo" >ICTThesis</a>
             <!-- main.css-->
             <ul class="app-nav">
                 <li class="app-search">

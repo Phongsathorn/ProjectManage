@@ -2,18 +2,18 @@
         
 
         <main class="app-content">
-            <div class="app-title">
+            <div class="app-title" style="width: 100%;margin-left:1px;">
                 <div>
-                    <h1><i class="fa fa-th-list"></i>รายละเอียดดูเเลระบบ</h1>
+                    <h1><i class="fa fa-th-list"></i> รายละเอียดดูเเลระบบ</h1>
                 </div>
                 <ul class="app-breadcrumb breadcrumb side">
                     <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-                    <li class="breadcrumb-item">Tables</li>
+                    <li class="breadcrumb-item">ตาราง</li>
                     <li class="breadcrumb-item active"><a href="#">รายละเอียดผู้ดูเเลระบบ</a></li>
                 </ul>
             </div>
             
-            <div align="right"><a href="adduser" class="btn btn-success">เพิ่มข้อมูล</a></div>
+            
 
                 <!-- เเสดงเเจ้งเตือนว่าข้อมูลถูกลบเรียบร้อยเเล้ว -->
                 @if(\Session::has('success')) 
@@ -22,13 +22,13 @@
                     </div> 
                 @endif 
 
-        <h2>ผู้ดูเเลระบบ</h2>
+            <div align="right" style="margin:0 0 5px 0;"><a href="adduser" class="btn btn-success">เพิ่มข้อมูล</a></div>
             <div class="row">
                 <div class="col-md-12">
                     <div class="tile">
                         <div class="tile-body">
                             <div class="table-responsive">
-                                <table class="table table-hover table-bordered" id="sampleTable">
+                                <table id="example" class="table table-bordered" cellspacing="0" width="100%">
                                     <thead>
                                         <tr>
                                             <th>ลำดับที่</th>

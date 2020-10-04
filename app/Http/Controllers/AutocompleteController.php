@@ -81,7 +81,10 @@ class AutocompleteController extends Controller
         
         $easysearch = DB::select("SELECT * FROM projects,type_project
         WHERE projects.type_id=type_project.type_id AND projects.project_name LIKE '%$keyword%' 
-        OR  projects.type_id=type_project.type_id  AND projects.keyword_project LIKE '%$keyword%'");
+        OR projects.type_id=type_project.type_id AND projects.keyword_project1 LIKE '%$keyword%'
+        OR projects.type_id=type_project.type_id AND projects.keyword_project2 LIKE '%$keyword%' 
+        OR projects.type_id=type_project.type_id AND projects.keyword_project3 LIKE '%$keyword%'
+        OR projects.type_id=type_project.type_id AND projects.keyword_project4 LIKE '%$keyword%'");
 
         
         // print_r($output) ;
@@ -94,21 +97,189 @@ class AutocompleteController extends Controller
         
         
         $keyword = $request->input('detailsearch');
-        $typeproject = $request->input('type_project');
         $genreproject = $request->input('genre_project');
         $categoryproject = $request->input('category_project');
-        
+        $typeproject = $request->input('type_project');
+        $branch_project = $request->input('branch_project');
 
-        $detailsearch = DB::select("SELECT * FROM projects,type_project,genre_project,branch_project,category_project
-        WHERE projects.type_id=type_project.type_id AND projects.genre_id=genre_project.genre_id
-        AND projects.branch_id=branch_project.branch_id AND projects.category_id=category_project.category_id
-        AND projects.type_id=$typeproject AND projects.genre_id=$genreproject AND projects.category_id=2 AND projects.branch_id=1
-        AND projects.project_name LIKE '%$keyword%' 
+        if(isset($genreproject)!=='' & isset($categoryproject)!=='' & isset($typeproject)!=='' & isset($branch_project)!==''){
+            echo 'ตวย';
+        }
+
+        // if(empty($genreproject)){
+        //     // print_r ("genre:NULL");
+        //     $typeproject = "AND projects.genre_id=$typeproject";
+        //     $categoryproject = "AND projects.category_id=$categoryproject";
+        //     $branch_project = "AND projects.branch_id=$branch_project";        }
+        // if(empty($categoryproject)){
+        //     // print_r ("cate:NULL");
+        //     $genreproject = "AND projects.genre_id=$genreproject";
+        //     $typeproject = "AND projects.type_id=$typeproject";
+        //     $branch_project = "AND projects.branch_id=$branch_project";
+        // }
+        // if(empty($typeproject)){
+        //     // print_r ("type:NULL");
+        //     $genreproject = "AND projects.genre_id=$genreproject";
+        //     $categoryproject = "AND projects.category_id=$categoryproject";
+        //     $branch_project = "AND projects.branch_id=$branch_project"; 
+        // }
+        // if(empty($branch_project)){
+        //     // print_r ("branch:NULL");
+        //     $genreproject = "AND projects.genre_id=$genreproject";
+        //     $categoryproject = "AND projects.category_id=$categoryproject";
+        //     $typeproject = "AND projects.type_id=$typeproject";
+        // }
+        // else{
+        //     // print_r ($keyword);
+        // }        
+        if(empty($typeproject)){
+            $detailsearch = DB::select("SELECT * FROM projects,type_project,genre_project,branch_project,category_project
+                WHERE projects.type_id=type_project.type_id AND projects.genre_id=genre_project.genre_id
+                AND projects.branch_id=branch_project.branch_id AND projects.category_id=category_project.category_id
+                AND projects.genre_id=$genreproject AND projects.category_id=$categoryproject AND projects.branch_id=$branch_project
+                AND projects.project_name LIKE '%$keyword%' 
+                
+                OR  projects.type_id=type_project.type_id AND projects.genre_id=genre_project.genre_id
+                AND projects.branch_id=branch_project.branch_id AND projects.category_id=category_project.category_id
+                AND projects.genre_id=$genreproject AND projects.category_id=$categoryproject AND projects.branch_id=$branch_project
+                AND projects.keyword_project1 LIKE '%$keyword%'
+                
+                OR  projects.type_id=type_project.type_id AND projects.genre_id=genre_project.genre_id
+                AND projects.branch_id=branch_project.branch_id AND projects.category_id=category_project.category_id
+                AND projects.genre_id=$genreproject AND projects.category_id=$categoryproject AND projects.branch_id=$branch_project
+                AND projects.keyword_project2 LIKE '%$keyword%'
+                
+                OR  projects.type_id=type_project.type_id AND projects.genre_id=genre_project.genre_id
+                AND projects.branch_id=branch_project.branch_id AND projects.category_id=category_project.category_id
+                AND projects.genre_id=$genreproject AND projects.category_id=$categoryproject AND projects.branch_id=$branch_project
+                AND projects.keyword_project3 LIKE '%$keyword%'
+                
+                OR  projects.type_id=type_project.type_id AND projects.genre_id=genre_project.genre_id
+                AND projects.branch_id=branch_project.branch_id AND projects.category_id=category_project.category_id
+                AND projects.genre_id=$genreproject AND projects.category_id=$categoryproject AND projects.branch_id=$branch_project
+                AND projects.keyword_project4 LIKE '%$keyword%'");
+        }
+
+        if(empty($genreproject)){
+            $detailsearch = DB::select("SELECT * FROM projects,type_project,genre_project,branch_project,category_project
+                WHERE projects.type_id=type_project.type_id AND projects.genre_id=genre_project.genre_id
+                AND projects.branch_id=branch_project.branch_id AND projects.category_id=category_project.category_id
+                AND projects.type_id=$typeproject AND projects.category_id=$categoryproject AND projects.branch_id=$branch_project
+                AND projects.project_name LIKE '%$keyword%' 
+                
+                OR  projects.type_id=type_project.type_id AND projects.genre_id=genre_project.genre_id
+                AND projects.branch_id=branch_project.branch_id AND projects.category_id=category_project.category_id
+                AND projects.type_id=$typeproject AND projects.category_id=$categoryproject AND projects.branch_id=$branch_project
+                AND projects.keyword_project1 LIKE '%$keyword%'
+                
+                OR  projects.type_id=type_project.type_id AND projects.genre_id=genre_project.genre_id
+                AND projects.branch_id=branch_project.branch_id AND projects.category_id=category_project.category_id
+                AND projects.type_id=$typeproject AND projects.category_id=$categoryproject AND projects.branch_id=$branch_project
+                AND projects.keyword_project2 LIKE '%$keyword%'
+                
+                OR  projects.type_id=type_project.type_id AND projects.genre_id=genre_project.genre_id
+                AND projects.branch_id=branch_project.branch_id AND projects.category_id=category_project.category_id
+                AND projects.type_id=$typeproject AND projects.category_id=$categoryproject AND projects.branch_id=$branch_project
+                AND projects.keyword_project3 LIKE '%$keyword%'
+                
+                OR  projects.type_id=type_project.type_id AND projects.genre_id=genre_project.genre_id
+                AND projects.branch_id=branch_project.branch_id AND projects.category_id=category_project.category_id
+                AND projects.type_id=$typeproject AND projects.category_id=$categoryproject AND projects.branch_id=$branch_project
+                AND projects.keyword_project4 LIKE '%$keyword%'");
+        }
+
+        if(empty($categoryproject)){
+            $detailsearch = DB::select("SELECT * FROM projects,type_project,genre_project,branch_project,category_project
+                WHERE projects.type_id=type_project.type_id AND projects.genre_id=genre_project.genre_id
+                AND projects.branch_id=branch_project.branch_id AND projects.category_id=category_project.category_id
+                AND projects.genre_id=$genreproject AND projects.type_id=$typeproject AND projects.branch_id=$branch_project
+                AND projects.project_name LIKE '%$keyword%' 
+                
+                OR  projects.type_id=type_project.type_id AND projects.genre_id=genre_project.genre_id
+                AND projects.branch_id=branch_project.branch_id AND projects.category_id=category_project.category_id
+                AND projects.genre_id=$genreproject AND projects.type_id=$typeproject AND projects.branch_id=$branch_project
+                AND projects.keyword_project1 LIKE '%$keyword%'
+                
+                OR  projects.type_id=type_project.type_id AND projects.genre_id=genre_project.genre_id
+                AND projects.branch_id=branch_project.branch_id AND projects.category_id=category_project.category_id
+                AND projects.genre_id=$genreproject AND projects.type_id=$typeproject AND projects.branch_id=$branch_project
+                AND projects.keyword_project2 LIKE '%$keyword%'
+                
+                OR  projects.type_id=type_project.type_id AND projects.genre_id=genre_project.genre_id
+                AND projects.branch_id=branch_project.branch_id AND projects.category_id=category_project.category_id
+                AND projects.genre_id=$genreproject AND projects.type_id=$typeproject AND projects.branch_id=$branch_project
+                AND projects.keyword_project3 LIKE '%$keyword%'
+                
+                OR  projects.type_id=type_project.type_id AND projects.genre_id=genre_project.genre_id
+                AND projects.branch_id=branch_project.branch_id AND projects.category_id=category_project.category_id
+                AND projects.genre_id=$genreproject AND projects.type_id=$typeproject AND projects.branch_id=$branch_project
+                AND projects.keyword_project4 LIKE '%$keyword%'");
+        }
+        if(empty($branch_project)){
+            $detailsearch = DB::select("SELECT * FROM projects,type_project,genre_project,branch_project,category_project
+                WHERE projects.type_id=type_project.type_id AND projects.genre_id=genre_project.genre_id
+                AND projects.branch_id=branch_project.branch_id AND projects.category_id=category_project.category_id
+                AND projects.genre_id=$genreproject AND projects.category_id=$categoryproject AND projects.type_id=$typeproject
+                AND projects.project_name LIKE '%$keyword%' 
+                
+                OR  projects.type_id=type_project.type_id AND projects.genre_id=genre_project.genre_id
+                AND projects.branch_id=branch_project.branch_id AND projects.category_id=category_project.category_id
+                AND projects.genre_id=$genreproject AND projects.category_id=$categoryproject AND projects.type_id=$typeproject
+                AND projects.keyword_project1 LIKE '%$keyword%'
+                
+                OR  projects.type_id=type_project.type_id AND projects.genre_id=genre_project.genre_id
+                AND projects.branch_id=branch_project.branch_id AND projects.category_id=category_project.category_id
+                AND projects.genre_id=$genreproject AND projects.category_id=$categoryproject AND projects.type_id=$typeproject
+                AND projects.keyword_project2 LIKE '%$keyword%'
+                
+                OR  projects.type_id=type_project.type_id AND projects.genre_id=genre_project.genre_id
+                AND projects.branch_id=branch_project.branch_id AND projects.category_id=category_project.category_id
+                AND projects.genre_id=$genreproject AND projects.category_id=$categoryproject AND projects.type_id=$typeproject
+                AND projects.keyword_project3 LIKE '%$keyword%'
+                
+                OR  projects.type_id=type_project.type_id AND projects.genre_id=genre_project.genre_id
+                AND projects.branch_id=branch_project.branch_id AND projects.category_id=category_project.category_id
+                AND projects.genre_id=$genreproject AND projects.category_id=$categoryproject AND projects.type_id=$typeproject
+                AND projects.keyword_project4 LIKE '%$keyword%'");
+        }
+        else{
+            $detailsearch = DB::select("SELECT * FROM projects,type_project,genre_project,branch_project,category_project
+                WHERE projects.type_id=type_project.type_id AND projects.genre_id=genre_project.genre_id
+                AND projects.branch_id=branch_project.branch_id AND projects.category_id=category_project.category_id 
+                AND projects.genre_id=$genreproject AND projects.category_id=$categoryproject 
+                AND projects.type_id=$typeproject AND projects.branch_id=$branch_project           
+                AND projects.project_name LIKE '%$keyword%' 
+                
+                OR  projects.type_id=type_project.type_id AND projects.genre_id=genre_project.genre_id
+                AND projects.branch_id=branch_project.branch_id AND projects.category_id=category_project.category_id  
+                AND projects.genre_id=$genreproject AND projects.category_id=$categoryproject 
+                AND projects.type_id=$typeproject AND projects.branch_id=$branch_project                 
+                AND projects.keyword_project1 LIKE '%$keyword%'
+                
+                OR  projects.type_id=type_project.type_id AND projects.genre_id=genre_project.genre_id
+                AND projects.branch_id=branch_project.branch_id AND projects.category_id=category_project.category_id 
+                AND projects.genre_id=$genreproject AND projects.category_id=$categoryproject 
+                AND projects.type_id=$typeproject AND projects.branch_id=$branch_project                  
+                AND projects.keyword_project2 LIKE '%$keyword%'
+                
+                OR  projects.type_id=type_project.type_id AND projects.genre_id=genre_project.genre_id
+                AND projects.branch_id=branch_project.branch_id AND projects.category_id=category_project.category_id  
+                AND projects.genre_id=$genreproject AND projects.category_id=$categoryproject 
+                AND projects.type_id=$typeproject AND projects.branch_id=$branch_project                 
+                AND projects.keyword_project3 LIKE '%$keyword%'
+                
+                OR  projects.type_id=type_project.type_id AND projects.genre_id=genre_project.genre_id
+                AND projects.branch_id=branch_project.branch_id AND projects.category_id=category_project.category_id    
+                AND projects.genre_id=$genreproject AND projects.category_id=$categoryproject 
+                AND projects.type_id=$typeproject AND projects.branch_id=$branch_project               
+                AND projects.keyword_project4 LIKE '%$keyword%'");
+
+            $similar = DB::select("SELECT * FROM projects WHERE projects.keyword_project1 LIKE '%$keyword%'
+                OR projects.keyword_project2 LIKE '%$keyword%' OR projects.keyword_project3 LIKE '%$keyword%'
+                OR projects.keyword_project4 LIKE '%$keyword%' ");
+        }
         
-        OR  projects.type_id=type_project.type_id AND projects.genre_id=genre_project.genre_id
-        AND projects.branch_id=branch_project.branch_id AND projects.category_id=category_project.category_id
-        AND projects.type_id=$typeproject AND projects.genre_id=$genreproject AND projects.category_id=2 AND projects.branch_id=1
-        AND projects.project_name LIKE '%$keyword%'");
+        
         //print_r($detailsearch);
         return view('beforesearchAV', compact('detailsearch'));
         

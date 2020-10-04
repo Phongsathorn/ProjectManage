@@ -37,7 +37,7 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     
 
-    <title>ICTSTORE</title>
+    <title>ICTThesis</title>
 
     <style>
         .user-size {
@@ -490,7 +490,7 @@
     <div class="app sidebar-mini ">
         <header class="app-header">
             <!-- font Athiti -->
-            <a href="homeMDD" class="app-header__logo font-Athiti">ICTSTORE</a>
+            <a href="homeMDD" class="app-header__logo font-Athiti">ICTThesis</a>
             <!-- main.css-->
             <ul class="app-nav">
                 <li class="app-search search-left">
@@ -503,7 +503,7 @@
                     <li class="active3 menulink fontlink"><a href="#">เกี่ยวกับ</a></li>
                     <li class="active4 menulink fontlink"><a href="#">ติดต่อ</a></li>
                 </nav>
-                <div class="navbar-dark layoutaccout ">
+                <div class="navbar-dark layoutaccout-MDD ">
                     <ul class="navbar-nav ml-auto ml-md-0">
 
                         <?php
@@ -695,7 +695,7 @@
                         <?php } ?>
                     </ul>
                 </div>
-                <a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
+               
         </header>
         <div class="app-sidebar__overlay" data-toggle="sidebar" aria-label="Hide Sidebar"></div>
         <!-- app-sidebar css ของ main.css ส่วนของ เเท็บ ซ้ายมือ -->
