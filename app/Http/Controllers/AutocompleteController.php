@@ -51,6 +51,7 @@ class AutocompleteController extends Controller
 
         session_start();
         $keyword = $request->input('search');
+        $_SESSION['beforsearch'] = 1;
         //$_SESSION['search'] = $request->input('search');
         //echo $keyword;
 
@@ -86,25 +87,56 @@ class AutocompleteController extends Controller
         OR projects.type_id=type_project.type_id AND projects.keyword_project3 LIKE '%$keyword%'
         OR projects.type_id=type_project.type_id AND projects.keyword_project4 LIKE '%$keyword%'");
 
+        foreach ($easysearch as $key_s) {
+            $key_similar1 = $key_s->keyword_project1;
+            $key_similar2 = $key_s->keyword_project2;
+            $key_similar3 = $key_s->keyword_project3;
+            $key_similar4 = $key_s->keyword_project4;
+            
+            $similar = DB::select("SELECT * FROM projects,type_project 
+            WHERE projects.type_id=type_project.type_id AND projects.keyword_project1 LIKE '%$key_similar1%' 
+            OR projects.type_id=type_project.type_id AND projects.keyword_project2 LIKE '%$key_similar2%' 
+            OR projects.type_id=type_project.type_id AND projects.keyword_project3 LIKE '%$key_similar3%' 
+            OR projects.type_id=type_project.type_id AND projects.keyword_project4 LIKE '%$key_similar4%'
+             ");
+            // print_r($key_similar1);
+            // print_r($key_similar2);
+            // print_r($key_similar3);
+            // print_r($key_similar4);
+            
+            //view star
+            // $svg0 = DB::select("SELECT AVG(rate_index) AS AvgRate FROM rating_p WHERE project_id='$ite0'"); 
+            // $svgrate0 = $svg0[0];
+            // compact('svgrate0');
+            // foreach($svgrate0 as $svgrate0){
+            //     $svgrate0 = round($svgrate0,$percision=1);
+            // }
+            // print_r($output) ;
+            return view('beforesearchBD', compact('easysearch','imgaccount','adminaccount','similar'));
+            // print_r($similar);
+        }
         
-        // print_r($output) ;
-        return view('beforesearchBD', compact('easysearch','imgaccount','adminaccount'));
+        
+
+        
+
+        
 
     }
 
     function detailsearch(Request $request)
     {
-        
-        
+        session_start();
+        $_SESSION['beforsearch'] = 1;
         $keyword = $request->input('detailsearch');
         $genreproject = $request->input('genre_project');
         $categoryproject = $request->input('category_project');
         $typeproject = $request->input('type_project');
         $branch_project = $request->input('branch_project');
 
-        if(isset($genreproject)!=='' & isset($categoryproject)!=='' & isset($typeproject)!=='' & isset($branch_project)!==''){
-            echo 'ตวย';
-        }
+        // if(isset($genreproject)!=='' & isset($categoryproject)!=='' & isset($typeproject)!=='' & isset($branch_project)!==''){
+        //     echo 'ตวย';
+        // }
 
         // if(empty($genreproject)){
         //     // print_r ("genre:NULL");
@@ -274,14 +306,40 @@ class AutocompleteController extends Controller
                 AND projects.type_id=$typeproject AND projects.branch_id=$branch_project               
                 AND projects.keyword_project4 LIKE '%$keyword%'");
 
-            $similar = DB::select("SELECT * FROM projects WHERE projects.keyword_project1 LIKE '%$keyword%'
-                OR projects.keyword_project2 LIKE '%$keyword%' OR projects.keyword_project3 LIKE '%$keyword%'
-                OR projects.keyword_project4 LIKE '%$keyword%' ");
+            foreach ($detailsearch as $key_s) {
+                $key_similar1 = $key_s->keyword_project1;
+                $key_similar2 = $key_s->keyword_project2;
+                $key_similar3 = $key_s->keyword_project3;
+                $key_similar4 = $key_s->keyword_project4;
+                
+                $similar = DB::select("SELECT * FROM projects,type_project 
+                WHERE projects.type_id=type_project.type_id AND projects.keyword_project1 LIKE '%$key_similar1%' 
+                OR projects.type_id=type_project.type_id AND projects.keyword_project2 LIKE '%$key_similar2%' 
+                OR projects.type_id=type_project.type_id AND projects.keyword_project3 LIKE '%$key_similar3%' 
+                OR projects.type_id=type_project.type_id AND projects.keyword_project4 LIKE '%$key_similar4%' ");
+                // print_r($key_similar1);
+                // print_r($key_similar2);
+                // print_r($key_similar3);
+                // print_r($key_similar4);
+                
+                //view star
+                // $svg0 = DB::select("SELECT AVG(rate_index) AS AvgRate FROM rating_p WHERE project_id='$ite0'"); 
+                // $svgrate0 = $svg0[0];
+                // compact('svgrate0');
+                // foreach($svgrate0 as $svgrate0){
+                //     $svgrate0 = round($svgrate0,$percision=1);
+                // }
+            }
+            //photos
+            $chkid = (isset($_SESSION['usersid'])) ? $_SESSION['usersid'] : '';
+            $chkidadmin = (isset($_SESSION['adminid'])) ? $_SESSION['adminid'] : '';
+            $imgaccount = DB::select("SELECT * FROM users WHERE U_id='$chkid'");
+            $adminaccount = DB::select("SELECT * FROM admin_company WHERE admin_id='$chkidadmin'");
         }
         
         
         //print_r($detailsearch);
-        return view('beforesearchAV', compact('detailsearch'));
+        return view('beforesearchAV', compact('detailsearch','similar','imgaccount','adminaccount'));
         
     }
 

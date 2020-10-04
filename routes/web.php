@@ -269,6 +269,6 @@ Route::post('adddata', 'ListdataController@adduser');
 
     //ลบข้อมูล โปรเจคป.โท
     Route::get('delete_p_mdd/{project_m_id}','AdminController@delete_projectmdd');
-    
+
     //อ่านไฟล์ตรวจสอบ
     Route::get('read_chk/{project_id}', 'AdminController@readfile');

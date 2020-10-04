@@ -44,11 +44,6 @@ class ListdataController extends Controller
         return view('dataproject', ['dataproject' => $dataproject]);
     }
 
-    public function Data()
-    {
-        $datas = Datalist::all();
-        return view('homeBD', ['datas' => $datas]);
-    }
 
     public function Newarrivaldata()
     {
@@ -84,8 +79,8 @@ class ListdataController extends Controller
         WHERE genre_project.genre_name in ('ไอโอที(IoT)') AND projects.status_p in ('1') 
         AND projects.type_id=type_project.type_id AND projects.genre_id=genre_project.genre_id AND projects.project_id=rating_p.project_id
         GROUP BY rating_p.project_id");
-
-        return view('pagewedsum.pageIot', compact('datas', 'imgaccount', 'adminaccount'));
+        // print_r($datas1);
+        return view('pagewedsum.pageIot', compact('datas1', 'imgaccount', 'adminaccount'));
     }
 
     public function pursue(){

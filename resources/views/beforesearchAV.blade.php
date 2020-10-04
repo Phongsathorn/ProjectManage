@@ -816,23 +816,36 @@
             </div>
         </div>
         
-        @if(!isset($_SESSION['beforsearch']))
+    @if(!isset($_SESSION['beforsearch']))
 
-        @elseif(isset($_SESSION['beforsearch']))
-        <div class="rowcolumn-AV" >
-            <div class="col-md-12">
-                <div class="tile1">
-                    <div class="tile-body">
-                        <div class="texthe1">ผลลัพธ์ที่ใกล้เคียง</div>
-                            <div class="table-responsive ">
-                                
-                            </div>
+    @elseif(isset($_SESSION['beforsearch']))
+    <div class="rowcolumn-AV" >
+        <div class="col-md-12">
+            <div class="tile1">
+                <div class="tile-body">
+                    <div class="texthe1">ผลลัพธ์ที่ใกล้เคียง</div>
+                        <div class="table-responsive ">
+                            @foreach($similar as $simiilar) 
+                                    
+                                <a href="itemdetaliBD/{{$simiilar->project_id}}"><div class="column" ><div class="columnimg"><img src="project\img_logo\<?php echo $simiilar->logo;?>" alt="" class="fromimg"></div></a>
+                                    <center><a href="itemdetaliBD/{{$simiilar->project_id}}"><div class="textimg">
+                                    <?php 
+                                        $str = $simiilar->project_name;
+                                        $count = utf8_strlen($str);
+                                        create_str($count,$str,$simiilar);  
+                                    ?></div></a></center>
+                                    <center><a href="itemtypeBD/{{$simiilar->type_id}}"><div class="textimg2"><?php echo $simiilar->type_name;?></div></a></center>
+                                    
+                                </div>
+                            
+                            @endforeach
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        @endif
+    </div>
+    @endif
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
         <script src="{{ asset('js/app.js') }}" defer></script>
