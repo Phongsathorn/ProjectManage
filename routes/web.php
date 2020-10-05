@@ -73,7 +73,7 @@ Route::get('projectviewmdd', 'Project_MDDController@project');
 // page BD
     
     Route::get('Newarrival', 'ListdataController@Newarrivaldata');
-    Route::get('Popular', 'ListdataController@ratingMax');
+    Route::get('Popular', 'ListdataController@popular');
     Route::get('itemtypeBD/{type_id}', 'ProjectController@typeitem');
     Route::get('pageIot', 'ListdataController@dataIot');
 

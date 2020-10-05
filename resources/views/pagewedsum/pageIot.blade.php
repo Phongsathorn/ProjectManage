@@ -97,10 +97,10 @@
     }
 
     function check_rating($rating) {
-        for($i=0;$i<$rating;$i++){
+        for($i=0;$i<floor($rating);$i++){
             echo '<i class="fas fa-star" style="color: #ffb712;"></i>';
         }
-        for($i=0;$i < 5-$rating;$i++) {
+        for($i=0;$i < 5-floor($rating);$i++) {
             echo '<i class="far fa-star" style="color: #ffb712;"></i>';
         }
     }
@@ -109,28 +109,28 @@
         if(isset($svgid)?$svgid:''){
         if($svgid < 2 & $svgid> 0){
             echo'<div class="rating">';
-            check_rating($svgid);if(isset($svgid)?$svgid:''){echo'<span class="">('.(round($svgid, $precision = 1)).'</span>}</div>';}}
+            check_rating($svgid);if(isset($svgid)?$svgid:''){echo'<span class="">('.(round($svgid, $precision = 1)).'</span>)</div>';}}
         
         elseif($svgid >= 2 & $svgid < 3) {
             echo'<div class="rating">';
-            check_rating($svgid);if(isset($svgid)?$svgid:''){echo'<span class="">('.(round($svgid, $precision = 1)).'</span>}</div>';}}
+            check_rating($svgid);if(isset($svgid)?$svgid:''){echo'<span class="">('.(round($svgid, $precision = 1)).'</span>)</div>';}}
         
         
         elseif($svgid >= 3 & $svgid < 4) {
             echo'<div class="rating">';
-            check_rating($svgid);if(isset($svgid)?$svgid:''){echo'<span class="">('.(round($svgid, $precision = 1)).'</span>}</div>';}}
+            check_rating($svgid);if(isset($svgid)?$svgid:''){echo'<span class="">('.(round($svgid, $precision = 1)).'</span>)</div>';}}
         
         
         elseif($svgid >= 4 & $svgid < 5){
             echo'<div class="rating">';
-            check_rating($svgid);if(isset($svgid)?$svgid:''){echo'<span class="">('.(round($svgid, $precision = 1)).'</span>}</div>';}} 
+            check_rating($svgid);if(isset($svgid)?$svgid:''){echo'<span class="">('.(round($svgid, $precision = 1)).'</span>)</div>';}} 
         
         elseif($svgid >= 5){
         echo'<div class="rating">';
-            check_rating($svgid);if(isset($svgid)?$svgid:''){echo'<span class="">('.(round($svgid, $precision = 1)).'</span>}</div>';}}
+            check_rating($svgid);if(isset($svgid)?$svgid:''){echo'<span class="">('.(round($svgid, $precision = 1)).'</span>)</div>';}}
         else{
             echo'<div class="rating">';
-            check_rating($svgid);if(isset($svgid)?$svgid:''){echo'<span class="">('.(round($svgid, $precision = 1)).'</span>}</div>';}}
+            check_rating($svgid);if(isset($svgid)?$svgid:''){echo'<span class="">('.(round($svgid, $precision = 1)).'</span>)</div>';}}
     
         }
         else{

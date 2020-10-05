@@ -795,6 +795,7 @@
                     <div class="tile-body">
                         <div class="texthe1">ผลลัพธ์การค้นหา</div>
                             <div class="table-responsive ">
+                            @if(isset($detailsearch)?$detailsearch:'')
                                 @foreach($detailsearch as $aftersearch) 
                                     
                                         <a href="itemdetaliBD/{{$aftersearch->project_id}}"><div class="column" ><div class="columnimg"><img src="project\img_logo\<?php echo $aftersearch->logo;?>" alt="" class="fromimg"></div></a>
@@ -809,6 +810,9 @@
                                         </div>
                                     
                                 @endforeach
+                                @else
+                                <p style="margin-left:100px;margin-top:30px;">" ไม่พบผลลัพธ์ในการค้นหา "</p>
+                            @endif
                             </div>
                         </div>
                     </div>
@@ -825,6 +829,7 @@
                 <div class="tile-body">
                     <div class="texthe1">ผลลัพธ์ที่ใกล้เคียง</div>
                         <div class="table-responsive ">
+                        @if(isset($detailsearch)?$detailsearch:'')
                             @foreach($similar as $simiilar) 
                                     
                                 <a href="itemdetaliBD/{{$simiilar->project_id}}"><div class="column" ><div class="columnimg"><img src="project\img_logo\<?php echo $simiilar->logo;?>" alt="" class="fromimg"></div></a>
@@ -839,6 +844,9 @@
                                 </div>
                             
                             @endforeach
+                            @else
+                            <h2>ไม่พบข้อมูล</h2>
+                            @endif
                         </div>
                     </div>
                 </div>

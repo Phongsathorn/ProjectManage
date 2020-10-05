@@ -9,8 +9,8 @@
             <center><input class=" form-control" name="detailsearch" id="detailsearch" type="text" aria-label="Search" placeholder="ค้นหา"></center>
            
             <div class="checkbox check-top">
-                <input type="checkbox" value=""><label class="checkbox-left">ขึ้นต้น</label>
-                <input type="checkbox" value=""><label class="checkbox-left">คำสำคัญ</label>
+                <!-- <input type="checkbox" value=""><label class="checkbox-left">ขึ้นต้น</label>
+                <input type="checkbox" value=""><label class="checkbox-left">คำสำคัญ</label> -->
                 
             </div>
             
@@ -43,9 +43,11 @@
                 @endforeach
             </select>
             <!-- <label>ปีที่จัดทำเอกสาร</label> -->
-            <select id="inputState" class="form-control input-group-size input-group-topppp">
-                <option selected>ปีที่จัดทำเอกสาร</option>
-                <option>...</option>
+            <select name="year_project" class="select-tbb" id="year_project" oninput="this.className = ''">
+                <option value="" disabled selected>เลือกปี</option>
+                @foreach($chk_year as $year)
+                    <option value="{{$year->NO_Y}}">{{$year->year}}</option>
+                @endforeach
             </select>
             <div class="input-group-sizeee input-group-sizeee-left">
                 
@@ -97,6 +99,17 @@
                         url:"{{route('AVsearch')}}",
                         method:'GET',
                         data:{branch_project:branch_project,_token:_token}
+                    })
+                }
+            });
+            $('#year_project').change(function(){
+                if($(this).val()!=""){
+                    var branch_project=$(this).val();
+                    var _token=$('input[name="_token"]').val();
+                    $.ajax({
+                        url:"{{route('AVsearch')}}",
+                        method:'GET',
+                        data:{branch_project:year_project,_token:_token}
                     })
                 }
             });

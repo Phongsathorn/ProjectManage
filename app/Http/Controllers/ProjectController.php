@@ -460,7 +460,7 @@ class ProjectController extends Controller
         $chk_project = count(DB::select("SELECT No_PB FROM projects WHERE projects.status_p in ('1')"));
         if($chk_project>4){
             $sum_project = $chk_project;
-        }else{$sum_project = $chk_project-$chk_project;}
+        }else{$sum_project = '0';}
         
         //ดึง id มา เพื่อทำการเเยก id ที่มาจากการ by order วันที่สร้าง (ในเเท็กมาใหม่)
         $itemloop = DB::select("SELECT project_id FROM projects,type_project WHERE projects.type_id=type_project.type_id ORDER BY projects.created_at DESC");
@@ -656,7 +656,7 @@ class ProjectController extends Controller
         $chk_project_type = count(DB::select("SELECT No_PB FROM projects,genre_project WHERE projects.status_p in ('1') AND projects.genre_id=genre_project.genre_id AND genre_project.genre_name in ('ไอโอที(IoT)')"));
         if($chk_project_type>4){
             $sum_type_p = $chk_project_type;
-        }else{$sum_type_p = $chk_project_type-$chk_project_type;}
+        }else{$sum_type_p = '0';}
 
         $itemgenre = DB::select("SELECT project_id FROM projects,genre_project,type_project WHERE genre_project.genre_name in ('ไอโอที(IoT)') AND projects.type_id=type_project.type_id AND projects.genre_id=genre_project.genre_id ORDER BY projects.created_at ASC");
         if(isset($itemgenre[0])? $itemgenre[0]:'') {
@@ -824,11 +824,11 @@ class ProjectController extends Controller
         }
         
         //poppulay item 
-        $chk_p_pop = count(DB::select("SELECT project_id, AVG(rate_index) ratesum FROM rating_p GROUP BY project_id ORDER BY AVG(rate_index) DESC"));
+        $chk_p_pop = count(DB::select("SELECT project_id, AVG(rate_index) ratesum FROM rating_p GROUP BY project_id HAVING ratesum >=3 ORDER BY AVG(rate_index) DESC"));
         // echo $chk_p_pop;
         if($chk_p_pop>4){
             $sum_pop_p = $chk_p_pop;
-        }else{$sum_pop_p = $chk_p_pop-$chk_p_pop;}
+        }else{$sum_pop_p = '0';}
 
         
         $itempop = DB::select("SELECT project_id, AVG(rate_index) ratesum FROM rating_p GROUP BY project_id ORDER BY AVG(rate_index) DESC");

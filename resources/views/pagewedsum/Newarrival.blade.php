@@ -81,43 +81,41 @@
         }
         return $l;
     }
-    function create_str($count,$str,$data_p) {
-        if ($count > 20 & $count < 25) {
-            $strcount = substr($str, 0, -10);
-            $strcount1 = substr($strcount, 0, -8);
-            $strcut = $strcount1 . '...';
+    function create_str($count,$str,$items) {
+        // echo $count;
+        if($count>20 & $count<25) {
+            $strcount = substr($str,0,-10);
+            $strcount1 = substr($strcount,0,-8);
+            $strcut = $strcount1."...";
             echo $strcut;
-        } elseif ($count >= 25) {
-            $strcount = substr($str, 0, -10);
-            $strcount1 = substr($strcount, 0, -8);
-            $strcount2 = substr($strcount1, 0, -10);
-            $strcount3 = substr($strcount2, 0, -8);
-            $strcut = $strcount3 . '...';
+        }elseif($count>25 & $count<30){
+            $strcount = substr($str,0,-10);
+            $strcount1 = substr($strcount,0,-20);
+            $strcut = $strcount1."...";
             echo $strcut;
-        } elseif ($count > 30) {
-            $strcount = substr($str, 0, -10);
-            $strcount1 = substr($strcount, 0, -8);
-            $strcount2 = substr($strcount1, 0, -10);
-            $strcount3 = substr($strcount2, 0, -8);
-            $strcut = $strcount3 . '...';
+        }elseif($count>30 & $count <40){
+            $strcount = substr($str,0,-10);
+            $strcount1 = substr($strcount,0,-8);
+            $strcount2 = substr($strcount1,0,-10);
+            $strcount3 = substr($strcount2,0,-8);
+            $strcut = $strcount3."...";
             echo $strcut;
-        } elseif ($count > 40) {
-            $strcount = substr($str, 0, -10);
-            $strcount1 = substr($strcount, 0, -8);
-            $strcount2 = substr($strcount1, 0, -10);
-            $strcount3 = substr($strcount2, 0, -10);
-            $strcut = $strcount3 . '...';
+        }elseif($count>40 & $count <50){
+            $strcount = substr($str,0,-50);
+            $strcount1 = substr($strcount,0,-50);
+            $strcount2 = substr($strcount1,0,-5);
+            $strcut = $strcount2."...";
             echo $strcut;
-        } else {
-            echo $data_p->project_name;
-        }
+        }else{
+            echo $items->project_name;
+        } 
     }
 
     function check_rating($rating) {
-        for($i=0;$i<$rating;$i++){
+        for($i=0;$i<floor($rating);$i++){
             echo '<i class="fas fa-star" style="color: #ffb712;"></i>';
         }
-        for($i=0;$i < 5-$rating;$i++) {
+        for($i=0;$i < 5-floor($rating);$i++) {
             echo '<i class="far fa-star" style="color: #ffb712;"></i>';
         }
     }
@@ -126,28 +124,28 @@
         if(isset($svgid)?$svgid:''){
         if($svgid < 2 & $svgid> 0){
             echo'<div class="rating">';
-            check_rating($svgid);if(isset($svgid)?$svgid:''){echo'<span class="">('.(round($svgid, $precision = 1)).'</span>}</div>';}}
+            check_rating($svgid);if(isset($svgid)?$svgid:''){echo'<span class="">('.(round($svgid, $precision = 1)).'</span>)</div>';}}
         
         elseif($svgid >= 2 & $svgid < 3) {
             echo'<div class="rating">';
-            check_rating($svgid);if(isset($svgid)?$svgid:''){echo'<span class="">('.(round($svgid, $precision = 1)).'</span>}</div>';}}
+            check_rating($svgid);if(isset($svgid)?$svgid:''){echo'<span class="">('.(round($svgid, $precision = 1)).'</span>)</div>';}}
         
         
         elseif($svgid >= 3 & $svgid < 4) {
             echo'<div class="rating">';
-            check_rating($svgid);if(isset($svgid)?$svgid:''){echo'<span class="">('.(round($svgid, $precision = 1)).'</span>}</div>';}}
+            check_rating($svgid);if(isset($svgid)?$svgid:''){echo'<span class="">('.(round($svgid, $precision = 1)).'</span>)</div>';}}
         
         
         elseif($svgid >= 4 & $svgid < 5){
             echo'<div class="rating">';
-            check_rating($svgid);if(isset($svgid)?$svgid:''){echo'<span class="">('.(round($svgid, $precision = 1)).'</span>}</div>';}} 
+            check_rating($svgid);if(isset($svgid)?$svgid:''){echo'<span class="">('.(round($svgid, $precision = 1)).'</span>)</div>';}} 
         
         elseif($svgid >= 5){
         echo'<div class="rating">';
-            check_rating($svgid);if(isset($svgid)?$svgid:''){echo'<span class="">('.(round($svgid, $precision = 1)).'</span>}</div>';}}
+            check_rating($svgid);if(isset($svgid)?$svgid:''){echo'<span class="">('.(round($svgid, $precision = 1)).'</span>)</div>';}}
         else{
             echo'<div class="rating">';
-            check_rating($svgid);if(isset($svgid)?$svgid:''){echo'<span class="">('.(round($svgid, $precision = 1)).'</span>}</div>';}}
+            check_rating($svgid);if(isset($svgid)?$svgid:''){echo'<span class="">('.(round($svgid, $precision = 1)).'</span>)</div>';}}
     
         }
         else{

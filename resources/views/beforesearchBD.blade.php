@@ -794,12 +794,11 @@
                 <div class="tile1">
                     <div class="tile-body">
                         <div class="texthe1">ผลลัพธ์การค้นหา</div>
-                            
-
                             <div class="table-responsive ">
+                            @if(isset($easysearch)?$easysearch:'')
                                 @foreach($easysearch as $aftersearch) 
                                     
-                                    <a href="itemdetaliBD/{{$aftersearch->project_id}}"><div class="column" ><div class="columnimg"><img src="project\img_logo\<?php echo $aftersearch->logo;?>" alt="" class="fromimg"></div></a>
+                                    <a href="itemdetaliBD/{{$aftersearch->project_id}}"><div class="column shadow-item" ><div class="columnimg"><img src="project\img_logo\<?php echo $aftersearch->logo;?>" alt="" class="fromimg"></div></a>
                                         <center><a href="itemdetaliBD/{{$aftersearch->project_id}}"><div class="textimg">
                                         <?php 
                                             $str = $aftersearch->project_name;
@@ -807,10 +806,26 @@
                                             create_str($count,$str,$aftersearch);  
                                         ?></div></a></center>
                                         <center><a href="itemtypeBD/{{$aftersearch->type_id}}"><div class="textimg2"><?php echo $aftersearch->type_name;?></div></a></center>
-                                        
+                                        <center>
+                                            <div class="rating">
+                                            @foreach($Avg as $AvgRate) 
+                                                <?php 
+                                                    foreach($AvgRate as $AvgRate){
+                                                        $svgid = $AvgRate;
+                                                        rating_star($svgid);
+                                                    }
+                                                    // print_r($AvgRate);
+                                                    
+                                                ?>
+                                            @endforeach
+                                            </div>
+                                        </center>
                                     </div>                                
                                 @endforeach
-  
+                                @else
+                                <p style="margin-left:100px;margin-top:30px;">" ไม่พบผลลัพธ์ในการค้นหา "</p>
+                            @endif
+
                         </div>
                     </div>
                 </div>
@@ -827,20 +842,28 @@
                 <div class="tile-body">
                     <div class="texthe1">ผลลัพธ์ที่ใกล้เคียง</div>
                         <div class="table-responsive ">
-                            @foreach($similar as $simiilar) 
-                                    
-                                <a href="itemdetaliBD/{{$simiilar->project_id}}"><div class="column" ><div class="columnimg"><img src="project\img_logo\<?php echo $simiilar->logo;?>" alt="" class="fromimg"></div></a>
-                                    <center><a href="itemdetaliBD/{{$simiilar->project_id}}"><div class="textimg">
-                                    <?php 
-                                        $str = $simiilar->project_name;
-                                        $count = utf8_strlen($str);
-                                        create_str($count,$str,$simiilar);  
-                                    ?></div></a></center>
-                                    <center><a href="itemtypeBD/{{$simiilar->type_id}}"><div class="textimg2"><?php echo $simiilar->type_name;?></div></a></center>
-                                    
-                                </div>
-                            
-                            @endforeach
+                            @if(isset($similar)?$similar:'')
+                                @foreach($similar as $simiilar) 
+                                    <a href="itemdetaliBD/{{$simiilar->project_id}}"><div class="column shadow-item" ><div class="columnimg"><img src="project\img_logo\<?php echo $simiilar->logo;?>" alt="" class="fromimg"></div></a>
+                                        <center><a href="itemdetaliBD/{{$simiilar->project_id}}"><div class="textimg">
+                                        <?php 
+                                            $str = $simiilar->project_name;
+                                            $count = utf8_strlen($str);
+                                            create_str_simiilar($count,$str,$simiilar);  
+                                        ?></div></a></center>
+                                        <center><a href="itemtypeBD/{{$simiilar->type_id}}"><div class="textimg2"><?php echo $simiilar->type_name;?></div></a></center>
+                                        <center>
+                                            <div class="rating">
+                                                <?php 
+                                                    
+                                                ?>
+                                            </div>
+                                        </center>
+                                    </div>
+                                @endforeach
+                                @else
+                                <p style="margin-left:100px;margin-top:30px;">" ไม่พบผลลัพธ์ในการค้นหา "</p>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -904,9 +927,14 @@
 
         function create_str($count,$str,$aftersearch) {
             // echo $count;
-            if($count>20 & $count<=30) {
+            if($count>20 & $count<25) {
                 $strcount = substr($str,0,-10);
                 $strcount1 = substr($strcount,0,-8);
+                $strcut = $strcount1."...";
+                echo $strcut;
+            }elseif($count>25 & $count<30){
+                $strcount = substr($str,0,-10);
+                $strcount1 = substr($strcount,0,-20);
                 $strcut = $strcount1."...";
                 echo $strcut;
             }elseif($count>30 & $count <40){
@@ -922,65 +950,97 @@
                 $strcount2 = substr($strcount1,0,-5);
                 $strcut = $strcount2."...";
                 echo $strcut;
+            }elseif($count>50 & $count <120){
+                $strcount = substr($str,0,-65);
+                $strcount1 = substr($strcount,0,-50);
+                $strcount2 = substr($strcount1,0,-5);
+                $strcut = $strcount2."...";
+                echo $strcut;
             }else{
                 echo $aftersearch->project_name;
             } 
               
         }
 
+        function create_str_simiilar($count,$str,$simiilar) {
+            // echo $count;
+            if($count>20 & $count<25) {
+                $strcount = substr($str,0,-10);
+                $strcount1 = substr($strcount,0,-8);
+                $strcut = $strcount1."...";
+                echo $strcut;
+            }elseif($count>25 & $count<30){
+                $strcount = substr($str,0,-10);
+                $strcount1 = substr($strcount,0,-20);
+                $strcut = $strcount1."...";
+                echo $strcut;
+            }elseif($count>30 & $count <40){
+                $strcount = substr($str,0,-10);
+                $strcount1 = substr($strcount,0,-8);
+                $strcount2 = substr($strcount1,0,-10);
+                $strcount3 = substr($strcount2,0,-8);
+                $strcut = $strcount3."...";
+                echo $strcut;
+            }elseif($count>40 & $count <50){
+                $strcount = substr($str,0,-50);
+                $strcount1 = substr($strcount,0,-50);
+                $strcount2 = substr($strcount1,0,-5);
+                $strcut = $strcount2."...";
+                echo $strcut;
+            }elseif($count>50 & $count <120){
+                $strcount = substr($str,0,-65);
+                $strcount1 = substr($strcount,0,-50);
+                $strcount2 = substr($strcount1,0,-5);
+                $strcut = $strcount2."...";
+                echo $strcut;
+            }else{
+                echo $simiilar->project_name;
+            } 
+              
+        }
+
         function check_rating($rating) {
-            for($i=0;$i<$rating;$i++){
+            for($i=0;$i<floor($rating);$i++){
                 echo '<i class="fas fa-star" style="color: #ffb712;"></i>';
             }
-            for($i=0;$i < 5-$rating;$i++) {
+            for($i=0;$i < 5-floor($rating);$i++) {
                 echo '<i class="far fa-star" style="color: #ffb712;"></i>';
             }
         }
-
-        function create_star($svgrate){
-            if(isset($svgrate)?$svgrate:''){
-                if($svgrate < 2 & $svgrate > 0){
-                    echo'<div class="rating">';
-                        check_rating(floor($svgrate));
-                        if(isset($svgrate)?$svgrate:''){echo'<span class="">('.round($svgrate,$precision=2).')</span>';}
-                    echo'</div>';
-                }
-                elseif($svgrate >= 2 & $svgrate < 3){
-                    echo'<div class="rating">';
-                        check_rating(floor($svgrate));
-                        if(isset($svgrate)?$svgrate:''){echo'<span class="">('.round($svgrate,$precision=2).')</span>';}
-                    echo'</div>';
-                }
-                elseif($svgrate >= 3 & $svgrate < 4){
-                    echo'<div class="rating">';
-                        check_rating(floor($svgrate));
-                        if(isset($svgrate)?$svgrate:''){echo'<span class="">('.round($svgrate,$precision=2).')</span>';}
-                    echo'</div>';
-                }
-                elseif($svgrate >= 4 & $svgrate < 5){
-                    echo'<div class="rating">';
-                        check_rating(floor($svgrate));
-                        if(isset($svgrate)?$svgrate:''){echo'<span class="">('.round($svgrate,$precision=2).')</span>';}
-                    echo'</div>';
-                }
-                elseif($svgrate >= 5){
-                    echo'<div class="rating">';
-                        check_rating(floor($svgrate));
-                        if(isset($svgrate)?$svgrate:''){echo'<span class="">('.round($svgrate,$precision=2).')</span>';}
-                    echo'</div>';
-                }
-                else{
-                    echo'<div class="rating">';
-                        check_rating(floor($svgrate));
-                        if(isset($svgrate)?$svgrate:''){echo'<span class="">('.round($svgrate,$precision=2).')</span>';}
-                    echo'</div>';
-                }
+    
+        function rating_star($svgid){
+            if(isset($svgid)?$svgid:''){
+            if($svgid < 2 & $svgid> 0){
+                echo'<div class="rating">';
+                check_rating($svgid);if(isset($svgid)?$svgid:''){echo'<span class="">('.(round($svgid, $precision = 1)).'</span>)</div>';}}
+            
+            elseif($svgid >= 2 & $svgid < 3) {
+                echo'<div class="rating">';
+                check_rating($svgid);if(isset($svgid)?$svgid:''){echo'<span class="">('.(round($svgid, $precision = 1)).'</span>)</div>';}}
+            
+            
+            elseif($svgid >= 3 & $svgid < 4) {
+                echo'<div class="rating">';
+                check_rating($svgid);if(isset($svgid)?$svgid:''){echo'<span class="">('.(round($svgid, $precision = 1)).'</span>)</div>';}}
+            
+            
+            elseif($svgid >= 4 & $svgid < 5){
+                echo'<div class="rating">';
+                check_rating($svgid);if(isset($svgid)?$svgid:''){echo'<span class="">('.(round($svgid, $precision = 1)).'</span>)</div>';}} 
+            
+            elseif($svgid >= 5){
+            echo'<div class="rating">';
+                check_rating($svgid);if(isset($svgid)?$svgid:''){echo'<span class="">('.(round($svgid, $precision = 1)).'</span>)</div>';}}
+            else{
+                echo'<div class="rating">';
+                check_rating($svgid);if(isset($svgid)?$svgid:''){echo'<span class="">('.(round($svgid, $precision = 1)).'</span>)</div>';}}
+        
             }
             else{
                 echo'<div class="rating">';
-                check_rating(floor(0)); echo'<span class="">(0)</span>';
+                    check_rating(0);  echo'<span class="">(0)</span>';
                 echo'</div>';
-            }
+            }    
         }
       
     ?>

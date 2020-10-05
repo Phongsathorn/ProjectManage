@@ -83,6 +83,49 @@ class ListdataController extends Controller
         return view('pagewedsum.pageIot', compact('datas1', 'imgaccount', 'adminaccount'));
     }
 
+    public function popular(){
+        session_start();
+        $chkid = (isset($_SESSION['usersid'])) ? $_SESSION['usersid'] : '';
+        $chkidadmin = (isset($_SESSION['adminid'])) ? $_SESSION['adminid'] : '';
+        $imgaccount = DB::select("SELECT * FROM users WHERE U_id='$chkid'");
+        $adminaccount = DB::select("SELECT * FROM admin_company WHERE admin_id='$chkidadmin'");
+        // $item = DB::select("SELECT * FROM projects,type_project WHERE projects.type_id=type_project.type_id and project_id='6'");
+        $datas0 = DB::select("SELECT * FROM projects,genre_project,type_project WHERE genre_project.genre_name in ('ยอดนิยม') AND projects.status_p in ('0') AND projects.type_id=type_project.type_id AND projects.genre_id=genre_project.genre_id ");
+        $datas1 = DB::select("SELECT *,AVG(rate_index) AvgRate
+                    FROM rating_p,projects,genre_project,type_project
+                    WHERE projects.type_id=type_project.type_id AND projects.genre_id=genre_project.genre_id AND projects.project_id=rating_p.project_id
+                    GROUP BY rating_p.project_id
+                    HAVING AvgRate >=3
+                    ORDER BY AvgRate DESC");
+                    $count = count(DB::select("SELECT *,AVG(rate_index) AvgRate
+                    FROM rating_p,projects,genre_project,type_project
+                    WHERE projects.type_id=type_project.type_id AND projects.genre_id=genre_project.genre_id AND projects.project_id=rating_p.project_id
+                    GROUP BY rating_p.project_id
+                    HAVING AvgRate >=3
+                    ORDER BY AvgRate DESC"));
+        // for($i=0;$i<$count;$i++){
+        //     $dataID = $datas[$i]->project_id;
+        //     $datas1 = DB::select("SELECT *,AVG(rate_index) AvgRate
+        //             FROM rating_p,projects,genre_project,type_project
+        //             WHERE projects.type_id=type_project.type_id AND projects.genre_id=genre_project.genre_id AND projects.project_id=rating_p.project_id AND projects.project_id != '$dataID'
+        //             GROUP BY rating_p.project_id
+        //             HAVING AvgRate >=3
+        //             ORDER BY AvgRate DESC");
+        //     if($i == $count){
+        //         break;
+        //     }
+            
+        // }
+        
+        // $datas1 = DB::select("SELECT *, AVG(rate_index) AvgRate 
+        // FROM projects,genre_project,type_project,rating_p 
+        // WHERE genre_project.genre_name in ('ยอดนิยม') AND projects.status_p in ('1') 
+        // AND projects.type_id=type_project.type_id AND projects.genre_id=genre_project.genre_id AND projects.project_id=rating_p.project_id
+        // GROUP BY rating_p.project_id");
+        // print_r($datas1);
+        return view('pagewedsum.pagePopular', compact('datas1', 'imgaccount', 'adminaccount'));
+    }
+
     public function pursue(){
         session_start();
         $chkid = (isset($_SESSION['usersid'])) ? $_SESSION['usersid'] : '';
