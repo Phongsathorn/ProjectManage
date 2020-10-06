@@ -48,7 +48,7 @@
                     <div class="tile">
                     <h2>ผลงงานปริญญาเอก/โท</h2>
                         <div class="tile-body">
-                            <div class="table-responsive">
+                            <div class="table-table-responsive-a">
                                 <table id="example" class="table table-bordered" cellspacing="0" width="100%">
                                     <thead>
                                         <tr>
@@ -98,7 +98,7 @@
                     <div class="tile">
                     <h2>ผลงงานปริญญาเอก/โท(ผู้ดูเเลระบบ)</h2>
                         <div class="tile-body">
-                            <div class="table-responsive">
+                            <div class="table-responsive-a">
                                 <table id="example2" class="table table-bordered" cellspacing="0" width="100%">
                                     <thead>
                                         <tr>

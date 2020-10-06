@@ -28,7 +28,7 @@
                 <div class="col-md-12">
                     <div class="tile">
                         <div class="tile-body">
-                            <div class="table-responsive">
+                            <div class="table-responsive-a">
                                 <table id="example" class="table table-bordered" cellspacing="0" width="100%">
                                     <thead>
                                         <tr>

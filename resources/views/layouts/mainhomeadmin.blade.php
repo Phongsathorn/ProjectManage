@@ -232,6 +232,13 @@
         background-size: cover;
         border: none;
     }
+
+    .table-responsive-a {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
     </style>
 </head>
 

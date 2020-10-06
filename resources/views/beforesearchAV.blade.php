@@ -794,7 +794,7 @@
                 <div class="tile1">
                     <div class="tile-body">
                         <div class="texthe1">ผลลัพธ์การค้นหา</div>
-                            <div class="table-responsive ">
+                            <!-- <div class="table-responsive "> -->
                             @if(isset($detailsearch)?$detailsearch:'')
                                 @foreach($detailsearch as $aftersearch) 
                                     
@@ -813,7 +813,7 @@
                                 @else
                                 <p style="margin-left:100px;margin-top:30px;">" ไม่พบผลลัพธ์ในการค้นหา "</p>
                             @endif
-                            </div>
+                            <!-- </div> -->
                         </div>
                     </div>
                 </div>

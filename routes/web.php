@@ -81,6 +81,17 @@ Route::get('projectviewmdd', 'Project_MDDController@project');
     Route::get('pursue', 'ListdataController@pursue');
     Route::post('download_m', 'Project_MDDController@downloadfile');
 
+// เลือกต่างๆ
+    //ชนิดเอกสาร
+    Route::get('typeproject/{type_id}', 'ListdataController@type');
+
+    //หมวดหมู่
+    Route::get('category/{category_id}', 'ListdataController@category');
+    
+    //ประเภท
+    Route::get('genre/{genre_id}', 'ListdataController@genre');
+    
+
 // Route::get('Popular', function () {
 //     return view('pagewedsum.pagePopular');
 // });

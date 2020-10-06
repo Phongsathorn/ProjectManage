@@ -80,45 +80,66 @@ class AutocompleteController extends Controller
         $imgaccount = DB::select("SELECT * FROM users WHERE U_id='$chkid'");
         $adminaccount = DB::select("SELECT * FROM admin_company WHERE admin_id='$chkidadmin'");
         
-
-        $easysearchID = DB::select("SELECT project_id FROM projects,type_project
-        WHERE projects.type_id=type_project.type_id AND projects.project_name LIKE '%$keyword%' 
-         OR projects.type_id=type_project.type_id AND projects.keyword_project1 LIKE '%$keyword%'
-         OR projects.type_id=type_project.type_id AND projects.keyword_project2 LIKE '%$keyword%' 
-         OR projects.type_id=type_project.type_id AND projects.keyword_project3 LIKE '%$keyword%'
-         OR projects.type_id=type_project.type_id AND projects.keyword_project4 LIKE '%$keyword%'
-         ");
-         compact('easysearchID');
-
-        $easysearch = DB::select("SELECT * FROM projects,type_project,(SELECT AVG(rate_index) AS AvgRate
-        FROM rating_p,projects
-        WHERE  rating_p.project_id=projects.project_id 
-        GROUP BY rating_p.project_id
-        ) AS Q
+        $easysearch = DB::select("SELECT * FROM projects,type_project
         WHERE projects.type_id=type_project.type_id AND projects.project_name LIKE '%$keyword%' 
         OR projects.type_id=type_project.type_id AND projects.keyword_project1 LIKE '%$keyword%'
         OR projects.type_id=type_project.type_id AND projects.keyword_project2 LIKE '%$keyword%' 
         OR projects.type_id=type_project.type_id AND projects.keyword_project3 LIKE '%$keyword%'
         OR projects.type_id=type_project.type_id AND projects.keyword_project4 LIKE '%$keyword%'
         ");
-        compact('easysearch');
-        $a = $easysearch;
-        echo'<pre>';
-        print_r($a);
-        echo'</pre>';
+        // compact('easysearch');
+        // $a = $easysearch;
+        // echo'<pre>';
+        // print_r($a);
+        // echo'</pre>';
+        // ,(SELECT AVG(rate_index) AS AvgRate
+        // FROM rating_p,projects
+        // WHERE  rating_p.project_id=projects.project_id 
+        // GROUP BY rating_p.project_id
+        // ) AS Q
 
-        
+        $easysearchID = DB::select("SELECT project_id FROM projects,type_project
+       WHERE projects.type_id=type_project.type_id AND projects.project_name LIKE '%$keyword%' 
+        OR projects.type_id=type_project.type_id AND projects.keyword_project1 LIKE '%$keyword%'
+        OR projects.type_id=type_project.type_id AND projects.keyword_project2 LIKE '%$keyword%' 
+        OR projects.type_id=type_project.type_id AND projects.keyword_project3 LIKE '%$keyword%'
+        OR projects.type_id=type_project.type_id AND projects.keyword_project4 LIKE '%$keyword%'
+        ");
+        compact('easysearchID');
          
             // $IDS = $easysearchID->project_id;
             
             // // print_r($AvgRate);
         $countID = count($easysearchID);
-        
+        // print_r(  $countID);
 // 
-        
-        
+        for($i=0;$i<$countID;$i++){
+            $IDS = $easysearchID[$i];
+            compact('IDS');
+            foreach($IDS as $IDS){
+                $IDS;
+            }
+            $Avg = DB::select("SELECT AVG(rate_index) AS AvgRate 
+            FROM rating_p WHERE project_id='$IDS'
+            GROUP BY rating_p.project_id");
+            $countID--;
+            if($countID==0){
+            break;
+            }
+            // print_r($countID);
+        }
+        // print_r($Avg);
+        // $Avg = DB::select("SELECT AVG(rate_index) AS AvgRate
+        // FROM rating_p,project_id
+        // WHERE  rating_p.project_id=projects.project_id AND projects.project_id='$easysearchID'
+        // GROUP BY rating_p.project_id"); 
+        //  echo $Avg;
         // print_r($AvgRate);
         // print_r($easysearchID);
+
+        $chk_genre = DB::select("SELECT * FROM genre_project");
+        $chk_category = DB::select("SELECT * FROM category_project");
+        $chk_type = DB::select("SELECT * FROM type_project");
 
         // print_r($easysearch);
         foreach ($easysearch as $key_s) {
@@ -130,11 +151,7 @@ class AutocompleteController extends Controller
             $_SESSION['beforsearch'] = 1;
             
             $similar = DB::select("SELECT *,ABS(projects.project_id = '$search_id') AS pID
-            FROM projects,type_project,(SELECT AVG(rate_index) AS AvgRate
-            FROM rating_p,project_id
-            WHERE  rating_p.project_id=projects.project_id
-            GROUP BY rating_p.project_id
-            ) 
+            FROM projects,type_project
             WHERE projects.project_id != '$search_id' 
             AND projects.type_id=type_project.type_id AND projects.keyword_project1 LIKE '%$key_similar1%' 
             OR projects.type_id=type_project.type_id AND projects.keyword_project2 LIKE '%$key_similar2%' 
@@ -144,20 +161,8 @@ class AutocompleteController extends Controller
             LIMIT 4
             ");
 
-            // for($i=0;$i<$countID;$i++){
-            //     $IDS = $easysearchID[$i];
-            //     compact('IDS');
-            //     foreach($IDS as $IDS){
-            //         $IDS;
-            //         $Avg = DB::select("SELECT AVG(rate_index) AS AvgRate 
-            //         FROM rating_p WHERE project_id='$IDS'
-            //         GROUP BY rating_p.project_id");
-            //     }
-                
-            //     print_r($Avg);
-            // }
-            // print_r($Avg);
-            // return view('beforesearchBD', compact('easysearch','imgaccount','adminaccount','similar','Avg','countID'));
+            
+            return view('beforesearchBD', compact('easysearch','imgaccount','adminaccount','similar','Avg','countID','chk_genre','chk_category','chk_type'));
         }
         
         

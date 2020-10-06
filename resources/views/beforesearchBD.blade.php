@@ -24,6 +24,7 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <title>ICTThesis</title>
 
@@ -173,6 +174,52 @@
             font-family: 'Athiti', sans-serif;
             font-weight: 600;
         }
+        .sidenav a, .dropdown-btn ,.dropdown-btn2,.dropdown-btn3{
+            padding: 6px 8px 6px 16px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #818181;
+            display: block;
+            border: none;
+            background: none;
+            width: 95%;
+            text-align: left;
+            cursor: pointer;
+            outline: none;
+            margin-left: 5px;
+        }
+
+        /* On mouse-over */
+        .sidenav a:hover, .dropdown-btn:hover ,.dropdown-btn2:hover,.dropdown-btn3:hover{
+            color: white;
+        }
+
+        /* Main content */
+        .main {
+            margin-left: 200px; /* Same as the width of the sidenav */
+            font-size: 20px; /* Increased text to enable scrolling */
+            padding: 0px 10px;
+        }
+
+        /* Add an active class to the active dropdown button */
+        .active {
+            background-color: #D9A327;
+            color: white;
+        }
+
+        /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+        .dropdown-container {
+            display: none;
+            background-color: #262626;
+            padding-left: 8px;
+        }
+
+        /* Optional: Style the caret down icon */
+        .fa-caret-down {
+            float: right;
+            padding-right: 8px;
+        }
+
     </style>
 </head>
 
@@ -701,7 +748,7 @@
                                             <a href="homeBD"><button type="button" class="btn-control btn-default btn-outline-primaryy " style="font-size:18px;">ปริญญาตรี</button></a>
                                             <a href="homeMDD"><button type="button" class="btn-control btn-default btn-outline-primaryy " style="font-size:18px;">ปริญญาเอก โท </button></a>
                                         </div><br>
-                                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages"> เว็บ
+                                        <!-- <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages"> เว็บ
                                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                                         </a>
                                         <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
@@ -745,7 +792,213 @@
                                                 <a class="nav-link" href="#">กีฬา</a>
                                                 <a class="nav-link" href="#">เเอ็กชัน</a>
                                             </nav>
+                                        </div> -->
+                                        
+                                        <!-- <a href="#about">About</a>
+                                        <a href="#services">Services</a>
+                                        <a href="#clients">Clients</a>
+                                        <a href="#contact">Contact</a> -->
+                                        <div class="sidenav">
+                                            <button class="dropdown-btn">ประเภท
+                                                <i class="fa fa-caret-down"></i>
+                                            </button>
+                                                <div class="dropdown-container">
+                                                    @foreach($chk_genre as $genre)
+                                                    <a href="genre/{{$genre->genre_id}}">{{$genre->genre_name}}</a>
+                                                    <!-- <a href="#">โปรแกรมประยุกต์สำหรับอุปกรณ์เคลื่อนที่</a>
+                                                    <a href="#">ไอโอที(IoT)</a>
+                                                    <a href="#">ปัญญาประดิษฐ์(Ai)</a>
+                                                    <a href="#">ไอโอที(IoT)</a>
+                                                    <a href="#">ไอโอที(IoT)</a> -->
+                                                    @endforeach
+                                                </div>
+                                            
                                         </div>
+                                        
+                                        <div class="sidenav">
+                                            <button class="dropdown-btn">หมวดหมู่
+                                                <i class="fa fa-caret-down"></i>
+                                            </button>
+                                                <div class="dropdown-container">
+                                                    @foreach($chk_category as $category)
+                                                    <a href="category/{{$category->category_id}}">{{$category->category_name}}</a>
+                                                    <!-- <a href="#">โปรแกรมประยุกต์สำหรับอุปกรณ์เคลื่อนที่</a>
+                                                    <a href="#">ไอโอที(IoT)</a>
+                                                    <a href="#">ปัญญาประดิษฐ์(Ai)</a>
+                                                    <a href="#">ไอโอที(IoT)</a>
+                                                    <a href="#">ไอโอที(IoT)</a> -->
+                                                    @endforeach
+                                                </div>
+                                        </div>
+
+                                        <div class="sidenav">
+                                            <button class="dropdown-btn">ชนิดเอกสาร
+                                                <i class="fa fa-caret-down"></i>
+                                            </button>
+                                                <div class="dropdown-container">
+                                                    @foreach($chk_type as $type)
+                                                    <a href="typeproject/{{$type->type_id}}">{{$type->type_name}}</a>
+                                                    <!-- <a href="#">โปรแกรมประยุกต์สำหรับอุปกรณ์เคลื่อนที่</a>
+                                                    <a href="#">ไอโอที(IoT)</a>
+                                                    <a href="#">ปัญญาประดิษฐ์(Ai)</a>
+                                                    <a href="#">ไอโอที(IoT)</a>
+                                                    <a href="#">ไอโอที(IoT)</a> -->
+                                                    @endforeach
+                                                </div>
+                                        </div>
+
+                                        <!-- <div class="sidenav">
+                                            <button class="dropdown-btn">ปัญญาประดิษฐ์(Ai)
+                                                <i class="fa fa-caret-down"></i>
+                                            </button>
+                                                <div class="dropdown-container">
+                                                <button class="dropdown-btn2">เอกสาร
+                                                    
+                                                </button>
+                                                <div class="dropdown-container">
+                                                    <a href="#">เว็บ</a>
+                                                    <a href="#">แอบ</a>
+                                                    <a href="#">วิจัย</a>
+                                                </div>
+                                                    <button class="dropdown-btn3">หนังสือ
+                                                    
+                                                    </button>
+                                                <div class="dropdown-container">
+                                                    <a href="#">เว็บ</a>
+                                                    <a href="#">แอบ</a>
+                                                    <a href="#">วิจัย</a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="sidenav">
+                                            <button class="dropdown-btn">การประมวลผลข้อมูล
+                                                <i class="fa fa-caret-down"></i>
+                                            </button>
+                                                <div class="dropdown-container">
+                                                <button class="dropdown-btn2">เอกสาร
+                                                    
+                                                </button>
+                                                <div class="dropdown-container">
+                                                    <a href="#">เว็บ</a>
+                                                    <a href="#">แอบ</a>
+                                                    <a href="#">วิจัย</a>
+                                                </div>
+                                                    <button class="dropdown-btn3">หนังสือ
+                                                    
+                                                    </button>
+                                                <div class="dropdown-container">
+                                                    <a href="#">เว็บ</a>
+                                                    <a href="#">แอบ</a>
+                                                    <a href="#">วิจัย</a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="sidenav">
+                                            <button class="dropdown-btn">การออกแบบกราฟิก
+                                                <i class="fa fa-caret-down"></i>
+                                            </button>
+                                                <div class="dropdown-container">
+                                                <button class="dropdown-btn2">เอกสาร
+                                                    
+                                                </button>
+                                                <div class="dropdown-container">
+                                                    <a href="#">เว็บ</a>
+                                                    <a href="#">แอบ</a>
+                                                    <a href="#">วิจัย</a>
+                                                </div>
+                                                    <button class="dropdown-btn3">หนังสือ
+                                                    
+                                                    </button>
+                                                <div class="dropdown-container">
+                                                    <a href="#">เว็บ</a>
+                                                    <a href="#">แอบ</a>
+                                                    <a href="#">วิจัย</a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="sidenav">
+                                            <button class="dropdown-btn">การเรียนรู้มัลติมีเดีย
+                                                <i class="fa fa-caret-down"></i>
+                                            </button>
+                                                <div class="dropdown-container">
+                                                <button class="dropdown-btn2">เอกสาร
+                                                    
+                                                </button>
+                                                <div class="dropdown-container">
+                                                    <a href="#">เว็บ</a>
+                                                    <a href="#">แอบ</a>
+                                                    <a href="#">วิจัย</a>
+                                                </div>
+                                                    <button class="dropdown-btn3">หนังสือ
+                                                    
+                                                    </button>
+                                                <div class="dropdown-container">
+                                                    <a href="#">เว็บ</a>
+                                                    <a href="#">แอบ</a>
+                                                    <a href="#">วิจัย</a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="sidenav">
+                                            <button class="dropdown-btn">เกม
+                                                <i class="fa fa-caret-down"></i>
+                                            </button>
+                                                <div class="dropdown-container" >
+                                                    <button class="dropdown-btn2">เอกสาร
+                                                        
+                                                    </button>
+                                                    <div class="dropdown-container">
+                                                        <a href="#">เว็บ</a>
+                                                        <a href="#">แอบ</a>
+                                                        <a href="#">วิจัย</a>
+                                                    </div>
+                                                        <button class="dropdown-btn3">หนังสือ
+                                                        
+                                                        </button>
+                                                    <div class="dropdown-container">
+                                                        <a href="#">เว็บ</a>
+                                                        <a href="#">แอบ</a>
+                                                        <a href="#">วิจัย</a>
+                                                    </div>
+                                                </div>
+                                        </div> -->
+
+                                        <!-- <button class="dropdown-btn1">วิจัย<i class=""></i></button>
+                                        <div class="dropdown-container">
+                                            <button class="dropdown-btn4">เอกสาร<i class="fa fa-caret-down "></button>
+                                                <div class="dropdown-container">
+                                                    <a href="#">เว็บ</a>
+                                                    <a href="#">แอบ</a>
+                                                    <a href="#">วิจัย</a>
+                                                </div>
+                                            <button class="dropdown-btn5">หนังสือ<i class="fa fa-caret-down "></button>
+                                                <div class="dropdown-container">
+                                                    <a href="#">เว็บ</a>
+                                                    <a href="#">แอบ</a>
+                                                    <a href="#">วิจัย</a>
+                                                </div>
+                                        </div>
+                                        -->
+
+                                        <!-- <button class="dropdown-btn3">วิทยานิพนธ์<i class="fa fa-caret-down "></i></button>
+                                        <div class="dropdown-container3">
+                                            <button class="dropdown-btn6">เอกสาร<i class="fa fa-caret-down "></button>
+                                                <div class="dropdown-container3">
+                                                    <a href="#">เว็บ</a>
+                                                    <a href="#">แอบ</a>
+                                                    <a href="#">วิจัย</a>
+                                                </div>
+                                            <button class="dropdown-btn7">หนังสือ<i class="fa fa-caret-down "></button>
+                                            <div class="dropdown-container3">
+                                                <a href="#">เว็บ</a>
+                                                <a href="#">แอบ</a>
+                                                <a href="#">วิจัย</a>
+                                            </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </nav>
@@ -808,16 +1061,16 @@
                                         <center><a href="itemtypeBD/{{$aftersearch->type_id}}"><div class="textimg2"><?php echo $aftersearch->type_name;?></div></a></center>
                                         <center>
                                             <div class="rating">
-                                            @foreach($Avg as $AvgRate) 
+                                         
                                                 <?php 
-                                                    foreach($AvgRate as $AvgRate){
-                                                        $svgid = $AvgRate;
+                                                    foreach($Avg as $AvgRate){
+                                                        $svgid = $AvgRate->AvgRate;
                                                         rating_star($svgid);
                                                     }
                                                     // print_r($AvgRate);
                                                     
                                                 ?>
-                                            @endforeach
+                                          
                                             </div>
                                         </center>
                                     </div>                                
@@ -892,6 +1145,33 @@
             $(function() {
                 $(".rateyo").rateYo()
             });
+        </script>
+
+        <script>
+        /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+        test("dropdown-btn");
+        test("dropdown-btn2");
+        test("dropdown-btn3");
+        test("dropdown-btn4");
+        test("dropdown-btn5");
+        test("dropdown-btn6");
+        test("dropdown-btn7");
+        function test(input){
+            var dropdown2 = document.getElementsByClassName(input);
+            var i;
+
+            for (i = 0; i < dropdown2.length; i++) {
+                dropdown2[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var dropdownContent = this.nextElementSibling;
+                if (dropdownContent.style.display === "block") {
+                    dropdownContent.style.display = "none";
+                } else {
+                    dropdownContent.style.display = "block";
+                }
+                });
+            }
+        }
         </script>
 
         <!-- The javascript plugin to display page loading on top-->

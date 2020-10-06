@@ -376,9 +376,20 @@
                                             <label for="text" class="text-left fontdetail" style="margin-top:-20px;">หมวดหมู่เอกสาร:<span style="color: red;font-size: 20;">*</span></label>
                                             <div class="col-sm-9">
                                                 <select name="category_project" class="form-control" id="category_project" oninput="this.className = ''" disabled>
-                                                    <option value="" disabled selected>เลือกหมวดหมู่า</option>
+                                                    <option value="" disabled selected>เลือกหมวดหมู่</option>
                                                     @foreach($chk_category as $category)
                                                     <option value="{{$category->category_id}}">{{$category->category_name}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            <label for="text" class="text-left fontdetail" style="margin-top:-20px;">ปีของเอกสาร:<span style="color: red;font-size: 20;">*</span></label>
+                                            <div class="col-sm-9">
+                                                <select name="year_project" class="form-control" id="year_project" oninput="this.className = ''" disabled>
+                                                    <option value="" disabled selected>เลือกปีของเอกสาร</option>
+                                                    @foreach($chk_year as $year)
+                                                    <option value="{{$year->NO_Y}}">{{$year->year}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -619,6 +630,15 @@
                     // document.getElementById("type_project").disabled = true;
                 }else{
                     document.getElementById("category_project").disabled = true;
+                }
+            })
+            $('#category_project').change(function() {
+                var data= document.getElementById("category_project").value;
+                if(data!=''){
+                    document.getElementById("year_project").disabled = false;
+                    // document.getElementById("type_project").disabled = true;
+                }else{
+                    document.getElementById("year_project").disabled = true;
                 }
             })
         });

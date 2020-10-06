@@ -370,7 +370,7 @@
                                                     <div class="carousel-item active">
                                                         <div class="table-responsive">
                                                             @foreach($dataimg as $imglogo)
-                                                            <img id="showimage" style="background:#9d9d9d;width:400px;height:250px;margin-left:-80px;" src="project\img_backgrund\<?php echo $imglogo->img_p_1; ?>">
+                                                            <img id="showimage" style="background:#9d9d9d;width:100%;height:250px;margin-left:-80px;" src="project\img_backgrund\<?php echo $imglogo->img_p_1; ?>">
                                                             @endforeach
                                                         </div>
                                                     </div>
@@ -422,7 +422,7 @@
                                                 <div class="form-group">
                                                     <label for="text" class="text-left fontdetail" style="margin-top:-20px;">คำสำคัญ: </label>
                                                     <div class="col-sm-10">
-                                                        <input type="text" class="form-control" name="keyword_project" id="keyword_project" value="<?php echo $datas->keyword_project; ?>">
+                                                        <input type="text" class="form-control" name="keyword_project" id="keyword_project" value="<?php echo $datas->keyword_project1; ?><?php echo $datas->keyword_project2; ?><?php echo $datas->keyword_project3; ?><?php echo $datas->keyword_project4; ?>">
                                                     </div>
                                                 </div>
                                                 <div class="form-group">

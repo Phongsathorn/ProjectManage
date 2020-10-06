@@ -291,7 +291,7 @@
                                 <div class="form-group">
                                     <label for="text" class="text-left fontdetail" style="margin-top:-20px;">อาจารย์ที่ปรึกษา: </label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" name="keyword_project" id="keyword_project" value="<?php echo $datas->keyword_m_project; ?>">
+                                        <input type="text" class="form-control" name="keyword_project" id="keyword_project" value="<?php echo $datas->keyword_m_project1; ?><?php echo $datas->keyword_m_project2; ?><?php echo $datas->keyword_m_project3; ?><?php echo $datas->keyword_m_project4; ?>">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -461,6 +461,20 @@
                             </div>
                         </div>
                         @endforeach
+                    </div>
+                </div>
+                <div style="overflow:10px;">
+                @if(!isset($_SESSION['project0']))
+                    <div style="float:center;">
+                        <a href="{{action('ProjectController@showdata')}}"><button type="button" class="btnp btnnn">ย้อนกลับ</button></a>
+                    </div>
+                    @else
+                    <div style="float:center;">
+                        <a href="{{action('AdminController@datadetil')}}"><button type="button" class="btnp btnnn">ย้อนกลับ</button></a>
+                    </div>
+                @endif
+                    <div style="float:left; margin-left: 380px; margin-top: -41px;">
+                        <button type="submit" class="btnn">เเก้ไข</button>
                     </div>
                 </div>
 

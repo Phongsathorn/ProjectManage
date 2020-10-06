@@ -137,6 +137,7 @@ class ProjectController extends Controller
         $project->genre_id=$request->genre_project;
         $project->category_id=$request->category_project;
         $project->branch_id=$request->branch_project;
+        $project->project_year=$request->year_project;
         $project->logo=$logo;
         $project->file_p=$fileproject;
         $project->filename=$filename;
@@ -169,7 +170,7 @@ class ProjectController extends Controller
     public function getdes_project(Request $request)
     {   
         
-        // $des_p ="เว็ปไซต์เพื่อการศึกษาเกี่ยวกับแอปพลิเคชันของการใช้งานAi หรือ IoT ในการช่วยเหลือการสื่อสารระหว่าง คนและAi";
+        // $des_p ="เว็ปไซต์เพื่อการศึกษาเกี่ยวกับการใช้งานAi หรือ IoT ในการช่วยเหลือการสื่อสารระหว่าง คนและAi";
         
 
         $des_p = $request->data1;
@@ -345,7 +346,8 @@ class ProjectController extends Controller
         $chk_genre = DB::select("SELECT * FROM genre_project");
         $chk_category = DB::select("SELECT * FROM category_project");
         $chk_branch = DB::select("SELECT * FROM branch_project");
-        return view('project.addproject',compact('chk_type','chk_genre','chk_category','chk_branch'));
+        $chk_year = DB::select("SELECT * FROM year_project");
+        return view('project.addproject',compact('chk_type','chk_genre','chk_category','chk_branch','chk_year'));
     }
 
     // join หน้า detailprject เเละโชว์ข้อมูล project
@@ -456,6 +458,9 @@ class ProjectController extends Controller
         $chkidadmin = (isset($_SESSION['adminid'])) ? $_SESSION['adminid'] : '';
         $imgaccount = DB::select("SELECT * FROM users WHERE U_id='$chkid'");
         $adminaccount = DB::select("SELECT * FROM admin_company WHERE admin_id='$chkidadmin'");
+        $chk_genre = DB::select("SELECT * FROM genre_project");
+        $chk_category = DB::select("SELECT * FROM category_project");
+        $chk_type = DB::select("SELECT * FROM type_project");
 
         $chk_project = count(DB::select("SELECT No_PB FROM projects WHERE projects.status_p in ('1')"));
         if($chk_project>4){
@@ -922,10 +927,14 @@ class ProjectController extends Controller
             $itemlg7='';
         }
 
+        // $chk_genre = DB::select("SELECT * FROM genre_project");
+        // $chk_category = DB::select("SELECT * FROM category_project");
+        // $chk_type = DB::select("SELECT * FROM type_project");
+
         return view('homeBD',compact('itemlp0','itemlp1','itemlp2','itemlp3','itemlp4','itemlp5','itemlp6','itemlp7','itemlp8',
         'itemlg0','itemlg1','itemlg2','itemlg3','itemlg4','itemlg5','itemlg6','itemlg7','imgaccount','adminaccount','itemgenre','sum_type_p','sum_project',
         'svgrate0','svgrate1','svgrate2','svgrate3','svgrate4','svgrate5','svgrate6','svgrate7','svgrateg0','svgrateg1','svgrateg2','svgrateg3',
-        'itempop0','itempop1','itempop2','itempop3','itempop4','avgpop0','avgpop1','avgpop2','avgpop3','avgpop4','sum_pop_p'));
+        'itempop0','itempop1','itempop2','itempop3','itempop4','avgpop0','avgpop1','avgpop2','avgpop3','avgpop4','sum_pop_p','chk_genre','chk_category','chk_type'));
     }
 
     public function detailitem($project_id){

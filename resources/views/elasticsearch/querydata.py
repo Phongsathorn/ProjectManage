@@ -71,10 +71,8 @@ def autokeyword():
 
 if __name__ == '__main__':
      
-    # while True:    
-    # data = requests.get('http://localhost:8000/api/getdes_p')
-    # print(data.text)
-    autokeyword()
+    while True:    
+        autokeyword()
         
                 
 
