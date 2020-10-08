@@ -482,7 +482,7 @@
                                                         class="view">ข้อมูลรายละเอียดผลงานปริญญาตรี</a><br>
                                                     <a href="{{ url('viewprojectmdd') }}"
                                                         class="view">ข้อมูลรายละเอียดผลงานปริญญาเอก&โท</a><br>
-                                                    <a href="{{ url('dataview') }}" class="view">คำขอสร้างผลงาน</a><br>
+                                                    <!-- <a href="{{ url('dataview') }}" class="view">คำขอสร้างผลงาน</a><br> -->
                                                     <?php } ?>
                                                 </div>
                                             </div>

@@ -1525,9 +1525,14 @@
 
         function create_str($count,$str,$items) {
             // echo $count;
-            if($count>20 & $count<=30) {
+            if($count>20 & $count<25) {
                 $strcount = substr($str,0,-10);
                 $strcount1 = substr($strcount,0,-8);
+                $strcut = $strcount1."...";
+                echo $strcut;
+            }elseif($count>25 & $count<30){
+                $strcount = substr($str,0,-10);
+                $strcount1 = substr($strcount,0,-20);
                 $strcut = $strcount1."...";
                 echo $strcut;
             }elseif($count>30 & $count <40){
@@ -1543,9 +1548,23 @@
                 $strcount2 = substr($strcount1,0,-5);
                 $strcut = $strcount2."...";
                 echo $strcut;
+            }elseif($count>50 & $count <80){
+                $strcount = substr($str,0,-65);
+                $strcount1 = substr($strcount,0,-50);
+                $strcount2 = substr($strcount1,0,-5);
+                $strcut = $strcount2."...";
+                echo $strcut;
+            }
+            elseif($count>80 & $count <150){
+                $strcount = substr($str,0,-65);
+                $strcount1 = substr($strcount,0,-50);
+                $strcount2 = substr($strcount1,0,-85);
+                $strcount3 = substr($strcount2,0,-5);
+                $strcut = $strcount3."...";
+                echo $strcut;
             }else{
                 echo $items->project_name;
-            } 
+            }  
               
         }
 

@@ -340,9 +340,9 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="text" class="text-left fontdetail control-label" style="margin-top:-20px;">ชื่อเรื่อง(EH):<span style="color: red;font-size: 20;">*</span></label>
+                                            <label for="text" class="text-left fontdetail control-label" style="margin-top:-20px;">ชื่อเรื่อง(EN):<span style="color: red;font-size: 20;">*</span></label>
                                             <div class="col-sm-11">
-                                                <input type="text" class="form-control" name="project_name" id="project_name_en" oninput="this.className = ''" placeholder="ชื่อโครงงานภาษาอังกฤษ">
+                                                <input type="text" class="form-control" name="project_name_en" id="project_name_en" oninput="this.className = ''" placeholder="ชื่อโครงงานภาษาอังกฤษ">
                                             </div>
                                         </div>
                                     </div>
@@ -605,6 +605,15 @@
 
     <script>
         $(document).ready(function() {
+            $('#project_name').keyup(function() {
+                var data= document.getElementById("project_name").value;
+                if(data!=''){
+                    document.getElementById("type_project").disabled = false;
+                    // document.getElementById("type_project").disabled = true;
+                }else{
+                    document.getElementById("type_project").disabled = true;
+                }
+            })
             $('#project_name_en').keyup(function() {
                 var data= document.getElementById("project_name_en").value;
                 if(data!=''){

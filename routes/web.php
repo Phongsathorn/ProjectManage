@@ -54,7 +54,7 @@ Route::get('input_rate', 'ProjectController@test');
 
 
 Route::get('test', function () {
-    return view('test');
+    return view('testapi');
 });
 
 

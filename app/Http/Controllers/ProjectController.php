@@ -29,7 +29,7 @@ class ProjectController extends Controller
 
         $project = new Project;
         session_start();
-        $_SESSION['dataprject'] = 'project';
+        // $_SESSION['dataprject'] = 'project';
         $userid = $_SESSION['usersid'];
         $logo = 'defaultlogo.png';
 
@@ -128,7 +128,7 @@ class ProjectController extends Controller
         $project->user_id=$userid;
         $project->status_p=$status_p;
         $project->project_name=$request->project_name;
-        $project->keyword_project=$request->keyword_project;
+        $project->name_en=$request->project_name_en;
         $project->des_project=$request->des_project;
         // $dataproject->facebook=$request->facebook;
         // $dataproject->email=$request->email;
@@ -138,9 +138,13 @@ class ProjectController extends Controller
         $project->category_id=$request->category_project;
         $project->branch_id=$request->branch_project;
         $project->project_year=$request->year_project;
+        $project->keyword_project1=$request->keyword_project_1;
+        $project->keyword_project2=$request->keyword_project_2;
+        $project->keyword_project3=$request->keyword_project_3;
+        $project->keyword_project4=$request->keyword_project_4;
         $project->logo=$logo;
         $project->file_p=$fileproject;
-        $project->filename=$filename;
+        $project->namefile=$filename;
         $project->temp_file_chk=$fileproject_chk;
         $project->temp_namefile_chk=$filenamechk;
         $project->save();
@@ -153,7 +157,7 @@ class ProjectController extends Controller
         $imgproject->imp_p_1=$imgproject1;
         $imgproject->imp_p_2=$imgproject2;
         $imgproject->imp_p_3=$imgproject3;
-        // DB::INSERT("INSERT INTO img_project (img_p_1, img_p_2, img_p_3, p_id) VALUES ('$imgproject1','$imgproject1','$imgproject1','$userid')");
+        DB::INSERT("INSERT INTO img_project (img_p_1, img_p_2, img_p_3, p_id) VALUES ('$imgproject1','$imgproject1','$imgproject1','$userid')");
         
         //เก็บค่า ดาว=0
         $codeu = 'R';
@@ -162,8 +166,11 @@ class ProjectController extends Controller
         $string_id = substr("00".$nextint,-3);
         $nextidrate = $codeu.$string_id;
         $project_id=$nextid;
-        DB::INSERT("INSERT INTO rating_p (img_p_1, rate_index, project_id) VALUES ('$nextidrate','0','$project_id'");
+        $_SESSION['dataprject'] = 'project';
+        $_SESSION['project'] = 'project';
+        DB::INSERT("INSERT INTO rating_p(rating_id, rate_index, project_id) VALUES ('$nextidrate','0','$project_id')");
 
+        DB::table('temp_keyword')->truncate();
         return redirect('homeBD')->with('successappproject', 'สร้างผลงานเรียบร้อย');
     }
 
@@ -207,7 +214,7 @@ class ProjectController extends Controller
                 $_SESSION['keyid1'] = 1 ;
                 echo '<input type="text" class="rounded-0 border-info" name="keyword_project_1" id="keyword_project_1" value="'.$listkey1->name_key.'">';
             }else{
-                echo '<input type="text" class="rounded-0 border-info" name="keyword_project_4" id="keyword_project_4" value="'.$listkey1="".'">';
+                echo '<input type="text" class="rounded-0 border-info" name="keyword_project_1" id="keyword_project_1" value="ไม่พบคำสำคัญ กรุณากรอกข้อมูลลงในฟอร์มให้สมบูรณ์">';
             }
         }
         if ($request->key2){
@@ -216,7 +223,7 @@ class ProjectController extends Controller
                 $_SESSION['keyid2'] = 1 ;
                 echo '<input type="text" class="rounded-0 border-info" name="keyword_project_2" id="keyword_project_2" value="'.$listkey2->name_key.'">';
             } else{
-                echo '<input type="text" class="rounded-0 border-info" name="keyword_project_4" id="keyword_project_4" value="'.$listkey2="".'">';
+                echo '<input type="text" class="rounded-0 border-info" name="keyword_project_2" id="keyword_project_2" value="ไม่พบคำสำคัญ กรุณากรอกข้อมูลลงในฟอร์มให้สมบูรณ์">';
             }
         }
         if ($request->key3) {
@@ -225,7 +232,7 @@ class ProjectController extends Controller
                 $_SESSION['keyid3'] = 1 ;
                 echo '<input type="text" class="rounded-0 border-info" name="keyword_project_3" id="keyword_project_3" value="'.$listkey3->name_key.'">';
             } else{
-                echo '<input type="text" class="rounded-0 border-info" name="keyword_project_4" id="keyword_project_4" value="'.$listkey3="".'">';
+                echo '<input type="text" class="rounded-0 border-info" name="keyword_project_3" id="keyword_project_3" value="ไม่พบคำสำคัญ กรุณากรอกข้อมูลลงในฟอร์มให้สมบูรณ์">';
             }
         }   
         if ($request->key4){
@@ -234,11 +241,11 @@ class ProjectController extends Controller
                 $_SESSION['keyid4'] = 1 ;
                 echo '<input type="text" class="rounded-0 border-info" name="keyword_project_4" id="keyword_project_4" value="'.$listkey4->name_key.'">';
             } else{
-                echo '<input type="text" class="rounded-0 border-info" name="keyword_project_4" id="keyword_project_4" value="'.$listkey4="".'">';
+                echo '<input type="text" class="rounded-0 border-info" name="keyword_project_4" id="keyword_project_4" value="ไม่พบคำสำคัญ กรุณากรอกข้อมูลลงในฟอร์มให้สมบูรณ์">';
             }
         }    
             
-        // DB::table('temp_keyword')->truncate();
+        
         
     }
 
