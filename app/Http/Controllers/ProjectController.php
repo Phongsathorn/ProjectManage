@@ -203,7 +203,7 @@ class ProjectController extends Controller
     public function list_keyword(Request $request)
     {   
 
-        $listkey = DB::select("SELECT * FROM temp_keyword ");
+        $listkey = DB::select("SELECT DISTINCT name_key FROM temp_keyword ");
         
         session_start();
         if ($request->key1){
@@ -214,7 +214,7 @@ class ProjectController extends Controller
                 $_SESSION['keyid1'] = 1 ;
                 echo '<input type="text" class="rounded-0 border-info" name="keyword_project_1" id="keyword_project_1" value="'.$listkey1->name_key.'">';
             }else{
-                echo '<input type="text" class="rounded-0 border-info" name="keyword_project_1" id="keyword_project_1" value="ไม่พบคำสำคัญ กรุณากรอกข้อมูลลงในฟอร์มให้สมบูรณ์">';
+                echo '<input type="text" class="rounded-0 border-info" name="keyword_project_1" id="keyword_project_1" placeholder="ไม่พบคำสำคัญ กรุณากรอกข้อมูลลงในฟอร์มให้สมบูรณ์" >';
             }
         }
         if ($request->key2){
@@ -223,7 +223,7 @@ class ProjectController extends Controller
                 $_SESSION['keyid2'] = 1 ;
                 echo '<input type="text" class="rounded-0 border-info" name="keyword_project_2" id="keyword_project_2" value="'.$listkey2->name_key.'">';
             } else{
-                echo '<input type="text" class="rounded-0 border-info" name="keyword_project_2" id="keyword_project_2" value="ไม่พบคำสำคัญ กรุณากรอกข้อมูลลงในฟอร์มให้สมบูรณ์">';
+                echo '<input type="text" class="rounded-0 border-info" name="keyword_project_2" id="keyword_project_2" placeholder="ไม่พบคำสำคัญ กรุณากรอกข้อมูลลงในฟอร์มให้สมบูรณ์" >';
             }
         }
         if ($request->key3) {
@@ -232,7 +232,7 @@ class ProjectController extends Controller
                 $_SESSION['keyid3'] = 1 ;
                 echo '<input type="text" class="rounded-0 border-info" name="keyword_project_3" id="keyword_project_3" value="'.$listkey3->name_key.'">';
             } else{
-                echo '<input type="text" class="rounded-0 border-info" name="keyword_project_3" id="keyword_project_3" value="ไม่พบคำสำคัญ กรุณากรอกข้อมูลลงในฟอร์มให้สมบูรณ์">';
+                echo '<input type="text" class="rounded-0 border-info" name="keyword_project_3" id="keyword_project_3" placeholder="ไม่พบคำสำคัญ กรุณากรอกข้อมูลลงในฟอร์มให้สมบูรณ์">';
             }
         }   
         if ($request->key4){
@@ -241,7 +241,7 @@ class ProjectController extends Controller
                 $_SESSION['keyid4'] = 1 ;
                 echo '<input type="text" class="rounded-0 border-info" name="keyword_project_4" id="keyword_project_4" value="'.$listkey4->name_key.'">';
             } else{
-                echo '<input type="text" class="rounded-0 border-info" name="keyword_project_4" id="keyword_project_4" value="ไม่พบคำสำคัญ กรุณากรอกข้อมูลลงในฟอร์มให้สมบูรณ์">';
+                echo '<input type="text" class="rounded-0 border-info" name="keyword_project_4" id="keyword_project_4" placeholder="ไม่พบคำสำคัญ กรุณากรอกข้อมูลลงในฟอร์มให้สมบูรณ์">';
             }
         }    
             
@@ -342,6 +342,18 @@ class ProjectController extends Controller
         }
         $file_path = public_path('project/'.$file);
         return response()->download($file_path,$namefile);
+
+        $ip = $_SERVER['REMOTE_ADDR'];
+            
+            DB::table('login_log')->insert(
+                [
+                    'login_user' => $_SESSION['usersid'],
+                    'login_ip' => $ip,
+                    'login_datetime' => now(),
+                    'login_status' => 'downloadfile',
+                    'login_ontime' => '1',
+                ]
+            );
         
 
     }

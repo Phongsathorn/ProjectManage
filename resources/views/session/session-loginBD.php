@@ -21,6 +21,8 @@
         $_SESSION['statusA'] = $dataadmin['status'];
         $_SESSION['successloginadmin'] = "successloginadmin";
         
+        
+
         header('Location: /homeadmin');
         exit(0);
     }
@@ -43,9 +45,12 @@
             $condb = mysqli_query($conn,$chk_idpro);
             $dataproject = mysqli_fetch_assoc($condb);
         
+
             if($dataproject){
                 $_SESSION['project'] = 'BD';
             }
+
+            
 
             $_SESSION['message'] = "successlogin";
             header( "refresh: 0; url=/homeBD" );

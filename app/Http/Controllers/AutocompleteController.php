@@ -185,6 +185,8 @@ class AutocompleteController extends Controller
         $typeproject = $request->input('type_project');
         $branch_project = $request->input('branch_project');
         $year_project = $request->input('year_project');
+        $owner_p = $request->input('owner_p');
+        $advisor_p = $request->input('advisor_p');
 
         if(isset($genreproject) =='' & isset($categoryproject) =='' & isset($typeproject) =='' & isset($branch_project) =='' & isset($year_project) ==''){
             $detailsearch = DB::select("SELECT * FROM projects,type_project,genre_project,branch_project,category_project,year_project
@@ -2466,10 +2468,33 @@ class AutocompleteController extends Controller
                 AND projects.project_year=year_project.NO_Y AND projects.project_year=$year_project  
                 AND projects.genre_id=$genreproject AND projects.category_id=$categoryproject 
                 AND projects.type_id=$typeproject AND projects.branch_id=$branch_project               
-                AND projects.keyword_project4 LIKE '%$keyword%'");
+                AND projects.keyword_project4 LIKE '%$keyword%'
+                
+                OR  projects.type_id=type_project.type_id AND projects.genre_id=genre_project.genre_id
+                AND projects.branch_id=branch_project.branch_id AND projects.category_id=category_project.category_id  
+                AND projects.project_year=year_project.NO_Y AND projects.project_year=$year_project  
+                AND projects.genre_id=$genreproject AND projects.category_id=$categoryproject 
+                AND projects.type_id=$typeproject AND projects.branch_id=$branch_project
+                AND projects.owner_p1 LIKE '%$owner_p%'
+                
+                OR  projects.type_id=type_project.type_id AND projects.genre_id=genre_project.genre_id
+                AND projects.branch_id=branch_project.branch_id AND projects.category_id=category_project.category_id  
+                AND projects.project_year=year_project.NO_Y AND projects.project_year=$year_project  
+                AND projects.genre_id=$genreproject AND projects.category_id=$categoryproject 
+                AND projects.type_id=$typeproject AND projects.branch_id=$branch_project 
+                AND projects.owner_p2 LIKE '%$owner_p%'
+                
+                OR  projects.type_id=type_project.type_id AND projects.genre_id=genre_project.genre_id
+                AND projects.branch_id=branch_project.branch_id AND projects.category_id=category_project.category_id  
+                AND projects.project_year=year_project.NO_Y AND projects.project_year=$year_project  
+                AND projects.genre_id=$genreproject AND projects.category_id=$categoryproject 
+                AND projects.type_id=$typeproject AND projects.branch_id=$branch_project 
+                AND projects.advisor_p LIKE '%$advisor_p%'");
+
+                
             
             if(isset($detailsearch) ? $detailsearch:''){
-                // echo(2);
+                // print_r($detailsearch);
                 foreach ($detailsearch as $key_s) {
                 $key_similar1 = $key_s->keyword_project1;
                 $key_similar2 = $key_s->keyword_project2;
@@ -2494,7 +2519,7 @@ class AutocompleteController extends Controller
                 // foreach($svgrate0 as $svgrate0){
                 //     $svgrate0 = round($svgrate0,$percision=1);
                 // }
-                session_start();
+                
                 $_SESSION['beforsearch']='1';
                 }
             }

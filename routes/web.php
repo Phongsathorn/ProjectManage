@@ -51,7 +51,7 @@ Route::get('input_rate', 'ProjectController@test');
     //     return view('beforesearchBD');
     // });
 
-
+Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 
 Route::get('test', function () {
     return view('testapi');

@@ -7,7 +7,7 @@
                 <h1 class="text-heder-search"><div>ค้นหาเเบบละเอียด<i style="margin-left: 10px;color: #D9A327;background-color:582B9E;" class="fas fa-book-open"></i></h1>
                 <form action="/AVsearch" class="text-sum" method="GET">
                     <div class="container">
-                        <label for="search" class="" style="font-size: 17px;">ต้องการสืบค้น:<span style="color: red;font-size: 20;">* <span class="danger_d">ป้อนชื่อเรื่องหรือคำสัญที่ต้องการค้นหา</span></span></label>
+                        <label for="search" class="" style="font-size: 17px;">ต้องการสืบค้น:<span style="color: red;font-size: 20;">* <span class="danger_d">ป้อนชื่อเรื่องหรือคำสำคัญที่ต้องการค้นหา</span></span></label>
                         <div class="form-group">
                             <input class="form-control" name="detailsearch" id="detailsearch" style="font-size: 17px;" type="text" aria-label="Search" placeholder="ค้นหา"></>
                         </div>
@@ -79,11 +79,11 @@
                         <div class="center" style="margin-top: 15px;">
                             <div class="form-group">
                                 <center><label for="text" class="" style="font-size: 17px;">ผู้จัดทำ</label></center>
-                                <center><input type="text" style="font-size: 17px;" class="form-control  col-md-9" placeholder="ผู้จัดทำ"></center>
+                                <center><input type="text" name="owner_p" id="owner_p" style="font-size: 17px;" class="form-control  col-md-9" placeholder="ผู้จัดทำ"></center>
                             </div>
                             <div class="form-group">
                                 <center><label for="text" class="" style="font-size: 17px;">ที่ปรึกษา</label></center>
-                                <center><input type="text" style="font-size: 17px;" class="form-control  col-md-9" placeholder="ที่ปรึกษา"></center>
+                                <center><input type="text" name="advisor_p" id="advisor_p" style="font-size: 17px;" class="form-control  col-md-9" placeholder="ที่ปรึกษา"></center>
                             </div>
                         </div>
 
