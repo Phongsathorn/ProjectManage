@@ -4691,9 +4691,8 @@ input[type=button].btn-block {
 
 .layoutaccout {
     margin-right: 80px;
-    margin-left: -90px;
+    margin-left: -65px;
     margin-top: -0.5px auto;
-    
 }
 
 .layoutaccout-MDD {
@@ -4979,7 +4978,6 @@ input[type=button].btn-block {
     padding: 0.75rem 1rem;
     margin-bottom: 1rem;
     list-style: none;
-    background-color: #e9ecef;
     border-radius: 0.25rem;
 }
 

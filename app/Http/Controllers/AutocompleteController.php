@@ -51,7 +51,7 @@ class AutocompleteController extends Controller
 
         
         $keyword = $request->input('search');
-        
+        $_SESSION['keyword-s'] = $keyword;
         //$_SESSION['search'] = $request->input('search');
         //echo $keyword;
 
@@ -80,13 +80,16 @@ class AutocompleteController extends Controller
         $imgaccount = DB::select("SELECT * FROM users WHERE U_id='$chkid'");
         $adminaccount = DB::select("SELECT * FROM admin_company WHERE admin_id='$chkidadmin'");
         
-        $easysearch = DB::select("SELECT * FROM projects,type_project
-        WHERE projects.type_id=type_project.type_id AND projects.project_name LIKE '%$keyword%' 
-        OR projects.type_id=type_project.type_id AND projects.keyword_project1 LIKE '%$keyword%'
-        OR projects.type_id=type_project.type_id AND projects.keyword_project2 LIKE '%$keyword%' 
-        OR projects.type_id=type_project.type_id AND projects.keyword_project3 LIKE '%$keyword%'
-        OR projects.type_id=type_project.type_id AND projects.keyword_project4 LIKE '%$keyword%'
-        ");
+        $easysearch = DB::select("SELECT projects.project_id,projects.project_name,projects.logo,projects.keyword_project1,projects.keyword_project2,
+        projects.keyword_project3,projects.keyword_project4,genre_project.genre_name
+        
+        FROM projects,genre_project
+        WHERE projects.genre_id=genre_project.genre_id
+        AND projects.project_name LIKE '%$keyword%' 
+        OR projects.genre_id=genre_project.genre_id AND projects.keyword_project1 LIKE '%$keyword%'
+        OR projects.genre_id=genre_project.genre_id AND projects.keyword_project2 LIKE '%$keyword%' 
+        OR projects.genre_id=genre_project.genre_id AND projects.keyword_project3 LIKE '%$keyword%'
+        OR projects.genre_id=genre_project.genre_id AND projects.keyword_project4 LIKE '%$keyword%'");
         // compact('easysearch');
         // $a = $easysearch;
         // echo'<pre>';
@@ -151,13 +154,13 @@ class AutocompleteController extends Controller
             $_SESSION['beforsearch'] = 1;
             
             $similar = DB::select("SELECT *,ABS(projects.project_id = '$search_id') AS pID
-            FROM projects,type_project
+            FROM projects,genre_project
             WHERE projects.project_id != '$search_id' 
-            AND projects.type_id=type_project.type_id AND projects.keyword_project1 LIKE '%$key_similar1%' 
-            OR projects.type_id=type_project.type_id AND projects.keyword_project2 LIKE '%$key_similar2%' 
-            OR projects.type_id=type_project.type_id AND projects.keyword_project3 LIKE '%$key_similar3%' 
-            OR projects.type_id=type_project.type_id AND projects.keyword_project4 LIKE '%$key_similar4%' 
-            ORDER BY pID
+            AND projects.genre_id=genre_project.genre_id AND projects.keyword_project1 LIKE '%$key_similar1%' 
+            OR projects.genre_id=genre_project.genre_id AND projects.keyword_project2 LIKE '%$key_similar2%' 
+            OR projects.genre_id=genre_project.genre_id AND projects.keyword_project3 LIKE '%$key_similar3%' 
+            OR projects.genre_id=genre_project.genre_id AND projects.keyword_project4 LIKE '%$key_similar4%' 
+            ORDER BY pID,RAND()
             LIMIT 4
             ");
 

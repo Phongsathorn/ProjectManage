@@ -32,32 +32,26 @@
         .user-size {
             margin-top: -3px;
         }
-
         .user-sizes {
             width: 100px;
             margin-top: -6px;
             margin-left: 20px;
         }
-
         .content {
             margin-top: 8px;
         }
-
         .search-left {
             margin-left: 50px;
         }
-
         .top {
             margin-top: 5px;
         }
-
         .btn-login {
             height: 43px;
             margin-left: -20px;
             background-color: white;
             border-radius: 5px;
         }
-
         .name-scle {
             font-size: 16px;
             color: #FFFFFF;
@@ -66,9 +60,7 @@
             margin-top: -30px;
             margin-left: 70px;
             font-family: 'Athiti', sans-serif;
-
         }
-
         .img-top {
             background-image: url("img/background-body-addproject-5.jpg");
             height: 100%;
@@ -76,7 +68,6 @@
             background-repeat: no-repeat;
             background-size: cover;
         }
-
         .img-down {
             background-image: url("img/background-body-addproject-2.jpg");
             height: 100%;
@@ -84,7 +75,6 @@
             background-repeat: no-repeat;
             background-size: cover;
         }
-
         .span-i-user {
             font-size: 33px;
             color: none;
@@ -92,36 +82,30 @@
             margin-top: -1.5px;
             margin-right: -7px;
         }
-
         .text-mage {
             font-size: 17px;
             margin-left: 40px;
             padding: 3px;
             margin-top: -35px;
         }
-
         .btn-outline-primaryy {
             color: #D9A327;
             border-color: #D9A327;
         }
-
         .btn-outline-primaryy:hover {
             color: #fff;
             background-color: #D9A327;
             border-color: #D9A327;
         }
-
         .btn-outline-primaryy:focus,
         .btn-outline-primaryy.focus {
             box-shadow: 0 0 0 0.2rem rgba(52, 144, 220, 0.5);
         }
-
         .btn-outline-primaryy.disabled,
         .btn-outline-primaryy:disabled {
             color: #fff;
             background-color: transparent;
         }
-
         .btn-outline-primaryy:not(:disabled):not(.disabled):active,
         .btn-outline-primaryy:not(:disabled):not(.disabled).active,
         .show>.btn-outline-primaryy.dropdown-toggle {
@@ -129,47 +113,37 @@
             background-color: #D9A327;
             border-color: #fff;
         }
-
         .btn-outline-primaryy:not(:disabled):not(.disabled):active:focus,
         .btn-outline-primaryy:not(:disabled):not(.disabled).active:focus,
         .show>.btn-outline-primaryy.dropdown-toggle:focus {
             box-shadow: 0 0 0 0.1rem #fff;
         }
-
         .btn-primaryyy {
             font-size: 18px;
             color: #fff;
             background-color: rgb(76, 175, 80);
             border-color: #707070;
         }
-
         .btn-primaryyy:hover {
             color: #fff;
             background-color: rgb(87, 212, 87);
             border-color: #707070;
         }
-
         .user-size-size {
             width: 100px;
         }
-
         .layoutname-top-BD {
             margin-left: 50px;
-
         }
-
         .layoutprovince-size-p {
             width: 42%;
         }
-
         .img-profile {
             width: 39px;
         }
-
         .img-user-size {
             width: 100%;
         }
-
         .font-Athiti {
             font-family: 'Athiti', sans-serif;
             font-weight: 600;
@@ -177,8 +151,8 @@
         .sidenav a, .dropdown-btn ,.dropdown-btn2,.dropdown-btn3{
             padding: 6px 8px 6px 16px;
             text-decoration: none;
-            font-size: 20px;
-            color: #818181;
+            font-size: 18px;
+            color: #FFF5EE;
             display: block;
             border: none;
             background: none;
@@ -187,43 +161,85 @@
             cursor: pointer;
             outline: none;
             margin-left: 5px;
+            font-family: 'Athiti', sans-serif;
         }
-
         /* On mouse-over */
         .sidenav a:hover, .dropdown-btn:hover ,.dropdown-btn2:hover,.dropdown-btn3:hover{
-            color: white;
+            color: #D9A327;
         }
-
         /* Main content */
         .main {
             margin-left: 200px; /* Same as the width of the sidenav */
             font-size: 20px; /* Increased text to enable scrolling */
             padding: 0px 10px;
         }
-
         /* Add an active class to the active dropdown button */
-        .active {
-            background-color: #D9A327;
+        .active-item {
             color: white;
+            border-color: none;
+            
         }
-
         /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
         .dropdown-container {
-            display: none;
+            display: block;
             background-color: #262626;
             padding-left: 8px;
         }
-
         /* Optional: Style the caret down icon */
         .fa-caret-down {
             float: right;
             padding-right: 8px;
         }
-
+        .breadcrumb-detail {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            padding: .75rem 1rem;
+            margin-bottom: 1rem;
+            list-style: none;
+            border-radius: .25rem;
+        }
+        a:active{
+            color: #7B68EE;
+            text-decoration: underline;
+        }
+        a:hover{
+            color: #0099FF;
+            text-decoration: underline;
+        }
+        .front>a:hover {
+            color: #F5F5F5;
+            font-weight: bold;
+            
+        }
+        .imghover:hover{
+	        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            border: 1 solid black;
+        }
+        .labelmax{
+            width:20px;
+            overflow: hidden;
+        }
+        .breadcrumb-de {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            padding: 0.75rem 1rem;
+            margin-bottom: 1rem;
+            list-style: none;
+            border-radius: 0.25rem;
+        }
+        .search-key {
+            /* background-color:yellow; */
+            color:#dd4b39;
+        }
     </style>
 </head>
 
-<body >
+<body style="font-family: 'Athiti', sans-serif;">
     <!-- successappproject -->
     @if ($message = Session::get('successappproject'))
     <script>
@@ -492,7 +508,7 @@
             <!-- main.css-->
                 <li class="app-search search-left">
                     <form action='/search' method='GET'>
-                            <input class="app-search__input" name='search' id="search" type="text" placeholder="ค้นหา...">
+                            <input class="app-search__input" name='search' id="search" type="text" placeholder="ค้นหา..." value="<?php echo $_SESSION['keyword-s']; ?>">
                             <div id="searchList">
                             </div>
                             <script>
@@ -673,9 +689,7 @@
                                 </div>
                             </li>
                         <?php }
-
                         // admin
-
                         else  if (isset($_SESSION['statusA']) == 'admin') {
                         ?>
                             <li class="nav-item dropdown">
@@ -748,258 +762,53 @@
                                             <a href="homeBD"><button type="button" class="btn-control btn-default btn-outline-primaryy " style="font-size:18px;">ปริญญาตรี</button></a>
                                             <a href="homeMDD"><button type="button" class="btn-control btn-default btn-outline-primaryy " style="font-size:18px;">ปริญญาเอก โท </button></a>
                                         </div><br>
-                                        <!-- <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages"> เว็บ
-                                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                        </a>
-                                        <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
-                                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                                <a class="nav-link" href="wed">ทั้งหมด</a>
-                                                <a class="nav-link" href="#">ติดตาม</a>
-                                                <a class="nav-link" href="#">ดูเเลสุขภาพ</a>
-                                                <a class="nav-link" href="#">ไร่สวน</a>
-                                            </nav>
-                                        </div>
-
-                                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">เว็บ&เว็บแอปพลิเคชั่น
-                                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                        </a>
-                                        <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-                                            <nav class="sb-sidenav-menu-nested nav ">
-                                                <a class="nav-link" href="wedapp">ทั้งหมด</a>
-                                                <a class="nav-link" href="#">ติดตาม</a>
-                                                <a class="nav-link" href="#">ดูเเละสุขภาพ</a>
-                                                <a class="nav-link" href="#">ไร่สวน</a>
-                                            </nav>
-                                        </div>
-                                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">แอปพลิเคชั่น
-                                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div></a>
-                                        <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-                                            <nav class="sb-sidenav-menu-nested nav">
-                                                <a class="nav-link" href="app">ทั้งหมด</a>
-                                                <a class="nav-link" href="#">ติดตาม</a>
-                                                <a class="nav-link" href="#">ดูเเละสุขภาพ</a>
-                                                <a class="nav-link" href="#">ไร่สวน</a>
-                                            </nav>
-                                        </div>
-                                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">เกม
-                                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div></a>
-                                        <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-                                            <nav class="sb-sidenav-menu-nested nav">
-                                                <a class="nav-link" href="game">ทั้งหมด</a>
-                                                <a class="nav-link" href="#">ผจญภัย</a>
-                                                <a class="nav-link" href="#">ยุทธศาสตร์</a>
-                                                <a class="nav-link" href="#">ปริศนา</a>
-                                                <a class="nav-link" href="#">กีฬา</a>
-                                                <a class="nav-link" href="#">เเอ็กชัน</a>
-                                            </nav>
-                                        </div> -->
-                                        
-                                        <!-- <a href="#about">About</a>
-                                        <a href="#services">Services</a>
-                                        <a href="#clients">Clients</a>
-                                        <a href="#contact">Contact</a> -->
-                                        <div class="sidenav">
-                                            <button class="dropdown-btn">ประเภท
-                                                <i class="fa fa-caret-down"></i>
-                                            </button>
-                                                <div class="dropdown-container">
-                                                    @foreach($chk_genre as $genre)
-                                                    <a href="genre/{{$genre->genre_id}}">{{$genre->genre_name}}</a>
-                                                    <!-- <a href="#">โปรแกรมประยุกต์สำหรับอุปกรณ์เคลื่อนที่</a>
-                                                    <a href="#">ไอโอที(IoT)</a>
-                                                    <a href="#">ปัญญาประดิษฐ์(Ai)</a>
-                                                    <a href="#">ไอโอที(IoT)</a>
-                                                    <a href="#">ไอโอที(IoT)</a> -->
-                                                    @endforeach
-                                                </div>
+                                        <div class="sidenav" >
+                                                <button class="dropdown-btn" style="border-top: 0.5px solid #fff;border-radius: 10%;">ประเภท
+                                                    <i class="fa fa-caret-down fa-lg" style="width: 20px;"></i>
+                                                </button>
+                                                    <div class="dropdown-container">
+                                                        @foreach($chk_genre as $genre)
+                                                        <a href="genre/{{$genre->genre_id}}" class="btn-default btn-outline-primaryy" style="font-size:17px;color:#fff;">{{$genre->genre_name}}</a>
+                                                        <!-- <a href="#">โปรแกรมประยุกต์สำหรับอุปกรณ์เคลื่อนที่</a>
+                                                        <a href="#">ไอโอที(IoT)</a>
+                                                        <a href="#">ปัญญาประดิษฐ์(Ai)</a>
+                                                        <a href="#">ไอโอที(IoT)</a>
+                                                        <a href="#">ไอโอที(IoT)</a> -->
+                                                        @endforeach
+                                                    </div>
+                                                
+                                           
+                                                <button class="dropdown-btn" style="border-top: 0.5px solid #fff;border-radius: 10%;">หมวดหมู่
+                                                    <i class="fa fa-caret-down fa-lg" style="width: 20px;"></i>
+                                                </button>
+                                                    <div class="dropdown-container">
+                                                        @foreach($chk_category as $category)
+                                                        <a href="category/{{$category->category_id}}" class="btn-default btn-outline-primaryy" style="font-size:17px;color:#fff;">{{$category->category_name}}</a>
+                                                        <!-- <a href="#">โปรแกรมประยุกต์สำหรับอุปกรณ์เคลื่อนที่</a>
+                                                        <a href="#">ไอโอที(IoT)</a>
+                                                        <a href="#">ปัญญาประดิษฐ์(Ai)</a>
+                                                        <a href="#">ไอโอที(IoT)</a>
+                                                        <a href="#">ไอโอที(IoT)</a> -->
+                                                        @endforeach
+                                                    </div>
                                             
-                                        </div>
-                                        
-                                        <div class="sidenav">
-                                            <button class="dropdown-btn">หมวดหมู่
-                                                <i class="fa fa-caret-down"></i>
-                                            </button>
-                                                <div class="dropdown-container">
-                                                    @foreach($chk_category as $category)
-                                                    <a href="category/{{$category->category_id}}">{{$category->category_name}}</a>
-                                                    <!-- <a href="#">โปรแกรมประยุกต์สำหรับอุปกรณ์เคลื่อนที่</a>
-                                                    <a href="#">ไอโอที(IoT)</a>
-                                                    <a href="#">ปัญญาประดิษฐ์(Ai)</a>
-                                                    <a href="#">ไอโอที(IoT)</a>
-                                                    <a href="#">ไอโอที(IoT)</a> -->
-                                                    @endforeach
-                                                </div>
-                                        </div>
 
-                                        <div class="sidenav">
-                                            <button class="dropdown-btn">ชนิดเอกสาร
-                                                <i class="fa fa-caret-down"></i>
-                                            </button>
-                                                <div class="dropdown-container">
-                                                    @foreach($chk_type as $type)
-                                                    <a href="typeproject/{{$type->type_id}}">{{$type->type_name}}</a>
-                                                    <!-- <a href="#">โปรแกรมประยุกต์สำหรับอุปกรณ์เคลื่อนที่</a>
-                                                    <a href="#">ไอโอที(IoT)</a>
-                                                    <a href="#">ปัญญาประดิษฐ์(Ai)</a>
-                                                    <a href="#">ไอโอที(IoT)</a>
-                                                    <a href="#">ไอโอที(IoT)</a> -->
-                                                    @endforeach
-                                                </div>
-                                        </div>
-
-                                        <!-- <div class="sidenav">
-                                            <button class="dropdown-btn">ปัญญาประดิษฐ์(Ai)
-                                                <i class="fa fa-caret-down"></i>
-                                            </button>
-                                                <div class="dropdown-container">
-                                                <button class="dropdown-btn2">เอกสาร
-                                                    
+                                                <button class="dropdown-btn " style="border-top: 0.5px solid #fff;border-radius: 10%;">ชนิดเอกสาร
+                                                    <i class="fa fa-caret-down fa-lg" style="width: 20px;"></i>
                                                 </button>
-                                                <div class="dropdown-container">
-                                                    <a href="#">เว็บ</a>
-                                                    <a href="#">แอบ</a>
-                                                    <a href="#">วิจัย</a>
-                                                </div>
-                                                    <button class="dropdown-btn3">หนังสือ
-                                                    
-                                                    </button>
-                                                <div class="dropdown-container">
-                                                    <a href="#">เว็บ</a>
-                                                    <a href="#">แอบ</a>
-                                                    <a href="#">วิจัย</a>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="sidenav">
-                                            <button class="dropdown-btn">การประมวลผลข้อมูล
-                                                <i class="fa fa-caret-down"></i>
-                                            </button>
-                                                <div class="dropdown-container">
-                                                <button class="dropdown-btn2">เอกสาร
-                                                    
-                                                </button>
-                                                <div class="dropdown-container">
-                                                    <a href="#">เว็บ</a>
-                                                    <a href="#">แอบ</a>
-                                                    <a href="#">วิจัย</a>
-                                                </div>
-                                                    <button class="dropdown-btn3">หนังสือ
-                                                    
-                                                    </button>
-                                                <div class="dropdown-container">
-                                                    <a href="#">เว็บ</a>
-                                                    <a href="#">แอบ</a>
-                                                    <a href="#">วิจัย</a>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="sidenav">
-                                            <button class="dropdown-btn">การออกแบบกราฟิก
-                                                <i class="fa fa-caret-down"></i>
-                                            </button>
-                                                <div class="dropdown-container">
-                                                <button class="dropdown-btn2">เอกสาร
-                                                    
-                                                </button>
-                                                <div class="dropdown-container">
-                                                    <a href="#">เว็บ</a>
-                                                    <a href="#">แอบ</a>
-                                                    <a href="#">วิจัย</a>
-                                                </div>
-                                                    <button class="dropdown-btn3">หนังสือ
-                                                    
-                                                    </button>
-                                                <div class="dropdown-container">
-                                                    <a href="#">เว็บ</a>
-                                                    <a href="#">แอบ</a>
-                                                    <a href="#">วิจัย</a>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="sidenav">
-                                            <button class="dropdown-btn">การเรียนรู้มัลติมีเดีย
-                                                <i class="fa fa-caret-down"></i>
-                                            </button>
-                                                <div class="dropdown-container">
-                                                <button class="dropdown-btn2">เอกสาร
-                                                    
-                                                </button>
-                                                <div class="dropdown-container">
-                                                    <a href="#">เว็บ</a>
-                                                    <a href="#">แอบ</a>
-                                                    <a href="#">วิจัย</a>
-                                                </div>
-                                                    <button class="dropdown-btn3">หนังสือ
-                                                    
-                                                    </button>
-                                                <div class="dropdown-container">
-                                                    <a href="#">เว็บ</a>
-                                                    <a href="#">แอบ</a>
-                                                    <a href="#">วิจัย</a>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="sidenav">
-                                            <button class="dropdown-btn">เกม
-                                                <i class="fa fa-caret-down"></i>
-                                            </button>
-                                                <div class="dropdown-container" >
-                                                    <button class="dropdown-btn2">เอกสาร
-                                                        
-                                                    </button>
                                                     <div class="dropdown-container">
-                                                        <a href="#">เว็บ</a>
-                                                        <a href="#">แอบ</a>
-                                                        <a href="#">วิจัย</a>
+                                                        @foreach($chk_type as $type)
+                                                        <a href="typeproject/{{$type->type_id}}" class="btn-default btn-outline-primaryy" style="font-size:17px;color:#fff;">{{$type->type_name}}</a>
+                                                        <!-- <a href="#">โปรแกรมประยุกต์สำหรับอุปกรณ์เคลื่อนที่</a>
+                                                        <a href="#">ไอโอที(IoT)</a>
+                                                        <a href="#">ปัญญาประดิษฐ์(Ai)</a>
+                                                        <a href="#">ไอโอที(IoT)</a>
+                                                        <a href="#">ไอโอที(IoT)</a> -->
+                                                        @endforeach
                                                     </div>
-                                                        <button class="dropdown-btn3">หนังสือ
-                                                        
-                                                        </button>
-                                                    <div class="dropdown-container">
-                                                        <a href="#">เว็บ</a>
-                                                        <a href="#">แอบ</a>
-                                                        <a href="#">วิจัย</a>
-                                                    </div>
-                                                </div>
-                                        </div> -->
-
-                                        <!-- <button class="dropdown-btn1">วิจัย<i class=""></i></button>
-                                        <div class="dropdown-container">
-                                            <button class="dropdown-btn4">เอกสาร<i class="fa fa-caret-down "></button>
-                                                <div class="dropdown-container">
-                                                    <a href="#">เว็บ</a>
-                                                    <a href="#">แอบ</a>
-                                                    <a href="#">วิจัย</a>
-                                                </div>
-                                            <button class="dropdown-btn5">หนังสือ<i class="fa fa-caret-down "></button>
-                                                <div class="dropdown-container">
-                                                    <a href="#">เว็บ</a>
-                                                    <a href="#">แอบ</a>
-                                                    <a href="#">วิจัย</a>
-                                                </div>
-                                        </div>
-                                        -->
-
-                                        <!-- <button class="dropdown-btn3">วิทยานิพนธ์<i class="fa fa-caret-down "></i></button>
-                                        <div class="dropdown-container3">
-                                            <button class="dropdown-btn6">เอกสาร<i class="fa fa-caret-down "></button>
-                                                <div class="dropdown-container3">
-                                                    <a href="#">เว็บ</a>
-                                                    <a href="#">แอบ</a>
-                                                    <a href="#">วิจัย</a>
-                                                </div>
-                                            <button class="dropdown-btn7">หนังสือ<i class="fa fa-caret-down "></button>
-                                            <div class="dropdown-container3">
-                                                <a href="#">เว็บ</a>
-                                                <a href="#">แอบ</a>
-                                                <a href="#">วิจัย</a>
                                             </div>
-                                        </div> -->
-                                    </div>
+
+                                        </div>
                                 </div>
                             </nav>
                         </div>
@@ -1024,17 +833,16 @@
                     <?php
                     if (!isset($_SESSION['status']) == 'user' & !isset($_SESSION['statusA']) == 'admin') {
                     } else if (isset($_SESSION['status']) == 'user') { ?>
-                        <div class="links front">
+                        <div class="links front" style="font-size: 20px;">
                             @if(!isset($_SESSION['project']))
-                            <a href="addproject" class="view">สร้างผลงาน</a><br>
+                            <a href="addproject" class="view"><i class="fas fa-book fa-lg" style="color:#212529; margin-right: 7px;margin-left: 10px;"></i>สร้างผลงาน</a><br>
                             @elseif(isset($_SESSION['project']))
-                            <a href="projectview" class="view">ผลงานของฉัน</a><br>
+                            <a href="listdetil" class="view"><i class="fas fa-book fa-lg" style="color:#212529; margin-right: 7px;margin-left: 10px;"></i>ผลงานของฉัน</a><br>
                             @endif
                         </div>
                     <?php } else  if (isset($_SESSION['statusA']) == 'admin') { ?>
                         <div class="links front">
-
-                            <a href="homeadmin" class="view">กลับสู่หน้าผู้ดูเเลระบบ</a><br>
+                            <a href="homeadmin" class="view"><i class="fas fa-book fa-lg" style="color:#212529; margin-right: 7px;margin-left: 10px;"></i>กลับสู่หน้าผู้ดูเเลระบบ</a><br>
                         </div>
                     <?php }
                     ?>
@@ -1042,84 +850,136 @@
                 </li>
             </ul>
         </aside>
-    <div class="rowcolumn" >
-            <div class="col-md-12">
-                <div class="tile1">
-                    <div class="tile-body">
-                        <div class="texthe1">ผลลัพธ์การค้นหา</div>
-                            <div class="table-responsive ">
-                            @if(isset($easysearch)?$easysearch:'')
-                                @foreach($easysearch as $aftersearch) 
-                                    
-                                    <a href="itemdetaliBD/{{$aftersearch->project_id}}"><div class="column shadow-item" ><div class="columnimg"><img src="project\img_logo\<?php echo $aftersearch->logo;?>" alt="" class="fromimg"></div></a>
-                                        <center><a href="itemdetaliBD/{{$aftersearch->project_id}}"><div class="textimg">
-                                        <?php 
-                                            $str = $aftersearch->project_name;
-                                            $count = utf8_strlen($str);
-                                            create_str($count,$str,$aftersearch);  
-                                        ?></div></a></center>
-                                        <center><a href="itemtypeBD/{{$aftersearch->type_id}}"><div class="textimg2"><?php echo $aftersearch->type_name;?></div></a></center>
-                                        <center>
-                                            <div class="rating">
-                                         
-                                                <?php 
-                                                    foreach($Avg as $AvgRate){
-                                                        $svgid = $AvgRate->AvgRate;
-                                                        rating_star($svgid);
-                                                    }
-                                                    // print_r($AvgRate);
-                                                    
-                                                ?>
-                                          
+        <div class="rowcolumn1 img-top" >
+            <div class="" style="margin-left:18%;width: 80%;">
+                <div class="col-md-12" >
+                    <div class="tile ">
+                        <div class="tile-body">
+                            <label class="texthe1">ผลลัพธ์การค้นหา </label>
+                                
+                                <div class="row" >
+                                    @if(isset($easysearch)?$easysearch:'')
+                                        @foreach($easysearch as $aftersearch) 
+                                        <div class="column-s">
+                                        <a href="itemdetaliBD/{{$aftersearch->project_id}}"><div class="imgfromming-s ">
+                                                <div class="columnimgitem-s shadow-item">
+                                                    <img src="/project/img_logo/<?php echo $aftersearch->logo; ?>" alt="" class="fromimg" style="width: 100px;height: 110px;">
+                                                </div>
                                             </div>
-                                        </center>
-                                    </div>                                
-                                @endforeach
-                                @else
-                                <p style="margin-left:100px;margin-top:30px;">" ไม่พบผลลัพธ์ในการค้นหา "</p>
-                            @endif
-
+                                            <div class="text-N-d-s">
+                                            <a href="itemdetaliBD/{{$aftersearch->project_id}}"><label for="text" class="laout-text" >
+                                                    <?php 
+                                                        $str = $aftersearch->project_name;
+                                                        $keyword = $_SESSION['keyword-s'];
+                                                        $hilight = hilightkey($str,$keyword);
+                                                        echo $hilight;
+                                                    ?>
+                                                </label></a>            
+                                                <div class="text-auth-d">
+                                                    <label for="text">คำสำคัญ : 
+                                                        <?php 
+                                                            $str = $aftersearch->keyword_project1; 
+                                                            $keyword = $_SESSION['keyword-s'];
+                                                            $hilight = hilightkey($str,$keyword);
+                                                            echo $hilight;
+                                                        ?> 
+                                                        <?php 
+                                                            $str = $aftersearch->keyword_project2;
+                                                            $keyword = $_SESSION['keyword-s'];
+                                                            $hilight = hilightkey($str,$keyword);
+                                                            echo $hilight; 
+                                                        ?> 
+                                                        <?php 
+                                                            $str = $aftersearch->keyword_project3; 
+                                                            $keyword = $_SESSION['keyword-s'];
+                                                            $hilight = hilightkey($str,$keyword);
+                                                            echo $hilight;
+                                                        ?> 
+                                                        <?php 
+                                                            $str = $aftersearch->keyword_project4;
+                                                            $keyword = $_SESSION['keyword-s'];
+                                                            $hilight = hilightkey($str,$keyword);
+                                                            echo $hilight; 
+                                                        ?>
+                                                    </label>
+                                                </div>
+                                                <div class="text-auth-N-d">
+                                                    <label for="text">ประเภท : <?php echo $aftersearch->genre_name; ?></label>
+                                                </div>
+                                                <div class="rating text-rating">
+                                                    <?php 
+                                                        // $rate = $aftersearch->AvgRate;
+                                                        // rating_star($rate); 
+                                                    ?>
+                                                </div>
+                                            </div></a> 
+                                        </div>
+                                        @endforeach
+                                        
+                                    @else
+                                    <p style="margin-left:100px;margin-top:30px;">" ไม่พบผลลัพธ์ในการค้นหา "</p>
+                                    @endif
+                                </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div
-    ></div>
-
+        </div>
     @if(!isset($_SESSION['beforsearch']))
 
     @elseif(isset($_SESSION['beforsearch']))
     <div class="rowcolumn-AV" >
-        <div class="col-md-12">
-            <div class="tile1">
+        <div class="col-md-12" >
+            <div class="">
                 <div class="tile-body">
                     <div class="texthe1">ผลลัพธ์ที่ใกล้เคียง</div>
-                        <div class="table-responsive ">
                             @if(isset($similar)?$similar:'')
                                 @foreach($similar as $simiilar) 
-                                    <a href="itemdetaliBD/{{$simiilar->project_id}}"><div class="column shadow-item" ><div class="columnimg"><img src="project\img_logo\<?php echo $simiilar->logo;?>" alt="" class="fromimg"></div></a>
-                                        <center><a href="itemdetaliBD/{{$simiilar->project_id}}"><div class="textimg">
-                                        <?php 
-                                            $str = $simiilar->project_name;
-                                            $count = utf8_strlen($str);
-                                            create_str_simiilar($count,$str,$simiilar);  
-                                        ?></div></a></center>
-                                        <center><a href="itemtypeBD/{{$simiilar->type_id}}"><div class="textimg2"><?php echo $simiilar->type_name;?></div></a></center>
-                                        <center>
-                                            <div class="rating">
+                                    <div class="column-si">
+                                        <a href="itemdetaliBD/{{$simiilar->project_id}}"><div class="imgfromming-s ">
+                                            <div class="columnimgitem-s shadow-item">
+                                                <img src="/project/img_logo/<?php echo $simiilar->logo; ?>" alt="" class="fromimg" style="width: 100px;height: 110px;">
+                                            </div>
+                                        </div>
+                                        <div class="text-N-d-si">
+                                        <a href="itemdetaliBD/{{$simiilar->project_id}}"><label for="text" class="laout-text" >
                                                 <?php 
-                                                    
+                                                    echo $str = $simiilar->project_name;
+                                                ?>
+                                            </label></a>            
+                                            <div class="text-auth-d">
+                                                <label for="text">คำสำคัญ : 
+                                                    <?php 
+                                                        echo $str = $simiilar->keyword_project1;  
+                                                    ?> 
+                                                    <?php 
+                                                        echo $str = $simiilar->keyword_project2;
+                                                    ?> 
+                                                    <?php 
+                                                        echo $str = $simiilar->keyword_project3; 
+                                                    ?> 
+                                                    <?php 
+                                                        echo $str = $simiilar->keyword_project4;
+                                                    ?>
+                                                </label>
+                                            </div>
+                                            <div class="text-auth-N-d">
+                                                <label for="text">ประเภท : <?php echo $simiilar->genre_name; ?></label>
+                                            </div>
+                                            <div class="rating text-rating">
+                                                <?php 
+                                                    // $rate = $aftersearch->AvgRate;
+                                                    // rating_star($rate); 
                                                 ?>
                                             </div>
-                                        </center>
-                                    </div>
+                                        </div></a> 
+                                    </div><br>
                                 @endforeach
                                 @else
                                 <p style="margin-left:100px;margin-top:30px;">" ไม่พบผลลัพธ์ในการค้นหา "</p>
                             @endif
                         </div>
                     </div>
-                </div>
             </div>
         </div>
     </div>
@@ -1147,6 +1007,7 @@
             });
         </script>
 
+        
         <script>
         /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
         test("dropdown-btn");
@@ -1159,7 +1020,6 @@
         function test(input){
             var dropdown2 = document.getElementsByClassName(input);
             var i;
-
             for (i = 0; i < dropdown2.length; i++) {
                 dropdown2[i].addEventListener("click", function() {
                 this.classList.toggle("active");
@@ -1191,7 +1051,13 @@
 
 </html>
 
-<?php
+    <?php
+        function hilightkey($data,$keyword){
+            if (!preg_match('|^[a-zA-Zก-๛]+$|',$keyword)){
+                die('illegal keyword');
+            }
+            echo preg_replace('|('.$keyword.')|i', '<font color=red>$1</font>', $data);
+        } 
         function utf8_strlen($str){ 
             $c = strlen($str);
             $l = 0;
@@ -1204,7 +1070,6 @@
             }
             return $l;
         } 
-
         function create_str($count,$str,$aftersearch) {
             // echo $count;
             if($count>20 & $count<25) {
@@ -1241,7 +1106,6 @@
             } 
               
         }
-
         function create_str_simiilar($count,$str,$simiilar) {
             // echo $count;
             if($count>20 & $count<25) {
@@ -1278,7 +1142,6 @@
             } 
               
         }
-
         function check_rating($rating) {
             for($i=0;$i<floor($rating);$i++){
                 echo '<i class="fas fa-star" style="color: #ffb712;"></i>';
@@ -1290,37 +1153,62 @@
     
         function rating_star($svgid){
             if(isset($svgid)?$svgid:''){
-            if($svgid < 2 & $svgid> 0){
-                echo'<div class="rating">';
-                check_rating($svgid);if(isset($svgid)?$svgid:''){echo'<span class="">('.(round($svgid, $precision = 1)).'</span>)</div>';}}
+                if($svgid < 2 & $svgid> 0){
+                    echo'<div class="rating">';
+                        check_rating($svgid);
+                        if(isset($svgid)?$svgid:''){
+                            echo'<span class=""> ('.(round($svgid, $precision = 1)).')</span><i class="fas fa-user" style="color: #A9A9A9;"></i>';
+                        }
+                    echo'</div>';
+                }
+                
+                elseif($svgid >= 2 & $svgid < 3) {
+                    echo'<div class="rating">';
+                        check_rating($svgid);
+                        if(isset($svgid)?$svgid:''){
+                            echo'<span class=""> ('.(round($svgid, $precision = 1)).')</span><i class="fas fa-user" style="color: #A9A9A9;"></i>';
+                        }
+                    echo '</div>';
+                }
+                
+                elseif($svgid >= 3 & $svgid < 4) {
+                    echo'<div class="rating">';
+                        check_rating($svgid);
+                        if(isset($svgid)?$svgid:''){
+                            echo'<span class=""> ('.(round($svgid, $precision = 1)).')</span><i class="fas fa-user" style="color: #A9A9A9;"></i>';
+                        }
+                    echo '</div>';
+                }
+                
+                elseif($svgid >= 4 & $svgid < 5){
+                    echo'<div class="rating">';
+                        check_rating($svgid);
+                        if(isset($svgid)?$svgid:''){
+                            echo'<span class=""> ('.(round($svgid, $precision = 1)).')</span><i class="fas fa-user" style="color: #A9A9A9;"></i>';
+                        } 
+                    echo'</div>';}
+                
+                elseif($svgid >= 5){
+                    echo'<div class="rating">';
+                        check_rating($svgid);
+                        if(isset($svgid)?$svgid:''){
+                            echo'<span class=""> ('.(round($svgid, $precision = 1)).')</span><i class="fas fa-user" style="color: #A9A9A9;"></i>';
+                        }
+                    echo'</div>';
+                    }
+                else{
+                    echo'<div class="rating">';
+                        check_rating($svgid);
+                        if(isset($svgid)?$svgid:''){
+                            echo'<span class=""> ('.(round($svgid, $precision = 1)).')</span><i class="fas fa-user" style="color: #A9A9A9;"></i>';
+                        }
+                    echo '</div>';}
             
-            elseif($svgid >= 2 & $svgid < 3) {
-                echo'<div class="rating">';
-                check_rating($svgid);if(isset($svgid)?$svgid:''){echo'<span class="">('.(round($svgid, $precision = 1)).'</span>)</div>';}}
-            
-            
-            elseif($svgid >= 3 & $svgid < 4) {
-                echo'<div class="rating">';
-                check_rating($svgid);if(isset($svgid)?$svgid:''){echo'<span class="">('.(round($svgid, $precision = 1)).'</span>)</div>';}}
-            
-            
-            elseif($svgid >= 4 & $svgid < 5){
-                echo'<div class="rating">';
-                check_rating($svgid);if(isset($svgid)?$svgid:''){echo'<span class="">('.(round($svgid, $precision = 1)).'</span>)</div>';}} 
-            
-            elseif($svgid >= 5){
-            echo'<div class="rating">';
-                check_rating($svgid);if(isset($svgid)?$svgid:''){echo'<span class="">('.(round($svgid, $precision = 1)).'</span>)</div>';}}
+                }
             else{
                 echo'<div class="rating">';
-                check_rating($svgid);if(isset($svgid)?$svgid:''){echo'<span class="">('.(round($svgid, $precision = 1)).'</span>)</div>';}}
-        
-            }
-            else{
-                echo'<div class="rating">';
-                    check_rating(0);  echo'<span class="">(0)</span>';
+                    check_rating(0);  echo'<span class="">(0)</span><i class="fas fa-user" style="color: #A9A9A9;"></i>';
                 echo'</div>';
             }    
         }
-      
     ?>

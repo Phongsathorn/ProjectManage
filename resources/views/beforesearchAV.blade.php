@@ -789,31 +789,76 @@
                 </li>
             </ul>
         </aside>
-        <div class="rowcolumn-resolf" >
-            <div class="col-md-12">
-                <div class="tile1">
-                    <div class="tile-body">
-                        <div class="texthe1">ผลลัพธ์การค้นหา</div>
-                            <!-- <div class="table-responsive "> -->
-                            @if(isset($detailsearch)?$detailsearch:'')
-                                @foreach($detailsearch as $aftersearch) 
-                                    
-                                        <a href="itemdetaliBD/{{$aftersearch->project_id}}"><div class="column" ><div class="columnimg"><img src="project\img_logo\<?php echo $aftersearch->logo;?>" alt="" class="fromimg"></div></a>
-                                            <center><a href="itemdetaliBD/{{$aftersearch->project_id}}"><div class="textimg">
-                                            <?php 
-                                                $str = $aftersearch->project_name;
-                                                $count = utf8_strlen($str);
-                                                create_str($count,$str,$aftersearch);  
-                                            ?></div></a></center>
-                                            <center><a href="itemtypeBD/{{$aftersearch->type_id}}"><div class="textimg2"><?php echo $aftersearch->type_name;?></div></a></center>
-                                            
+        <div class="rowcolumn1 img-top" >
+            <div class="" style="margin-left:18%;width: 80%;">
+                <div class="col-md-12" >
+                    <div class="tile ">
+                        <div class="tile-body">
+                            <label class="texthe1">ผลลัพธ์การค้นหา </label>
+                                
+                                <div class="row" >
+                                    @if(isset($easysearch)?$easysearch:'')
+                                        @foreach($easysearch as $aftersearch) 
+                                        <div class="column-s">
+                                        <a href="itemdetaliBD/{{$aftersearch->project_id}}"><div class="imgfromming-s ">
+                                                <div class="columnimgitem-s shadow-item">
+                                                    <img src="/project/img_logo/<?php echo $aftersearch->logo; ?>" alt="" class="fromimg" style="width: 100px;height: 110px;">
+                                                </div>
+                                            </div>
+                                            <div class="text-N-d-s">
+                                            <a href="itemdetaliBD/{{$aftersearch->project_id}}"><label for="text" class="laout-text" >
+                                                    <?php 
+                                                        $str = $aftersearch->project_name;
+                                                        $keyword = $_SESSION['keyword-s'];
+                                                        $hilight = hilightkey($str,$keyword);
+                                                        echo $hilight;
+                                                    ?>
+                                                </label></a>            
+                                                <div class="text-auth-d">
+                                                    <label for="text">คำสำคัญ : 
+                                                        <?php 
+                                                            $str = $aftersearch->keyword_project1; 
+                                                            $keyword = $_SESSION['keyword-s'];
+                                                            $hilight = hilightkey($str,$keyword);
+                                                            echo $hilight;
+                                                        ?> 
+                                                        <?php 
+                                                            $str = $aftersearch->keyword_project2;
+                                                            $keyword = $_SESSION['keyword-s'];
+                                                            $hilight = hilightkey($str,$keyword);
+                                                            echo $hilight; 
+                                                        ?> 
+                                                        <?php 
+                                                            $str = $aftersearch->keyword_project3; 
+                                                            $keyword = $_SESSION['keyword-s'];
+                                                            $hilight = hilightkey($str,$keyword);
+                                                            echo $hilight;
+                                                        ?> 
+                                                        <?php 
+                                                            $str = $aftersearch->keyword_project4;
+                                                            $keyword = $_SESSION['keyword-s'];
+                                                            $hilight = hilightkey($str,$keyword);
+                                                            echo $hilight; 
+                                                        ?>
+                                                    </label>
+                                                </div>
+                                                <div class="text-auth-N-d">
+                                                    <label for="text">ประเภท : <?php echo $aftersearch->genre_name; ?></label>
+                                                </div>
+                                                <div class="rating text-rating">
+                                                    <?php 
+                                                        // $rate = $aftersearch->AvgRate;
+                                                        // rating_star($rate); 
+                                                    ?>
+                                                </div>
+                                            </div></a> 
                                         </div>
-                                    
-                                @endforeach
-                                @else
-                                <p style="margin-left:100px;margin-top:30px;">" ไม่พบผลลัพธ์ในการค้นหา "</p>
-                            @endif
-                            <!-- </div> -->
+                                        @endforeach
+                                        
+                                    @else
+                                    <p style="margin-left:100px;margin-top:30px;">" ไม่พบผลลัพธ์ในการค้นหา "</p>
+                                    @endif
+                                </div>
                         </div>
                     </div>
                 </div>
