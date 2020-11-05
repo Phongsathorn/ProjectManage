@@ -1,20 +1,8 @@
 @extends('layouts.mainhomeadmin')
 @section('content')
-        <main class="app-content">
-            <div class="app-title" style="width: 100%;margin-left:1px;">
-                <div>
-                    <h1><i class="fa fa-th-list"></i> รายละเอียดผลงาน</h1>
-                </div>
-                <ul class="app-breadcrumb breadcrumb side">
-                    <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-                    <li class="breadcrumb-item">ตาราง</li>
-                    <li class="breadcrumb-item active"><a href="#">รายละเอียดผลงาน</a></li>
-                </ul>
-            </div>
-            
 
-                <!-- เเสดงเเจ้งเตือนว่าข้อมูลถูกลบเรียบร้อยเเล้ว -->
-                @if(\Session::has('success')) 
+ <!-- เเสดงเเจ้งเตือนว่าข้อมูลถูกลบเรียบร้อยเเล้ว -->
+ @if(\Session::has('success')) 
                     <div class="alert alert-success"> 
                     <p>{{ \Session::get('success') }}</p> 
                     </div> 
@@ -42,6 +30,17 @@
             </script>
         @endif
         
+        <main class="app-content">
+            <div class="app-title" style="width: 100%;margin-left:1px;">
+                <div>
+                    <h1><i class="fa fa-th-list"></i> รายละเอียดผลงาน</h1>
+                </div>
+                <ul class="app-breadcrumb breadcrumb side">
+                    <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+                    <li class="breadcrumb-item">ตาราง</li>
+                    <li class="breadcrumb-item active"><a href="#">รายละเอียดผลงาน</a></li>
+                </ul>
+            </div>
         
             <div class="row">
             

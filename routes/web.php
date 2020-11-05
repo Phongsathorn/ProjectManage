@@ -51,7 +51,7 @@ Route::get('input_rate', 'ProjectController@test');
     //     return view('beforesearchBD');
     // });
 
-Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+
 
 Route::get('test', function () {
     return view('testapi');
@@ -129,7 +129,9 @@ Route::get('game', function () {
     return view('wedType.game');
 });
 
-
+Route::get('testwork', function () {
+    return view('testwork');
+});
 
 // page homemain
 
@@ -150,13 +152,11 @@ Route::get('Detailproject', function () {
 
 Route::get('addproject', 'ProjectController@viewadd');
 Route::post('insertproject', 'ProjectController@insertproject')->name('insertproject');
-Route::post('editproject', 'ProjectController@editproject');
+Route::post('editproject', 'ProjectController@editproject');//เเก้ไขข้อมูลโปรเจค นิสิตเป็นคนเเก้ไข
 Route::get('showdataproject', 'ProjectController@showproject');
-Route::get('projectview', 'ProjectController@project');
-// Route::post('adddataproject', 'ListdataController@addfileproject');
-// Route::post('adddataproject', 'ListdataController@addproject')->name('addproject');
-// Route::get('process', 'inputprojectController@addproject') ;
-// Route::post('dataproject', 'ListdataController@dataproject');
+Route::get('projectview/{project_id}', 'ProjectController@project');//ข้อมูลโปรเจคข้องนิสิต
+Route::get('listdetil','ListdataController@listdetil');//listdetil ของนิสิต
+
 
 Route::post('download', 'ProjectController@downloadfile');
 
@@ -189,9 +189,7 @@ Route::get('dbconnect', function () {
     return view('dbconnect');
 });
 
-Route::post('loginBD', function () {
-    return view('session.session-loginBD');
-});
+Route::post('loginBD','login_pyController@authentication');
 
 Route::post('loginMDD', function () {
     return view('session.session-loginMDD');

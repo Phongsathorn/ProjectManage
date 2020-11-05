@@ -6680,7 +6680,8 @@ a.close.disabled {
     touch-action: pan-y;
 }
 
-.carousel-inner {
+
+/* .carousel-inner {
     position: relative;
     width: 100%;
     overflow: hidden;
@@ -6690,7 +6691,7 @@ a.close.disabled {
     display: block;
     clear: both;
     content: "";
-}
+} */
 
 .carousel-item {
     position: relative;
@@ -15137,6 +15138,26 @@ be a descendant of the grid when it is being dragged.
     border-bottom: 1px solid #ddd;
 }
 
+.name-scle {
+    font-size: 16px;
+    color: #000000;
+    -ms-flex-item-align: center;
+    align-self: center;
+    margin-top: -30px;
+    margin-left: 70px;
+    font-family: 'Athiti', sans-serif;
+}
+
+.name-scle:hover {
+    font-size: 16px;
+    color: #D9A327;
+    -ms-flex-item-align: center;
+    align-self: center;
+    margin-top: -30px;
+    margin-left: 70px;
+    font-family: 'Athiti', sans-serif;
+}
+
 
 /*----- Componant: Top Navigation Bar ----- */
 
@@ -15149,10 +15170,12 @@ be a descendant of the grid when it is being dragged.
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    background-color: #D9A327;
+    /* background-color: #D9A327; */
+    background-color: #ffffff;
     z-index: 1030;
     padding-right: 15px;
     font-family: 'Athiti', sans-serif;
+    box-shadow: 0 0px 20px rgba(0, 0, 0, 0.12);
 }
 
 @media (min-width: 768px) {
@@ -15171,7 +15194,7 @@ be a descendant of the grid when it is being dragged.
     -webkit-box-flex: 1;
     -ms-flex: 1 0 auto;
     flex: 1 0 auto;
-    color: #fff;
+    color: #000000;
     text-align: center;
     font-family: 'Athiti', sans-serif;
     padding: 0 15px;
@@ -15187,14 +15210,14 @@ be a descendant of the grid when it is being dragged.
         flex: 0 0 auto;
         display: block;
         width: 230px;
-        background-color: #D9A327;
+        /* background-color: #D9A327; */
     }
 }
 
 .app-header__logo:focus,
 .app-header__logo:hover {
     text-decoration: none;
-    color: #fff;
+    color: #D9A327;
 }
 
 .app-sidebar__toggle {
@@ -15268,13 +15291,25 @@ be a descendant of the grid when it is being dragged.
     display: flex;
     -ms-flex-item-align: center;
     align-self: center;
+    margin-right: 600px;
+    padding: 10px 0;
+    font-family: 'Athiti', sans-serif;
+}
+
+.app-searchmdd {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-item-align: center;
+    align-self: center;
     margin-right: 700px;
     padding: 10px 0;
     font-family: 'Athiti', sans-serif;
 }
 
 .app-navmenu {
-    margin-left: -10px;
+    margin-left: -100px;
     display: flex;
     -ms-flex-item-align: center;
     align-self: center;
@@ -15342,7 +15377,7 @@ be a descendant of the grid when it is being dragged.
 }
 
 .menulink>a {
-    color: #ffffff;
+    color: #000000;
     padding: 0 10px;
     font-size: 16px;
     letter-spacing: .1rem;
@@ -15358,7 +15393,7 @@ be a descendant of the grid when it is being dragged.
 /* mouse เเตะ link */
 
 .menulink>a:hover {
-    color: #fff;
+    color: #D9A327;
     font-weight: normal;
 }
 
@@ -15389,7 +15424,6 @@ be a descendant of the grid when it is being dragged.
 }
 
 .app-search__input {
-    border: 0;
     padding: 5px 10px;
     padding-right: 200px;
     border-radius: 8px;
@@ -15397,6 +15431,49 @@ be a descendant of the grid when it is being dragged.
     -webkit-transition: background-color 0.3s ease;
     -o-transition: background-color 0.3s ease;
     transition: background-color 0.3s ease;
+    border-color: #a7a5a3;
+}
+
+.app-search-input {
+    margin-left: -10%;
+    margin-top: 3%;
+    /* width: ; */
+    /* border-radius: 8px;
+    margin-top: 7%; */
+    /* background-color: rgba(255, 255, 255, 0.8);
+    -webkit-transition: background-color 0.3s ease;
+    -o-transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease;
+    border-color: #a7a5a3; */
+}
+
+.app-search-input-mdd {
+    margin-left: -8%;
+    align-items: center;
+    /* margin-top: 3%; */
+    /* border-radius: 8px;
+    margin-top: 7%; */
+    /* background-color: rgba(255, 255, 255, 0.8);
+    -webkit-transition: background-color 0.3s ease;
+    -o-transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease;
+    border-color: #a7a5a3; */
+}
+
+.app-search-input-size {
+    padding: 5px 10px;
+    padding-right: 200px;
+}
+
+.app-search__input:hover {
+    padding: 5px 10px;
+    padding-right: 200px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.8);
+    -webkit-transition: background-color 0.3s ease;
+    -o-transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease;
+    border-color: #D9A327;
 }
 
 .app-search__input::-webkit-input-placeholder {
@@ -15421,14 +15498,15 @@ be a descendant of the grid when it is being dragged.
 
 .app-search__button {
     position: absolute;
-    right: 0;
+    right: 30px;
     top: 10px;
-    bottom: 10px;
+    /* bottom: 10px;
     padding: 0 10px;
     border: 0;
     color: rgba(0, 0, 0, 0.8);
     background: none;
-    cursor: pointer;
+    cursor: pointer; */
+    margin-left: -30%;
 }
 
 .app-notification {
@@ -15495,17 +15573,18 @@ be a descendant of the grid when it is being dragged.
 
 .app-sidebar {
     position: fixed;
-    top: 54px;
+    top: 55px;
     margin-top: 3px;
     bottom: 0;
     padding-top: 80px;
     padding: 10px;
-    width: 240px;
+    width: 242px;
     height: 100%;
     overflow: auto;
     z-index: 10;
     border-color: 1px solid #707070;
-    background-color: #D9A327;
+    /* background-color: #D9A327; */
+    background-color: #ffffff;
     opacity: 0.88;
     font-family: 'Athiti', sans-serif;
     -webkit-transition: left 0.3s ease, width 0.3s ease;

@@ -1,12 +1,15 @@
 <?php 
-    if(isset($_SESSION['status'])=='user'){
-        header( "refresh: 0; url=/homeBD" );
-        exit(0);
-    }
-    elseif(isset($_SESSION['status'])=='admin'){
-        header('Location: /homeadmin');
-        exit(0);
-    }
+    // if(isset($_SESSION['status'])=='user'){
+    //     header( "refresh: 0; url=/homeBD" );
+    //     exit(0);
+    // }
+    // elseif(isset($_SESSION['statusA'])=='admin'){
+    //     header('Location:/homeadmin');
+    //     exit(0);
+    // }else{
+    //     header( "refresh: 0; url=/homeBD" );
+    //     exit(0);
+    // }
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +28,7 @@
     <meta property="og:description"
         content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="Loaction" content="0;url=/homeadmin">
+    <meta http-equiv="Loaction" content="/homeadmin">
 
     <!-- Main CSS-->
     <link rel="stylesheet" type="text/css" href="css/main.css">
@@ -102,7 +105,7 @@
 
     .name-scle {
         font-size: 16px;
-        color: #FFFFFF;
+        color: #000000;
         -ms-flex-item-align: center;
         align-self: center;
         margin-top: -30px;
@@ -152,13 +155,13 @@
     }
 
     .btn-outline-primaryy {
-        color: #D9A327;
+        color: #000000;
+        /* background-color: #D9A327; */
         border-color: #D9A327;
     }
 
     .btn-outline-primaryy:hover {
-        color: #fff;
-        background-color: #D9A327;
+        color: #D9A327;
         border-color: #D9A327;
     }
 
@@ -409,7 +412,7 @@
                                 aria-haspopup="true" aria-expanded="false">
                                 @foreach($imgaccount as $img)
                                 <img class="rounded-circle user-sizes img-profile"
-                                    src="img_admin/<?php echo $img->pathimg; ?>" alt="User Avatar">
+                                    src="{{URL::to('img_admin/'.$img->pathimg)}}" alt="User Avatar">
                                 @endforeach
                                 <div class="name-scle dropdown-toggle"><?php echo $_SESSION['adminname'];?></div>
                             </a>
@@ -421,7 +424,7 @@
                                                 <div class="image">
                                                     <a href="profileadmin">
                                                         @foreach($imgaccount as $img)
-                                                        <img src="img_admin/<?php echo $img->pathimg; ?>" alt=""
+                                                        <img src="{{URL::to('img_admin/'.$img->pathimg)}}" alt=""
                                                             class="img-user-size user-avatar rounded-circle" />
                                                         @endforeach
                                                     </a>
@@ -437,11 +440,11 @@
 
                                         <a href="profileadmin" class="top dropdown-item"><i
                                                 class="zmdi zmdi-account"></i>โปรไฟล์</a>
-                                        <a class="dropdown-item" href="logout" onclick="event.preventDefault();
+                                        <a class="dropdown-item" href="{{URL::to('logout')}}" onclick="event.preventDefault();
                                                             document.getElementById('logout-form').submit();">
                                             {{ __('ออกจากระบบ') }}
                                         </a>
-                                        <form id="logout-form" action="logout" method="POST" style="display: none;">
+                                        <form id="logout-form" action="{{URL::to('logout')}}" method="POST" style="display: none;">
                                             @csrf
                                         </form>
 
@@ -463,10 +466,10 @@
                                 <div class="sb-sidenav-menu">
                                     <div class="nav">
                                         <div class="layoutlogre">
-                                            <a href="homeBD"><button type="button"
+                                            <a href="{{URL::to('homeBD')}}"><button type="button"
                                                     class="btn-control btn-default btn-outline-primaryy "
                                                     style="font-size:18px;font-family: 'Athiti', sans-serif;">ปริญญาตรี</button></a>
-                                            <a href="homeMDD"><button type="button"
+                                            <a href="{{URL::to('homeMDD')}}"><button type="button"
                                                     class="btn-control btn-default btn-outline-primaryy "
                                                     style="font-size:18px;font-family: 'Athiti', sans-serif;">ปริญญาเอก
                                                     โท </button></a>

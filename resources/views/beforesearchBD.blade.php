@@ -32,35 +32,43 @@
         .user-size {
             margin-top: -3px;
         }
+
         .user-sizes {
             width: 100px;
             margin-top: -6px;
             margin-left: 20px;
         }
+
         .content {
             margin-top: 8px;
         }
+
         .search-left {
             margin-left: 50px;
         }
+
         .top {
             margin-top: 5px;
         }
+
         .btn-login {
             height: 43px;
             margin-left: -20px;
             background-color: white;
             border-radius: 5px;
         }
+
         .name-scle {
             font-size: 16px;
-            color: #FFFFFF;
+            color: #000000;
             -ms-flex-item-align: center;
             align-self: center;
             margin-top: -30px;
             margin-left: 70px;
             font-family: 'Athiti', sans-serif;
+
         }
+
         .img-top {
             background-image: url("img/background-body-addproject-5.jpg");
             height: 100%;
@@ -68,6 +76,7 @@
             background-repeat: no-repeat;
             background-size: cover;
         }
+
         .img-down {
             background-image: url("img/background-body-addproject-2.jpg");
             height: 100%;
@@ -75,6 +84,7 @@
             background-repeat: no-repeat;
             background-size: cover;
         }
+
         .span-i-user {
             font-size: 33px;
             color: none;
@@ -82,30 +92,36 @@
             margin-top: -1.5px;
             margin-right: -7px;
         }
+
         .text-mage {
             font-size: 17px;
             margin-left: 40px;
             padding: 3px;
             margin-top: -35px;
         }
+
         .btn-outline-primaryy {
             color: #D9A327;
             border-color: #D9A327;
         }
+
         .btn-outline-primaryy:hover {
             color: #fff;
             background-color: #D9A327;
             border-color: #D9A327;
         }
+
         .btn-outline-primaryy:focus,
         .btn-outline-primaryy.focus {
             box-shadow: 0 0 0 0.2rem rgba(52, 144, 220, 0.5);
         }
+
         .btn-outline-primaryy.disabled,
         .btn-outline-primaryy:disabled {
             color: #fff;
             background-color: transparent;
         }
+
         .btn-outline-primaryy:not(:disabled):not(.disabled):active,
         .btn-outline-primaryy:not(:disabled):not(.disabled).active,
         .show>.btn-outline-primaryy.dropdown-toggle {
@@ -113,37 +129,84 @@
             background-color: #D9A327;
             border-color: #fff;
         }
+
         .btn-outline-primaryy:not(:disabled):not(.disabled):active:focus,
         .btn-outline-primaryy:not(:disabled):not(.disabled).active:focus,
         .show>.btn-outline-primaryy.dropdown-toggle:focus {
             box-shadow: 0 0 0 0.1rem #fff;
         }
+
+        .btn-outline-primaryy-sidenav {
+            color: #000000;
+            /* border-color: #D9A327; */
+        }
+
+        .btn-outline-primaryy-sidenav:hover {
+            color: #D9A327;
+            /* border-color: 1px solid #D9A327; */
+            /* background-color: #D9A327; */
+            text-decoration: underline;
+        }
+
+        .btn-outline-primaryy-sidenav:focus,
+        .btn-outline-primaryy-sidenav.focus {
+            box-shadow: 0 0 0 0.2rem rgba(52, 144, 220, 0.5);
+        }
+
+        .btn-outline-primaryy-sidenav.disabled,
+        .btn-outline-primaryy-sidenav:disabled {
+            color: #fff;
+            background-color: transparent;
+        }
+
+        .btn-outline-primaryy-sidenav:not(:disabled):not(.disabled):active,
+        .btn-outline-primaryy-sidenav:not(:disabled):not(.disabled).active,
+        .show>.btn-outline-primaryy-sidenav.dropdown-toggle {
+            color: #fff;
+            background-color: #D9A327;
+            border-color: #fff;
+        }
+
+        .btn-outline-primaryy-sidenav:not(:disabled):not(.disabled):active:focus,
+        .btn-outline-primaryy-sidenav:not(:disabled):not(.disabled).active:focus,
+        .show>.btn-outline-primaryy-sidenav.dropdown-toggle:focus {
+            box-shadow: 0 0 0 0.1rem #fff;
+        }
+
         .btn-primaryyy {
             font-size: 18px;
             color: #fff;
             background-color: rgb(76, 175, 80);
             border-color: #707070;
         }
+
         .btn-primaryyy:hover {
             color: #fff;
             background-color: rgb(87, 212, 87);
             border-color: #707070;
         }
+
         .user-size-size {
             width: 100px;
         }
+
         .layoutname-top-BD {
             margin-left: 50px;
+
         }
+
         .layoutprovince-size-p {
             width: 42%;
         }
+
         .img-profile {
             width: 39px;
         }
+
         .img-user-size {
             width: 100%;
         }
+
         .font-Athiti {
             font-family: 'Athiti', sans-serif;
             font-weight: 600;
@@ -152,7 +215,7 @@
             padding: 6px 8px 6px 16px;
             text-decoration: none;
             font-size: 18px;
-            color: #FFF5EE;
+            color: #000000;
             display: block;
             border: none;
             background: none;
@@ -163,33 +226,39 @@
             margin-left: 5px;
             font-family: 'Athiti', sans-serif;
         }
+
         /* On mouse-over */
         .sidenav a:hover, .dropdown-btn:hover ,.dropdown-btn2:hover,.dropdown-btn3:hover{
             color: #D9A327;
         }
+
         /* Main content */
         .main {
             margin-left: 200px; /* Same as the width of the sidenav */
             font-size: 20px; /* Increased text to enable scrolling */
             padding: 0px 10px;
         }
+
         /* Add an active class to the active dropdown button */
         .active-item {
-            color: white;
+            color: black;
             border-color: none;
             
         }
+
         /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
         .dropdown-container {
             display: block;
-            background-color: #262626;
+            background-color: #ffffff;
             padding-left: 8px;
         }
+
         /* Optional: Style the caret down icon */
         .fa-caret-down {
             float: right;
             padding-right: 8px;
         }
+
         .breadcrumb-detail {
             display: -ms-flexbox;
             display: flex;
@@ -200,27 +269,33 @@
             list-style: none;
             border-radius: .25rem;
         }
+
         a:active{
             color: #7B68EE;
             text-decoration: underline;
         }
+
         a:hover{
             color: #0099FF;
             text-decoration: underline;
         }
+
         .front>a:hover {
             color: #F5F5F5;
             font-weight: bold;
             
         }
+
         .imghover:hover{
 	        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
             border: 1 solid black;
         }
+
         .labelmax{
             width:20px;
             overflow: hidden;
         }
+
         .breadcrumb-de {
             display: -webkit-box;
             display: -ms-flexbox;
@@ -232,10 +307,12 @@
             list-style: none;
             border-radius: 0.25rem;
         }
+
         .search-key {
             /* background-color:yellow; */
             color:#dd4b39;
         }
+
     </style>
 </head>
 
@@ -507,54 +584,77 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- main.css-->
                 <li class="app-search search-left">
-                    <form action='/search' method='GET'>
-                            <input class="app-search__input" name='search' id="search" type="text" placeholder="ค้นหา..." value="<?php echo $_SESSION['keyword-s']; ?>">
-                            <div id="searchList">
-                            </div>
-                            <script>
-                                var path="{{route('dropdownsearch')}}";
-                                $('input.typehead').typehead({
-                                    source:function (query,process){
-                                        return $.data(path,{query:name},function (data){
-                                            return process(data);
-                                        });
-                                    }
-                                });
-                                // $(document).ready(function(){
-                                // $('#project_name').keyup(function(){ 
-                                //         var keyword = $(this).val();
-                                //         if(keyword != '')
-                                //         {
-                                //         var _token = $('input[name="_token"]').val();
-                                //         $.ajax({
-                                //         url:"{{ route('search') }}",
-                                //         method:"GET",
-                                //         data:{keyword:keyword, _token:_token},
-                                //         success:function(data){
-                                //         $('#search').fadeIn();  
-                                //                     $('#searchList').html(data);
-                                //         }
-                                //         });
-                                //         }
-                                //     });
-                                //     $(document).on('click', 'li', function(){  
-                                //         $('#search').val($(this).text());  
-                                //         $('#searchList').fadeOut();  
-                                //     });  
-                                // });
-                            </script>
-                            <button class="app-search__button" id="searchbt" onclick="{{ Redirect::to('/search') }}"><i class="fa fa-search" ></i></button>
-                            
-                        
-                        </form>
+                <form action="{{URL::to('search')}}" method="GET" >
+                       <div class="input-group mb-3 app-search-input">
+                           <input type="text" class="form-control" name='search' id="search" style="width: 400px;border-right: #fff;" placeholder="ค้นหา..." aria-label="ค้นหา..." aria-describedby="basic-addon2" autocomplete="off" value="<?php echo $_SESSION['keyword-s']; ?>">
+                           <div class="input-group-append" style="">
+                               <button class="input-group-text" id="basic-addon2" style="background-color: #fff;border-left: #fff;" ><i class="fa fa-search"></i></button>
+                           </div>
+                           </div>
+                       </div>
+                   
+                       <!-- <input class="form-control " style="padding-right: 50%;" name='search' id="search" type="search" placeholder="ค้นหา..." autocomplete="off" ></div> -->
+                       <div id="searchList">
+                       </div>
+                       <script>
+                           var path="{{route('dropdownsearch')}}";
+                           $('input.typehead').typehead({
+                               source:function (query,process){
+                                   return $.data(path,{query:name},function (data){
+                                       return process(data);
+                                   });
+                               }
+                           });
+                           // $(document).ready(function(){
+                           // $('#project_name').keyup(function(){ 
+                           //         var keyword = $(this).val();
+                           //         if(keyword != '')
+                           //         {
+                           //         var _token = $('input[name="_token"]').val();
+                           //         $.ajax({
+                           //         url:"{{ route('search') }}",
+                           //         method:"GET",
+                           //         data:{keyword:keyword, _token:_token},
+                           //         success:function(data){
+                           //         $('#search').fadeIn();  
+                           //                     $('#searchList').html(data);
+                           //         }
+                           //         });
+                           //         }
+                           //     });
+                           //     $(document).on('click', 'li', function(){  
+                           //         $('#search').val($(this).text());  
+                           //         $('#searchList').fadeOut();  
+                           //     });  
+                           // });
+                       </script>
+                   </form>
                 </li>
                 <!-- <div class="app-navbar__overlay" data-toggle="sidebar" aria-label="Hide Sidebar"></div> -->
                 <nav class="app-navmenu ">
-                    <li class="active1 menulink fontlink"><a href="homeBD">หน้าเเรก</a></li>
-                    <li class="active2 menulink fontlink"><a href="SearchAdvance">ค้นหาเเบบละเอียด</a></li>
+                    <li class="active1 menulink fontlink"><a href="{{url ('homeBD')}}">หน้าเเรก</a></li>
+                    <li class="active2 menulink fontlink"><a href="{{url ('SearchAdvance')}}">ค้นหาเเบบละเอียด</a></li>
                     <li class="active3 menulink fontlink"><a href="#">เกี่ยวกับ</a></li>
                     <li class="active4 menulink fontlink"><a href="#">ติดต่อ</a></li>
                 </nav>
+                <li style="margin-left: -10%;margin-right: 2%;">
+                    <div class="links front" style="font-size: 20px;">
+                    @if(!isset($_SESSION['status']) == 'userM' & !isset($_SESSION['statusA']) == 'admin')
+
+                    @elseif (isset($_SESSION['status']) == 'user')
+                        @if(!isset($_SESSION['project']))
+                        <a href="{{URL::to('addproject')}}" style="font-weight: normal;"><span class="add-span"><i class="fas fa-plus-circle fa-lg " style="color: #A9A9A9;" title="สร้างผลงงานคุณ"></i> สร้างผลงงาน</span></a><br>
+                        @elseif(isset($_SESSION['project']))
+                        <a href="{{URL::to('listdetil')}}" style="font-weight: normal;" class="view"><span class="add-span"><i class="fas fa-book fa-lg " style="color: #A9A9A9;" title="ผลงงานคุณ"></i> ผลงงานคุณ</span></a><br>
+                        @endif
+                    @elseif (isset($_SESSION['statusA']) == 'admin')
+                    <div class="links front">
+                        <a href="{{URL::to('homeadmin')}}" class="view">ผู้ดูเเลระบบ</a><br>
+                    </div>
+                    @endif
+
+                    </div>
+                </li>
                 <div class="navbar-dark layoutaccout">
                     <ul class="navbar-nav ml-auto ml-md-0">
                         <?php
@@ -636,21 +736,20 @@
                                     </ul>
                                 </div>
                             </div>
-                        <?php } else if (isset($_SESSION['status']) == 'user') {
+                            <?php } else if (isset($_SESSION['status']) == 'user') {
                         ?>
-
+                            
                             <li class="nav-item dropdown">
-
                                 <a class="nav-link " id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     @foreach($imgaccount as $img)
-                                    <img class="rounded-circle user-sizes img-profile" src="imgaccount/<?php echo $img->pathimg; ?>" alt="USer Atver">
+                                    <img class="rounded-circle user-sizes img-profile" src="{{URL::to('imgaccount/'.$img->pathimg)}}" alt="USer Atver">
 
                                     @endforeach
                                     @foreach($imgaccount as $user)
                                     <div class="name-scle dropdown-toggle "><?php echo $user->name; ?></div>
                                     @endforeach
                                 </a>
-
+                                
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                                     <ul class="navbar-nav ml-auto">
                                         <div class="account-dropdown js-dropdown">
@@ -659,7 +758,7 @@
                                                     <div class="image">
                                                         <a href="profile">
                                                             @foreach($imgaccount as $img)
-                                                            <img src="imgaccount\<?php echo $img->pathimg; ?>" alt="" class="img-user-size user-avatar rounded-circle" />
+                                                            <img src="{{URL::to('imgaccount/'.$img->pathimg)}}" alt="" class="img-user-size user-avatar rounded-circle" />
                                                             @endforeach
                                                         </a>
 
@@ -676,12 +775,19 @@
                                                 </div>
                                             </div>
 
-                                            <a href="profile" class="top dropdown-item"><i class="zmdi zmdi-account"></i>โปรไฟล์</a>
-                                            <a class="dropdown-item" href="logout" onclick="event.preventDefault();
-                                                                    document.getElementById('logout-form').submit();">
+                                            <a href="{{URL::to('profile')}}" class="top dropdown-item"><i class="fas fa-user" style="margin-right: 2%;"></i>โปรไฟล์</a>
+                                            <div class="top dropdown-item" >
+                                                @if(!isset($_SESSION['project']))
+                                                <a href="{{URL::to('addproject')}}" class="view" style="color: black;text-decoration: none;"><i class="fas fa-plus-circle" style="margin-right: 2%;"></i>สร้างผลงาน</a><br>
+                                                @elseif(isset($_SESSION['project']))
+                                                <a href="{{URL::to('listdetil')}}" class="view" style="color: black;text-decoration: none;"><i class="fas fa-book" style="margin-right: 2%;"></i>ผลงานของฉัน</a><br>
+                                                @endif
+                                            </div>
+                                            <a class="dropdown-item" href="{{URL::to('logout')}}" onclick="event.preventDefault();
+                                                                    document.getElementById('logout-form').submit();"><i class="fas fa-sign-out-alt" ></i>
                                                 {{ __('ออกจากระบบ') }}
                                             </a>
-                                            <form id="logout-form" action="logout" method="POST" style="display: none;">
+                                            <form id="logout-form" action="{{URL::to('logout')}}" method="POST" style="display: none;">
                                                 @csrf
                                             </form>
                                         </div>
@@ -689,14 +795,20 @@
                                 </div>
                             </li>
                         <?php }
+
                         // admin
+
                         else  if (isset($_SESSION['statusA']) == 'admin') {
                         ?>
                             <li class="nav-item dropdown">
-
+                           
+                                <div class="links front">
+                                    <a href="homeadmin" class="view"><i class="far fa-caret-square-left fa-lg" style="color:#212529; margin-right: 7px;margin-left: 10px;"></i>กลับสู่หน้าผู้ดูเเลระบบ</a><br>
+                                </div>
+                                   
                                 <a class="nav-link " id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     @foreach($adminaccount as $img)
-                                    <img class="rounded-circle user-sizes img-profile" src="img_admin/<?php echo $img->pathimg; ?>" alt="USer Atver">
+                                    <img class="rounded-circle user-sizes img-profile" src="{{URL::to('img_admin/'.$img->pathimg)}}" alt="USer Atver">
 
                                     @endforeach
                                     @foreach($adminaccount as $user)
@@ -712,7 +824,7 @@
                                                     <div class="image">
                                                         <a href="profile">
                                                             @foreach($adminaccount as $img)
-                                                            <img src="img_admin\<?php echo $img->pathimg; ?>" alt="" class="img-user-size user-avatar rounded-circle" />
+                                                            <img src="{{URL::to('img_admin/'.$img->pathimg)}}" alt="" class="img-user-size user-avatar rounded-circle" />
                                                             @endforeach
                                                         </a>
 
@@ -729,12 +841,15 @@
                                                 </div>
                                             </div>
 
-                                            <a href="profileadmin" class="top dropdown-item"><i class="zmdi zmdi-account"></i>โปรไฟล์</a>
-                                            <a class="dropdown-item" href="logout" onclick="event.preventDefault();
-                                                                document.getElementById('logout-form').submit();">
+                                            <a href="{{URL::to('profileadmin')}}" class="top dropdown-item"><i class="fas fa-user" style="margin-right: 2%;"></i>โปรไฟล์</a>
+                                            <div class="links front">
+                                                <a href="{{URL::to('homeadmin')}}" class="view" style="color: black;text-decoration: none;"><i class="far fa-caret-square-left" style="margin-right: 2%;"></i>กลับสู่หน้าผู้ดูเเลระบบ</a><br>
+                                            </div>
+                                            <a class="dropdown-item" href="{{URL::to('logout')}}" onclick="event.preventDefault();
+                                                                document.getElementById('logout-form').submit();"><i class="fas fa-sign-out-alt"></i>
                                                 {{ __('ออกจากระบบ') }}
                                             </a>
-                                            <form id="logout-form" action="logout" method="POST" style="display: none;">
+                                            <form id="logout-form" action="{{URL::to('logout')}}" method="POST" style="display: none;">
                                                 @csrf
                                             </form>
                                         </div>
@@ -763,52 +878,51 @@
                                             <a href="homeMDD"><button type="button" class="btn-control btn-default btn-outline-primaryy " style="font-size:18px;">ปริญญาเอก โท </button></a>
                                         </div><br>
                                         <div class="sidenav" >
-                                                <button class="dropdown-btn" style="border-top: 0.5px solid #fff;border-radius: 10%;">ประเภท
-                                                    <i class="fa fa-caret-down fa-lg" style="width: 20px;"></i>
-                                                </button>
-                                                    <div class="dropdown-container">
-                                                        @foreach($chk_genre as $genre)
-                                                        <a href="genre/{{$genre->genre_id}}" class="btn-default btn-outline-primaryy" style="font-size:17px;color:#fff;">{{$genre->genre_name}}</a>
-                                                        <!-- <a href="#">โปรแกรมประยุกต์สำหรับอุปกรณ์เคลื่อนที่</a>
-                                                        <a href="#">ไอโอที(IoT)</a>
-                                                        <a href="#">ปัญญาประดิษฐ์(Ai)</a>
-                                                        <a href="#">ไอโอที(IoT)</a>
-                                                        <a href="#">ไอโอที(IoT)</a> -->
-                                                        @endforeach
-                                                    </div>
-                                                
-                                           
-                                                <button class="dropdown-btn" style="border-top: 0.5px solid #fff;border-radius: 10%;">หมวดหมู่
-                                                    <i class="fa fa-caret-down fa-lg" style="width: 20px;"></i>
-                                                </button>
-                                                    <div class="dropdown-container">
-                                                        @foreach($chk_category as $category)
-                                                        <a href="category/{{$category->category_id}}" class="btn-default btn-outline-primaryy" style="font-size:17px;color:#fff;">{{$category->category_name}}</a>
-                                                        <!-- <a href="#">โปรแกรมประยุกต์สำหรับอุปกรณ์เคลื่อนที่</a>
-                                                        <a href="#">ไอโอที(IoT)</a>
-                                                        <a href="#">ปัญญาประดิษฐ์(Ai)</a>
-                                                        <a href="#">ไอโอที(IoT)</a>
-                                                        <a href="#">ไอโอที(IoT)</a> -->
-                                                        @endforeach
-                                                    </div>
+                                        <button class="dropdown-btn" style="border-top: 0.5px solid #000000;border-radius: 10%;">ประเภท
+                                                <i class="fa fa-caret-down fa-lg" style="width: 20px;"></i>
+                                            </button>
+                                                <div class="dropdown-container">
+                                                    @foreach($chk_genre as $genre)
+                                                    <a href="genre/{{$genre->genre_id}}" class=" btn-default btn-outline-primaryy-sidenav" style="font-size:17px;">{{$genre->genre_name}}</a>
+                                                    <!-- <a href="#">โปรแกรมประยุกต์สำหรับอุปกรณ์เคลื่อนที่</a>
+                                                    <a href="#">ไอโอที(IoT)</a>
+                                                    <a href="#">ปัญญาประดิษฐ์(Ai)</a>
+                                                    <a href="#">ไอโอที(IoT)</a>
+                                                    <a href="#">ไอโอที(IoT)</a> -->
+                                                    @endforeach
+                                                </div>
                                             
+                                        
+                                            <button class="dropdown-btn" style="border-top: 0.5px solid #000000;border-radius: 10%;">หมวดหมู่
+                                                <i class="fa fa-caret-down fa-lg" style="width: 20px;"></i>
+                                            </button>
+                                                <div class="dropdown-container">
+                                                    @foreach($chk_category as $category)
+                                                    <a href="category/{{$category->category_id}}" class="btn-default btn-outline-primaryy-sidenav" style="font-size:17px;">{{$category->category_name}}</a>
+                                                    <!-- <a href="#">โปรแกรมประยุกต์สำหรับอุปกรณ์เคลื่อนที่</a>
+                                                    <a href="#">ไอโอที(IoT)</a>
+                                                    <a href="#">ปัญญาประดิษฐ์(Ai)</a>
+                                                    <a href="#">ไอโอที(IoT)</a>
+                                                    <a href="#">ไอโอที(IoT)</a> -->
+                                                    @endforeach
+                                                </div>
+                                        
 
-                                                <button class="dropdown-btn " style="border-top: 0.5px solid #fff;border-radius: 10%;">ชนิดเอกสาร
-                                                    <i class="fa fa-caret-down fa-lg" style="width: 20px;"></i>
-                                                </button>
-                                                    <div class="dropdown-container">
-                                                        @foreach($chk_type as $type)
-                                                        <a href="typeproject/{{$type->type_id}}" class="btn-default btn-outline-primaryy" style="font-size:17px;color:#fff;">{{$type->type_name}}</a>
-                                                        <!-- <a href="#">โปรแกรมประยุกต์สำหรับอุปกรณ์เคลื่อนที่</a>
-                                                        <a href="#">ไอโอที(IoT)</a>
-                                                        <a href="#">ปัญญาประดิษฐ์(Ai)</a>
-                                                        <a href="#">ไอโอที(IoT)</a>
-                                                        <a href="#">ไอโอที(IoT)</a> -->
-                                                        @endforeach
-                                                    </div>
-                                            </div>
-
+                                            <button class="dropdown-btn " style="border-top: 0.5px solid #000000;border-radius: 10%;">ชนิดเอกสาร
+                                                <i class="fa fa-caret-down fa-lg" style="width: 20px;"></i>
+                                            </button>
+                                                <div class="dropdown-container">
+                                                    @foreach($chk_type as $type)
+                                                    <a href="typeproject/{{$type->type_id}}" class="btn-default btn-outline-primaryy-sidenav" style="font-size:17px;">{{$type->type_name}}</a>
+                                                    <!-- <a href="#">โปรแกรมประยุกต์สำหรับอุปกรณ์เคลื่อนที่</a>
+                                                    <a href="#">ไอโอที(IoT)</a>
+                                                    <a href="#">ปัญญาประดิษฐ์(Ai)</a>
+                                                    <a href="#">ไอโอที(IoT)</a>
+                                                    <a href="#">ไอโอที(IoT)</a> -->
+                                                    @endforeach
+                                                </div>
                                         </div>
+                                    </div>
                                 </div>
                             </nav>
                         </div>
@@ -830,22 +944,7 @@
                 </p>
 
                 <div class="layoutlogre">
-                    <?php
-                    if (!isset($_SESSION['status']) == 'user' & !isset($_SESSION['statusA']) == 'admin') {
-                    } else if (isset($_SESSION['status']) == 'user') { ?>
-                        <div class="links front" style="font-size: 20px;">
-                            @if(!isset($_SESSION['project']))
-                            <a href="addproject" class="view"><i class="fas fa-book fa-lg" style="color:#212529; margin-right: 7px;margin-left: 10px;"></i>สร้างผลงาน</a><br>
-                            @elseif(isset($_SESSION['project']))
-                            <a href="listdetil" class="view"><i class="fas fa-book fa-lg" style="color:#212529; margin-right: 7px;margin-left: 10px;"></i>ผลงานของฉัน</a><br>
-                            @endif
-                        </div>
-                    <?php } else  if (isset($_SESSION['statusA']) == 'admin') { ?>
-                        <div class="links front">
-                            <a href="homeadmin" class="view"><i class="fas fa-book fa-lg" style="color:#212529; margin-right: 7px;margin-left: 10px;"></i>กลับสู่หน้าผู้ดูเเลระบบ</a><br>
-                        </div>
-                    <?php }
-                    ?>
+                    
                 </div>
                 </li>
             </ul>
@@ -856,14 +955,16 @@
                     <div class="tile ">
                         <div class="tile-body">
                             <label class="texthe1">ผลลัพธ์การค้นหา </label>
-                                
+                                <div class="container">
+                                    <span style="margin-left: 2%;font-size:16px;color:#ff6c00;">ผลลัพธ์ของ '<?php echo $_SESSION['keyword-s']; ?>"</span>
+                                </div>
                                 <div class="row" >
                                     @if(isset($easysearch)?$easysearch:'')
                                         @foreach($easysearch as $aftersearch) 
                                         <div class="column-s">
-                                        <a href="itemdetaliBD/{{$aftersearch->project_id}}"><div class="imgfromming-s ">
+                                                <a href="itemdetaliBD/{{$aftersearch->project_id}}"><div class="imgfromming-s ">
                                                 <div class="columnimgitem-s shadow-item">
-                                                    <img src="/project/img_logo/<?php echo $aftersearch->logo; ?>" alt="" class="fromimg" style="width: 100px;height: 110px;">
+                                                    <img src="{{URL::to('project/img_logo/'.$aftersearch->logo)}}" alt="" class="fromimg" style="width: 100px;height: 110px;">
                                                 </div>
                                             </div>
                                             <div class="text-N-d-s">
@@ -938,7 +1039,7 @@
                                     <div class="column-si">
                                         <a href="itemdetaliBD/{{$simiilar->project_id}}"><div class="imgfromming-s ">
                                             <div class="columnimgitem-s shadow-item">
-                                                <img src="/project/img_logo/<?php echo $simiilar->logo; ?>" alt="" class="fromimg" style="width: 100px;height: 110px;">
+                                                <img src="{{URL::to('project/img_logo/'.$simiilar->logo)}}" alt="" class="fromimg" style="width: 100px;height: 110px;">
                                             </div>
                                         </div>
                                         <div class="text-N-d-si">
@@ -1020,6 +1121,7 @@
         function test(input){
             var dropdown2 = document.getElementsByClassName(input);
             var i;
+
             for (i = 0; i < dropdown2.length; i++) {
                 dropdown2[i].addEventListener("click", function() {
                 this.classList.toggle("active");
@@ -1058,6 +1160,7 @@
             }
             echo preg_replace('|('.$keyword.')|i', '<font color=red>$1</font>', $data);
         } 
+
         function utf8_strlen($str){ 
             $c = strlen($str);
             $l = 0;
@@ -1070,6 +1173,7 @@
             }
             return $l;
         } 
+
         function create_str($count,$str,$aftersearch) {
             // echo $count;
             if($count>20 & $count<25) {
@@ -1106,6 +1210,7 @@
             } 
               
         }
+
         function create_str_simiilar($count,$str,$simiilar) {
             // echo $count;
             if($count>20 & $count<25) {
@@ -1142,6 +1247,7 @@
             } 
               
         }
+
         function check_rating($rating) {
             for($i=0;$i<floor($rating);$i++){
                 echo '<i class="fas fa-star" style="color: #ffb712;"></i>';

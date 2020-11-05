@@ -12,15 +12,33 @@
         $chackadmin = "SELECT * FROM admin_company WHERE admin_user = '$user_log' and admin_pass = '$pass_log'";
         $condb = mysqli_query($conn,$chackadmin);
         $dataadmin = mysqli_fetch_assoc($condb);
-        $_SESSION['adminid'] = $dataadmin['admin_id'];
-        $_SESSION['adminauser'] = $dataadmin['admin_user'];
-        $_SESSION['adminname'] = $dataadmin['admin_name'];
-        $_SESSION['adminemail'] = $dataadmin['admin_email'];
-        $_SESSION['pathimg'] = $dataadmin['pathimg'];
-        $_SESSION['status'] = $dataadmin['status'];
-        $_SESSION['successloginadmin'] = "successloginadmin";
-        header( "refresh: 0; url=/admin" );
-        exit(0);
+        if(isset($dataadmin['admin_pass']) ? $dataadmin['admin_pass']:''){
+            $_SESSION['adminid'] = $dataadmin['admin_id'];
+            $_SESSION['adminauser'] = $dataadmin['admin_user'];
+            $_SESSION['adminname'] = $dataadmin['admin_name'];
+            $_SESSION['adminemail'] = $dataadmin['admin_email'];
+            $_SESSION['pathimg'] = $dataadmin['pathimg'];
+            $_SESSION['statusA'] = $dataadmin['status'];
+            $_SESSION['successloginadmin'] = "successloginadmin";
+        
+            $iduser = $_SESSION['adminid'];
+            $chk_idpro = "SELECT * FROM admin_company WHERE admin_company.admin_pass='$iduser'";
+            $condb = mysqli_query($conn,$chk_idpro);
+            $dataadmin = mysqli_fetch_assoc($condb);
+        
+            if($dataadmin){
+                $_SESSION['admin'] = 'admin';
+            }
+
+            $_SESSION['message'] = "successlogin";
+            header( "refresh: 0; url=/homeadmin" );
+            exit(0);
+        }else{
+            $_SESSION['notpass'] = "null";
+            // return back();
+            header( "refresh: 0; url=/homeBD" );
+            exit(0);
+        }
     }
 
     else {

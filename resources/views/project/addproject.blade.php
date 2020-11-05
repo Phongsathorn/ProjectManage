@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" s>
 
 <head>
     <meta charset="UTF-8">
@@ -135,6 +135,10 @@
             border-color: #38c172;
         }
 
+        input.invalid {
+            border-color: #e3342f;
+        }
+
         textarea {
             display: block;
             flex: 0 0 91.6666666667%;
@@ -155,9 +159,7 @@
         }
 
         /* Mark input boxes that gets an error on validation: */
-        input.invalid {
-            border-color: #e3342f;
-        }
+        
 
         select {
             display: block;
@@ -181,6 +183,10 @@
         }
 
         select.invalid {
+            border-color: #e3342f;
+        }
+
+        textarea.invalid {
             border-color: #e3342f;
         }
 
@@ -294,8 +300,8 @@
 
         .danger_d {
             font-size: 15px;
-            color: red;
-            
+            color: red; 
+            font-weight: normal;
         }
 
         .form-control::placeholder {
@@ -304,10 +310,20 @@
             font-size: 14px;
         }
 
+        .label-text-left-add {
+            margin-top: -20px;
+            margin-left: 25px;
+            font-size: 15px;
+        }
+
+        .span-request-add {
+            color: #A9A9A9;
+        }
+
     </style>
 </head>
 
-<body>
+<body style="font-family: 'Athiti', sans-serif;">
     <div class="addproject">
         <div class="border2">
             <ul class="app-breadcrumb breadcrumb magne-right">
@@ -332,71 +348,201 @@
                             <div class="tab">
                                 <center><label for="text" class="" style="margin-top: -5px;">ขั้นตอนที่ 1</label><br></center>
                                 <div class="container">
-                                    <div class="align-self-start " style="margin-left:-20px;">
-                                        <div class="form-group">
-                                            <label for="text" class="text-left fontdetail" style="margin-top:-20px;">ชื่อเรื่อง(TH):<span style="color: red;font-size: 20;">*</span></label>
-                                            <div class="col-sm-11">
-                                                <input type="text" class="form-control" name="project_name" id="project_name"  oninput="this.className = ''" placeholder="ชื่อโครงงานภาษาไทย" >
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="text" class="text-left fontdetail control-label" style="margin-top:-20px;">ชื่อเรื่อง(EN):<span style="color: red;font-size: 20;">*</span></label>
-                                            <div class="col-sm-11">
-                                                <input type="text" class="form-control" name="project_name_en" id="project_name_en" oninput="this.className = ''" placeholder="ชื่อโครงงานภาษาอังกฤษ">
-                                            </div>
-                                        </div>
-                                    </div>
-                                
-                                
-                                    <div class="align-self-start " style="margin-left:60px;">
-                                        <div class="form-group ">
-                                            <label for="text" class="text-left fontdetail" style="margin-top:-20px;">ชนิดเอกสาร:<span style="color: red;font-size: 20;">*</span></label>
-                                            <div class="col-sm-9">
-                                                <select name="type_project" class="form-control " id="type_project" oninput="this.className = ''" disabled>
-                                                    <option value="" disabled selected>เลือกชนิดเอกสาร</option>
-                                                    @foreach($chk_type as $type)
-                                                    <option value="{{$type->type_id}}">{{$type->type_name}}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                        </div>
 
-                                        <div class="form-group ">
-                                            <label for="text" class="text-left fontdetail" style="margin-top:-20px;">ประเภทเอกสาร:<span style="color: red;font-size: 20;">*</span></label>
-                                            <div class="col-sm-9">
-                                                <select name="genre_project" class="form-control" id="genre_project" oninput="this.className = ''" disabled>
-                                                    <option value="" disabled selected>เลือกประเภท</option>
-                                                    @foreach($chk_genre as $genre)
-                                                    <option value="{{$genre->genre_id}}">{{$genre->genre_name}}</option>
-                                                    @endforeach
-                                                </select>
+                                    <div class="align-self-start " style="margin-left: 30px;">
+                                        <div class="form-group">
+                                            <label for="text" class="text-left fontdetail" style="margin-top:-20px;margin-left:20px;">ชื่อเรื่อง(TH):<span style="color: red;font-size: 20;">*</span></label>
+                                            <div class="col-sm-12">
+                                                <textarea type="text" class="form-control" name="project_name" id="project_name"  oninput="this.className = ''" placeholder="ชื่อโครงงานภาษาไทย" rows="4" title="ชื่อผลงานเป็นภาษาไทย"></textarea>   
                                             </div>
                                         </div>
-                                        <div class="form-group ">
-                                            <label for="text" class="text-left fontdetail" style="margin-top:-20px;">หมวดหมู่เอกสาร:<span style="color: red;font-size: 20;">*</span></label>
-                                            <div class="col-sm-9">
-                                                <select name="category_project" class="form-control" id="category_project" oninput="this.className = ''" disabled>
-                                                    <option value="" disabled selected>เลือกหมวดหมู่</option>
-                                                    @foreach($chk_category as $category)
-                                                    <option value="{{$category->category_id}}">{{$category->category_name}}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group ">
-                                            <label for="text" class="text-left fontdetail" style="margin-top:-20px;">ปีของเอกสาร:<span style="color: red;font-size: 20;">*</span></label>
-                                            <div class="col-sm-9">
-                                                <select name="year_project" class="form-control" id="year_project" oninput="this.className = ''" disabled>
-                                                    <option value="" disabled selected>เลือกปีของเอกสาร</option>
-                                                    @foreach($chk_year as $year)
-                                                    <option value="{{$year->NO_Y}}">{{$year->year}}</option>
-                                                    @endforeach
-                                                </select>
+                                        <div class="form-group">
+                                            <label for="text" class="text-left fontdetail control-label" style="margin-top:-20px;margin-left:20px;">ชื่อเรื่อง(EN):<span style="color: red;font-size: 20;">*</span></label>
+                                            <div class="col-sm-12">
+                                                <textarea type="text" class="form-control" name="project_name_en" id="project_name_en" oninput="this.className = ''" placeholder="ชื่อโครงงานภาษาอังกฤษ" rows="4"  disabled title="ชื่อผลงานเป็นภาษาอังกฤษ"></textarea>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <a href="homeBD"><button type="button" class="btnnn ">ย้อนกลับ</button></a>
+                                
+                                <div class="align-self-start " >
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-group ">
+                                                    <label for="text" class="text-left fontdetail" style="margin-top:-20px;margin-left:50px;">เจ้าของโครงงาน:<span style="color: red;font-size: 20;">*<span class="danger_d">(ไม่ต้องระบุคำนำหน้า)</span></span></label>
+                                                    <div class="col-sm-11" style="margin-left:25px;">
+                                                        <label for="text" class="text-left fontdetail" style="margin-top:-20px;margin-left:25px;font-size: 15px;">คนที่ 1</label>
+                                                        <input type="text" class="form-control"  name="owner_p1" id="owner_p1" placeholder="กรุณากรอกชื่อเเละนามสกุล" oninput="this.className = ''" disabled title="ชื่อเจ้าของผลงานคนที่ 1">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group ">
+                                                    <div class="col-sm-11" style="margin-left:25px;">
+                                                        <label for="text" class="text-left fontdetail" style="margin-top:-20px;margin-left:25px;font-size: 15px;">คนที่ 3</label>
+                                                        <input type="text" class="form-control"  name="owner_p3" id="owner_p3" placeholder="กรุณากรอกชื่อเเละนามสกุล" oninput="this.className = ''" disabled title="ชื่อเจ้าของผลงานคนที่ 3">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group ">
+                                                    <label for="text" class="text-left fontdetail" style="margin-top:-20px;margin-left:50px;">อาจารย์ที่ปรึกษา:<span style="color: red;font-size: 20;">*</span></label>
+                                                    <div class="col-sm-11" style="margin-left:25px;">
+                                                        <input type="text" class="form-control"  name="advisor_p" id="advisor_p" placeholder="กรุณากรอกชื่ออาจารย์ที่ปรึกษา" oninput="this.className = ''" disabled title="ชื่ออาจารย์ที่ปรึกษา">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group" >
+                                                    <div class="col-sm-11" style="margin-left:-25px;">
+                                                        <label for="text" class="text-left fontdetail" style="margin-top:10%;margin-left:20px;font-size: 15px;">คนที่ 2</label>
+                                                        <div class="input-owner">
+                                                            <input type="text" class="form-control"  name="owner_p2" id="owner_p2" placeholder="กรุณากรอกชื่อเเละนามสกุล" oninput="this.className = ''" disabled title="ชื่อเจ้าของผลงานคนที่ 2">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group" >
+                                                    <div class="col-sm-11" style="margin-left:-25px;">
+                                                        <label for="text" class="text-left fontdetail" style="margin-top:-23px;margin-left:20px;font-size: 15px;">คนที่ 4</label>
+                                                        <div class="input-owner">
+                                                            <input type="text" class="form-control" name="owner_p4" id="owner_p4" placeholder="กรุณากรอกชื่อเเละนามสกุล" oninput="this.className = ''" disabled title="ชื่อเจ้าของผลงานคนที่ 4">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group " >
+                                                    <label for="text" class="text-left fontdetail" style="margin-top:-20px;">สาขาวิชา:<span style="color: red;font-size: 20;">*</span></label>
+                                                    <div class="col-sm-11" style="margin-left:-25px;">
+                                                        <select name="branch_project" class="form-control " id="branch_project" oninput="this.className = ''" disabled title="เลือกสาขาวิชาของคุณ">
+                                                            <option value="" disabled selected>เลือกสาขาวิชา</option>
+                                                            @foreach($chk_branch as $branch)
+                                                            <option value="{{$branch->branch_id}}">{{$branch->branch_name}}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="w-100">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <div class="form-group ">
+                                                                <label for="text" class="text-left fontdetail"  style="margin-top:-20px;margin-left:50px;">ปีที่จัดทำเอกสาร:<span style="color: red;font-size: 20;">*<span class="danger_d" style="font-size: 14px;">(พ.ศ.)</span></span></label>
+                                                                <div class="col-sm-11" style="margin-left:25px;">
+                                                                    <!-- <input type="text" class="form-control"  name="year_project" id="year_project" maxlength="4" placeholder="กรอกปีที่จัดทำเอกสาร เช่น 2561" oninput="this.className = ''" disabled> -->
+                                                                    <select name="year_project" class="form-control" id="year_project" oninput="this.className = ''" disabled title="เลือกปีของเอกสารของคุณ">
+                                                                        <option value="" disabled selected>เลือกปีของเอกสาร</option>
+                                                                        @foreach($chk_year as $year)
+                                                                        <option value="{{$year->NO_Y}}">{{$year->year}}</option>
+                                                                        @endforeach
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group ">
+                                                                <label for="text" class="text-left fontdetail"  style="margin-top:-20px;margin-left:50px;">ชนิดเอกสาร:<span style="color: red;font-size: 20;">*</span></label>
+                                                                <div class="col-sm-11" style="margin-left:25px;">
+                                                                    <select name="type_project" class="form-control " id="type_project" oninput="this.className = ''" disabled title="เลือกชนิดเอกสารของคุณ">
+                                                                        <option value="" disabled selected>เลือกชนิดเอกสาร</option>
+                                                                        @foreach($chk_type as $type)
+                                                                        <option value="{{$type->type_id}}">{{$type->type_name}}</option>
+                                                                        @endforeach
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col">
+                                                            <div class="form-group ">
+                                                                <label for="text" class="text-left fontdetail" style="margin-top:-20px;">ประเภทเอกสาร:<span style="color: red;font-size: 20;">*</span></label>
+                                                                <div class="col-sm-11" style="margin-left:-25px;">
+                                                                    <select name="genre_project" class="form-control" id="genre_project" oninput="this.className = ''" disabled title="เลือกประเภทเอกสารของคุณ">
+                                                                        <option value="" disabled selected>เลือกประเภทเอกสาร</option>
+                                                                        @foreach($chk_genre as $genre)
+                                                                        <option value="{{$genre->genre_id}}">{{$genre->genre_name}}</option>
+                                                                        @endforeach
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group ">
+                                                                <label for="text" class="text-left fontdetail" style="margin-top:-20px;">หมวดหมู่เอกสาร:<span style="color: red;font-size: 20;">*</span></label>
+                                                                <div class="col-sm-11" style="margin-left:-25px;">
+                                                                    <select name="category_project" class="form-control" id="category_project" oninput="this.className = ''" disabled title="เลือกหมวดหมู่เอกสารของคุณ">
+                                                                        <option value="" disabled selected>เลือกหมวดหมู่เอกสาร</option>
+                                                                        @foreach($chk_category as $category)
+                                                                        <option value="{{$category->category_id}}">{{$category->category_name}}</option>
+                                                                        @endforeach
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="w-100">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <div class="form-group ">
+                                                                <label for="text" class="text-left fontdetail" style="margin-top:-20px;margin-left:50px;">ข้อมูลจำเพาะ<span style="color: red;font-size: 18;">*</span><span class="danger_d">ถ้ามี</span></label>
+                                                                <div class="col-sm-11" style="margin-left:25px;">
+                                                                    <label for="text" class="text-left fontdetail " style="margin-top:-20px;margin-left:25px;font-size: 14px;" title="ระบบปฏิบัติการที่ใช้ในการสร้างโปรเเกรม">ระบบปฏิบัติการ<span style="color: #A9A9A9;font-weight: normal;font-size: 14px;"> เช่น Windowns,ios ฯลฯ</span></label>
+                                                                    <input type="text" class="form-control"  name="os_p1" id="os_p1" placeholder="กรุณากรอกชื่อระบบปฏิบัติการ" oninput="this.className = ''" title="กรอกชื่อระบบปฏิบัติการที่ใช้ในการสร้างโปรเเกรม">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group ">
+                                                                <div class="col-sm-11" style="margin-left:25px;">
+                                                                    <label for="text" class="text-left fontdetail " style="margin-top:-20px;margin-left:25px;font-size: 14px;" title="โปรเเกรมจำลองเซิฟเวอร์">โปรเเกรมจำลองเซิฟเวอร์<span style="color: #A9A9A9;font-weight: normal;font-size: 14px;"> เช่น xampp v3.2.4 </span></label>
+                                                                    <input type="text" class="form-control"  name="server_p1" id="cop_p1" placeholder="กรุณากรอกชื่อโปรเเกรมจำลองเซิฟเวอร์" oninput="this.className = ''" title="กรอกชื่อโปรเเกรมจำลองเซิฟเวอร์">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col">
+                                                            <div class="form-group ">
+                                                                <div class="col-sm-11" style="margin-left:-25px;">
+                                                                    <label for="text" class="text-left fontdetail " style="margin-top:10%;margin-left:25px;font-size: 14px;" title="โปรเเกรมที่ใช้รันโปรเเเกรม">โปรเเกรม<span style="color: #A9A9A9;font-weight: normal;font-size: 14px;"> เช่น Visual Studio Code v.15.0.1 </span></label>
+                                                                    <input type="text" class="form-control"  name="run_p1" id="run_p1" placeholder="กรุณากรอกชื่อโปรเเกรมที่ใช้รันโปรเเเกรม" oninput="this.className = ''" title="กรอกชื่อโปรเเกรมที่ใช้รันโปรเเเกรม">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group ">
+                                                                <div class="col-sm-12" style="margin-left:-25px;width: 100%;">
+                                                                    <label for="text" class="text-left fontdetail " style="margin-top:-20px;margin-left:25px;font-size: 14px;" title="อื่นๆ">อื่นๆ<span style="color: #A9A9A9;font-weight: normal;font-size: 14px;"> </span></label>
+                                                                    <textarea type="text" class="form-control"  name="other_p1" id="other_p1" placeholder="อื่นๆ" oninput="this.className = ''" title="อื่นๆ"></textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="w-100">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <div class="form-group ">
+                                                                <label for="text" class="text-left fontdetail" style="margin-top:-20px;margin-left:50px;">ช่องทางการติดต่อ<span style="color: red;font-size: 18;">*</span><span class="danger_d">ถ้ามี</span></label>
+                                                                <div class="col-sm-11" style="margin-left:25px;">
+                                                                    <label for="text" class="text-left fontdetail " style="margin-top:-20px;margin-left:25px;font-size: 14px;" title="email ของคุณ">Email</label>
+                                                                    <input type="text" class="form-control"  name="email_p1" id="email_p1" placeholder="กรุณากรอก email ของคุณ" oninput="this.className = ''" title="กรอก email ของคุณ">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group ">
+                                                                <div class="col-sm-11" style="margin-left:25px;">
+                                                                    <label for="text" class="text-left fontdetail " style="margin-top:-20px;margin-left:25px;font-size: 14px;" title="เบอร์โทรศัพท์ของคุณ">เบอร์โทรศัพท์</label>
+                                                                    <input type="text" class="form-control"  name="phone_p1" id="phone_p1" placeholder="กรุณากรอกเบอร์โทรศัพท์ของคุณ" oninput="this.className = ''" title="กรอกเบอร์โทรศัพท์ของคุณ">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col">
+                                                            <div class="form-group ">
+                                                                <div class="col-sm-11" style="margin-left:-25px;">
+                                                                    <label for="text" class="text-left fontdetail " style="margin-top:10%;margin-left:25px;font-size: 14px;" title="facebook ของคุณ">Facebook</label>
+                                                                    <input type="text" class="form-control"  name="facebook_p1" id="facebook_p1" placeholder="กรุณากรอก facebook ของคุณ" oninput="this.className = ''" title="กรุณากรอก facebook ของคุณ">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="overflow:10px;">
+                                <a href="homeBD"><button type="button" class="btnnn ">ยกเลิก</button></a>
+                                </div>
                             </div>
                             <div class="tab">
                                 <center><label for="text" class="">ขั้นตอนที่ 2</label><br></center>
@@ -409,7 +555,7 @@
                                                 <div class="col-sm-11">
                                                     <textarea type="text" class="form-control" name="des_project" id="des_project" rows="7" oninput="this.className = ''" data-toggle="tooltip" data-placement="top" title="ใส่บทคัทย่อ หลังจากนั้นกดปุ่มค้นหาคำสำคัญ" ></textarea>
                                                 </div><br>
-                                                <center><button type="button" class="Sse_des" id="des_p" onClick="UpdateStatus()" >ค้นหาคำสำคัญ</button></center>
+                                                <center><button type="button" class="Sse_des" id="des_p" onClick="UpdateStatus()" >เเนะนำคำสำคัญ</button></center>
                                             </div>
 
                                         </div>
@@ -488,27 +634,69 @@
                                 <div class="container">
                                     <div class="row">
                                         <div class="col">
-                                            <center><label for="text" class="">อัปโหลดไฟล์เอกสาร<span style="color: red;font-size: 20;">*</span></label><br></center>
+                                            <center><label for="text" class="">อัปโหลดไฟล์บทคัดย่อ<span style="color: red;font-size: 20;">*</span></label><br></center>
+                                            <center><p class="danger">เลือกไฟล์ต้องเป็น .pdf เท่านั้น</p></center>
+                                            <input type="file" class="" name="filead" id="file_ad" accept=".pdf" required>      
+                                            <div class="invalid-feedback">
+                                                กรุณาเลือกไฟล์
+                                            </div>
+                                            <span id="file"></span>
+                                        
+                                        
+                                            <center><label for="text" class="">อัปโหลดไฟล์เล่มโครงงาน<span style="color: red;font-size: 20;">*</span></label><br></center>
                                             <center><p class="danger">เลือกไฟล์ต้องเป็น .pdf เท่านั้น</p></center>
                                             <input type="file" class="" name="fileproject" id="file_project" accept=".pdf" required>      
                                             <div class="invalid-feedback">
                                                 กรุณาเลือกไฟล์
                                             </div>
                                         </div>
+                                        
                                         <div class="col">
-                                            <center><label for="text" class="">อัปโหลดไฟล์เอกสารตรวจสอบเอกสาร<span style="color: red;font-size: 20;">*</span></label><br></center>
-                                            <center><p class="danger_d">**กรุณาตรวจสอบเอกสารผ่านเว็บไซต์นี้<a href="https://www.prepostseo.com/plagiarism-checker" target="_blank">คลิก</a>เเละทำการดาวน์โหลดไฟล์เอกสารเพื่อนำมาอัปโหลด**</p></center>
-                                            <input type="file" class="" name="fileproject_chk" id="file_project_chk" required>      
+                                            <center><label for="text" class="">อัปโหลดไฟล์สไลด์นำเสนอ<span style="color: red;font-size: 20;">*</span></label><br></center>
+                                            <center><p class="danger">เลือกไฟล์ต้องเป็น .pdf เท่านั้น</p></center>
+                                            <input type="file" class="" name="fileslide" id="fileslide" accept=".pdf" required>      
+                                            <div class="invalid-feedback">
+                                                กรุณาเลือกไฟล์
+                                            </div>
+                                       
+                                            <center><label for="text" class="">อัปโหลดไฟล์โปสเตอร์<span style="color: red;font-size: 20;">*</span></label><br></center>
+                                            <center><p class="danger">เลือกไฟล์ต้องเป็น .pdf เท่านั้น</p></center>
+                                            <input type="file" class="" name="filepost" id="filepost" accept=".pdf" required>      
                                             <div class="invalid-feedback">
                                                 กรุณาเลือกไฟล์
                                             </div>
                                         </div>
+                                      
+                                        <div class="w-100">
+                                            <center><label for="text" class="">วางลิ้ง Source Code<span style="color: red;font-size: 20;">*</span></label><br></center>
+                                            <div class="form-group">
+                                            <center><div class="col-sm-8">
+                                                    <input type="text" class="form-control" name="linkcode" id="linkcode">
+                                                </div></center>
+                                                <center><p class="danger_d">**(กรุณาวางลิ้งจาก Github)**</p></center>
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="w-100">
+                                            <div class="col">
+                                                <center><label for="text" class="">อัปโหลดไฟล์เอกสารตรวจสอบเอกสาร<span style="color: red;font-size: 20;">*</span></label><br></center>
+                                                <center><p class="danger_d">**กรุณาตรวจสอบเอกสารผ่านเว็บไซต์นี้<a href="https://www.prepostseo.com/plagiarism-checker" target="_blank">คลิก</a>เเละทำการดาวน์โหลดไฟล์เอกสารเพื่อนำมาอัปโหลด**</p></center>
+                                                <center><div style="width: 40%;">
+                                                    <input type="file" class="" name="fileproject_chk" id="file_project_chk" accept=".pdf" required>      
+                                                    <div class="invalid-feedback">
+                                                        กรุณาเลือกไฟล์
+                                                    </div>
+                                                </div></center>
+                                            </div>
+                                        </div>
+                                       
                                     </div>
                                 </div>
 
                             </div>
 
                             <div style="overflow:10px;">
+                                
                                 <div style="float:center;">
                                     <button type="button" id="prevBtn" class="btnp btnnn" onclick="nextPrev(-1)">ย้อนกลับ</button>
                                 </div>
@@ -524,6 +712,11 @@
     </div>
 
   
+    <script>
+        function setFocusToTextBox(){
+            $("#project_name").focus();
+        }
+    </script>
 
     <script type="text/javascript">
         $(document).ready(function(){
@@ -531,22 +724,128 @@
         });
     </script>
 
+    <script>
+        $("#file_ad").change(function() {
+            var file = document.getElementById('file_ad').value;
+            console.log(file);
+            var extension = file.substr((file.lastIndexOf('.') +1));
+                if (!/(pdf)$/ig.test(extension)) {
+                    alert("กรุณาเลือกเป็นไฟล์ PDF ให้ถูกต้อง");
+                    $("#file").val("");
+                    // console.log(file);
+                }
+           
+        });
+        $("#file_project").change(function() {
+            var file = document.getElementById('file_project').value;
+            console.log(file);
+            var extension = file.substr((file.lastIndexOf('.') +1));
+                if (!/(pdf)$/ig.test(extension)) {
+                    alert("กรุณาเลือกเป็นไฟล์ PDF ให้ถูกต้อง");
+                    $("#file").val("");
+                    // console.log(file);
+                }
+           
+        });
+        $("#fileslide").change(function() {
+            var file = document.getElementById('fileslide').value;
+            console.log(file);
+            var extension = file.substr((file.lastIndexOf('.') +1));
+                if (!/(pdf)$/ig.test(extension)) {
+                    alert("กรุณาเลือกเป็นไฟล์ PDF ให้ถูกต้อง");
+                    $("#file").val("");
+                    // console.log(file);
+                }
+           
+        });
+        $("#filepost").change(function() {
+            var file = document.getElementById('filepost').value;
+            console.log(file);
+            var extension = file.substr((file.lastIndexOf('.') +1));
+                if (!/(pdf)$/ig.test(extension)) {
+                    alert("กรุณาเลือกเป็นไฟล์ PDF ให้ถูกต้อง");
+                    $("#file").val("");
+                    // console.log(file);
+                }
+           
+        });
+    </script>
+
+    <script>
+       let SpacialCharacter = /[`~!@#$%^&*_|+\-=?;:.<>\\\/]/gi;
+        //จับ Event key
+        $('textarea[type=text]').on("keypress", function(event) {
+            var keyChar = String.fromCharCode(event.keyCode);
+
+            var output = SpacialCharacter.test(keyChar);
+                
+            var text = $(this).val();
+            
+            $(this).val(text.replace(SpacialCharacter, ''));
+            
+            
+            console.log(event.key);
+            
+            return !output;
+        });
+
+        $('textarea[type=text]').bind('paste', function (e){
+            //keydown or keyup
+            $(e.target).keyup(getInput);
+        });
+        
+        function getInput(e){
+                var inputText = $(e.target).val();
+            $(this).val(inputText.replace(SpacialCharacter, ''));
+                $(e.target).unbind('keyup');
+        }
+
+    </script>
 
     <script type="text/javascript">
-            function UpdateStatus(){
-                var var1= document.getElementById("des_project").value;
-                
-                $.ajax({
-                        method:"GET",
-                        url:"{{route('adddes_project')}}",    
-                        data:{'data1':var1},
-                        success:function(responsedata){
-                            // $('#keyword_project_1').html(responsedata);
-                        }
-                    })
+        function UpdateStatus(){
+            var var1= document.getElementById("des_project").value;
+            $.ajax({
+                    method:"GET",
+                    url:"{{route('adddes_project')}}",    
+                    data:{'data1':var1},
+                    success:function(responsedata){
+                        // $('#keyword_project_1').html(responsedata);
+                    }
+            })
+        }     
+    </script>
+
+    <script type="text/javascript">
+        // $("#project_name").keyup(function(){
+        //     var pattern_thai = /^[ก-๏\s]+$/u;
+        //     var input_name_th = $("#project_name").val();
+        //     if(input_name_th !='') {
+        //         if(!input_name_th.match(pattern_thai)){
+        //             alert("กรุณากรอกชื่อโครงงานภาษาไทย ให้ถูกต้อง");
+        //             return false;
+        //         }         
+        //     }
+        //     else{
+
+        //     }
+        // });
+
+        $("#project_name_en").keyup(function(){
+            var pattern_eng = /^[a-zA-Z\s\(\)]+$/;
+            var input_name_en = $("#project_name_en").val();
+            if(input_name_en !='') {
+                if(!input_name_en.match(pattern_eng)){
+                    alert("กรุณากรอกชื่อโครงงานภาษาอังกฤษ ให้ถูกต้อง");
+                    return false;
+                }
             }
-                
-        </script>
+            else{
+
+            }
+                       
+        });
+    </script>
 
     <script type="text/javascript">
         $("#des_p").bind("click", function() {
@@ -602,20 +901,94 @@
         });
     </script>
 
+    <script>
+        // $('#owner_p1').click(function() {
+        //         var data= document.getElementById("owner_p1").value;
+        //         if(data!=''){
+        //             document.getElementById("owner_p2").disabled = false;
+        //             // document.getElementById("type_project").disabled = true;
+        //         }else{
+        //             document.getElementById("owner_p2").disabled = true;
+        //         }
+        //     })
+    </script>
 
     <script>
         $(document).ready(function() {
             $('#project_name').keyup(function() {
                 var data= document.getElementById("project_name").value;
                 if(data!=''){
-                    document.getElementById("type_project").disabled = false;
+                    document.getElementById("project_name_en").disabled = false;
                     // document.getElementById("type_project").disabled = true;
                 }else{
-                    document.getElementById("type_project").disabled = true;
+                    document.getElementById("project_name_en").disabled = true;
                 }
             })
             $('#project_name_en').keyup(function() {
                 var data= document.getElementById("project_name_en").value;
+                if(data!=''){
+                    document.getElementById("owner_p1").disabled = false;
+                    // document.getElementById("type_project").disabled = true;
+                }else{
+                    document.getElementById("owner_p1").disabled = true;
+                }
+            })
+            $('#owner_p1').keyup(function() {
+                var data= document.getElementById("owner_p1").value;
+                if(data!=''){
+                    document.getElementById("owner_p2").disabled = false;
+                    // document.getElementById("type_project").disabled = true;
+                }else{
+                    document.getElementById("owner_p2").disabled = true;
+                }
+            })
+            $('#owner_p2').keyup(function() {
+                var data= document.getElementById("owner_p2").value;
+                if(data!=''){
+                    document.getElementById("owner_p3").disabled = false;
+                    // document.getElementById("type_project").disabled = true;
+                }else{
+                    document.getElementById("owner_p3").disabled = true;
+                }
+            })
+            $('#owner_p3').keyup(function() {
+                var data= document.getElementById("owner_p3").value;
+                if(data!=''){
+                    document.getElementById("owner_p4").disabled = false;
+                    // document.getElementById("type_project").disabled = true;
+                }else{
+                    document.getElementById("owner_p4").disabled = true;
+                }
+            })
+            $('#owner_p1').keyup(function() {
+                var data= document.getElementById("owner_p1").value;
+                if(data!=''){
+                    document.getElementById("advisor_p").disabled = false;
+                    // document.getElementById("type_project").disabled = true;
+                }else{
+                    document.getElementById("advisor_p").disabled = true;
+                }
+            })
+            $('#advisor_p').keyup(function() {
+                var data= document.getElementById("advisor_p").value;
+                if(data!=''){
+                    document.getElementById("branch_project").disabled = false;
+                    // document.getElementById("type_project").disabled = true;
+                }else{
+                    document.getElementById("branch_project").disabled = true;
+                }
+            })
+            $('#branch_project').change(function() {
+                var data= document.getElementById("branch_project").value;
+                if(data!=''){
+                    document.getElementById("year_project").disabled = false;
+                    // document.getElementById("type_project").disabled = true;
+                }else{
+                    document.getElementById("year_project").disabled = true;
+                }
+            })
+            $('#year_project').change(function() {
+                var data= document.getElementById("year_project").value;
                 if(data!=''){
                     document.getElementById("type_project").disabled = false;
                     // document.getElementById("type_project").disabled = true;
@@ -639,15 +1012,6 @@
                     // document.getElementById("type_project").disabled = true;
                 }else{
                     document.getElementById("category_project").disabled = true;
-                }
-            })
-            $('#category_project').change(function() {
-                var data= document.getElementById("category_project").value;
-                if(data!=''){
-                    document.getElementById("year_project").disabled = false;
-                    // document.getElementById("type_project").disabled = true;
-                }else{
-                    document.getElementById("year_project").disabled = true;
                 }
             })
         });
@@ -843,7 +1207,7 @@
             }
             if (n == (x.length - 1)) {
                 document.getElementById("nextBtn").innerHTML = "ยืนยัน";
-                document.getElementById("nextBtn").innerHTML = "ถัดไป";
+                // document.getElementById("nextBtn").innerHTML = "ถัดไป";
             }
             //... and run a function that will display the correct step indicator:
             fixStepIndicator(n)
@@ -893,47 +1257,312 @@
             // This function deals with validation of the form fields
             var x, y, i, z, valid = true;
             x = document.getElementsByClassName("tab");
+            // h = document.getElementsByClassName("input-owner");
+            // k = x[currentTab].getElementsByTagName("textarea");
             k = x[currentTab].getElementsByTagName("textarea");
             y = x[currentTab].getElementsByTagName("input");
             z = x[currentTab].getElementsByTagName("select");
             
-            // A loop that checks every input field in the current tab:
-            for (i = 0; i < y.length; i++) {
-                // If a field is empty...
-                if (y[i].value == "") {
-                    // add an "invalid" class to the field:
-                    y[i].className += " invalid";
-                    // and set the current valid status to false
-                    $(document).keyup(function() {
-                        for (i = 0; i < y.length; i++) {
-                            if(y[i].value == ""){
-                                y[i].className += " invalid";
-                                valid = false;
-                            }else{
-                                y[i].className += " success";
-                            }
-                            
-                        }
-                    })
-                    valid = false;
-                }
-                else if(y[i].value !== ""){
-                    y[i].className += " success";
-                    $(document).keyup(function() {
-                        for (i = 0; i < y.length; i++) {
-                            if(y[i].value == ""){
-                                y[i].className += " success";
+            
+            // for (i = 0; i < y.length; i++) {
+            //     // If a field is empty...
+            //     if (y[0].value == "") {
+            //         // add an "invalid" class to the field:
+            //         y[0].className += " invalid";
+            //         // and set the current valid status to false
+            //         $(document).change(function() {
+            //             for (i = 0; i < y.length; i++) {
+            //                 if(y[0].value == ""){
+            //                     y[0].className += " invalid";
                                 
-                                valid = false;
-                            }else{
-                                y[i].className += " invalid";
-                            }
+            //                     valid = false;
+            //                 }else{
+            //                     y[0].className += " success";
+            //                 }
                             
-                        }
-                    })
-                }
+            //             }
+            //         })
+            //         valid = false;
+            //     }
+            //     else if(y[0].value !== ""){
+            //         y[0].className += " success";
+            //         $(document).change(function() {
+            //             for (i = 0; i < y.length; i++) {
+            //                 if(y[0].value == ""){
+            //                     y[0].className += " success";
+                                
+            //                     valid = false;
+            //                 }else{
+            //                     y[0].className += " invalid";
+            //                 }
+                            
+            //             }
+            //         })
+            //     }
+            // }
+
+            // for (i = 0; i < y.length; i++) {
+            //     // If a field is empty...
+            //     if (y[2].value == "") {
+            //         // add an "invalid" class to the field:
+            //         y[2].className += " invalid";
+            //         // and set the current valid status to false
+            //         $(document).change(function() {
+            //             for (i = 0; i < y.length; i++) {
+            //                 if(y[2].value == ""){
+            //                     y[2].className += " invalid";
+                                
+            //                     valid = false;
+            //                 }else{
+            //                     y[2].className += " success";
+            //                 }
+                            
+            //             }
+            //         })
+            //         valid = false;
+            //     }
+            //     else if(y[2].value !== ""){
+            //         y[2].className += " success";
+            //         $(document).change(function() {
+            //             for (i = 0; i < y.length; i++) {
+            //                 if(y[2].value == ""){
+            //                     y[2].className += " success";
+                                
+            //                     valid = false;
+            //                 }else{
+            //                     y[2].className += " invalid";
+            //                 }
+                            
+            //             }
+            //         })
+            //     }
+            // }
+            // A loop that checks every input field in the current tab:
+            // for (i = 0; i < 8; i++) {
+                // If a field is empty...
+                // if (y[0]) {
+                //     if (y[0].value == "") {
+                //     // add an "invalid" class to the field:
+                //     y[0].className += " invalid";
+                //     // and set the current valid status to false
+                //     $(document).keyup(function() {
+                       
+                //             if(y[0].value == ""){
+                //                 y[0].className += " invalid";
+                //                 valid = false;
+                //             }else{
+                //                 y[0].className += " success";
+                //             }
+                //     })
+                //     valid = false;
+                //     }
+                //     else if(y[0].value !== ""){
+                //         y[0].className += " success";
+                //         $(document).keyup(function() {
+                            
+                //             if(y[0].value == ""){
+                //                 y[0].className += " success";
+                                
+                //                 valid = false;
+                //             }else{
+                //                 y[0].className += " invalid";
+                //             }
+                //         })
+                //     }
+                // }
+
+                // if(y[2].value !== ""){
+                //     if (y[2].value == "") {
+                //     // add an "invalid" class to the field:
+                //     y[2].className += " invalid";
+                //     // and set the current valid status to false
+                //     $(document).keyup(function() {
+                       
+                //             if(y[2].value == ""){
+                //                 y[2].className += " invalid";
+                //                 valid = false;
+                //             }else{
+                //                 y[2].className += " success";
+                //             }
+                //     })
+                //     valid = false;
+                //     }
+                //     else if(y[2].value !== ""){
+                //         y[2].className += " success";
+                //         $(document).keyup(function() {
+                            
+                //             if(y[2].value == ""){
+                //                 y[2].className += " success";
+                                
+                //                 valid = false;
+                //             }else{
+                //                 y[2].className += " invalid";
+                //             }
+                //         })
+                //     }
+                // }
+                // else{
+                //         valid = false;
+                //     }
+    
                 
-            }
+                // else if(y[i=2]) {
+                //     if(y[2].value == "") {
+                //     // add an "invalid" class to the field:
+                //     y[2].className += " invalid";
+                //     // and set the current valid status to false
+                //     $(document).keyup(function() {
+                       
+                //         if(y[2].value == ""){
+                //             y[2].className += " invalid";
+                //             valid = false;
+                //         }else{
+                //             y[2].className += " success";
+                //         }
+                //     })
+                //     valid = false;
+                //     }
+                //     else if(y[2].value !== ""){
+                //         y[2].className += " success";
+                //         $(document).keyup(function() {
+                            
+                //             if(y[2].value == ""){
+                //                 y[2].className += " success";
+                                
+                //                 valid = false;
+                //             }else{
+                //                 y[2].className += " invalid";
+                //             }
+                //         })
+                //     }
+                // }
+                
+
+                // if (y[5].value == "") {
+                //     // add an "invalid" class to the field:
+                //     y[5].className += " invalid";
+                //     // and set the current valid status to false
+                //     $(document).keyup(function() {
+                       
+                //             if(y[5].value == ""){
+                //                 y[5].className += " invalid";
+                //                 valid = false;
+                //             }else{
+                //                 y[5].className += " success";
+                //             }
+                //     })
+                //     valid = false;
+                // }
+                // else if(y[5].value !== ""){
+                //     y[5].className += " success";
+                //     $(document).keyup(function() {
+                        
+                //             if(y[5].value == ""){
+                //                 y[5].className += " success";
+                                
+                //                 valid = false;
+                //             }else{
+                //                 y[5].className += " invalid";
+                //             }
+                            
+                       
+                //     })
+                // }
+
+                // if (y[6].value == "") {
+                //     // add an "invalid" class to the field:
+                //     y[6].className += " invalid";
+                //     // and set the current valid status to false
+                //     $(document).keyup(function() {
+                       
+                //             if(y[6].value == ""){
+                //                 y[6].className += " invalid";
+                //                 valid = false;
+                //             }else{
+                //                 y[6].className += " success";
+                //             }
+                //     })
+                //     valid = false;
+                // }
+                // else if(y[6].value !== ""){
+                //     y[6].className += " success";
+                //     $(document).keyup(function() {
+                        
+                //             if(y[6].value == ""){
+                //                 y[6].className += " success";
+                                
+                //                 valid = false;
+                //             }else{
+                //                 y[6].className += " invalid";
+                //             }
+                            
+                       
+                //     })
+                // }
+
+                // if (y[7].value == "") {
+                //     // add an "invalid" class to the field:
+                //     y[7].className += " invalid";
+                //     // and set the current valid status to false
+                //     $(document).keyup(function() {
+                       
+                //             if(y[7].value == ""){
+                //                 y[7].className += " invalid";
+                //                 valid = false;
+                //             }else{
+                //                 y[7].className += " success";
+                //             }
+                //     })
+                //     valid = false;
+                // }
+                // else if(y[7].value !== ""){
+                //     y[7].className += " success";
+                //     $(document).keyup(function() {
+                        
+                //             if(y[7].value == ""){
+                //                 y[7].className += " success";
+                                
+                //                 valid = false;
+                //             }else{
+                //                 y[7].className += " invalid";
+                //             }
+                            
+                       
+                //     })
+                // }
+
+                // if (y[8].value == "") {
+                //     // add an "invalid" class to the field:
+                //     y[8].className += " invalid";
+                //     // and set the current valid status to false
+                //     $(document).keyup(function() {
+                       
+                //             if(y[8].value == ""){
+                //                 y[8].className += " invalid";
+                //                 valid = false;
+                //             }else{
+                //                 y[8].className += " success";
+                //             }
+                //     })
+                //     valid = false;
+                // }
+                // else if(y[8].value !== ""){
+                //     y[8].className += " success";
+                //     $(document).keyup(function() {
+                        
+                //             if(y[8].value == ""){
+                //                 y[8].className += " success";
+                                
+                //                 valid = false;
+                //             }else{
+                //                 y[8].className += " invalid";
+                //             }
+                            
+                       
+                //     })
+                // }
+                
+            // }
             for (i = 0; i < z.length; i++) {
                 // If a field is empty...
                 if (z[i].value == "") {
@@ -975,34 +1604,71 @@
             // If a field is empty...
             for (i = 0; i < k.length; i++) {
                 // If a field is empty...
-                if (k[i].value == "") {
+                if (k[0].value == "") {
                     // add an "invalid" class to the field:
-                    k[i].className += " invalid";
+                    k[0].className += " invalid";
                     // and set the current valid status to false
                     $(document).change(function() {
                         for (i = 0; i < k.length; i++) {
-                            if(k[i].value == ""){
-                                k[i].className += " invalid";
+                            if(k[0].value == ""){
+                                k[0].className += " invalid";
                                 
                                 valid = false;
                             }else{
-                                k[i].className += " success";
+                                k[0].className += " success";
                             }
                             
                         }
                     })
                     valid = false;
                 }
-                else if(k[i].value !== ""){
-                    k[i].className += " success";
+                else if(k[0].value !== ""){
+                    k[0].className += " success";
                     $(document).change(function() {
                         for (i = 0; i < k.length; i++) {
-                            if(k[i].value == ""){
-                                k[i].className += " success";
+                            if(k[0].value == ""){
+                                k[0].className += " success";
                                 
                                 valid = false;
                             }else{
-                                k[i].className += " invalid";
+                                k[0].className += " invalid";
+                            }
+                            
+                        }
+                    })
+                }
+            }
+
+            for (i = 0; i < k[1]; i++) {
+                // If a field is empty...
+                if (k[1].value == "") {
+                    // add an "invalid" class to the field:
+                    k[1].className += " invalid";
+                    // and set the current valid status to false
+                    $(document).change(function() {
+                        for (i = 0; i < k[1]; i++) {
+                            if(k[1].value == ""){
+                                k[1].className += " invalid";
+                                
+                                valid = false;
+                            }else{
+                                k[1].className += " success";
+                            }
+                            
+                        }
+                    })
+                    valid = false;
+                }
+                else if(k[1].value !== ""){
+                    k[0].className += " success";
+                    $(document).change(function() {
+                        for (i = 0; i < k.length; i++) {
+                            if(k[1].value == ""){
+                                k[1].className += " success";
+                                
+                                valid = false;
+                            }else{
+                                k[1].className += " invalid";
                             }
                             
                         }

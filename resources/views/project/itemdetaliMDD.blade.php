@@ -63,7 +63,7 @@
 
            .name-scle{
                 font-size: 16px;
-                color: #FFFFFF;
+                color: #000000;
                 -ms-flex-item-align: center;
                     align-self: center;
                 margin-top: -30px;
@@ -108,13 +108,13 @@
            }
 
            .btn-outline-primaryy {
-                color: #D9A327;
-                border-color: #D9A327;
+            color: #000000;
+            /* background-color: #D9A327; */
+            border-color: #D9A327;
             }
 
             .btn-outline-primaryy:hover {
-                color: #fff;
-                background-color: #D9A327;
+                color: #D9A327;
                 border-color: #D9A327;
             }
 
@@ -142,6 +142,43 @@
             .show > .btn-outline-primaryy.dropdown-toggle:focus {
                 box-shadow: 0 0 0 0.1rem #fff;
             }
+
+            .btn-outline-primaryy-sidenav {
+            color: #000000;
+            /* border-color: #D9A327; */
+        }
+
+        .btn-outline-primaryy-sidenav:hover {
+            color: #D9A327;
+            /* border-color: 1px solid #D9A327; */
+            /* background-color: #D9A327; */
+            text-decoration: underline;
+        }
+
+        .btn-outline-primaryy-sidenav:focus,
+        .btn-outline-primaryy-sidenav.focus {
+            box-shadow: 0 0 0 0.2rem rgba(52, 144, 220, 0.5);
+        }
+
+        .btn-outline-primaryy-sidenav.disabled,
+        .btn-outline-primaryy-sidenav:disabled {
+            color: #fff;
+            background-color: transparent;
+        }
+
+        .btn-outline-primaryy-sidenav:not(:disabled):not(.disabled):active,
+        .btn-outline-primaryy-sidenav:not(:disabled):not(.disabled).active,
+        .show>.btn-outline-primaryy-sidenav.dropdown-toggle {
+            color: #fff;
+            background-color: #D9A327;
+            border-color: #fff;
+        }
+
+        .btn-outline-primaryy-sidenav:not(:disabled):not(.disabled):active:focus,
+        .btn-outline-primaryy-sidenav:not(:disabled):not(.disabled).active:focus,
+        .show>.btn-outline-primaryy-sidenav.dropdown-toggle:focus {
+            box-shadow: 0 0 0 0.1rem #fff;
+        }
 
             .btn-primaryyy {
                 font-size: 18px;
@@ -176,10 +213,83 @@
             .img-user-size {
                width: 100%;
            }
+
+           .font-Athiti {
+                font-family: 'Athiti', sans-serif;
+                font-weight: 600;
+            }
+
+            .breadcrumb-mdd {
+                display: flex;
+                flex-wrap: wrap;
+                padding: 0.75rem 1rem;
+                margin-bottom: 1rem;
+                list-style: none;
+                border-radius: 0.25rem;
+            }
+
+            .sidenav a, .dropdown-btn ,.dropdown-btn2,.dropdown-btn3{
+                padding: 6px 8px 6px 16px;
+                text-decoration: none;
+                font-size: 18px;
+                color: #000000;
+                display: block;
+                border: none;
+                background: none;
+                width: 95%;
+                text-align: left;
+                cursor: pointer;
+                outline: none;
+                margin-left: 5px;
+                font-family: 'Athiti', sans-serif;
+            }
+
+            /* On mouse-over */
+            .sidenav a:hover, .dropdown-btn:hover ,.dropdown-btn2:hover,.dropdown-btn3:hover{
+                color: #D9A327;
+            }
+
+            /* Main content */
+            .main {
+                margin-left: 200px; /* Same as the width of the sidenav */
+                font-size: 20px; /* Increased text to enable scrolling */
+                padding: 0px 10px;
+            }
+
+            /* Add an active class to the active dropdown button */
+            .active-item {
+                color: black;
+                border-color: none;
+                
+            }
+
+            /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+            .dropdown-container {
+                display: block;
+                background-color: #ffffff;
+                padding-left: 8px;
+            }
+
+            /* Optional: Style the caret down icon */
+            .fa-caret-down {
+                float: right;
+                padding-right: 8px;
+            }
+
+            .breadcrumb-detail {
+                display: -ms-flexbox;
+                display: flex;
+                -ms-flex-wrap: wrap;
+                flex-wrap: wrap;
+                padding: .75rem 1rem;
+                margin-bottom: 1rem;
+                list-style: none;
+                border-radius: .25rem;
+            }
               
         </style>
     </head>
-    <body class="img-top">
+    <body class="img-top" style="font-family: 'Athiti', sans-serif;">
 
            <!-- error addproject -->
              
@@ -246,7 +356,33 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLongTitle">ความพึ่งพอใจ</h5>
+                            <h5 class="modal-title" id="exampleModalLongTitle">ดาวน์โหลดไฟล์เอกสารวิทยานิพนธ์</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="{{action ('Project_MDDController@downloadfile')}}" method="POST">
+                                @csrf
+                                @foreach($item as $datas)
+                                <input type="text" name="project_id" id="project_id" style="display: none;" value="<?php $datas->project_m_id; ?>">
+                                @endforeach
+                                @foreach($itemadmin as $datas)
+                                <input type="text" name="project_id" id="project_id" style="display: none;" value="<?php $datas->project_m_id; ?>">
+                                @endforeach
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">ดาวน์โหลดไฟล์เอกสาร</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">ความพึ่งพอใจเอกสารที่ท่านได้ดาวน์โหลด</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -269,7 +405,7 @@
                         </form>
                     </div>
                 </div>
-            </div>
+            </div> -->
             
         <!-- Modal -->
             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -456,306 +592,444 @@
                 </div>
             </div>
             
-    <div class="app sidebar-mini " >
+            <div class="wrapper">
+    <div class="app sidebar-mini ">
         <header class="app-header">
             <!-- font Athiti -->
-            <a href="{{action('Project_MDDController@itemproject')}}" class="app-header__logo font-Athiti" >ICTThesis</a> 
+            <nav class="app-menu navbar navbar-expand-lg navbar-light" style="height: 52px;">
+            <a href="{{action('Project_MDDController@itemproject')}}" class="app-header__logo font-Athiti">ICTThesis</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- main.css-->
-            <ul class="app-nav">
                 <li class="app-search search-left">
-                    <input class="app-search__input" type="search" placeholder="ค้นหา...">
-                    <button class="app-search__button"><i class="fa fa-search"></i></button>
+                    <form action="{{URL::to('searchmdd')}}" method="GET" >
+                       
+                            <div class="input-group mb-3 app-search-input">
+                                <input type="text" class="form-control" name='mddsearch' id="mddsearch" style="width: 400px;border-right: #fff;" placeholder="ค้นหา..." aria-label="ค้นหา..." aria-describedby="basic-addon2" autocomplete="off">
+                                <div class="input-group-append" style="">
+                                    <button class="input-group-text" id="basic-addon2" style="background-color: #fff;border-left: #fff;" ><i class="fa fa-search"></i></button>
+                                </div>
+                                </div>
+                            </div>
+                        
+                            <!-- <input class="form-control " style="padding-right: 50%;" name='search' id="search" type="search" placeholder="ค้นหา..." autocomplete="off" ></div> -->
+                            <div id="searchList">
+                            </div>
+                            <script>
+                                var path="{{route('dropdownsearch')}}";
+                                $('input.typehead').typehead({
+                                    source:function (query,process){
+                                        return $.data(path,{query:name},function (data){
+                                            return process(data);
+                                        });
+                                    }
+                                });
+                                // $(document).ready(function(){
+                                // $('#project_name').keyup(function(){ 
+                                //         var keyword = $(this).val();
+                                //         if(keyword != '')
+                                //         {
+                                //         var _token = $('input[name="_token"]').val();
+                                //         $.ajax({
+                                //         url:"{{ route('search') }}",
+                                //         method:"GET",
+                                //         data:{keyword:keyword, _token:_token},
+                                //         success:function(data){
+                                //         $('#search').fadeIn();  
+                                //                     $('#searchList').html(data);
+                                //         }
+                                //         });
+                                //         }
+                                //     });
+                                //     $(document).on('click', 'li', function(){  
+                                //         $('#search').val($(this).text());  
+                                //         $('#searchList').fadeOut();  
+                                //     });  
+                                // });
+                            </script>
+                            
+                            
+                        
+                        </form>
                 </li>
                 <!-- <div class="app-navbar__overlay" data-toggle="sidebar" aria-label="Hide Sidebar"></div> -->
-                <nav class="app-navmenu " >    
-                    <li class="active1 menulink fontlink" ><a href="{{action('Project_MDDController@itemproject')}}">หน้าเเรก</a></li>
-                    <li class="active2 menulink fontlink"><a href="SearchAdvance" >ค้นหาเเบบละเอียด</a></li>
+                <nav class="app-navmenu">
+                    <li class="active1 menulink fontlink"><a href="{{action('Project_MDDController@itemproject')}}">หน้าเเรก</a></li>
+                    <li class="active2 menulink fontlink"><a href="{{url ('SearchAdvancemdd')}}">ค้นหาเเบบละเอียด</a></li>
                     <li class="active3 menulink fontlink"><a href="#">เกี่ยวกับ</a></li>
                     <li class="active4 menulink fontlink"><a href="#">ติดต่อ</a></li>
                 </nav>
-                <div class="navbar-dark layoutaccout-MDD ">
+                <li style="margin-left: -10%;margin-right: 2%;">
+                    <div class="links front" style="font-size: 20px;">
+                    @if(!isset($_SESSION['status']) == 'userM' & !isset($_SESSION['statusA']) == 'admin')
+
+                    @elseif (isset($_SESSION['status']) == 'user')
+                        @if(!isset($_SESSION['project']))
+                        <a href="addproject" style="font-weight: normal;"><span class="add-span"><i class="fas fa-plus-circle fa-lg " style="color: #A9A9A9;" title="สร้างผลงงานคุณ"></i> สร้างผลงงาน</span></a><br>
+                        @elseif(isset($_SESSION['project']))
+                        <a href="listdetil" style="font-weight: normal;" class="view"><span class="add-span"><i class="fas fa-book fa-lg " style="color: #A9A9A9;" title="ผลงงานคุณ"></i> ผลงงานคุณ</span></a><br>
+                        @endif
+                    @elseif (isset($_SESSION['statusA']) == 'admin')
+                    <div class="links front">
+                        <a href="homeadmin" class="view">ผู้ดูเเลระบบ</a><br>
+                    </div>
+                    @endif
+
+                    </div>
+                </li>
+                <div class="navbar-dark layoutaccout">
+                    
                     <ul class="navbar-nav ml-auto ml-md-0">
+                        <?php
+                        if (!isset($_SESSION['status']) == 'user' & !isset($_SESSION['statusA']) == 'admin') { ?>
+                            <div class="front nav-item" style="margin-top: px;font-family: 'Athiti', sans-serif;font-size: 16px;margin-right:-100px;">
+                                <a class="text-item" id="userDropdown" href="login" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><button class="btn-login btn btn-outline-primaryy"><i class="fas fa-user-circle span-i-user"></i>
+                                        <div class="text-mage" >เข้าสู่ระบบ</div>
+                                    </button></a>
+                                <div class="dropdown-menu dropdown-menu-right" style="margin-right: -10%;" aria-labelledby="userDropdown">
+                                    <ul class="navbar-nav ml-auto" style="margin-right:-90px;">
+                                        <div class="account-dropdown js-dropdown">
+                                            <div class="info clearfix">
 
-                        
-                    <?php 
-                            if(!isset($_SESSION['status'])=='user' & !isset($_SESSION['statusA'])=='admin') { ?>
-                                <div class="front nav-item" style="margin-top: px;font-family: 'Athiti', sans-serif;font-size: 16px;">
-                                        <a class="text-item"  id="userDropdown" href="login" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><button class="btn-login btn btn-outline-primaryy"><i class="fas fa-user-circle span-i-user"></i><div class="text-mage">เข้าสู่ระบบ</div></button></a>
-                                            <div class="dropdown-menu dropdown-menu-right" style="margin-top: 13px;" aria-labelledby="userDropdown">
-                                                <ul class="navbar-nav ml-auto">
-                                                    <div class="account-dropdown js-dropdown">
-                                                        <div class="info clearfix">
-                                                     
-                                                            <h3><div class="card-header">{{ __('เข้าสู่ระบบ') }}</div></h3>
-                                                            <div class="" style="font-family: 'Athiti', sans-serif;font-size: 16px;">
-                                                                <form method="POST" action="loginBD">
-                                                                    @csrf
+                                                <h3>
+                                                    <div class="card-header" style="margin-right:-15%;">{{ __('เข้าสู่ระบบ') }}</div>
+                                                </h3>
+                                                <div class="" style="font-family: 'Athiti', sans-serif;font-size: 16px;">
+                                                    <form method="POST" action="loginBD">
+                                                        @csrf
 
-                                                                    <div class="form-group row">
-                                                                        <div class="col-md-6">
-                                                                            <input id="username" type="username" class="form-control @error('email') is-invalid @enderror" style="width: 210px;height: 40px;margin-left:31px;" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus placeholder="ชื่อผู้ใช้ของคุณ">
+                                                        <div class="form-group row">
+                                                            <div class="col-md-6">
+                                                                <input id="username" type="username" class="form-control @error('email') is-invalid @enderror" style="width: 210px;height: 40px;margin-left:31px;font-size: 16px;" name="username" value="<?php if(isset($_SESSION['username'])?$_SESSION['username']:''){ echo $_SESSION['username'];}?>" required autocomplete="username" autofocus placeholder="ชื่อผู้ใช้ของคุณ">
 
-                                                                            @error('username')
-                                                                                <span class="invalid-feedback" role="alert">
-                                                                                    <strong>{{ $message }}</strong>
-                                                                                </span>
-                                                                            @enderror
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <div class="form-group row">
-                                                                        <div class="col-md-6">
-                                                                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" style="width: 210px; height: 40px;margin-left:31px;" name="password" required autocomplete="current-password" placeholder="รหัสผ่านของคุณ">
-
-                                                                            @error('password')
-                                                                                <span class="invalid-feedback" role="alert">
-                                                                                    <strong>{{ $message }}</strong>
-                                                                                </span>
-                                                                            @enderror
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <div class="form-group row">
-                                                                        <div class="col-md-6 offset-md-4">
-                                                                            <div class="form-check" style="margin-left:-71px;">
-                                                                                <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                                                                <label class="form-check-label" style="color: black;" for="remember">
-                                                                                    {{ __('จดจำฉันไว้') }}
-                                                                                </label>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-
-
-                                                                    <div class="form-group row mb-0">
-                                                        
-                                                                        
-                                                                        <div class="col-md-8 offset-md-4">
-                                                                            @if (Route::has('password.request'))
-                                                                                <a class="btn btn-link btn-re" style="margin-top:-10px; margin-left: 5px; " href="{{ route('password.request') }}">
-                                                                                    {{ __('ลืมรหัสผ่านใช่หรือไม่?') }}
-                                                                                </a>
-                                                                            @endif
-                                                                            <button type="submit" class="btn btn-primaryyy" style="width: 210px; margin-left:-70px; " >
-                                                                                ล็อกอิน
-                                                                            </button>
-
-                                                                            <div style="margin-left:-30px; margin-top: 10px;">คุณยังไม่มีบัญชี?</div> 
-                                                                            <a type="submit"  id="button" class="btn btn-link btn-layouts" style="margin-left:70px;margin-top:-49px;"  href="#" data-toggle="modal" data-target="#exampleModalCenter">สร้างบัญชี</a>    
-                                                                        </div>
-                                                                    </div>
-                                                                </form>
+                                                                @error('username')
+                                                                <span class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
+                                                                @enderror
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </ul>
+
+                                                        <div class="form-group row">
+                                                            <div class="col-md-6">
+                                                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" style="width: 210px; height: 40px;margin-left:31px;font-size: 16px;" name="password" required autocomplete="current-password" placeholder="รหัสผ่านของคุณ">
+
+                                                                @error('password')
+                                                                <span class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
+                                                                @enderror
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group row">
+                                                            <div class="col-md-6 offset-md-4">
+                                                                <div class="form-check" style="margin-left:-50px;">
+                                                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                                                    <label class="form-check-label" style="color: black;font-size: 14px;margin-top:-8%;" for="remember">
+                                                                        {{ __('จดจำฉันไว้') }}
+                                                                    </label>
+
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="form-group row mb-0">
+
+
+                                                            <div class="col-md-8 offset-md-4">
+                                                                @if (Route::has('password.request'))
+                                                                <a class="btn btn-link btn-re" style="margin-top:-10px; margin-left: 5px; " href="{{ route('password.request') }}">
+                                                                    {{ __('ลืมรหัสผ่านใช่หรือไม่?') }}
+                                                                </a>
+                                                                @endif
+                                                                <button type="submit" class="btn btn-primaryyy" style="width: 210px; margin-left:-58px; ">
+                                                                    ล็อกอิน
+                                                                </button>
+
+                                                                <div style="margin-left:-30px; margin-top: 10px;">คุณยังไม่มีบัญชี?</div>
+                                                                <a type="submit" id="button" class="btn btn-link btn-layouts" style="margin-left:70px;margin-top:-49px;" href="#" data-toggle="modal" data-target="#exampleModalCenter">สร้างบัญชี</a>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
                                             </div>
+                                        </div>
+                                    </ul>
                                 </div>
-                             <?php }
+                            </div>
+                        <?php } else if (isset($_SESSION['status']) == 'user') {
+                        ?>
                             
-                            else if (isset($_SESSION['status'])=='user'){
-                            ?>
-                            
-                                <li class="nav-item dropdown">
-                                
-                                    <a class="nav-link " id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link " id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     @foreach($imgaccount as $img)
-                                        <img class="rounded-circle user-sizes img-profile" src="/imgaccount/<?php echo $img->pathimg; ?>" alt="USer Atver" >
-                                        
+                                    <img class="rounded-circle user-sizes img-profile" src="{{URL::to('imgaccount/'.$img->pathimg)}}" alt="USer Atver">
+
                                     @endforeach
                                     @foreach($imgaccount as $user)
-                                        <div class="name-scle dropdown-toggle "><?php echo $user->name;?></div> 
+                                    <div class="name-scle dropdown-toggle "><?php echo $user->name; ?></div>
                                     @endforeach
-                                    </a>
-                                  
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                                        <ul class="navbar-nav ml-auto">
-                                            <div class="account-dropdown js-dropdown">
-                                                <div class="info clearfix">
-                                                    <center><div class="image">
-                                                        <a href="profile">
-                                                        @foreach($imgaccount as $img)
-                                                            <img src="\imgaccount\<?php echo $img->pathimg; ?>" alt="" class="img-user-size user-avatar rounded-circle"/>
-                                                        @endforeach
-                                                        </a>
-
-                                                    </div></center>
-                                                    <div class="content">
-                                                        <h5 class="name">
-                                                        @foreach($imgaccount as $user)
-                                                            <span class="caret"><?php echo $user->name;?></span>
-                                                        
-                                                        </h5>
-                                                        <span class="email"><?php echo $user->email;?></span>
-                                                        @endforeach
-                                                    </div>
-                                                </div>
-                                            
-                                                <a href="profile" class="top dropdown-item"><i class="zmdi zmdi-account"></i>โปรไฟล์</a>
-                                                    <a class="dropdown-item" href="logout"
-                                                    onclick="event.preventDefault();
-                                                                    document.getElementById('logout-form').submit();">
-                                                        {{ __('ออกจากระบบ') }}
-                                                    </a>
-                                                    <form id="logout-form" action="logout" method="POST" style="display: none;">
-                                                        @csrf
-                                                    </form>
-                                            </div>    
-                                        </ul>
-                                    </div> 
-                                </li>
-                            <?php }
-
-                            // admin
-                            
-                            else  if (isset($_SESSION['statusA'])=='admin'){
-                                ?>
-                                    <li class="nav-item dropdown">
-                                
-                                <a class="nav-link " id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                @foreach($adminaccount as $img)
-                                    <img class="rounded-circle user-sizes img-profile" src="/img_admin/<?php echo $img->pathimg; ?>" alt="USer Atver" >
-                                    
-                                @endforeach
-                                @foreach($adminaccount as $user)
-                                    <div class="name-scle dropdown-toggle "><?php echo $user->admin_name;?></div> 
-                                @endforeach
                                 </a>
-                              
+                                
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                                     <ul class="navbar-nav ml-auto">
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
-                                                <center><div class="image">
-                                                    <a href="profile">
-                                                    @foreach($adminaccount as $img)
-                                                        <img src="\img_admin\<?php echo $img->pathimg; ?>" alt="" class="img-user-size user-avatar rounded-circle"/>
-                                                    @endforeach
-                                                    </a>
+                                                <center>
+                                                    <div class="image">
+                                                        <a href="profile">
+                                                            @foreach($imgaccount as $img)
+                                                            <img src="{{URL::to('imgaccount/'.$img->pathimg)}}" alt="USer Atve" class="img-user-size user-avatar rounded-circle" />
+                                                            @endforeach
+                                                        </a>
 
-                                                </div></center>
+                                                    </div>
+                                                </center>
                                                 <div class="content">
                                                     <h5 class="name">
-                                                    @foreach($adminaccount as $user)
-                                                        <span class="caret"><?php echo $user->admin_name;?></span>
-                                                    
+                                                        @foreach($imgaccount as $user)
+                                                        <span class="caret"><?php echo $user->name; ?></span>
+
                                                     </h5>
-                                                    <span class="email"><?php echo $user->admin_email;?></span>
+                                                    <span class="email"><?php echo $user->email; ?></span>
                                                     @endforeach
                                                 </div>
                                             </div>
-                                        
-                                            <a href="profileadmin" class="top dropdown-item"><i class="zmdi zmdi-account"></i>โปรไฟล์</a>
-                                                <a class="dropdown-item" href="logout"
-                                                onclick="event.preventDefault();
-                                                                document.getElementById('logout-form').submit();">
-                                                    {{ __('ออกจากระบบ') }}
-                                                </a>
-                                                <form id="logout-form" action="logout" method="POST" style="display: none;">
-                                                    @csrf
-                                                </form>
-                                        </div>    
+
+                                            <a href="{{url ('profile')}}" class="top dropdown-item"><i class="fas fa-user" style="margin-right: 2%;"></i>โปรไฟล์</a>
+                                            <div class="top dropdown-item" >
+                                                @if(!isset($_SESSION['project']))
+                                                <a href="{{url ('addproject')}}" class="view" style="color: black;text-decoration: none;"><i class="fas fa-plus-circle" style="margin-right: 2%;"></i>สร้างผลงาน</a><br>
+                                                @elseif(isset($_SESSION['project']))
+                                                <a href="{{url ('listdetil')}}" class="view" style="color: black;text-decoration: none;"><i class="fas fa-book" style="margin-right: 2%;"></i>ผลงานของฉัน</a><br>
+                                                @endif
+                                            </div>
+                                            <a class="dropdown-item" href="{{URL::to('logout')}}" onclick="event.preventDefault();
+                                                                    document.getElementById('logout-form').submit();"><i class="fas fa-sign-out-alt" ></i>
+                                                {{ __('ออกจากระบบ') }}
+                                            </a>
+                                            <form id="logout-form" action="{{URL::to('logout')}}" method="POST" style="display: none;">
+                                                @csrf
+                                            </form>
+                                        </div>
                                     </ul>
-                                </div> 
+                                </div>
                             </li>
-                        <?php }?>
+                        <?php }
+
+                        // admin
+
+                        else  if (isset($_SESSION['statusA']) == 'admin') {
+                        ?>
+                            <li class="nav-item dropdown">
+                           
+                                <div class="links front">
+                                    <a href="homeadmin" class="view"><i class="far fa-caret-square-left fa-lg" style="color:#212529; margin-right: 7px;margin-left: 10px;"></i>กลับสู่หน้าผู้ดูเเลระบบ</a><br>
+                                </div>
+                                   
+                                <a class="nav-link " id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    @foreach($adminaccount as $img)
+                                    <img class="rounded-circle user-sizes img-profile" src="{{URL::to('img_admin/'.$img->pathimg)}}" alt="USer Atver">
+
+                                    @endforeach
+                                    @foreach($adminaccount as $user)
+                                    <div class="name-scle dropdown-toggle "><?php echo $user->admin_name; ?></div>
+                                    @endforeach
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                                    <ul class="navbar-nav ml-auto">
+                                        <div class="account-dropdown js-dropdown">
+                                            <div class="info clearfix">
+                                                <center>
+                                                    <div class="image">
+                                                        <a href="{{URL::to('profile')}}">
+                                                            @foreach($adminaccount as $img)
+                                                            <img src="{{URL::to('img_admin/'.$img->pathimg)}}" alt="" class="img-user-size user-avatar rounded-circle" />
+                                                            @endforeach
+                                                        </a>
+
+                                                    </div>
+                                                </center>
+                                                <div class="content">
+                                                    <h5 class="name">
+                                                        @foreach($adminaccount as $user)
+                                                        <span class="caret"><?php echo $user->admin_name; ?></span>
+
+                                                    </h5>
+                                                    <span class="email"><?php echo $user->admin_email; ?></span>
+                                                    @endforeach
+                                                </div>
+                                            </div>
+
+                                            <a href="{{URL::to('profileadmin')}}" class="top dropdown-item"><i class="fas fa-user" style="margin-right: 2%;"></i>โปรไฟล์</a>
+                                            <div class="links front">
+                                                <a href="{{URL::to('homeadmin')}}" class="view" style="color: black;text-decoration: none;"><i class="far fa-caret-square-left" style="margin-right: 2%;"></i>กลับสู่หน้าผู้ดูเเลระบบ</a><br>
+                                            </div>
+                                            <a class="dropdown-item" href="{{URL::to('logout')}}" onclick="event.preventDefault();
+                                                                document.getElementById('logout-form').submit();"><i class="fas fa-sign-out-alt"></i>
+                                                {{ __('ออกจากระบบ') }}
+                                            </a>
+                                            <form id="logout-form" action="{{URL::to('logout')}}" method="POST" style="display: none;">
+                                                @csrf
+                                            </form>
+                                        </div>
+                                    </ul>
+                                </div>
+                            </li>
+                        <?php } ?>
                     </ul>
                 </div>
-            </header>
+            </div>
+            </nav>
+               
+        </header>
+        <div class="app-sidebar__overlay" data-toggle="sidebar" aria-label="Hide Sidebar"></div>
+        <!-- app-sidebar css ของ main.css ส่วนของ เเท็บ ซ้ายมือ -->
+        <aside class="app-sidebar" id="sidebar">
+            <ul class="app-menu" >
+                <li >
+                    <div id="layoutSidenav" >
+                        <div id="layoutSidenav_nav" >
+                            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion" >
+                                <div class="sb-sidenav-menu" >
+                                <div class="nav" >
+                                    <br>
+                                        <div class="sidenav" >
+                                            <button class="dropdown-btn" style="border-top: 0.5px solid #000000;border-radius: 10%;">ระดับวิทยานิพนธ์
+                                                <i class="fa fa-caret-down fa-lg" style="width: 20px;"></i>
+                                            </button>
+                                            <div class="dropdown-container">
+                                                <a href="{{action('ProjectController@itemproject')}}" class="btn-default btn-outline-primaryy-sidenav " style="font-size:17px;">ปริญญาตรี</a>
+                                                <a href="{{action('Project_MDDController@itemproject')}}" class="btn-default btn-outline-primaryy-sidenav " style="font-size:17px;">ปริญญาเอก โท</a>
+                                            </div>
+                                            <button class="dropdown-btn" style="border-top: 0.5px solid #000000;border-radius: 10%;">ประเภท
+                                                <i class="fa fa-caret-down fa-lg" style="width: 20px;"></i>
+                                            </button>
+                                                <div class="dropdown-container">
+                                                    @foreach($chk_genre as $genre)
+                                                    <a href="genre/{{$genre->genre_id}}" class=" btn-default btn-outline-primaryy-sidenav" style="font-size:17px;">{{$genre->genre_name}}</a>
+                                                    <!-- <a href="#">โปรแกรมประยุกต์สำหรับอุปกรณ์เคลื่อนที่</a>
+                                                    <a href="#">ไอโอที(IoT)</a>
+                                                    <a href="#">ปัญญาประดิษฐ์(Ai)</a>
+                                                    <a href="#">ไอโอที(IoT)</a>
+                                                    <a href="#">ไอโอที(IoT)</a> -->
+                                                    @endforeach
+                                                </div>
+                                            
+                                        
+                                            <button class="dropdown-btn" style="border-top: 0.5px solid #000000;border-radius: 10%;">หมวดหมู่
+                                                <i class="fa fa-caret-down fa-lg" style="width: 20px;"></i>
+                                            </button>
+                                                <div class="dropdown-container">
+                                                    @foreach($chk_category as $category)
+                                                    <a href="category/{{$category->category_id}}" class="btn-default btn-outline-primaryy-sidenav" style="font-size:17px;">{{$category->category_name}}</a>
+                                                    <!-- <a href="#">โปรแกรมประยุกต์สำหรับอุปกรณ์เคลื่อนที่</a>
+                                                    <a href="#">ไอโอที(IoT)</a>
+                                                    <a href="#">ปัญญาประดิษฐ์(Ai)</a>
+                                                    <a href="#">ไอโอที(IoT)</a>
+                                                    <a href="#">ไอโอที(IoT)</a> -->
+                                                    @endforeach
+                                                </div>
+                                        
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                </li>
+                <style>
+                    hr {
+                        display: block;
+                        unicode-bidi: isolate;
+                        margin-inline-start: auto;
+                        margin-inline-end: auto;
+                        overflow: hidden;
+                        border-style: inset;
+                        border-width: 2px;
+                    }
+                </style>
+                <p>
+                </p>
+            </ul>
         </aside>
                
                     <!-- img item project -->
-                <div class="rowcolumn2">
+            <div class="rowcolumn2">
+                <div class="" style="margin-left:18%;width: 80%;">
                     <div class="col-md-12">
-                        <ul class="app-breadcrumb breadcrumb magne-right-long">
-                            <li class="breadcrumb-item "><a href="{{action('Project_MDDController@itemproject')}}">หน้าหลัก</a></li>
+                        <ul class="app-breadcrumb breadcrumb-mdd magne-right">
+                            <li class="breadcrumb-item magne-right-text"><a href="{{action('Project_MDDController@itemproject')}}">หน้าหลัก</a></li>
                             
                             @foreach($item as $datas)
-                            <li class="breadcrumb-item magne-right-text"><a href="#">
-                                <?php 
-                                    $str = $datas->project_m_name;
-                                    $count = utf8_strlen("$str");
-                                    if($count>50) {
-                                        $strcount = substr($str,0,-10);
-                                        $strcount1 = substr($strcount,0,-10);
-                                        $strcount2 = substr($strcount1,0,-10);
-                                        $strcount3 = substr($strcount2,0,-10);
-                                        $strcount4 = substr($strcount3,0,-10);
-                                        $strcount5 = substr($strcount4,0,-10);
-                                        $strcount6 = substr($strcount5,0,-10);
-                                        $strcount7 = substr($strcount6,0,-10);
-                                        $strcount8 = substr($strcount7,0,-10);
-                                        $strcount9 = substr($strcount8,0,-10);
-                                        $strcount10 = substr($strcount9,0,-10);
-                                        $strcount11 = substr($strcount10,0,-10);
-                                        $strcount12 = substr($strcount11,0,-10);
-                                        $strcount13 = substr($strcount12,0,-10);
-                                        $strcut = $strcount13.'...';
-                                        echo $strcut;
-
-                                        
-                                    }
-                                    elseif($count>30 & $count<50) {
-                                        $strcount = substr($str,0,-10);
-                                        $strcount1 = substr($strcount,0,-10);
-                                        $strcount2 = substr($strcount1,0,-10);
-                                        $strcount3 = substr($strcount2,0,-10);
-                                        $strcount4 = substr($strcount3,0,-10);
-                                        $strcount5 = substr($strcount4,0,-10);
-                                        $strcount6 = substr($strcount5,0,-10);
-                                        $strcount7 = substr($strcount6,0,-10);
-                                        $strcount8 = substr($strcount7,0,-10);
-                                        $strcut = $strcount18.'...';
-                                        echo $strcut;
-                                    }
-                                    else {
-                                        echo $datas->project_m_name;
-                                    }
-                                    
-                                ?></a>
-                            </li>
+                                <li class="breadcrumb-item magne-right-text" >
+                                    <label for="" data-toggle="tooltip" data-placement="top" title="{{$datas->project_m_name}}">
+                                        <?php 
+                                            $str = $datas->project_m_name;
+                                            $count = utf8_strlen($str);
+                                            create_str($count,$str,$datas);   
+                                        ?>
+                                    </label>
+                                </li>
                             @endforeach
 
-                            @foreach($itemadmin as $itemadmins)
-                            <li class="breadcrumb-item magne-right-text"><a href="#"><?php echo $itemadmins->project_m_name; ?></a>
-                            </li>
+                            @foreach($itemadmin as $datas)
+                                <li class="breadcrumb-item magne-right-text" >
+                                    <label for="" data-toggle="tooltip" data-placement="top" title="{{$datas->project_m_name}}">
+                                        <?php 
+                                            $str = $datas->project_m_name;
+                                            $count = utf8_strlen($str);
+                                            create_str($count,$str,$datas);   
+                                        ?>
+                                    </label>
+                                </li>
                             @endforeach
                             
     
                         </ul><br>
                         
-                        <div class="tile">
+                        <div class="tile" style="margin-top: -3%;">
                             <div class="tile-body">
                             
                                 <!-- detailitem -->
                                 @foreach($item as $items) 
                                 <div class="D-text D-layout">
-                                    <table style="width:100%">
+                                    <table style="width:100%;">
 
-                                    <tr><td ><label for="text"><b>ชื่อเรื่อง :</b></label></td>
-                                        <td colspan=1 ><?php echo $items->project_m_name; ?></td>
-                                    <tr><td ><label for="text"><b>ชื่อเรื่องภาษาอังกฤษ :</b></label></td>
-                                        <td colspan=1 ><?php echo $items->project_m_name_en; ?></td>
-                                    <tr><td ><label for="text"><b>เจ้าของผลงาน :</b></label></td>
-                                        <td colspan=1 ><?php echo $items->name; ?></td>
-                                    <tr><td ><label for="text"><b>ที่ปรึกษา :</b></label></td>
-                                        <td colspan=1 ><?php echo $items->advisor_m; ?></td>
-                                    <tr><td ><label for="text"><b>หมวดหมู่ :</b></label></td>
-                                        <td colspan=1 ><?php echo $items->category_name; ?></td>
-                                    <tr><td ><label for="text"><b>ประเภทเอกสาร :</b></label></td>
-                                        <td colspan=1 ><?php echo $items->type_name; ?></td>
-                                    <tr><td ><label for="text"><b>คำสำคัญ :</b></label></td>
-                                        <td colspan=1 ><?php echo $items->keyword_m_project; ?></td>
-                                    <tr><td><label for="text" class=""><b>บทคัดย่อ :</b></label></td>
-                                        <td colspan=1 ><?php echo $items->des_m_project; ?></td></tr>
+                                    <tr><td style="vertical-align: baseline;"><label for="text" ><b>ชื่อเรื่อง :</b></label></td>
+                                        <td colspan=1 style="width:80%;vertical-align: baseline;"><?php echo $items->project_m_name; ?></td>
+                                    <tr><td style="vertical-align: baseline;"><label for="text"><b>ชื่อเรื่องภาษาอังกฤษ :</b></label></td>
+                                        <td colspan=1 style="vertical-align: baseline;"><?php echo $items->project_m_name_en; ?></td>
+                                    <tr><td style="vertical-align: baseline;"><label for="text"><b>เจ้าของผลงาน :</b></label></td>
+                                        <td colspan=1 style="vertical-align: baseline;"><?php echo $items->name; ?></td>
+                                    <tr><td style="vertical-align: baseline;"><label for="text"><b>ที่ปรึกษา :</b></label></td>
+                                        <td colspan=1 style="vertical-align: baseline;"><?php echo $items->advisor_m; ?></td>
+                                    <tr><td style="vertical-align: baseline;"><label for="text"><b>หมวดหมู่ :</b></label></td>
+                                        <td colspan=1 style="vertical-align: baseline;"><?php echo $items->category_name; ?></td>
+                                    <tr><td style="vertical-align: baseline;"><label for="text"><b>ประเภทเอกสาร :</b></label></td>
+                                        <td colspan=1 style="vertical-align: baseline;"><?php echo $items->type_name; ?></td>
+                                    <tr><td style="vertical-align: baseline;"><label for="text"><b>คำสำคัญ :</b></label></td>
+                                        <td colspan=1 style="vertical-align: baseline;"><?php echo $items->keyword_m_project; ?></td>
+                                    <tr><td style="vertical-align: baseline;"><label for="text" class=""><b>บทคัดย่อ :</b></label></td>
+                                        <td colspan=1 style="vertical-align: baseline;"><?php echo $items->des_m_project; ?></td></tr>
                                     </table>
                                     
                                     <div class="a-top-layout">
                                         @if(!isset($_SESSION['status'])=='user')
-                                            <p>ดาวน์โหลดไฟล์ข้อมูล<a href="" class="a-layout">คลิก</a></p>
+                                            <p>ดาวน์โหลดไฟล์เอกสาร<a href="" class="a-layout" disabled>ดาวน์โหลด</a></p>
                                         @elseif(isset($_SESSION['status'])=='user')
-                                            <p>ดาวน์โหลดไฟล์ข้อมูล<a href="" class="a-layout" data-toggle="modal" data-target="#exampleModalLong">คลิก</a></p>
+                                            @if(isset($_SESSION['downloadmdd'])?$_SESSION['downloadmdd']:'')
+                                            <p>ดาวน์โหลดไฟล์เอกสาร<a href="" class="a-layout " data-toggle="modal" data-target="#exampleModalLong">ดาวน์โหลดอีกครั้ง</a></p>
+                                            @else
+                                            <p>ดาวน์โหลดไฟล์เอกสาร<a href="" class="a-layout" data-toggle="modal" data-target="#exampleModalLong">ดาวน์โหลด</a></p>
+                                            @endif
                                         @endif
                                     </div>
                                 </div>
@@ -763,26 +1037,26 @@
 
                                 @foreach($itemadmin as $items) 
                                 <div class="D-text D-layout">
-                                <table style="width:50%" >
-                                    <tr><td ><label for="text"><b>ชื่อเรื่อง :</b></label></td>
-                                        <td colspan=1 ><?php echo $items->project_m_name; ?></td>
-                                    <tr><td ><label for="text"><b>ชื่อเรื่องภาษาอังกฤษ :</b></label></td>
-                                        <td colspan=1 ><?php echo $items->project_m_name_en; ?></td>
-                                    <tr><td ><label for="text"><b>เจ้าของผลงาน :</b></label></td>
-                                        <td colspan=1 ><?php echo $items->owner_m_name; ?></td>
-                                    <tr><td ><label for="text"><b>ที่ปรึกษา :</b></label></td>
-                                        <td colspan=1 ><?php echo $items->advisor_m; ?></td>
-                                    <tr><td ><label for="text"><b>หมวดหมู่ :</b></label></td>
-                                        <td colspan=1 ><?php echo $items->category_name; ?></td>
-                                    <tr><td ><label for="text"><b>ประเภทเอกสาร :</b></label></td>
-                                        <td colspan=1 ><?php echo $items->type_name; ?></td>
-                                    <tr><td ><label for="text"><b>คำสำคัญ :</b></label></td>
-                                        <td colspan=1 ><?php echo $items->keyword_m_project; ?></td>
-                                    <tr><td><label for="text" class=""><b>บทคัดย่อ :</b></label></td>
-                                        <td colspan=1 ><?php echo $items->des_m_project; ?></td></tr>
+                                <table style="width:95%;">
+                                    <tr><td style="vertical-align: baseline;"><label for="text" ><b>ชื่อเรื่อง :</b></label></td>
+                                        <td colspan=1 style="width:80%;vertical-align: baseline;"><?php echo $items->project_m_name; ?></td>
+                                    <tr><td style="vertical-align: baseline;"><label for="text"><b>ชื่อเรื่องภาษาอังกฤษ :</b></label></td>
+                                        <td colspan=1 style="vertical-align: baseline;"><?php echo $items->project_m_name_en; ?></td>
+                                    <tr><td style="vertical-align: baseline;"><label for="text"><b>เจ้าของผลงาน :</b></label></td>
+                                        <td colspan=1 style="vertical-align: baseline;"><?php echo $items->owner_m_name; ?></td>
+                                    <tr><td style="vertical-align: baseline;"><label for="text"><b>ที่ปรึกษา :</b></label></td>
+                                        <td colspan=1 style="vertical-align: baseline;"><?php echo $items->advisor_m; ?></td>
+                                    <tr><td style="vertical-align: baseline;"><label for="text"><b>หมวดหมู่ :</b></label></td>
+                                        <td colspan=1 style="vertical-align: baseline;"><?php echo $items->category_name; ?></td>
+                                    <tr><td style="vertical-align: baseline;"><label for="text"><b>ประเภทเอกสาร :</b></label></td>
+                                        <td colspan=1 style="vertical-align: baseline;"><?php echo $items->type_name; ?></td>
+                                    <tr><td style="vertical-align: baseline;"><label for="text"><b>คำสำคัญ :</b></label></td>
+                                        <td colspan=1 style="vertical-align: baseline;"><?php echo $items->keyword_m_project; ?></td>
+                                    <tr><td style="vertical-align: baseline;"><label for="text" class=""><b>บทคัดย่อ :</b></label></td>
+                                        <td colspan=1 style="vertical-align: baseline;"><?php echo $items->des_m_project; ?></td></tr>
                                     </table>
                                     <div class="a-top-layout">
-                                        <p>ดาวน์โหลดไฟล์ข้อมูล<a href="" class="a-layout" data-toggle="modal" data-target="#exampleModalLong">คลิก</a></p>
+                                        <p>ดาวน์โหลดไฟล์เอกสาร<a href="" class="a-layout" data-toggle="modal" data-target="#exampleModalLong">คลิก</a></p>
                                     </div>
                                 </div>
                                 @endforeach  
@@ -790,22 +1064,7 @@
                         </div>
                     </div>
                 </div>
-
-    <?php
-        function utf8_strlen($str){ 
-            $c = strlen($str);
-            $l = 0;
-            for ($i = 0; $i < $c; ++$i)
-            {
-                if ((ord($str[$i]) & 0xC0) != 0x80)
-                {
-                    ++$l;
-                }
-            }
-            return $l;
-        } 
-    ?>
-                
+            </div>      
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
         <script src="{{ asset('js/app.js') }}" defer></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
@@ -832,11 +1091,99 @@
                 });
             });
         </script>
+
+
+        <script>
+            /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+            test("dropdown-btn");
+            test("dropdown-btn2");
+            test("dropdown-btn3");
+            test("dropdown-btn4");
+            test("dropdown-btn5");
+            test("dropdown-btn6");
+            test("dropdown-btn7");
+            function test(input){
+                var dropdown2 = document.getElementsByClassName(input);
+                var i;
+
+                for (i = 0; i < dropdown2.length; i++) {
+                    dropdown2[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var dropdownContent = this.nextElementSibling;
+                    if (dropdownContent.style.display === "block") {
+                        dropdownContent.style.display = "none";
+                    } else {
+                        dropdownContent.style.display = "block";
+                    }
+                    });
+                }
+            }
+        </script>
         <!-- The javascript plugin to display page loading on top-->
         <script src="js/plugins/pace.min.js"></script>
         <!-- Page specific javascripts-->
     </div>
         <!-- Modal -->
+
+    <?php 
+        function utf8_strlen($str){ 
+            $c = strlen($str);
+            $l = 0;
+            for ($i = 0; $i < $c; ++$i)
+            {
+                if ((ord($str[$i]) & 0xC0) != 0x80)
+                {
+                    ++$l;
+                }
+            }
+            return $l;
+        } 
+
+        function create_str($count,$str,$datas) {
+            // echo $count;
+            if($count>20 & $count<25) {
+                $strcount = substr($str,0,-10);
+                $strcount1 = substr($strcount,0,-8);
+                $strcut = $strcount1."...";
+                echo $strcut;
+            }elseif($count>25 & $count<30){
+                $strcount = substr($str,0,-10);
+                $strcount1 = substr($strcount,0,-20);
+                $strcut = $strcount1."...";
+                echo $strcut;
+            }elseif($count>30 & $count <40){
+                $strcount = substr($str,0,-10);
+                $strcount1 = substr($strcount,0,-8);
+                $strcount2 = substr($strcount1,0,-10);
+                $strcount3 = substr($strcount2,0,-8);
+                $strcut = $strcount3."...";
+                echo $strcut;
+            }elseif($count>40 & $count <50){
+                $strcount = substr($str,0,-50);
+                $strcount1 = substr($strcount,0,-50);
+                $strcount2 = substr($strcount1,0,-5);
+                $strcut = $strcount2."...";
+                echo $strcut;
+            }elseif($count>50 & $count <80){
+                $strcount = substr($str,0,-65);
+                $strcount1 = substr($strcount,0,-50);
+                $strcount2 = substr($strcount1,0,-5);
+                $strcut = $strcount2."...";
+                echo $strcut;
+            }
+            elseif($count>80 & $count <150){
+                $strcount = substr($str,0,-65);
+                $strcount1 = substr($strcount,0,-50);
+                $strcount2 = substr($strcount1,0,-50);
+                $strcount3 = substr($strcount2,0,-5);
+                $strcut = $strcount3."...";
+                echo $strcut;
+            }else{
+                echo $datas->project_m_name;
+            }  
+            
+        }
+    ?>
     </body>
 </html>
     
